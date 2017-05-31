@@ -5,10 +5,10 @@ namespace App\Repositories;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface InstutionsRepository
+ * Interface InstutionRepository
  * @package namespace App\Repositories;
  */
-interface InstutionsRepository extends RepositoryInterface
+interface InstutionRepository extends RepositoryInterface
 {
     //
 }

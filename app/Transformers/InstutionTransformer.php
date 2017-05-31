@@ -3,22 +3,22 @@
 namespace App\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use App\Entities\Instutions;
+use App\Entities\Instution;
 
 /**
- * Class InstutionsTransformer
+ * Class InstutionTransformer
  * @package namespace App\Transformers;
  */
-class InstutionsTransformer extends TransformerAbstract
+class InstutionTransformer extends TransformerAbstract
 {
 
     /**
-     * Transform the \Instutions entity
-     * @param \Instutions $model
+     * Transform the \Instution entity
+     * @param \Instution $model
      *
      * @return array
      */
-    public function transform(Instutions $model)
+    public function transform(Instution $model)
     {
         return [
             'id'         => (int) $model->id,

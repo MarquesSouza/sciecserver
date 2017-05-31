@@ -49,7 +49,7 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\EventRepository','App\Repositories\EventRepositoryEloquent'
         );
         $this->app->bind(
-            'App\Repositories\InstutionsRepository','App\Repositories\InstutionsRepositoryEloquent'
+            'App\Repositories\InstutionRepository','App\Repositories\InstutionRepositoryEloquent'
         );
         $this->app->bind(
             'App\Repositories\ParticipationRepository','App\Repositories\ParticipationRepositoryEloquent'

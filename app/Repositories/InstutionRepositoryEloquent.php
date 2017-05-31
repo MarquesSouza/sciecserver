@@ -4,15 +4,15 @@ namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\InstutionsRepository;
-use App\Entities\Instutions;
-use App\Validators\InstutionsValidator;
+use App\Repositories\InstutionRepository;
+use App\Entities\Instution;
+use App\Validators\InstutionValidator;
 
 /**
- * Class InstutionsRepositoryEloquent
+ * Class InstutionRepositoryEloquent
  * @package namespace App\Repositories;
  */
-class InstutionsRepositoryEloquent extends BaseRepository implements InstutionsRepository
+class InstutionRepositoryEloquent extends BaseRepository implements InstutionRepository
 {
     /**
      * Specify Model class name
@@ -21,10 +21,20 @@ class InstutionsRepositoryEloquent extends BaseRepository implements InstutionsR
      */
     public function model()
     {
-        return Instutions::class;
+        return Instution::class;
     }
 
-    
+    /**
+    * Specify Validator class name
+    *
+    * @return mixed
+    */
+    public function validator()
+    {
+
+        return InstutionValidator::class;
+    }
+
 
     /**
      * Boot up the repository, pushing criteria
