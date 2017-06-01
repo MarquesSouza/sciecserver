@@ -11,5 +11,7 @@ class CourseEvent extends Model implements Transformable
     use TransformableTrait;
 
     protected $fillable = [];
+    public function instution(){
 
+    }
 }

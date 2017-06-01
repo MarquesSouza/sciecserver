@@ -11,5 +11,8 @@ class Instution extends Model implements Transformable
     use TransformableTrait;
 
     protected $fillable = [];
+    public function curso(){
+        return $this->hasMany(Course::class,'id_instutions');
 
+    }
 }

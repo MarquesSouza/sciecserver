@@ -24,7 +24,7 @@ class CourseRepositoryEloquent extends BaseRepository implements CourseRepositor
         return Course::class;
     }
 
-    
+
 
     /**
      * Boot up the repository, pushing criteria
