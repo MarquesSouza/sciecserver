@@ -12,4 +12,9 @@ class TypeActivity extends Model implements Transformable
 
     protected $fillable = [];
 
+    public function Atividade()
+    {
+        return $this->hasMany(Activity::class, 'id_tipo_atividade');
+
+    }
 }
