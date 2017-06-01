@@ -35,7 +35,6 @@ class InstutionRepositoryEloquent extends BaseRepository implements InstutionRep
         return InstutionValidator::class;
     }
 
-
     /**
      * Boot up the repository, pushing criteria
      */
