@@ -21,6 +21,7 @@ class CreateEventsTable extends Migration
             $table->longText('local');
             $table->dateTime('data_inicio');
             $table->dateTime('data_conclusao');
+            $table->string('logoEvento');
             $table->timestamps();
         });
     }

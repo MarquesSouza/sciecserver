@@ -79,6 +79,7 @@ $factory->define(App\Entities\Event::class, function (Faker\Generator $faker) {
         'local'=> $faker->locale,
         'data_inicio'=> $faker->dateTime,
         'data_conclusao'=> $faker->dateTime,
+        'logoEvento'=> $faker->name,
     ];
 });
 
