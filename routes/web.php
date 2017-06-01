@@ -22,14 +22,31 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('token', function (){
     $http = new GuzzleHttp\Client;
 
-    $response = $http->post('http://sciecserver.edu/oauth/token', [
+    $response = $http->post('http://sciec.app/oauth/token', [
         'form_params' => [
             'grant_type' => 'password',
-            'client_id' => '3',
-            'client_secret' => '0IlyToJd4XMD5CiU5qiHJBZMKW33FcsWhRTfVEWM',
+            'client_id' => '1',
+            'client_secret' => '6vJZ0PfjPD14dMDSZTyB37LBflh4pFCiToaZaxaq',
             'username' => 'jonasjunior@ifto.edu.br',
             'password' => 'secret',
             'scope' => '',
+        ],
+    ]);
+
+    return json_decode((string) $response->getBody(), true);
+
+});
+//php artisan passport:keys
+
+Route::get('callback', function (Request $request){
+    $http = new GuzzleHttp\Client;
+    $response = $http->post('http://sciec.app/oauth/token', [
+        'form_params' => [
+            'grant_type' => 'authorization_code',
+            'client_id' => '1',
+            'client_secret' => '6vJZ0PfjPD14dMDSZTyB37LBflh4pFCiToaZaxaq',
+            'redirect_uri' => 'http//sciec.app/callback',
+            'code' => $request->code,
         ],
     ]);
 
