@@ -23,7 +23,7 @@ class Activity extends Model implements Transformable
      public function atividadeUser(){
        return $this->hasMany(ActivityUser::class,'id_activity');
      }
-     public function userAtividadeUser(){
+     public function tipoAtividadeUser(){
          return $this->belongsToMany(TypeActivityUser::class,'activity_users','id_activity','id_type_activity_user');
      }
 }

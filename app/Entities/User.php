@@ -27,4 +27,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function tipoUser(){
+        return $this->belongsToMany(TypeUser::class,'user_type_users','id_user','id_type_user');
+    }
+    public function tipoAtividadeUser(){
+        return $this->belongsToMany(TypeActivityUser::class,'activity_users','id_users','id_type_activity_user');
+    }
+    public function atividade(){
+        return $this->belongsToMany(Activity::class,'activity_users','id_users','id_activity');
+    }
 }
