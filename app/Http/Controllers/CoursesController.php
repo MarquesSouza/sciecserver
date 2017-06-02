@@ -53,7 +53,7 @@ class CoursesController extends Controller
             ]);
         }
 
-        return view('curso.lista_curso', compact($courses));
+        return view('curso.lista_curso', compact('courses'));
     }
 
     public function form_cadastro()
