@@ -17,6 +17,22 @@ Route::get('/', function () {
 });
 
 
+Route::get('/curso', function () {
+    return view('lista_curso');
+});
+
+Route::get('/cad_atividade', function () {
+    return view('atividade/cad_atividade');
+});
+
+Route::get('/cad_tipo_de_usuario', function () {
+    return view('tipo_de_usuario/cad_tipo_de_usuario');
+});
+
+Route::get('/lista_atividade', function () {
+    return view('atividade/lista_atividade');
+});
+
 Route::get('/cad_evento', function () {
     return view('eventos/cad_evento');
 });
@@ -24,7 +40,6 @@ Route::get('/cad_evento', function () {
 Route::get('/list_evento', function () {
     return view('eventos/list_evento');
 });
-
 
 Route::get('/cad_tipo_de_atividade', function () {
     return view('tipo_de_atividade/cad_tipo_de_atividade');
