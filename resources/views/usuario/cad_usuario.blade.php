@@ -7,7 +7,10 @@
 
     <form class="form-horizontal">
         <fieldset>
-            @include('form._form1');
+
+            <!-- Form Name -->
+            <legend >Cadastro Usuario</legend>
+            <!-- Text input-->
             @include('usuario._form');
         </fieldset>
     </form>

@@ -11,7 +11,7 @@
     <form class="form-horizontal">
         <fieldset>
 
-            @include('form._form1');
+
             @include('tipo_de_usuario._form');
 
         </fieldset>

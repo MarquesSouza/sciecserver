@@ -1,7 +1,5 @@
 
-<!-- Form Name -->
-<legend >Cadastro Usuario</legend>
-<!-- Text input-->
+
 <div class="form-group">
     <label class="col-md-4 control-label" for="nome">Nome</label>
     <div class="col-md-4">
@@ -38,7 +36,7 @@
 
     </div>
 </div>
-
+@include('form._form1');
 <!-- Button -->
 <div class="form-group">
     <label class="col-md-4 control-label" for="singlebutton"> </label>

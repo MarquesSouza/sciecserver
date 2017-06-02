@@ -1,4 +1,6 @@
-    <div class="form-group">
+@include('form._form1');
+@include('form._form2');
+<div class="form-group">
         <label class="col-md-4 control-label" for="atividade">Hora</label>
         <div class="col-md-5">
             <input id="hora" name="hora" type="time" placeholder="Horário da Atividade"
@@ -25,6 +27,15 @@
         </div>
     </div>
 
+<!-- Select Basic -->
+<div class="form-group">
+    <label class="col-md-4 control-label" for="selectbasic"> Tipo de Atividade</label>
+    <div class="col-md-4">
+        <select id="selectbasic" name="selectbasic" class="form-control">
+            <option value="1">Palestra</option>
+        </select>
+    </div>
+</div>
 
     <!-- Button -->
     <div class="form-group">

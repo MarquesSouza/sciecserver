@@ -10,7 +10,7 @@
     </h1>
     <form class="form-horizontal">
         <fieldset>
-            @include('form._form1');
+
             @include('tipo_de_atividade._form');
         </fieldset>
     </form>

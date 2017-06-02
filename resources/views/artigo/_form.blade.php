@@ -1,6 +1,6 @@
 
 <!-- Form Name -->
-<legend>Cadastro de Artigo</legend>
+
 
 <!-- Text input-->
 <div class="form-group">

@@ -14,8 +14,6 @@
                         <legend>
                             <center>Cadastrar Atividade</center>
                         </legend>
-                        @include('form._form1');
-                        @include('form._form2');
                         @include('atividade._form');
                     </fieldset>
                 </form>
