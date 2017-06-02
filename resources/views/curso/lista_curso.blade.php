@@ -15,13 +15,13 @@
                             <td>{{ $c->nome }}</td>
                             <td>{{ $c->descricao }}</td>
                             <td>{{ $c->telefone }}</td>
-                            <td>{{ $c->status }}</td>
+
                     </tr>
                     @empty
                         <p>No users</p>
                     @endforelse
 
-                    <table class="table">
+                    </table>
             </div>
         </div>
     </div>
