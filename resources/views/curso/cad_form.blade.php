@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="{{route(curso.store)}}" method="post">
                     <fieldset>
 
                         <!-- Form Name -->
