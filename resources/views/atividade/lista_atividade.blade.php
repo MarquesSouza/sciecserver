@@ -33,7 +33,7 @@
                             <td>{{ $a->id_tipo_atividade }}</td>>
                     </tr>
                     @empty
-                        <p>No users</p>
+                        <p>No activities</p>
                     @endforelse
 
                     </table>
