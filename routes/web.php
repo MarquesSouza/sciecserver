@@ -27,7 +27,11 @@ Route::get('/list_evento', function () {
 
 
 Route::get('/cad_tipo_de_atividade', function () {
-    return view('cad_tipo_de_atividade');
+    return view('tipo_de_atividade/cad_tipo_de_atividade');
+});
+
+Route::get('/list_tipo_de_atividade', function () {
+    return view('tipo_de_atividade/list_tipo_de_atividade');
 });
 
 // CHAMANDO ROTAS PARA TESTE RÔMULO
