@@ -53,6 +53,13 @@ class CoursesController extends Controller
         return view('curso.lista_curso', compact('courses'));
     }
 
+    public function form_cadastro()
+    {
+
+        return view('curso.cad_form', compact('courses'));
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *
