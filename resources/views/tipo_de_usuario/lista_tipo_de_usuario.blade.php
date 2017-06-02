@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <div>
+        <br><br><br><br>
+    </div>
     <div class="container">
         <div class="row">
             <div class="c   ol-md-8 col-md-offset-2">
@@ -21,7 +24,7 @@
                         <p>No type_users</p>
                     @endforelse
 
-                    <table class="table">
+                    </table>
             </div>
         </div>
     </div>

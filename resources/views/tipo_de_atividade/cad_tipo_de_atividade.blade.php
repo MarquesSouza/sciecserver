@@ -1,6 +1,9 @@
 @extends('app')
 
 @section('content')
+    <div>
+        <br><br><br><br>
+    </div>
 
     <h1>
         <center>Cadastrar Tipo de Atividade</center>

@@ -15,15 +15,25 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//--------------------------------------------- Aqui
+Route::get('/cad_atividade', function () {
+    return view('atividade/cad_atividade');
+});
 
+Route::post('/cad_atividade','ActivitiesController@store');
+
+
+
+
+
+
+//-----------------------------------------
 
 Route::get('/curso', function () {
     return view('lista_curso');
 });
 
-Route::get('/cad_atividade', function () {
-    return view('atividade/cad_atividade');
-});
+
 
 Route::get('/cad_tipo_de_usuario', function () {
     return view('tipo_de_usuario/cad_tipo_de_usuario');

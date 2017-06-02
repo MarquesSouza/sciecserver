@@ -1,6 +1,9 @@
 @extends('app')
 
 @section('content')
+    <div>
+        <br><br><br><br>
+    </div>
 
     <form class="form-horizontal">
         <fieldset>
