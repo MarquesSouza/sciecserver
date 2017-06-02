@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\InstutionsCreateRequest;
-use App\Http\Requests\InstutionsUpdateRequest;
-use App\Repositories\InstutionsRepository;
-use App\Validators\InstutionsValidator;
+use App\Http\Requests\InstutionCreateRequest;
+use App\Http\Requests\InstutionUpdateRequest;
+use App\Repositories\InstutionRepository;
+use App\Validators\InstutionValidator;
 
 
 class InstutionsController extends Controller
@@ -26,7 +26,7 @@ class InstutionsController extends Controller
      */
     protected $validator;
 
-    public function __construct(InstutionsRepository $repository, InstutionsValidator $validator)
+    public function __construct(InstutionRepository $repository, InstutionValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
@@ -60,7 +60,7 @@ class InstutionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(InstutionsCreateRequest $request)
+    public function store(InstutionCreateRequest $request)
     {
 
         try {
