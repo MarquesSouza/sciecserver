@@ -1,7 +1,8 @@
 @extends('app')
 
 @section('content')
-
+ <br><br><br><br>
+    <div class="container-fluid">
     <h1>
         <center>Cadastrar Evento</center>
     </h1>
@@ -102,11 +103,13 @@
                 <label class="col-md-4 control-label" for="singlebutton"></label>
                 <div class="col-md-4">
                     <button id="singlebutton" name="singlebutton" class="btn btn-success">Cadastrar</button>
+                    <button id="singlebutton" name="singlebutton" class="btn btn-danger">Voltar</button>
                 </div>
             </div>
 
         </fieldset>
     </form>
+    </div>
 
 
 

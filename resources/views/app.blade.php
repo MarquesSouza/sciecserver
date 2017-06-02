@@ -42,10 +42,10 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-brand">
-                <li><a href="#">Certificados<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Artigos</a></li>
+                <li><a style="color: #2a88bd" href="#">Certificados<span class="sr-only">(current)</span></a></li>
+                <li><a style="color: #2a88bd" href="#">Artigos</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    <a style="color: #2a88bd" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Eventos<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Categoria 1</a></li> <!--Adicionar Rotas-->
@@ -58,7 +58,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    <a style="color: #2a88bd" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Minicursos<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Categoria 1</a></li> <!--Adicionar Rotas-->
@@ -75,13 +75,13 @@
                 @if(auth()->guest())
                     @if(!Request::is('auth/login'))
                         <li><a href="{{ url('/auth/login') }}"> <!--Adicionar Rotas-->
-                                <button class="btn btn-success">
+                                <button class="btn btn-primary">
                                     <i class="fa fa-search fa-fw"></i>
                                     Login
                                 </button>
                             </a></li>
                         <li><a href="{{ url('/auth/login') }}"> <!--Adicionar Rotas-->
-                                <button class="btn btn-primary">
+                                <button class="btn btn-success">
                                     <i class="fa fa-search fa-fw"></i>
                                     Cadastre-se
                                 </button>
@@ -113,7 +113,7 @@
 @yield('body')
 
 <!--Footer-->
-<footer class="page-footer green center-on-small-only-only">
+<footer class="footer page-footer green center-on-small-only-only">
     <!--Footer Links-->
     <div class="container-fluid">
         <div class="row">

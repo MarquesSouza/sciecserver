@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-
+<br><br><br><br>
     <!-- Carousel ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -98,42 +98,42 @@
                     <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
                         <h4>Titulo do evento</h4>
                     </div>
-                    <p><a href="#" class="btn btn-primary" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
+                    <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                         <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
                         <h4>Titulo do evento</h4>
                     </div>
-                    <p><a href="#" class="btn btn-primary" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
+                    <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                         <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
                         <h4>Titulo do evento</h4>
                     </div>
-                    <p><a href="#" class="btn btn-primary" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
+                    <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
                 </div><br><br><br><br>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                         <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
                         <h4>Titulo do evento</h4>
                     </div>
-                    <p><a href="#" class="btn btn-primary" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
+                    <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                         <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
                         <h4>Titulo do evento</h4>
                     </div>
-                    <p><a href="#" class="btn btn-primary" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
+                    <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                         <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
                         <h4>Titulo do evento</h4>
                     </div>
-                    <p><a href="#" class="btn btn-primary" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
+                    <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
                 </div>
             </div>
         </div>
