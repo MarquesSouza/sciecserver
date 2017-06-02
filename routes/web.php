@@ -89,7 +89,7 @@ Route::get('usuario/atividade/config/edit/{id}', 'TypeActivityUsersController@ed
 Route::put('usuario/atividade/config/update/{id}', 'TypeActivityUsersController@update');
 
 //Instituições
-
+Route::get('instituicao/cad', 'InstutionsController@create');// feito
 Route::get('instituicao/index', 'InstutionsController@index');// feito
 Route::post('instituicao/store', 'InstutionsController@store');//fazendo
 Route::get('instituicao/show/{id}', 'InstutionsController@show');//feito
@@ -99,7 +99,7 @@ Route::put('instituicao/update/{id}', 'InstutionsController@update');
 
 //Course
 Route::get('curso/index','CoursesController@index');// feito
-Route::get('curso/cad_form','CoursesController@form_cadastro');// feito
+Route::get('curso/cad','CoursesController@form_cadastro');// feito
 Route::post('curso/store', 'CoursesController@store');//fazendo
 Route::get('curso/show/{id}', 'CoursesController@show');//feito
 Route::delete('curso/delete/{id}', 'CoursesController@destroy');//feito obs: mudar para exclusao logica
