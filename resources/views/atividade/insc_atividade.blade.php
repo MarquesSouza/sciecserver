@@ -40,7 +40,7 @@
                 </li>
             </ul>
             <p class="text-center"><a href="#" class="btn btn-success" role="button">Enviar Inscrição</a>
-                <a href="{{ url('/') }}" class="btn btn-danger" role="button">Voltar</a></p>
+                <a href="{{ url('/insc_evento') }}" class="btn btn-danger" role="button">Voltar</a></p>
             <!-- endforeach // Passar Parametros Acima -->
         </div>
     </div>

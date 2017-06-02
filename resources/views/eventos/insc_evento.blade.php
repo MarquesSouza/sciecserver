@@ -6,7 +6,7 @@
     </div>
     <!-- foreach -->
     <div class="jumbotron">
-        <div class="col-sm-10 col-md-7">
+        <div class="col-sm-10 col-md-8">
             <h3><b>Titulo do evento</b></h3>
             <div class="thumbnail">
                 <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
