@@ -11,13 +11,59 @@
 |
 */
 
+// CHAMANDO ROTAS PARA TESTE - RÔMULO
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('teste', function () {
-    return view('edi_user');
+
+Route::get('/curso', function () {
+    return view('lista_curso');
 });
+
+Route::get('/cad_atividade', function () {
+    return view('atividade/cad_atividade');
+});
+
+Route::get('/cad_tipo_de_usuario', function () {
+    return view('tipo_de_usuario/cad_tipo_de_usuario');
+});
+
+Route::get('/lista_tipo_de_usuario', function () {
+    return view('tipo_de_usuario/lista_tipo_de_usuario');
+});
+
+Route::get('/lista_atividade', function () {
+    return view('atividade/lista_atividade');
+});
+
+Route::get('/cad_evento', function () {
+    return view('eventos/cad_evento');
+});
+
+Route::get('/list_evento', function () {
+    return view('eventos/list_evento');
+});
+
+Route::get('/cad_tipo_de_atividade', function () {
+    return view('tipo_de_atividade/cad_tipo_de_atividade');
+});
+
+Route::get('/list_tipo_de_atividade', function () {
+    return view('tipo_de_atividade/list_tipo_de_atividade');
+});
+
+// ROTAS TESTE CARIOCA - INSC EVENTO, INSC ATIVIDADE
+
+Route::get('/insc_evento', function (){
+    return view('eventos/insc_evento');
+});
+
+Route::get('/insc_atividade', function (){
+    return view('atividade/insc_atividade');
+});
+
+// CHAMANDO ROTAS PARA TESTE RÔMULO
 
 Auth::routes();
 
@@ -101,7 +147,8 @@ Route::get('instituicao/edit/{id}', 'InstutionsController@edit');
 Route::put('instituicao/update/{id}', 'InstutionsController@update');
 
 //Course
-Route::get('curso/index', 'CoursesController@index');// feito
+Route::get('curso/lista_curso','CoursesController@index');// feito
+Route::get('curso/cad_form','CoursesController@form_cadastro');// feito
 Route::post('curso/store', 'CoursesController@store');//fazendo
 Route::get('curso/show/{id}', 'CoursesController@show');//feito
 Route::delete('curso/delete/{id}', 'CoursesController@destroy');//feito obs: mudar para exclusao logica

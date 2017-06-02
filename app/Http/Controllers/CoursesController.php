@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Entities\Instution;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\App;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\CourseCreateRequest;
@@ -50,8 +53,15 @@ class CoursesController extends Controller
             ]);
         }
 
-        return view('courses.index', compact('courses'));
+        return view('curso.lista_curso', compact('courses'));
     }
+
+    public function form_cadastro()
+    {
+        $instution= Instution::all();
+        return view('curso.cad_form', compact('instution'));
+    }
+
 
     /**
      * Store a newly created resource in storage.
