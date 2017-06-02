@@ -10,7 +10,6 @@
                 <table class="table table-inverse">
                     <th>Nome </th>
                     <th>Descricão </th>
-                    <th>Status </th>
                     <th>Local </th>
                     <th>Data de Início </th>
                     <th>Data de Conclusão</th>
@@ -22,7 +21,6 @@
 
                             <td>{{ $ev->nome }}</td>
                             <td>{{ $ev->descricao }}</td>
-                            <td>{{ $ev->status }}</td>
                             <td>{{ $ev->local }}</td>
                             <td>{{ $ev->data_inicio }}</td>
                             <td>{{ $ev->data_conclusao }}</td>
