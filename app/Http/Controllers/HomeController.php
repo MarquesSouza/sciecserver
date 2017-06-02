@@ -10,6 +10,21 @@ class HomeController extends Controller
      *
      * @return void
      */
+
+    // Controller View Usuario (Carioca)
+    public function index()
+    {
+        $listacursos = [
+            'Banco de dados',
+            'Desenvolvimento',
+            'Marketing'
+        ];
+
+        return view('usuario.home', compact('listacursos'));
+    }
+    // Termina aqui..
+
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -20,8 +35,4 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('home');
-    }
 }
