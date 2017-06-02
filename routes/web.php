@@ -11,19 +11,29 @@
 |
 */
 
+// CHAMANDO ROTAS PARA TESTE - RÔMULO
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('instituicao', function (){
-    return view('instituicao');
+
+Route::get('/cad_evento', function () {
+    return view('eventos/cad_evento');
 });
-Route::get('cadastrousuario', function (){
-    return view('cadastro');
+
+Route::get('/list_evento', function () {
+    return view('eventos/list_evento');
 });
-Route::get('artigo', function (){
-    return view('artigo');
+
+
+Route::get('/cad_tipo_de_atividade', function () {
+    return view('cad_tipo_de_atividade');
 });
+
+// CHAMANDO ROTAS PARA TESTE RÔMULO
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -106,7 +116,7 @@ Route::get('instituicao/edit/{id}', 'InstutionsController@edit');
 Route::put('instituicao/update/{id}', 'InstutionsController@update');
 
 //Course
-Route::get('curso/index', 'CoursesController@index');// feito
+Route::get('curso/lista_curso','CoursesController@index');// feito
 Route::post('curso/store', 'CoursesController@store');//fazendo
 Route::get('curso/show/{id}', 'CoursesController@show');//feito
 Route::delete('curso/delete/{id}', 'CoursesController@destroy');//feito obs: mudar para exclusao logica
