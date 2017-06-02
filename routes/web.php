@@ -29,6 +29,10 @@ Route::get('/cad_tipo_de_usuario', function () {
     return view('tipo_de_usuario/cad_tipo_de_usuario');
 });
 
+Route::get('/lista_tipo_de_usuario', function () {
+    return view('tipo_de_usuario/lista_tipo_de_usuario');
+});
+
 Route::get('/lista_atividade', function () {
     return view('atividade/lista_atividade');
 });
@@ -47,6 +51,16 @@ Route::get('/cad_tipo_de_atividade', function () {
 
 Route::get('/list_tipo_de_atividade', function () {
     return view('tipo_de_atividade/list_tipo_de_atividade');
+});
+
+// ROTAS TESTE CARIOCA - INSC EVENTO, INSC ATIVIDADE
+
+Route::get('/insc_evento', function (){
+    return view('eventos/insc_evento');
+});
+
+Route::get('/insc_atividade', function (){
+    return view('atividade/insc_atividade');
 });
 
 // CHAMANDO ROTAS PARA TESTE RÔMULO
