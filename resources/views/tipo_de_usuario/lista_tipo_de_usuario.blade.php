@@ -5,12 +5,12 @@
         <div class="row">
             <div class="c   ol-md-8 col-md-offset-2">
                 <table class="table table-inverse">
-                    <th>Nome </th>
-                    <th>Descricão </th>
-                    <th>Status </th>
+                    <th>Nome</th>
+                    <th>Descricão</th>
+                    <th>Status</th>
 
-                     <tr>
-                        @forelse ($users as $u)
+                    <tr>
+                        @forelse ($typeUsers as $u)
 
                             <td>{{ $u->nome }}</td>
                             <td>{{ $u->descricao }}</td>

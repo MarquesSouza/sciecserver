@@ -29,6 +29,10 @@ Route::get('/cad_tipo_de_usuario', function () {
     return view('tipo_de_usuario/cad_tipo_de_usuario');
 });
 
+Route::get('/lista_tipo_de_usuario', function () {
+    return view('tipo_de_usuario/lista_tipo_de_usuario');
+});
+
 Route::get('/lista_atividade', function () {
     return view('atividade/lista_atividade');
 });

@@ -15,7 +15,8 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="nome">Nome</label>
                 <div class="col-md-4">
-                    <input id="nome" name="nome" type="text" placeholder="Nome do Tipo de Usuário" class="form-control input-md"
+                    <input id="nome" name="nome" type="text" placeholder="Nome do Tipo de Usuário"
+                           class="form-control input-md"
                            required="">
 
                 </div>
@@ -25,7 +26,8 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textarea">Descrição</label>
                 <div class="col-md-4">
-                    <textarea class="form-control" placeholder="Descrição do Tipo de Usuário" id="textarea" name="textarea"></textarea>
+                    <textarea class="form-control" placeholder="Descrição do Tipo de Usuário" id="textarea"
+                              name="textarea"></textarea>
                 </div>
             </div>
 
@@ -39,8 +41,5 @@
 
         </fieldset>
     </form>
-
-
-
 
 @endsection
