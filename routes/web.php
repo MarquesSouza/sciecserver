@@ -11,24 +11,26 @@
 |
 */
 
+// CHAMANDO ROTAS PARA TESTE - RÔMULO
 Route::get('/', function () {
     return view('welcome');
 });
 
 
 Route::get('/cad_evento', function () {
-    return view('cad_evento');
+    return view('eventos/cad_evento');
 });
 
 Route::get('/list_evento', function () {
-    return view('list_evento');
+    return view('eventos/list_evento');
 });
-
 
 
 Route::get('/cad_tipo_de_atividade', function () {
     return view('cad_tipo_de_atividade');
 });
+
+// CHAMANDO ROTAS PARA TESTE RÔMULO
 
 
 
