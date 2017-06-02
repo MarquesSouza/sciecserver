@@ -8,7 +8,9 @@
                     <fieldset>
 
                         <!-- Form Name -->
-                        <legend><center>Cadastrar Atividade</center></legend>
+                        <legend>
+                            <center>Cadastrar Atividade</center>
+                        </legend>
 
                         <!-- Nome da Atividade-->
                         <div class="form-group">
