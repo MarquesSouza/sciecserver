@@ -8,9 +8,4 @@
             @include('usuario._form');
         </fieldset>
     </form>
-
-
-
-
-
 @endsection
