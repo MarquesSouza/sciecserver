@@ -50,7 +50,7 @@ class InstutionsController extends Controller
             ]);
         }
 
-      //  return view('instutions.index', compact('instutions'));
+       return  compact('instutions');
     }
 
     /**
