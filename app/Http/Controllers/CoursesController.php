@@ -50,7 +50,7 @@ class CoursesController extends Controller
             ]);
         }
 
-        return view('courses.index', compact('courses'));
+        return view('curso.lista_curso', compact('courses'));
     }
 
     /**
