@@ -20,6 +20,10 @@ Route::get('/cad_evento', function () {
     return view('cad_evento');
 });
 
+Route::get('/cad_tipo_de_atividade', function () {
+    return view('cad_tipo_de_atividade');
+});
+
 
 
 Auth::routes();
