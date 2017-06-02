@@ -5,13 +5,14 @@
         <br><br><br><br>
     </div>
 
+    <h1>
+        <center>Cadastrar Participação</center>
+    </h1>
     <form class="form-horizontal">
         <fieldset>
 
-            <!-- Form Name -->
-            <legend >Cadastro Usuario</legend>
-            <!-- Text input-->
-            @include('usuario._form');
+            @include('participacao._form');
         </fieldset>
     </form>
+
 @endsection

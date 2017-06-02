@@ -1,4 +1,6 @@
 <!-- Text input-->
+@include('form._form1');
+@include('form._form3');
 <div class="form-group">
     <label class="col-md-4 control-label" for="telefone">Telefone:</label>
     <div class="col-md-4">

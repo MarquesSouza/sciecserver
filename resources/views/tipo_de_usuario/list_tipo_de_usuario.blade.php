@@ -8,20 +8,19 @@
         <div class="row">
 
                 <table class="table table-inverse">
-                    <th>Nome </th>
-                    <th>Descricão </th>
+                    <th>Nome</th>
+                    <th>Descricão</th>
 
 
-                     <tr>
-                        @forelse ($typeActivities as $ev)
+                    <tr>
+                        @forelse ($typeUsers as $u)
 
-                            <td>{{ $ev->nome }}</td>
-                            <td>{{ $ev->descricao }}</td>
-
+                            <td>{{ $u->nome }}</td>
+                            <td>{{ $u->descricao }}</td>
 
                     </tr>
                     @empty
-                        <p>No type_activities</p>
+                        <p>No type_users</p>
                     @endforelse
 
                     </table>

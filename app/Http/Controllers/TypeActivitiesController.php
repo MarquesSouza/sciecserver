@@ -50,7 +50,7 @@ class TypeActivitiesController extends Controller
             ]);
         }
 
-        return view('typeActivities.index', compact('typeActivities'));
+        return view('tipo_de_atividade.list_tipo_de_atividade', compact('typeActivities'));
     }
 
     /**

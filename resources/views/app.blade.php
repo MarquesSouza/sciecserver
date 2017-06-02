@@ -36,40 +36,36 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <img src="{{ asset('imagens/logosciecp.png') }}" height="50px" width="125px"> <!--Adicionar Rotas-->
+            <a href="{{ url('/') }}"><img src="{{ asset('imagens/logosciecp.png') }}" height="50px" width="125px"></a> <!--Adicionar Rotas-->
         </div>
-
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-brand">
-                <li><a style="color: #2a88bd" href="#">Certificados<span class="sr-only">(current)</span></a></li>
-                <li><a style="color: #2a88bd" href="#">Artigos</a></li>
+                <li><a style="color: #2a88bd" href="{{ url('/') }}">Página Inicial<span class="sr-only">(current)</span></a></li>
                 <li class="dropdown">
                     <a style="color: #2a88bd" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Eventos<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Categoria 1</a></li> <!--Adicionar Rotas-->
-                        <li><a href="#">Categoria 2</a></li> <!--Adicionar Rotas-->
-                        <li><a href="#">Categoria 3</a></li> <!--Adicionar Rotas-->
+                        <li><a href="#">Evento 1</a></li> <!--Adicionar Rotas-->
                         <li role="separator" class="divider"></li> <!--Adicionar Rotas-->
-                        <li><a href="#">Categoria 4</a></li> <!--Adicionar Rotas-->
+                        <li><a href="#">Evento 2</a></li> <!--Adicionar Rotas-->
                         <li role="separator" class="divider"></li> <!--Adicionar Rotas-->
-                        <li><a href="#">Categoria 5</a></li> <!--Adicionar Rotas-->
+                        <li><a href="#">Evento 3</a></li> <!--Adicionar Rotas-->
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a style="color: #2a88bd" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Minicursos<span class="caret"></span></a>
+                       aria-expanded="false">Atividade<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Categoria 1</a></li> <!--Adicionar Rotas-->
-                        <li><a href="#">Categoria 2</a></li> <!--Adicionar Rotas-->
-                        <li><a href="#">Categoria 3</a></li> <!--Adicionar Rotas-->
+                        <li><a href="#">Atividade 1</a></li> <!--Adicionar Rotas-->
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Categoria 4</a></li> <!--Adicionar Rotas-->
+                        <li><a href="#">Atividade 2</a></li> <!--Adicionar Rotas-->
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Categoria 5</a></li> <!--Adicionar Rotas-->
+                        <li><a href="#">Atividade 3</a></li> <!--Adicionar Rotas-->
                     </ul>
                 </li>
+                <li><a style="color: #2a88bd" href="#">Certificados<span class="sr-only">(current)</span></a></li>
+                <li><a style="color: #2a88bd" href="#">Artigos</a></li>
+                <li><a style="color: #2a88bd" href="#">Informações</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right text-center ">
                 @if(auth()->guest())

@@ -16,55 +16,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/curso', function () {
-    return view('lista_curso');
-});
-
-Route::get('/cad_atividade', function () {
-    return view('atividade/cad_atividade');
-});
-
-Route::get('/cad_tipo_de_usuario', function () {
-    return view('tipo_de_usuario/cad_tipo_de_usuario');
-});
-
-Route::get('/lista_tipo_de_usuario', function () {
-    return view('tipo_de_usuario/lista_tipo_de_usuario');
-});
-
-Route::get('/lista_atividade', function () {
-    return view('atividade/lista_atividade');
-});
-
-Route::get('/cad_evento', function () {
-    return view('eventos/cad_evento');
-});
-
-Route::get('/list_evento', function () {
-    return view('eventos/list_evento');
-});
-
-Route::get('/cad_tipo_de_atividade', function () {
-    return view('tipo_de_atividade/cad_tipo_de_atividade');
-});
-
-Route::get('/list_tipo_de_atividade', function () {
-    return view('tipo_de_atividade/list_tipo_de_atividade');
-});
-
-// ROTAS TESTE CARIOCA - INSC EVENTO, INSC ATIVIDADE
-
-Route::get('/insc_evento', function (){
-    return view('eventos/insc_evento');
-});
-
-Route::get('/insc_atividade', function (){
-    return view('atividade/insc_atividade');
-});
-
-// CHAMANDO ROTAS PARA TESTE RÔMULO
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -120,25 +71,25 @@ Route::get('usuario/config/edit/{id}', 'TypeUsersController@edit');
 Route::put('usuario/config/update/{id}', 'TypeUsersController@update');
 //Tipo de Atividade
 // (BindingResolutionException in Container.php line 873: Target [App\Repositories\ActivityRepository] is not instantiable while building [App\Http\Controllers\ActivitiesController].)
-Route::get('atividade/config/index', 'ActivitiesController@index');// feito
-Route::post('atividade/config/store', 'ActivitiesController@store');//fazendo
-Route::get('atividade/config/show/{id}', 'ActivitiesController@show');//feito
-Route::delete('atividade/config/delete/{id}', 'ActivitiesController@destroy');//feito obs: mudar para exclusao logica
-Route::get('atividade/config/edit/{id}', 'ActivitiesController@edit');
-Route::put('atividade/config/update/{id}', 'ActivitiesController@update');
+Route::get('atividade/config/index', 'TypeActivitiesController@index');// feito
+Route::post('atividade/config/store', 'TypeActivitiesController@store');//fazendo
+Route::get('atividade/config/show/{id}', 'TypeActivitiesController@show');//feito
+Route::delete('atividade/config/delete/{id}', 'TypeActivitiesController@destroy');//feito obs: mudar para exclusao logica
+Route::get('atividade/config/edit/{id}', 'TypeActivitiesController@edit');
+Route::put('atividade/config/update/{id}', 'TypeActivitiesController@update');
 
 //Tipo de actividade usuario
 //(Target [App\Repositories\ActivityRepository] is not instantiable while building [App\Http\Controllers\ActivitiesController].)
 
-Route::get('usuario/atividade/config/index', 'ActivitiesController@index');// feito
-Route::post('usuario/atividade/config/store', 'ActivitiesController@store');//fazendo
-Route::get('usuario/atividade/config/show/{id}', 'ActivitiesController@show');//feito
-Route::delete('usuario/atividade/config/delete/{id}', 'ActivitiesController@destroy');//feito obs: mudar para exclusao logica
-Route::get('usuario/atividade/config/edit/{id}', 'ActivitiesController@edit');
-Route::put('usuario/atividade/config/update/{id}', 'ActivitiesController@update');
+Route::get('usuario/atividade/config/index', 'TypeActivityUsersController@index');// feito
+Route::post('usuario/atividade/config/store', 'TypeActivityUsersController@store');//fazendo
+Route::get('usuario/atividade/config/show/{id}', 'TypeActivityUsersController@show');//feito
+Route::delete('usuario/atividade/config/delete/{id}', 'TypeActivityUsersController@destroy');//feito obs: mudar para exclusao logica
+Route::get('usuario/atividade/config/edit/{id}', 'TypeActivityUsersController@edit');
+Route::put('usuario/atividade/config/update/{id}', 'TypeActivityUsersController@update');
 
 //Instituições
-
+Route::get('instituicao/cad', 'InstutionsController@create');// feito
 Route::get('instituicao/index', 'InstutionsController@index');// feito
 Route::post('instituicao/store', 'InstutionsController@store');//fazendo
 Route::get('instituicao/show/{id}', 'InstutionsController@show');//feito
@@ -147,8 +98,8 @@ Route::get('instituicao/edit/{id}', 'InstutionsController@edit');
 Route::put('instituicao/update/{id}', 'InstutionsController@update');
 
 //Course
-Route::get('curso/lista_curso','CoursesController@index');// feito
-Route::get('curso/cad_form','CoursesController@form_cadastro');// feito
+Route::get('curso/index','CoursesController@index');// feito
+Route::get('curso/cad','CoursesController@form_cadastro');// feito
 Route::post('curso/store', 'CoursesController@store');//fazendo
 Route::get('curso/show/{id}', 'CoursesController@show');//feito
 Route::delete('curso/delete/{id}', 'CoursesController@destroy');//feito obs: mudar para exclusao logica

@@ -1,3 +1,4 @@
+@include('form._form1');
 <div class="form-group">
     <label class="col-md-4 control-label" for="singlebutton"></label>
     <div class="col-md-4">

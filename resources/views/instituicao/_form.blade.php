@@ -2,6 +2,8 @@
 <legend>Cadastro Instituiçao</legend>
 
 
+@include('form._form1');
+@include('form._form3');
 
 <!-- Text input-->
 <div class="form-group">

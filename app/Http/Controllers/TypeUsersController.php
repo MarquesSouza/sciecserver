@@ -50,7 +50,7 @@ class TypeUsersController extends Controller
             ]);
         }
 
-        return view('typeUsers.lista_tipo_de_usuario', compact('typeUsers'));
+        return view('tipo_de_usuario.list_tipo_de_usuario', compact('typeUsers'));
     }
 
     /**
