@@ -41,7 +41,7 @@
                             <label class="col-md-4 control-label" for="instituicao">Instituição:</label>
                             <div class="col-md-4">
                                 <select id="instituicao" name="instituicao" class="form-control">
-                                    @forelse ($instutions as $i)
+                                    @forelse ($instution as $i)
 
                                         <option value="{{$i->id}}">{{$i->nome}}</option>
 
