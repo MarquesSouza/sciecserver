@@ -20,6 +20,12 @@ Route::get('/cad_evento', function () {
     return view('cad_evento');
 });
 
+Route::get('/list_evento', function () {
+    return view('list_evento');
+});
+
+
+
 Route::get('/cad_tipo_de_atividade', function () {
     return view('cad_tipo_de_atividade');
 });
@@ -109,7 +115,6 @@ Route::put('instituicao/update/{id}', 'InstutionsController@update');
 
 //Course
 Route::get('curso/lista_curso','CoursesController@index');// feito
-Route::get('curso/cad_form','CoursesController@form_cadastro');// feito
 Route::post('curso/store', 'CoursesController@store');//fazendo
 Route::get('curso/show/{id}', 'CoursesController@show');//feito
 Route::delete('curso/delete/{id}', 'CoursesController@destroy');//feito obs: mudar para exclusao logica
