@@ -41,16 +41,16 @@ class ArticlesController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $articles = $this->repository->all();
+        $artigo = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $articles,
+                'data' => $artigo,
             ]);
         }
 
-        return view('articles.index', compact('articles'));
+        return view('artigo.list_artigo', compact('artigo'));
     }
 
     /**

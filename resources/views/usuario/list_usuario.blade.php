@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('app')
 
 @section('content')
     <div>
@@ -6,7 +6,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="c   ol-md-8 col-md-offset-2">
+
                 <table class="table table-inverse">
                     <th>Nome</th>
                     <th>Cpf</th>
@@ -14,7 +14,7 @@
                     <th>Telefone</th>
 
                     <tr>
-                        @forelse ($usuario as $u)
+                        @forelse ($users as $u)
 
                             <td>{{ $u->nome }}</td>
                             <td>{{ $u->cpf }}</td>
@@ -28,7 +28,6 @@
                     @endforelse
 
                 </table>
-            </div>
         </div>
     </div>
 @endsection

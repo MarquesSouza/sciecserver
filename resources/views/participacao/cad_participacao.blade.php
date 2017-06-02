@@ -6,12 +6,12 @@
     </div>
 
     <h1>
-        <center>Cadastrar Tipo de Atividade de Usuario</center>
+        <center>Cadastrar Participação</center>
     </h1>
     <form class="form-horizontal">
         <fieldset>
 
-            @include('tipo_de_atividade_de_usuario._form');
+            @include('participacao._form');
         </fieldset>
     </form>
 

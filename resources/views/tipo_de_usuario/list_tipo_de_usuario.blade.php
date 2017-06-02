@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('app')
 
 @section('content')
     <div>
@@ -6,7 +6,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="c   ol-md-8 col-md-offset-2">
+
                 <table class="table table-inverse">
                     <th>Nome</th>
                     <th>Descricão</th>
@@ -24,7 +24,7 @@
                     @endforelse
 
                     </table>
-            </div>
+
         </div>
     </div>
 @endsection

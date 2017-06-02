@@ -50,7 +50,7 @@ class ParticipationsController extends Controller
             ]);
         }
 
-        return view('participations.index', compact('participations'));
+        return view('participacao.list_participacao', compact('participations'));
     }
 
     /**

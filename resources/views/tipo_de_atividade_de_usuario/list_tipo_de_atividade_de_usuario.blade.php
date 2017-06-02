@@ -9,19 +9,19 @@
 
                 <table class="table table-inverse">
                     <th>Nome </th>
-                    <th>Descricao </th>
-                    <th>Telefone </th>
+                    <th>Descricão </th>
 
-                    <tr>
-                        @forelse ($courses as $c)
 
-                            <td>{{ $c->nome }}</td>
-                            <td>{{ $c->descricao }}</td>
-                            <td>{{ $c->telefone }}</td>
+                     <tr>
+                        @forelse ($typeActivityUsers as $ev)
+
+                            <td>{{ $ev->nome }}</td>
+                            <td>{{ $ev->descricao }}</td>
+
 
                     </tr>
                     @empty
-                        <p>No users</p>
+                        <p>No type_activities</p>
                     @endforelse
 
                     </table>

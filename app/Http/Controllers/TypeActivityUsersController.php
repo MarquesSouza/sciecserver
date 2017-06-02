@@ -50,7 +50,7 @@ class TypeActivityUsersController extends Controller
             ]);
         }
 
-        return view('typeActivityUsers.index', compact('typeActivityUsers'));
+        return view('tipo_de_atividade_de_usuario.list_tipo_de_atividade_de_usuario', compact('typeActivityUsers'));
     }
 
     /**
