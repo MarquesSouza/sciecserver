@@ -5,6 +5,7 @@
 @include('form._form1');
 @include('form._form3');
 
+<input type="hidden" name="status" value="1">
 <!-- Text input-->
 <div class="form-group">
     <label class="col-md-4 control-label" for="site">Site</label>

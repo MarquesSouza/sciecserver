@@ -65,10 +65,11 @@ class InstutionsController extends Controller
         return view('instituicao.cad_instituicao');
     }
 
-    public function store(InstutionCreateRequest $request)
+    public function store(Request $request)
     {
 
         try {
+
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
