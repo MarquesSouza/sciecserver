@@ -11,7 +11,7 @@
 |
 */
 
-// CHAMANDO ROTAS PARA TESTE - RÔMULO
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,8 +26,8 @@ Route::get('token', function (){
     $response = $http->post('http://sciec.app/oauth/token', [
         'form_params' => [
             'grant_type' => 'password',
-            'client_id' => '1',
-            'client_secret' => '6vJZ0PfjPD14dMDSZTyB37LBflh4pFCiToaZaxaq',
+            'client_id' => '4',
+            'client_secret' => 'hf8Wt37OParqZFxSD9SfFmJeFv7DacWwjBuCZlek',
             'username' => 'jonasjunior@ifto.edu.br',
             'password' => 'secret',
             'scope' => '',
