@@ -21,6 +21,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('token', function (){
+
     $http = new GuzzleHttp\Client;
 
     $response = $http->post('http://sciec.app/oauth/token', [
@@ -36,7 +37,7 @@ Route::get('token', function (){
 
     return json_decode((string) $response->getBody(), true);
 
-});
+ })->middleware('auth');
 //php artisan passport:keys
 
 Route::get('callback', function (Request $request){
