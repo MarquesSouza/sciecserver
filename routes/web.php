@@ -11,7 +11,7 @@
 |
 */
 
-// CHAMANDO ROTAS PARA TESTE - RÔMULO
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,13 +21,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('token', function (){
+
     $http = new GuzzleHttp\Client;
 
     $response = $http->post('http://sciec.app/oauth/token', [
         'form_params' => [
             'grant_type' => 'password',
-            'client_id' => '1',
-            'client_secret' => '6vJZ0PfjPD14dMDSZTyB37LBflh4pFCiToaZaxaq',
+            'client_id' => '4',
+            'client_secret' => 'hf8Wt37OParqZFxSD9SfFmJeFv7DacWwjBuCZlek',
             'username' => 'jonasjunior@ifto.edu.br',
             'password' => 'secret',
             'scope' => '',
@@ -36,7 +37,7 @@ Route::get('token', function (){
 
     return json_decode((string) $response->getBody(), true);
 
-});
+ })->middleware('auth');
 //php artisan passport:keys
 
 Route::get('callback', function (Request $request){
