@@ -10,7 +10,7 @@ class TypeUser extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = ['nome','descricao','status'];
     public function user(){
         return $this->belongsToMany(User::class,'user_type_users','id_type_user','id_user');
     }

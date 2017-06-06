@@ -10,7 +10,7 @@ class CourseEvent extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = [ 'id_cursos','id_eventos'];
     public function instution(){
 
     }

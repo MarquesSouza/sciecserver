@@ -10,7 +10,7 @@ class TypeActivity extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = ['nome','descricao','status'];
 
     public function atividade()
     {

@@ -10,7 +10,7 @@ class Participation extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = ['nome','descricao','status'];
     public function evento(){
         return $this->belongsToMany(Event::class,'user_events','id_participation','id_evento');
     }
