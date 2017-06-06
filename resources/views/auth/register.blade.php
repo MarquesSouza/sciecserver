@@ -61,7 +61,15 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
-                        @include('form._form3')
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="telefone">Telefone</label>
+                            <div class="col-md-4">
+                                <input id="telefone" name="telefone" type="text" placeholder="telefone" class="form-control input-md" required="">
+
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="cpf">Cpf</label>
                             <div class="col-md-4">
