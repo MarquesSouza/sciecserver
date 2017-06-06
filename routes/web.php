@@ -11,6 +11,20 @@
 |
 */
 
+//Pedro
+Route::get('insc_usuario', function () {
+    return view('usuario/insc_usuario');
+});
+
+Route::get('list_usuario', function () {
+    return view('usuario/list_usuario');
+});
+
+Route::get('/list_evento', function () {
+    return view('eventos/list_evento');
+});
+
+
 // CHAMANDO ROTAS PARA TESTE - RÔMULO
 Route::get('/', function () {
     return view('welcome');

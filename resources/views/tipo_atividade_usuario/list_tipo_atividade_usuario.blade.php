@@ -7,18 +7,16 @@
                 <table class="table table-inverse">
                     <th>Nome </th>
                     <th>Descricão </th>
-                    <th>Status </th>
 
                      <tr>
                         @forelse ($events as $ev)
 
                             <td>{{ $ev->nome }}</td>
                             <td>{{ $ev->descricao }}</td>
-                            <td>{{ $ev->status }}</td>
 
                     </tr>
                     @empty
-                        <p>No type_activities</p>
+                        <p>No type_activity_users</p>
                     @endforelse
 
                     <table class="table">
