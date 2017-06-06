@@ -10,7 +10,17 @@ class Activity extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = ['nome','descricao','status','hora','local','qtd_inscritos','cod_inscritos','data_inicio','id_evento','id_tipo_atividade'];
+    protected $fillable = [ 'nome',
+                            'descricao',
+                            'hora',
+                            'local',
+                            'qtd_inscritos',
+                            'cod_inscritos',
+                            'data_inicio',
+                           // 'id_evento',
+                            'id_tipo_atividade',
+                            'status'
+                ];
     public function tipoAtividade(){
         return $this->belongsTo(TypeActivity::class,'id_tipo_atividade');
     }

@@ -10,6 +10,11 @@ class UserEvent extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = ['id_users','id_evento','id_articles','id_participation','status'];
+    protected $fillable = [ 'id_users',
+                            'id_evento',
+                            'id_articles',
+                            'id_participation',
+                            'status'
+    ];
 
 }

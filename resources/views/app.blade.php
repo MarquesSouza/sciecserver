@@ -88,8 +88,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/auth/logout') }}">Logout</a></li> <!--Adicionar Rotas-->
-                            <li><a href="{{ url('/auth/login') }}">Meu Perfil</a></li> <!--Adicionar Rotas-->
+                            <li><a href="{{ url('/login') }}">Logout</a></li> <!--Adicionar Rotas-->
+                            <li><a href="{{ url('/register') }}">Meu Perfil</a></li> <!--Adicionar Rotas-->
                         </ul>
                     </li>
                 @endif

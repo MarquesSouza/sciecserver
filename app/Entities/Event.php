@@ -10,7 +10,13 @@ class Event extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = ['nome','descricao','status','local','data_inicio','data_conclusao','logoEvento'];
+    protected $fillable = [ 'nome',
+                            'descricao',
+                            'status',
+                            'local',
+                            'data_inicio',
+                            'data_conclusao',
+                            'logoEvento'];
     public function curso(){
         return $this->belongsToMany(CourseEvent::class,'course_events','id_eventos','id_cursos');
     }

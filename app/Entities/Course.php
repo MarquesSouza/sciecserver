@@ -10,7 +10,12 @@ class Course extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = ['nome','descricao','status','telefone','id_instutions'];
+    protected $fillable = [ 'nome',
+                            'descricao',
+                            'status',
+                            'telefone',
+                            'id_instutions'
+                            ];
     public function instution(){
         return $this->belongsTo(Instution::class,'id_instutions');
     }
