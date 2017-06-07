@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\UserEvent;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -107,7 +108,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = $this->repository->find($id);
-
+       // $userEvents= new UserEvent();
         if (request()->wantsJson()) {
 
             return response()->json([
