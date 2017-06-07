@@ -6,13 +6,13 @@
     </div>
 
     <h1>
-        <center>Cadastrar Tipo de Atividade</center>
+        <center>Cadastrar Tipo de Atividade de Usuario</center>
     </h1>
-    <form class="form-horizontal" method="post" action="{{ url('usuario/ativiade/config/store') }}"  >
+    <form class="form-horizontal" method="post" action="{{ url('usuario/atividade/config/store') }}"  >
         {{csrf_field()}}
         <fieldset>
 
-            @include('tipo_de_atividade._form');
+            @include('tipo_de_atividade_de_usuario._form');
         </fieldset>
     </form>
 
