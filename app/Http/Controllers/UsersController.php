@@ -60,6 +60,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function form_cad()
+    {
+        return view('usuario.cad_usuario');
+    }
     public function store(UserCreateRequest $request)
     {
 

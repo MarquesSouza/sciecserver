@@ -60,6 +60,10 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function form_cad()
+    {
+        return view('evento.cad_evento');
+    }
     public function store(EventCreateRequest $request)
     {
 

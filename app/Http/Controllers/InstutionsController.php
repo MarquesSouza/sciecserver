@@ -60,7 +60,7 @@ class InstutionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function form_cad()
     {
         return view('instituicao.cad_instituicao');
     }
