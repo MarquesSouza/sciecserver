@@ -59,7 +59,7 @@ class CoursesController extends Controller
     public function form_cadastro()
     {
         $instution= Instution::all();
-        return view('curso.cad_form', compact('instution'));
+        return view('curso.cad_curso', compact('instution'));
     }
 
 
