@@ -68,29 +68,41 @@
                 <li><a style="color: #2a88bd" href="#">Informações</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right text-center ">
-                @if(auth()->guest())
-                    @if(!Request::is('auth/login'))
-                        <li><a href="{{ url('/auth/login') }}"> <!--Adicionar Rotas-->
+                @if (Auth::guest())
+                        <li><a href="{{ url('login') }}"> <!--Adicionar Rotas-->
                                 <button class="btn btn-primary">
                                     <i class="fa fa-search fa-fw"></i>
                                     Login
                                 </button>
                             </a></li>
-                        <li><a href="{{ url('/auth/login') }}"> <!--Adicionar Rotas-->
+                        <li><a href="{{ url('register') }}"> <!--Adicionar Rotas-->
                                 <button class="btn btn-success">
                                     <i class="fa fa-search fa-fw"></i>
                                     Cadastre-se
                                 </button>
                             </a></li>
-                    @endif
+
                 @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/login') }}">Logout</a></li> <!--Adicionar Rotas-->
-                            <li><a href="{{ url('/register') }}">Meu Perfil</a></li> <!--Adicionar Rotas-->
-                        </ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+
                     </li>
                 @endif
             </ul>
