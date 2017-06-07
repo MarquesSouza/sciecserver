@@ -5,7 +5,8 @@
         <br><br><br><br>
     </div>
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="post" action="{{ url('usuario/config/store') }}"  >
+        {{csrf_field()}}
         <fieldset>
 
             <!-- Form Name -->

@@ -163,8 +163,7 @@ $factory->define(App\Entities\Course::class, function (Faker\Generator $faker) {
         'nome' => $faker->name,
         'descricao' => $faker->sentence,
         'status' => $faker->boolean,
-        'telefone' => $faker->phoneNumber,
-        'id_instutions' => $faker->numberBetween(1,10),
+         'id_instutions' => $faker->numberBetween(1,10),
     ];
 });
 

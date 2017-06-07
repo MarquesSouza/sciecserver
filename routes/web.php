@@ -56,6 +56,7 @@ Route::get('callback', function (Request $request){
 
 });
 // refazer depois mudando para tabela com campos mais faceis
+Route::get('usuario/cad', 'UsersController@form_cad');// feito
 Route::get('usuario/index', 'UsersController@index');// feito
 Route::post('usuario/store', 'UsersController@store');//fazendo
 Route::get('usuario/show/{id}', 'UsersController@show');//feito
@@ -63,7 +64,7 @@ Route::delete('usuario/delete/{id}', 'UsersController@destroy');//feito obs: mud
 Route::get('usuario/edit/{id}', 'UsersController@edit');
 Route::put('usuario/update/{id}', 'UsersController@update');
 //Tipo de Usuario
-
+Route::get('usuario/config/cad', 'TypeUsersController@form_cad');// feito
 Route::get('usuario/config/index', 'TypeUsersController@index');// feito
 Route::post('usuario/config/store', 'TypeUsersController@store');//fazendo
 Route::get('usuario/config/show/{id}', 'TypeUsersController@show');//feito
@@ -71,7 +72,7 @@ Route::delete('usuario/config/delete/{id}', 'TypeUsersController@destroy');//fei
 Route::get('usuario/config/edit/{id}', 'TypeUsersController@edit');
 Route::put('usuario/config/update/{id}', 'TypeUsersController@update');
 //Tipo de Atividade
-// (BindingResolutionException in Container.php line 873: Target [App\Repositories\ActivityRepository] is not instantiable while building [App\Http\Controllers\ActivitiesController].)
+Route::get('atividade/config/cad', 'TypeActivitiesController@form_cad');// feito
 Route::get('atividade/config/index', 'TypeActivitiesController@index');// feito
 Route::post('atividade/config/store', 'TypeActivitiesController@store');//fazendo
 Route::get('atividade/config/show/{id}', 'TypeActivitiesController@show');//feito
@@ -80,8 +81,7 @@ Route::get('atividade/config/edit/{id}', 'TypeActivitiesController@edit');
 Route::put('atividade/config/update/{id}', 'TypeActivitiesController@update');
 
 //Tipo de actividade usuario
-//(Target [App\Repositories\ActivityRepository] is not instantiable while building [App\Http\Controllers\ActivitiesController].)
-
+Route::get('usuario/atividade/config/cad', 'TypeActivityUsersController@form_cad');// feito
 Route::get('usuario/atividade/config/index', 'TypeActivityUsersController@index');// feito
 Route::post('usuario/atividade/config/store', 'TypeActivityUsersController@store');//fazendo
 Route::get('usuario/atividade/config/show/{id}', 'TypeActivityUsersController@show');//feito
@@ -99,8 +99,8 @@ Route::get('instituicao/edit/{id}', 'InstutionsController@edit');
 Route::put('instituicao/update/{id}', 'InstutionsController@update');
 
 //Course
-Route::get('curso/index','CoursesController@index');// feito
 Route::get('curso/cad','CoursesController@form_cadastro');// feito
+Route::get('curso/index','CoursesController@index');// feito
 Route::post('curso/store', 'CoursesController@store');//fazendo
 Route::get('curso/show/{id}', 'CoursesController@show');//feito
 Route::delete('curso/delete/{id}', 'CoursesController@destroy');//feito obs: mudar para exclusao logica
@@ -108,7 +108,7 @@ Route::get('curso/edit/{id}', 'CoursesController@edit');
 Route::put('curso/update/{id}', 'CoursesController@update');
 
 //Participação
-
+Route::get('participacao/cad', 'ParticipationsController@form_cad');// feito
 Route::get('participacao/index', 'ParticipationsController@index');// feito
 Route::post('participacao/store', 'ParticipationsController@store');//fazendo
 Route::get('participacao/show/{id}', 'ParticipationsController@show');//feito
@@ -117,7 +117,7 @@ Route::get('participacao/edit/{id}', 'ParticipationsController@edit');
 Route::put('participacao/update/{id}', 'ParticipationsController@update');
 
 //Artigos
-
+Route::get('artigo/cad', 'ArticlesController@form_cad');// feito
 Route::get('artigo/index', 'ArticlesController@index');// feito
 Route::post('artigo/store', 'ArticlesController@store');//fazendo
 Route::get('artigo/show/{id}', 'ArticlesController@show');//feito
@@ -126,8 +126,7 @@ Route::get('artigo/edit/{id}', 'ArticlesController@edit');
 Route::put('artigo/update/{id}', 'ArticlesController@update');
 
 //Evento
-//(Target [App\Repositories\EventRepository] is not instantiable while building [App\Http\Controllers\EventsController].)
-
+Route::get('evento/cad', 'EventsController@form_cad');// feito
 Route::get('evento/index', 'EventsController@index');// feito
 Route::post('evento/store', 'EventsController@store');//fazendo
 Route::get('evento/show/{id}', 'EventsController@show');//feito
@@ -136,9 +135,7 @@ Route::get('evento/edit/{id}', 'EventsController@edit');
 Route::put('evento/update/{id}', 'EventsController@update');
 
 //Atividade
-//(Target [App\Repositories\ActivityRepository] is not instantiable while building [App\Http\Controllers\ActivitiesController].)
-
-Route::get('atividade/index', 'ActivitiesController@index');// feito
+Route::get('atividade/cad', 'ActivitiesController@form_cad');// feito
 Route::post('atividade/store', 'ActivitiesController@store');//fazendo
 Route::get('atividade/show/{id}', 'ActivitiesController@show');//feito
 Route::delete('atividade/delete/{id}', 'ActivitiesController@destroy');//feito obs: mudar para exclusao logica

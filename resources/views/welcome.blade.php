@@ -141,5 +141,6 @@
         </div>
     </div>
         <!--Lista de Eventos-->
-        @endsection
 
+    </div>
+@endsection

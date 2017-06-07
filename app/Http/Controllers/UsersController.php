@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\UserEvent;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -60,6 +61,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function form_cad()
+    {
+        return view('usuario.cad_usuario');
+    }
     public function store(UserCreateRequest $request)
     {
 
@@ -103,7 +108,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = $this->repository->find($id);
-
+       // $userEvents= new UserEvent();
         if (request()->wantsJson()) {
 
             return response()->json([

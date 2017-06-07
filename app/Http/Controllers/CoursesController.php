@@ -70,6 +70,10 @@ class CoursesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function form_cad()
+    {
+        return view('curso.cad_curso');
+    }
     public function store(CourseCreateRequest $request)
     {
 

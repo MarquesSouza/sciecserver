@@ -19,7 +19,6 @@ class CreateCoursesTable extends Migration
             $table->string('nome',45);
             $table->text('descricao');
             $table->boolean('status');
-            $table->string('telefone');
             $table->integer('id_instutions')->unsigned();
             $table->foreign('id_instutions')->references('id')->on('instutions')->onDelete('cascade');
 

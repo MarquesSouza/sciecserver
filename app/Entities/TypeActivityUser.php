@@ -10,7 +10,10 @@ class TypeActivityUser extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = [ 'nome',
+                            'descricao',
+                            'status'
+                            ];
     public function atividadeUser()
     {
         return $this->hasMany(ActivityUser::class, 'id_type_activity_user');

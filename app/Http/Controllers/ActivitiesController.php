@@ -59,7 +59,13 @@ class ActivitiesController extends Controller
      * @param  ActivityCreateRequest $request
      *
      * @return \Illuminate\Http\Response
+     *
      */
+    public function form_cad()
+    {
+        return view('atividade.cad_atividade');
+    }
+
     public function store(ActivityCreateRequest $request)
     {
 

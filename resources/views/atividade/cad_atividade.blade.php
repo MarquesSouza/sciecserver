@@ -7,7 +7,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <form class="form-horizontal" method="post" action="">
+                <form class="form-horizontal" method="post" action="{{ url('atividade/store') }}"  >
+                    {{csrf_field()}}
                     <fieldset>
 
                         <!-- Form Name -->

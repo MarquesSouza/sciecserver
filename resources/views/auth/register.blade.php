@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('app')
 
 @section('content')
     <div>
@@ -12,7 +12,6 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
-
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
@@ -62,6 +61,25 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="telefone">Telefone</label>
+                            <div class="col-md-4">
+                                <input id="telefone" name="telefone" type="text" placeholder="telefone" class="form-control input-md" required="">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="cpf">Cpf</label>
+                            <div class="col-md-4">
+                                <input id="cpf" name="cpf" type="text" placeholder="cpf" class="form-control input-md" required="">
+
+                            </div>
+                        </div>
+
+
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
