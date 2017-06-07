@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\TypeActivity;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -63,7 +64,8 @@ class ActivitiesController extends Controller
      */
     public function form_cad()
     {
-        return view('atividade.cad_atividade');
+        $tipoAtividade=TypeActivity::all();
+        return view('atividade.cad_atividade',compact('tipoAtividade'));
     }
 
     public function store(ActivityCreateRequest $request)

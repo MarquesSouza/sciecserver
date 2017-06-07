@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Course;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -62,7 +63,8 @@ class EventsController extends Controller
      */
     public function form_cad()
     {
-        return view('evento.cad_evento');
+        $cursos= Course::all();
+        return view('evento.cad_evento',compact('cursos'));
     }
     public function store(EventCreateRequest $request)
     {
