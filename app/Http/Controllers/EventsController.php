@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Course;
+use App\Entities\Event;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -108,16 +109,16 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        $event = $this->repository->find($id);
+        $events = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $event,
-            ]);
-        }
+              'data' => $events,
+           ]);
+      }
 
-        return view('events.show', compact('event'));
+        return view('eventos.exibir_evento',compact('events'));
     }
 
 

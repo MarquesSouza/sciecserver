@@ -41,31 +41,26 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-brand">
                 <li><a style="color: #2a88bd" href="{{ url('/') }}">Página Inicial<span class="sr-only">(current)</span></a></li>
-                <li class="dropdown">
-                    <a style="color: #2a88bd" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Eventos<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Evento 1</a></li> <!--Adicionar Rotas-->
-                        <li role="separator" class="divider"></li> <!--Adicionar Rotas-->
-                        <li><a href="#">Evento 2</a></li> <!--Adicionar Rotas-->
-                        <li role="separator" class="divider"></li> <!--Adicionar Rotas-->
-                        <li><a href="#">Evento 3</a></li> <!--Adicionar Rotas-->
-                    </ul>
+                <li>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Eventos</a>
+
                 </li>
-                <li class="dropdown">
-                    <a style="color: #2a88bd" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Atividade<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Atividade 1</a></li> <!--Adicionar Rotas-->
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Atividade 2</a></li> <!--Adicionar Rotas-->
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Atividade 3</a></li> <!--Adicionar Rotas-->
-                    </ul>
+                <li>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Muda link</a>
+
                 </li>
-                <li><a style="color: #2a88bd" href="#">Certificados<span class="sr-only">(current)</span></a></li>
-                <li><a style="color: #2a88bd" href="#">Artigos</a></li>
-                <li><a style="color: #2a88bd" href="#">Informações</a></li>
+                <li>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Certificados</a>
+
+                </li>
+                <li>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Artigos</a>
+
+                </li>
+                <li>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Informações</a>
+
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right text-center ">
                 @if (Auth::guest())
@@ -84,7 +79,7 @@
 
                 @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" style="color: #2a88bd" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 

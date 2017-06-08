@@ -31,7 +31,7 @@
                         <p>No events</p>
                     @endforelse
 
-                    <table class="table">
+                    </table>
             </div>
         </div>
     </div>
