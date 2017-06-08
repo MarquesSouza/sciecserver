@@ -16,7 +16,7 @@
                     <tr>
                         @forelse ($users as $u)
 
-                            <td>{{ $u->nome }}</td>
+                            <td>{{ $u->name }}</td>
                             <td>{{ $u->cpf }}</td>
                             <td>{{ $u->email }}</td>
                             <td>{{ $u->telefone }}</td>

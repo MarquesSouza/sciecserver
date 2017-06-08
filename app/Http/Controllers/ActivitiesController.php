@@ -114,12 +114,13 @@ class ActivitiesController extends Controller
 
         if (request()->wantsJson()) {
 
-            return response()->json([
+            return response()->json(
+                [
                 'data' => $activity,
             ]);
         }
 
-        return view('activities.show', compact('activity'));
+        return view('atividade.cad_atividade', compact('activity'));
     }
 
 
