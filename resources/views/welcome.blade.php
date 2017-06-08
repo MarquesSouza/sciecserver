@@ -93,6 +93,7 @@
         <div class="container text-center">
             <h3 class="text-center"><b>Eventos em Andamento</b></h3> <br>
             <div class="row">
+                <!-- foreach('content')-->
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                     <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
@@ -100,6 +101,7 @@
                     </div>
                     <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
                 </div>
+                <!--endforeach // Passar Parametros do Evento; Titulo, Banner, Descrição e Link Respectivo do evento-->
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                         <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
@@ -139,5 +141,6 @@
         </div>
     </div>
         <!--Lista de Eventos-->
-        @endsection
 
+    </div>
+@endsection

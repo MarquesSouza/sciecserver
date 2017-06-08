@@ -50,7 +50,7 @@ class InstutionsController extends Controller
             ]);
         }
 
-        return view('instutions.show',  compact('instutions'));
+        return view('instituicao.list_instituicao',  compact('instutions'));
     }
 
     /**
@@ -60,10 +60,16 @@ class InstutionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(InstutionCreateRequest $request)
+    public function create()
+    {
+        return view('instituicao.cad_instituicao');
+    }
+
+    public function store(Request $request)
     {
 
         try {
+
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 

@@ -1,9 +1,12 @@
 @extends('app')
 
 @section('content')
+    <div>
+        <br><br><br><br>
+    </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+
                 <table class="table table-inverse">
                     <th>Nome </th>
                     <th>Descricao </th>
@@ -22,7 +25,7 @@
                     @endforelse
 
                     </table>
-            </div>
+
         </div>
     </div>
 @endsection

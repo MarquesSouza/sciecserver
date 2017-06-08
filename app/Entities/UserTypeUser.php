@@ -10,6 +10,9 @@ class UserTypeUser extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = [ 'id_user',
+                            'id_type_user',
+                            'status'
+                            ];
 
 }

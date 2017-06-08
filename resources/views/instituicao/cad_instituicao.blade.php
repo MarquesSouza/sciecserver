@@ -1,12 +1,12 @@
 @extends('app')
 
 @section('content')
-
-    <form class="form-horizontal">
+    <div>
+        <br><br><br><br>
+    </div>
+    <form class="form-horizontal" method="post" action="{{ url('instituicao/store') }}"  >
+        {{csrf_field()}}
         <fieldset>
-
-          @include('form._form1');
-          @include('form._form3');
           @include('instituicao._form');
 
         </fieldset>

@@ -1,19 +1,10 @@
 <!-- Text input-->
-<div class="form-group">
-    <label class="col-md-4 control-label" for="telefone">Telefone:</label>
-    <div class="col-md-4">
-        <input id="telefone" name="telefone" type="text" placeholder="" class="form-control input-md">
-
-    </div>
-</div>
-
-
-
+@include('form._form1');
 <!-- Select Basic -->
 <div class="form-group">
     <label class="col-md-4 control-label" for="instituicao">Instituição:</label>
     <div class="col-md-4">
-        <select id="instituicao" name="instituicao" class="form-control">
+        <select id="instituicao" name="id_instutions" class="form-control">
             @forelse ($instution as $i)
 
                 <option value="{{$i->id}}">{{$i->nome}}</option>
@@ -26,7 +17,7 @@
         </select>
     </div>
 </div>
-
+<input type="hidden" name="status" value="1">
 <!-- Button -->
 <div class="form-group">
     <label class="col-md-4 control-label" for="salvar"></label>

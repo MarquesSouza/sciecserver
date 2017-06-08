@@ -1,6 +1,6 @@
 
 <!-- Form Name -->
-<legend>Cadastro de Artigo</legend>
+
 
 <!-- Text input-->
 <div class="form-group">
@@ -46,15 +46,8 @@
     </div>
 </div>
 
-<!-- Text input-->
-<div class="form-group">
-    <label class="col-md-4 control-label" for="situacao">Situaçao</label>
-    <div class="col-md-4">
-        <input id="situacao" name="situacao" type="text" placeholder="" class="form-control input-md">
-
-    </div>
-</div>
-
+<input id="situacao" name="situacao" type="hidden" value="em espera">
+<input type="hidden" name="status" value="1">
 <!-- Button -->
 <div class="form-group">
     <label class="col-md-4 control-label" for="cadastrar"></label>

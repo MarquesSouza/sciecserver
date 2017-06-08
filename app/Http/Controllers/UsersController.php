@@ -50,7 +50,7 @@ class UsersController extends Controller
             ]);
         }
 
-        return view('users.index', compact('users'));
+        return view('usuario.list_usuario', compact('users'));
     }
 
     /**

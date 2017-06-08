@@ -13,7 +13,7 @@
 
 
                      <tr>
-                        @forelse ($typeActivities as $ev)
+                        @forelse ($typeActivityUsers as $ev)
 
                             <td>{{ $ev->nome }}</td>
                             <td>{{ $ev->descricao }}</td>

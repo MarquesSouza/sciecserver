@@ -7,11 +7,13 @@
 
     <form class="form-horizontal">
         <fieldset>
-
-            <!-- Form Name -->
-            <legend >Cadastro Usuario</legend>
-            <!-- Text input-->
-            @include('usuario._form');
+            <legend>Cadastro de Curso</legend>
+            @include('curso._form');
         </fieldset>
     </form>
+
+    <!-- /.container -->
+
+
+
 @endsection

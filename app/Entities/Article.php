@@ -10,7 +10,14 @@ class Article extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = [ 'titulo',
+                            'resumo',
+                            'autores',
+                            'local',
+                            'subtitulo',
+                            'situacao',
+                            'status'
+                        ];
     public function evento(){
         return $this->belongsToMany(Event::class,'user_events','id_articles','id_evento');
     }

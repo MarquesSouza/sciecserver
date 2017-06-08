@@ -50,7 +50,7 @@ class ActivitiesController extends Controller
             ]);
         }
 
-        return view('activities.lista_atividade', compact('activities'));
+        return view('atividade.list_atividade', compact('activities'));
     }
 
     /**
