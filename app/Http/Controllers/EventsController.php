@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entities\Course;
 use App\Entities\Event;
+use App\Entities\UserEvent;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -117,7 +118,8 @@ class EventsController extends Controller
               'data' => $events,
            ]);
       }
-
+        $userevent= new UserEvent();
+        //$userevent->setid_users
         return view('eventos.exibir_evento',compact('events'));
     }
 
