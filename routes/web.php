@@ -129,7 +129,7 @@ Route::get('evento/cad', 'EventsController@form_cad')->middleware('auth');// fei
 Route::get('evento/index', 'EventsController@index')->middleware('auth');// feito
 Route::post('evento/store', 'EventsController@store')->middleware('auth');//fazendo
 Route::get('evento/show/{id}', 'EventsController@show')->middleware('auth');//feito
-Route::get('evento/show/{id}', 'EventsController@show')->middleware('auth');//feito
+Route::get('evento/inscricao_evento/{id}', 'EventsController@insc_evento')->middleware('auth');//feito
 Route::delete('evento/delete/{id}', 'EventsController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
 Route::get('evento/edit/{id}', 'EventsController@edit')->middleware('auth');
 Route::put('evento/update/{id}', 'EventsController@update')->middleware('auth');

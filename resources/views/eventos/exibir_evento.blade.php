@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="c   ol-md-8 col-md-offset-2">
-                <form action="{{url('evento/inscricao_evento')}}" method="post">
+                <form action="{{url('evento/inscricao_evento/'.$events->id)}}" method="post">
                     {{csrf_field()}}
                     <table class="table table-inverse">
                     <th>Nome </th>
@@ -19,7 +19,6 @@
 
 
                     <tr>
-                            <td>{{ $events->id }}</td>
                             <td>{{ $events->nome }}</td>
                             <td>{{ $events->descricao }}</td>
                             <td>{{ $events->local }}</td>

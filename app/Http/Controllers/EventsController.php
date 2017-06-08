@@ -118,11 +118,17 @@ class EventsController extends Controller
               'data' => $events,
            ]);
       }
-        $userevent= new UserEvent();
-        //$userevent->setid_users
+
         return view('eventos.exibir_evento',compact('events'));
     }
+    public function insc_evento($id){
+         $userEvent= new UserEvent();
+         $userEvent->setIdUser(Auth::user()->id);
+         $userEvent->setIdEventos($id);
+         $userEvent->setIdArticles(1);
+        $userEvent->setIdParticipation(1);
 
+    }
 
     /**
      * Show the form for editing the specified resource.
