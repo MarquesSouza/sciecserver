@@ -34,7 +34,7 @@
                     @endforelse
 
                     </table>
-                {!! $events->render() !!}
+
             </div>
         </div>
     </div>

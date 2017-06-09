@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Activity;
+use App\Entities\ActivityUser;
 use App\Entities\Event;
 use App\Entities\TypeActivity;
+use App\Entities\UserEvent;
 use function GuzzleHttp\Promise\all;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -34,6 +37,7 @@ class ActivitiesController extends Controller
     {
         $this->repository = $repository;
         $this->validator  = $validator;
+        $this->middleware('auth');
     }
 
 
@@ -44,9 +48,20 @@ class ActivitiesController extends Controller
      */
     public function index($id)
     {
-        $atividade= Activity::all();
+        $userEvent= new UserEvent();
+        $userEvent->id_users = Auth::user()->id;
+        $userEvent->id_evento = $id;
+        $userEvent->setAttribute('id_articles',1);
+        $userEvent->setAttribute('id_participation',1);
+        if($userEvent->valida()){
+            return redirect('/');
+            //pagina para mensagem que ja ta cadastrador
+        }else{
 
-        $activities=$atividade->where('id_evento','=',$id);
+        }
+
+        $activities= Activity::all()->where('id_evento','=',$id);
+
 
         if (request()->wantsJson()) {
 
@@ -55,6 +70,25 @@ class ActivitiesController extends Controller
             ]);
         }
         return view('atividade.list_atividade', compact('activities'));
+    }
+    public function insc_atividade($id_evento,$id){
+
+        $activityUser= new ActivityUser();
+        $activityUser->id_users= Auth::user()->id;
+        $activityUser->id_activity=$id;
+        $activityUser->id_type_activity_user=1;
+        $activityUser->status=1;
+        $activityUser->presenca=0;
+        $activityUser->data_entrada="2017-01-01 00:00:00";
+        $activityUser->data_saida="2017-01-01 00:00:00";
+        if($activityUser->valida()){
+            $activityUser->save();
+            return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
+        }else{
+            return redirect('/');
+            //pagina para mensagem que ja ta cadastrador
+        }
+
     }
 
     /**
@@ -111,9 +145,10 @@ class ActivitiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_evento,$id)
     {
-        $activity = $this->repository->find($id);
+        $activity= Activity::all()->where(array(array('id_evento','=',$id_evento),array('id','=',$id)));
+
 
         if (request()->wantsJson()) {
 

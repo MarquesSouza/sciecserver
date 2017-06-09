@@ -134,13 +134,14 @@ class EventsController extends Controller
          $userEvent->id_users = Auth::user()->id;
         $userEvent->id_evento = $id;
        $userEvent->setAttribute('id_articles',1);
-        $userEvent->setAttribute('id_participation',3);
+        $userEvent->setAttribute('id_participation',1);
         $userEvent->setAttribute('status',1);
         if($userEvent->valida()){
             $userEvent->save();
-            return redirect()->route('/');
+            return redirect('evento/'.$id.'/atividade/index');
         }else{
-            return redirect()->route('/');
+            return redirect('/');
+            //pagina para mensagem que ja ta cadastrador
         }
 
            }
