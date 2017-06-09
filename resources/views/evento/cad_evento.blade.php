@@ -13,7 +13,7 @@
             <!-- Form Name -->
             <legend></legend>
 
-                @include('eventos._form')
+                @include('evento._form')
 
         </fieldset>
     </form>
