@@ -119,7 +119,7 @@ class ActivitiesController extends Controller
             ]);
         }
 
-        return view('activities.show', compact('activity'));
+        return view('atividade.list_atividade', compact('activity'));
     }
 
 
