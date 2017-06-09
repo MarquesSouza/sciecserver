@@ -138,8 +138,9 @@ class EventsController extends Controller
         $userEvent->setAttribute('status',1);
         if($userEvent->valida()){
             $userEvent->save();
+            return redirect()->route('');
         }else{
-           //messagem erro
+            return redirect()->back()->with('message');
         }
 
            }
