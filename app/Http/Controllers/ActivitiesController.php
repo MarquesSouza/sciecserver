@@ -69,7 +69,7 @@ class ActivitiesController extends Controller
                 'data' => $activities,
             ]);
         }
-        return view('atividade.list_atividade', compact('activities'));
+        return view('atividade.exibir_atividade', compact('activities'));
     }
     public function insc_atividade($id_evento,$id){
 

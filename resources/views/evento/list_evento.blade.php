@@ -21,8 +21,6 @@
 
                      <tr>
                         @forelse ($events as $ev)
-                             <form action="{{url('evento/inscricao_evento/'.$ev->id)}}" method="post">
-                                 {{csrf_field()}}
 
                                  <td>{{ $ev->nome }}</td>
                             <td>{{ $ev->descricao }}</td>
@@ -30,8 +28,13 @@
                             <td>{{ $ev->data_inicio }}</td>
                             <td>{{ $ev->data_conclusao }}</td>
                             <td>{{ $ev->logoEvento }}</td>
-                                 <td><button type="submit" >Confirmar Inscrição</button></td>
-                             </form>
+                                 <td>
+                                     <a href="{{url('usuario/config/edit/{id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                                 </td>
+                                 <td>
+                                     <a href="{{url('usuario/config/edit/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
+                                 </td>
+
                     </tr>
                     @empty
                         <p>No events</p>
