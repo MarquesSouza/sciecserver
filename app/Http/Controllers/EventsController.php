@@ -72,7 +72,7 @@ class EventsController extends Controller
     public function form_cad()
     {
         $cursos= Course::all();
-        return view('evento.cad_evento',compact('cursos'));
+            return view('eventos.cad_evento',compact('cursos'));
     }
     public function store(EventCreateRequest $request)
     {

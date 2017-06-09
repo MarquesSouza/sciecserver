@@ -136,6 +136,7 @@ Route::put('evento/update/{id}', 'EventsController@update')->middleware('auth');
 
 //Atividade
 Route::get('atividade/cad', 'ActivitiesController@form_cad')->middleware('auth');// feito
+Route::get('atividade/index', 'ActivitiesController@index')->middleware('auth');// feito
 Route::post('atividade/store', 'ActivitiesController@store')->middleware('auth');//fazendo
 Route::get('atividade/show/{id}', 'ActivitiesController@show')->middleware('auth');//feito
 Route::delete('atividade/delete/{id}', 'ActivitiesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica

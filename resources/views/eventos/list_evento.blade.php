@@ -1,13 +1,17 @@
 @extends('app')
 
 @section('content')
+
     <div>
         <br><br><br><br>
     </div>
     <div class="container">
         <div class="row">
             <div class="c   ol-md-8 col-md-offset-2">
-                <table class="table table-inverse">
+                <br><br>
+                <a href="{{ url('evento/cad') }}" class="btn btn-default">Novo Evento</a>
+                <br><br>
+                <table class="table table-bordered table-inverse">
                     <th>Nome </th>
                     <th>Descricão </th>
                     <th>Local </th>

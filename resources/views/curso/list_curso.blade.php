@@ -6,8 +6,11 @@
     </div>
     <div class="container">
         <div class="row">
+            <br><br>
+            <a href="{{ url('evento/cad') }}" class="btn btn-default">Novo Curso</a>
+            <br><br>
 
-                <table class="table table-inverse">
+                <table class="table table-bordered table-inverse">
                     <th>Nome </th>
                     <th>Descricao </th>
                     <th>Telefone </th>
