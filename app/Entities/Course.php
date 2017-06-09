@@ -13,7 +13,6 @@ class Course extends Model implements Transformable
     protected $fillable = [ 'nome',
                             'descricao',
                             'status',
-                            'telefone',
                             'id_instutions'
                             ];
     public function instution(){
