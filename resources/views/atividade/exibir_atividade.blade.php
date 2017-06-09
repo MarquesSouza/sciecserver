@@ -11,8 +11,8 @@
             <table class="table table-bordered table-inverse">
                 <tr>
                     <th>Nome</th>
-                    <th>Descricao</th>
-                    <th>status</th>
+                    <th>Descrição</th>
+                    <th>Status</th>
                     <th>Hora</th>
                     <th>Local</th>
                     <th>QTD Inscritos</th>

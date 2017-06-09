@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <br><br>
-            <a href="{{ url('participacao/cad') }}" class="btn btn-default">Novo Artigo</a>
+            <a href="{{ url('artigo/cad') }}" class="btn btn-default">Novo Artigo</a>
             <br><br>
 
                 <table class="table table-bordered table-inverse">
