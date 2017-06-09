@@ -7,16 +7,17 @@
     <div class="container">
         <div class="row">
             <br><br>
-            <a href="{{ url('instituicao/cad') }}" class="btn btn-default">Nova Intituiçao</a>
+            <a href="{{ url('instituicao/cad') }}" class="btn-primary btn btn-default">Nova Instituiçao</a>
             <br><br>
 
-                <table class="table table-inverse">
+                <table class="table table-bordered table-inverse">
                     <th>Nome</th>
                     <th>Descricão</th>
                     <th>Site</th>
                     <th>Email</th>
                     <th>Telefone</th>
-
+                    <th>Edite</th>
+                    <th>Excluir</th>
                     <tr>
                         @forelse ( $instutions as $u)
 
@@ -25,6 +26,12 @@
                             <td>{{ $u->site }}</td>
                             <td>{{ $u->email }}</td>
                             <td>{{ $u->telefone }}</td>
+                            <td>
+                                <a href="{{url('instituicao/edite/{id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                            </td>
+                            <td>
+                                <a href="{{url('instituicao/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
+                            </td>
 
 
                     </tr>

@@ -9,7 +9,7 @@
         <div class="row">
             <div class="c   ol-md-8 col-md-offset-2">
                 <br><br>
-                <a href="{{ url('evento/cad') }}" class="btn btn-default">Novo Evento</a>
+                <a href="{{ url('evento/cad') }}" class="btn-primary btn btn-default">Novo Evento</a>
                 <br><br>
                 <table class="table table-bordered table-inverse">
                     <th>Nome </th>
@@ -18,7 +18,8 @@
                     <th>Data de Início </th>
                     <th>Data de Conclusão</th>
                     <th>Logo do Evento</th>
-
+                    <th>Editar</th>
+                    <th>Excluir</th>
 
                      <tr>
                         @forelse ($events as $ev)
@@ -29,6 +30,12 @@
                             <td>{{ $ev->data_inicio }}</td>
                             <td>{{ $ev->data_conclusao }}</td>
                             <td>{{ $ev->logoEvento }}</td>
+                             <td>
+                                 <a href="{{url('evento/edite{id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                             </td>
+                             <td>
+                                 <a href="{{url('evento/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
+                             </td>
 
                     </tr>
                     @empty
