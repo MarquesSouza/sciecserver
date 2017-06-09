@@ -14,73 +14,74 @@ class PopulacaoTeste extends Seeder
         //Usuários
         factory(App\Entities\User::class)->create([
             'name' => 'Pedro César',
-            'password' => '123',
+            'password' =>  bcrypt('123'),
             'cpf'  => '99999999999',
             'email' => 'pedrocesar1010@gmail.com',
             'telefone' => '63992194736',
         ]);
         factory(App\Entities\User::class)->create([
             'name' => 'Jonas',
-            'password' => '123',
+            'password' =>  bcrypt('123'),
             'cpf'  => '22999999999',
             'email' => 'jonasjunior@ifto.edu.br',
             'telefone' => '63992194736',
         ]);
         factory(App\Entities\User::class)->create([
             'name' => 'Álvaro',
-            'password' => '123',
+            'password' =>  bcrypt('123'),
             'cpf'  => '99999999988',
             'email' => 'alvaro@gmail.com',
             'telefone' => '63992194736',
         ]);
         factory(App\Entities\User::class)->create([
             'name' => 'Marcos',
-            'password' => '123',
+            'password' =>  bcrypt('123'),
             'cpf'  => '22999990000',
             'email' => 'marcos@ifto.edu.br',
             'telefone' => '63992194736',
         ]);
 
-        //Usuário Tipo de Usuário
-        factory(App\Entities\UserTypeUser::class)->create([
-            'id_user'=> '1',
-            'id_type_user' => '1',
-            'status' => true,
-        ]);
-        factory(App\Entities\UserTypeUser::class)->create([
-            'id_user'=> '2',
-            'id_type_user' => '2',
-            'status' => true,
-        ]);
-        factory(App\Entities\UserTypeUser::class)->create([
-            'id_user'=> '3',
-            'id_type_user' => '3',
-            'status' => true,
-        ]);
-        factory(App\Entities\UserTypeUser::class)->create([
-            'id_user'=> '4',
-            'id_type_user' => '4',
-            'status' => true,
-        ]);
 
         //Tipo de usuários
         factory(App\Entities\TypeUser::class)->create([
-            'status' => 'true',
+            'status' => 1,
             'nome' => 'Organizador',
             'descricao' => 'Criar e editar evento',
 
         ]);
         factory(App\Entities\TypeUser::class)->create([
-            'status' => 'true',
+            'status' => 1,
             'nome' => 'Administrador',
             'descricao' => 'Criar e editar eventos, usuários etc.',
 
         ]);
         factory(App\Entities\TypeUser::class)->create([
-            'status' => 'true',
+            'status' => 1,
             'nome' => 'Administrador',
             'descricao' => 'Criar e editar eventos, usuários etc.',
         ]);
+        //Usuário Tipo de Usuário
+        factory(App\Entities\UserTypeUser::class)->create([
+            'id_user'=> 1,
+            'id_type_user' => 1,
+            'status' => 1,
+        ]);
+        factory(App\Entities\UserTypeUser::class)->create([
+            'id_user'=> 2,
+            'id_type_user' => 2,
+            'status' => 1,
+        ]);
+        factory(App\Entities\UserTypeUser::class)->create([
+            'id_user'=> 3,
+            'id_type_user' => 3,
+            'status' => 1,
+        ]);
+        factory(App\Entities\UserTypeUser::class)->create([
+            'id_user'=> 4,
+            'id_type_user' => 3,
+            'status' => 1,
+        ]);
+
 
         //Tipo de atividades
         factory(App\Entities\TypeActivity::class)->create([
@@ -100,6 +101,62 @@ class PopulacaoTeste extends Seeder
         ]);
 
         //Atividades
+
+        //Eventos
+        factory(App\Entities\Event::class)->create([
+            'nome' => 'II Semana Agroinformática de Paraíso do Tocantins',
+            'descricao' => 'Evento contará com a presença de vários professores renomados, palestras e mini cursos.',
+            'status'=> 1,
+            'local'=> 'IFTO - Campus Paraíso',
+            'data_inicio'=> '2017-07-10 00:00:00',
+            'data_conclusao'=> '2017-07-15 00:00:00',
+        ]);
+        factory(App\Entities\Event::class)->create([
+            'nome' => 'II Semana Agroinformática de Paraíso do Tocantins',
+            'descricao' => 'Evento contará com a presença de vários professores renomados, palestras e mini cursos.',
+            'status'=> 1,
+            'local'=> 'IFTO - Campus Paraíso',
+            'data_inicio'=> '2017-07-10 00:00:00',
+            'data_conclusao'=> '2017-07-15 00:00:00',
+            'logoEvento'=> 'Agroinformática',
+        ]);
+        factory(App\Entities\Event::class)->create([
+            'nome' => 'II ciclo de palestras: os saberes da agricultura indígena.',
+            'descricao' => 'Evento contará com a presença de vários professores renomados, palestras e mini cursos.',
+            'status'=> 1,
+            'local'=> 'IFTO - Campus Paraíso',
+            'data_inicio'=> '2017-07-10 00:00:00',
+            'data_conclusao'=> '2017-07-15 00:00:00',
+            'logoEvento'=> 'Indígena',
+        ]);
+        factory(App\Entities\Event::class)->create([
+            'nome' => 'IV SEMAD (Semana Acadêmica de Administração)',
+            'descricao' => 'Evento contará com a presença de vários professores renomados, palestras e mini cursos.',
+            'status'=> 1,
+            'local'=> 'IFTO - Campus Paraíso',
+            'data_inicio'=> '2017-08-28 00:00:00',
+            'data_conclusao'=> '2017-08-30 00:00:00',
+            'logoEvento'=> 'SEMAD',
+        ]);
+        factory(App\Entities\Event::class)->create([
+            'nome' => 'Semana Tecnológica',
+            'descricao' => 'Evento contará com a presença de vários professores renomados, palestras e mini cursos.',
+            'status'=> 1,
+            'local'=> 'IFTO - Campus Paraíso',
+            'data_inicio'=> '2017-10-24 00:00:00',
+            'data_conclusao'=> '2017-10-27 00:00:00',
+            'logoEvento'=> 'Tecnológica',
+        ]);
+        factory(App\Entities\Event::class)->create([
+            'nome' => 'II Jornada Acadêmica Multidisciplinar ( IV SATECA; IV SEMAQ; VII SEMAT e V 
+            Jornada Tocantinense de Gestão TI)',
+            'descricao' => 'Evento contará com a presença de vários professores renomados, palestras e mini cursos.',
+            'status'=> 1,
+            'local'=> 'IFTO - Campus Paraíso',
+            'data_inicio'=> '2017-10-24 00:00:00',
+            'data_conclusao'=> '2017-10-27 00:00:00',
+            'logoEvento'=> 'Tecnológica',
+        ]);
         factory(App\Entities\Activity::class)->create([
             'nome' => 'Mineração de Dados',
             'descricao' => 'Curso completo.',
@@ -108,8 +165,10 @@ class PopulacaoTeste extends Seeder
             'local'=> 'IFTO - Campus Paraíso',
             'qtd_inscritos' => '40',
             'cod_inscritos'=> '9090',
-            'data_inicio'=> '08/07/2017',
-            'data_conclusao'=> '15/05/2017',
+            'data_inicio'=> '2017-07-08 00:00:00',
+            'data_conclusao'=> '2017-05-15 00:00:00',
+            'id_evento'=> 6 ,
+            'id_tipo_atividade'=> 2,
         ]);
         factory(App\Entities\Activity::class)->create([
             'nome' => 'Banco de Dados Completo',
@@ -119,8 +178,10 @@ class PopulacaoTeste extends Seeder
             'local'=> 'IFTO - Campus Paraíso',
             'qtd_inscritos' => '30',
             'cod_inscritos'=> '8080',
-            'data_inicio'=> '08/07/2017',
-            'data_conclusao'=> '15/05/2017',
+            'data_inicio'=> '2017-07-08 00:00:00',
+            'data_conclusao'=> '2017-05-15 00:00:00',
+            'id_evento'=> 6 ,
+            'id_tipo_atividade'=> 2,
         ]);
         factory(App\Entities\Activity::class)->create([
             'nome' => 'Ferramentas para Gerenciamento de Redes',
@@ -130,8 +191,10 @@ class PopulacaoTeste extends Seeder
             'local'=> 'IFTO - Campus Paraíso',
             'qtd_inscritos' => '25',
             'cod_inscritos'=> '7070',
-            'data_inicio'=> '10/07/2017',
-            'data_conclusao'=> '20/05/2017',
+            'data_inicio'=> '2017-07-10 00:00:00',
+            'data_conclusao'=> '2017-05-20 00:00:00',
+            'id_evento'=> 6 ,
+            'id_tipo_atividade'=> 2,
         ]);
         factory(App\Entities\Activity::class)->create([
             'nome' => 'Scrum',
@@ -141,8 +204,10 @@ class PopulacaoTeste extends Seeder
             'local'=> 'IFTO - Campus Paraíso',
             'qtd_inscritos' => '40',
             'cod_inscritos'=> '6060',
-            'data_inicio'=> '09/07/2017',
-            'data_conclusao'=> '15/05/2017',
+            'data_inicio'=> '2017-07-09 00:00:00',
+            'data_conclusao'=> '2017-05-15 00:00:00',
+            'id_evento'=> 6 ,
+            'id_tipo_atividade'=> 2,
         ]);
         factory(App\Entities\Activity::class)->create([
             'nome' => 'Inteligência Artificial',
@@ -152,8 +217,10 @@ class PopulacaoTeste extends Seeder
             'local'=> 'IFTO - Campus Paraíso',
             'qtd_inscritos' => '38',
             'cod_inscritos'=> '9090',
-            'data_inicio'=> '08/07/2017',
-            'data_conclusao'=> '15/05/2017',
+            'data_inicio'=> '2017-07-08 00:00:00',
+            'data_conclusao'=> '2017-05-15 00:00:00',
+            'id_evento'=> 6 ,
+            'id_tipo_atividade'=> 2,
         ]);
         factory(App\Entities\Activity::class)->create([
             'nome' => 'Laravel Básico',
@@ -163,8 +230,10 @@ class PopulacaoTeste extends Seeder
             'local'=> 'IFTO - Campus Paraíso',
             'qtd_inscritos' => '29',
             'cod_inscritos'=> '7090',
-            'data_inicio'=> '08/07/2017',
-            'data_conclusao'=> '15/05/2017',
+            'data_inicio'=> '2017-07-08 00:00:00',
+            'data_conclusao'=> '2017-05-15 00:00:00',
+            'id_evento'=> 6 ,
+            'id_tipo_atividade'=> 2,
         ]);
         factory(App\Entities\Activity::class)->create([
             'nome' => 'PHP Avançado',
@@ -174,63 +243,10 @@ class PopulacaoTeste extends Seeder
             'local'=> 'IFTO - Campus Paraíso',
             'qtd_inscritos' => '40',
             'cod_inscritos'=> '9090',
-            'data_inicio'=> '08/07/2017',
-            'data_conclusao'=> '15/05/2017',
-        ]);
-        //Eventos
-        factory(App\Entities\Event::class)->create([
-            'nome' => 'II Semana Agroinformática de Paraíso do Tocantins',
-            'descricao' => 'Evento contará com a presença de vários professores renomados, palestras e mini cursos.',
-            'status'=> 'true',
-            'local'=> 'IFTO - Campus Paraíso',
-            'data_inicio'=> '10/07/2017',
-            'data_conclusao'=> '15/07/2017',
-        ]);
-        factory(App\Entities\Event::class)->create([
-            'nome' => 'II Semana Agroinformática de Paraíso do Tocantins',
-            'descricao' => 'Evento contará com a presença de vários professores renomados, palestras e mini cursos.',
-            'status'=> 'true',
-            'local'=> 'IFTO - Campus Paraíso',
-            'data_inicio'=> '10/07/2017',
-            'data_conclusao'=> '15/07/2017',
-            'logoEvento'=> 'Agroinformática',
-        ]);
-        factory(App\Entities\Event::class)->create([
-            'nome' => 'II ciclo de palestras: os saberes da agricultura indígena.',
-            'descricao' => 'Evento contará com a presença de vários professores renomados, palestras e mini cursos.',
-            'status'=> 'true',
-            'local'=> 'IFTO - Campus Paraíso',
-            'data_inicio'=> '10/07/2017',
-            'data_conclusao'=> '15/07/2017',
-            'logoEvento'=> 'Indígena',
-        ]);
-        factory(App\Entities\Event::class)->create([
-            'nome' => 'IV SEMAD (Semana Acadêmica de Administração)',
-            'descricao' => 'Evento contará com a presença de vários professores renomados, palestras e mini cursos.',
-            'status'=> 'true',
-            'local'=> 'IFTO - Campus Paraíso',
-            'data_inicio'=> '28/08/2017',
-            'data_conclusao'=> '30/08/2017',
-            'logoEvento'=> 'SEMAD',
-        ]);
-        factory(App\Entities\Event::class)->create([
-            'nome' => 'Semana Tecnológica',
-            'descricao' => 'Evento contará com a presença de vários professores renomados, palestras e mini cursos.',
-            'status'=> 'true',
-            'local'=> 'IFTO - Campus Paraíso',
-            'data_inicio'=> '24/10/2017',
-            'data_conclusao'=> '27/10/2017',
-            'logoEvento'=> 'Tecnológica',
-        ]);
-        factory(App\Entities\Event::class)->create([
-            'nome' => 'II Jornada Acadêmica Multidisciplinar ( IV SATECA; IV SEMAQ; VII SEMAT e V 
-            Jornada Tocantinense de Gestão TI)',
-            'descricao' => 'Evento contará com a presença de vários professores renomados, palestras e mini cursos.',
-            'status'=> 'true',
-            'local'=> 'IFTO - Campus Paraíso',
-            'data_inicio'=> '24/10/2017',
-            'data_conclusao'=> '27/10/2017',
-            'logoEvento'=> 'Tecnológica',
+            'data_inicio'=> '2017-07-08 00:00:00',
+            'data_conclusao'=> '2017-05-15 00:00:00',
+            'id_evento'=> 6 ,
+            'id_tipo_atividade'=> 2,
         ]);
 
         //Tipo de atividade do usuário
@@ -251,90 +267,75 @@ class PopulacaoTeste extends Seeder
         ]);
 
         //Atividade do usuário
-        factory(App\Entities\ActivityUser::class)->create([
-            'status'=> '1',
-            'presenca' => 'Confirmada',
-            'data_entrada' => '10/07/17',
-            'data_saida' => '15/10/2017',
-        ]);
-        factory(App\Entities\ActivityUser::class)->create([
-            'status'=> '1',
-            'presenca' => 'Falta',
-            'data_entrada' => '10/07/17',
-            'data_saida' => '12/10/2017',
-        ]);
+
         //Artigos
         factory(App\Entities\Article::class)->create([
             'titulo'    => 'SDD - Implantação de sistema para distribuição de disciplinas',
-            'resumo'    => 'A eficiência na realização de tarefas rotineiras de cunho administrativo em instituições de ensino, em especial as que são efetuadas de forma centralizada, muitas vezes comprometem o bom andamento das tarefas acadêmicas primordiais, principalmente quando estas atividades ocorrem de forma manual. 
-             No contexto atual cada dia mais se faz necessário a implementação de soluções tecnológicas nas organizações  para solucionar problemas e agilizar processos que existem e acontecem muitas das vezes de forma manual e repetitiva. Uma solução de grande relevância para inovar esses processos que ocorrem de forma estática  seria a utilização de aplicações WEB para o desenvolvimento de soluções que irão automatizar essas atividades, pois várias são as vantagens em utilizá-la. Alguns benefícios são a facilidade no acesso, que significa que em qualquer local você pode facilmente acessar as informações contidas na aplicação, outra grande vantagem é  a possibilidade de acessar a aplicação sem a necessidade de instalar nada no computador,
-             somente utilizando um browser você poderá acessar  a aplicação.',
+            'resumo'    => 'A eficiência na realização ',
             'autores'   => 'Giovanni, Pedro César, Marcos Paulo',
             'local'     => 'Paraíso do Tocantins',
             'subtitulo' => 'SDD',
             'situacao'  => 'Concluído',
-            'status'    =>  'true',
+            'status'    =>  1,
         ]);
         factory(App\Entities\Article::class)->create([
             'titulo'    => 'Segurança dos Dados',
-            'resumo'    => 'A eficiência na realização de tarefas rotineiras de cunho administrativo em instituições de ensino, em especial as que são efetuadas de forma centralizada, muitas vezes comprometem o bom andamento das tarefas acadêmicas primordiais, principalmente quando estas atividades ocorrem de forma manual. 
-             No contexto atual cada dia mais se faz necessário a implementação de soluções tecnológicas nas organizações  para solucionar problemas e agilizar processos que existem e acontecem muitas das vezes de forma manual e repetitiva. Uma solução de grande relevância para inovar esses processos que ocorrem de forma estática  seria a utilização de aplicações WEB para o desenvolvimento de soluções que irão automatizar essas atividades, pois várias são as vantagens em utilizá-la. Alguns benefícios são a facilidade no acesso, que significa que em qualquer local você pode facilmente acessar as informações contidas na aplicação, outra grande vantagem é  a possibilidade de acessar a aplicação sem a necessidade de instalar nada no computador,
-             somente utilizando um browser você poderá acessar  a aplicação.',
+            'resumo'    => 'A eficiência na realização ',
             'autores'   => 'Geverson',
             'local'     => 'Paraíso do Tocantins',
             'subtitulo' => 'Segurança',
             'situacao'  => 'Concluído',
-            'status'    =>  'true',
+            'status'    =>  1,
         ]);
         factory(App\Entities\Participation::class)->create([
             'nome' => 'Marcos',
             'descricao'=> 'Participante',
-            'status' => 'true',
+            'status' => 1,
         ]);
         factory(App\Entities\Participation::class)->create([
             'nome' => 'Marques',
             'descricao'=> 'Administrador',
-            'status' => 'true',
+            'status' => 1,
         ]);
         factory(App\Entities\Participation::class)->create([
             'nome' => 'Álvaro',
             'descricao'=> 'Organizador',
-            'status' => 'false',
+            'status' => 0,
         ]);
         factory(App\Entities\Participation::class)->create([
             'nome' => 'Rômulo',
             'descricao'=> 'Participante',
-            'status' => 'true',
+            'status' => 1,
         ]);
         factory(App\Entities\Participation::class)->create([
             'nome' => 'Marcos Paulo',
             'descricao'=> 'Participante',
-            'status' => 'true',
+            'status' => 1,
         ]);
         factory(App\Entities\Participation::class)->create([
             'nome' => 'Múcio',
             'descricao'=> 'Participante',
-            'status' => 'true',
+            'status' => 1,
         ]);
         factory(App\Entities\Participation::class)->create([
             'nome' => 'Guilherme',
             'descricao'=> 'Participante',
-            'status' => 'true',
+            'status' => 1,
         ]);
         factory(App\Entities\Participation::class)->create([
             'nome' => 'Juliana',
             'descricao'=> 'Participante',
-            'status' => 'true',
+            'status' => 1,
         ]);
         factory(App\Entities\Participation::class)->create([
             'nome' => 'Dolores',
             'descricao'=> 'Participante',
-            'status' => 'true',
+            'status' => 1,
         ]);
         factory(App\Entities\Participation::class)->create([
             'nome' => 'Joaquina',
             'descricao'=> 'Participante',
-            'status' => 'true',
+            'status' => 1,
         ]);
 
         //Instituições
@@ -343,7 +344,7 @@ class PopulacaoTeste extends Seeder
             'site' => 'https://paraiso.ifto.edu.br/',
             'email' => 'https://paraiso.ifto.edu.br/',
             'descricao' => 'Localizada em Paraíso do Tocantins',
-            'status' => 'true',
+            'status' => 1,
             'telefone' => '633610300',
         ]);
         factory(App\Entities\Instution::class)->create([
@@ -351,7 +352,7 @@ class PopulacaoTeste extends Seeder
             'site' => 'https://palmas.ifto.edu.br/',
             'email' => 'https://palmas.ifto.edu.br/',
             'descricao' => 'Localizada em Palmas do Tocantins',
-            'status' => 'true',
+            'status' => 1,
             'telefone' => '6332364000',
         ]);
         factory(App\Entities\Instution::class)->create([
@@ -359,7 +360,7 @@ class PopulacaoTeste extends Seeder
             'site' => 'http://ww2.uft.edu.br/',
             'email' => 'dirpalmas@uft.edu.br',
             'descricao' => 'Localizada em Palmas do Tocantins',
-            'status' => 'true',
+            'status' => 1,
             'telefone' => '6332328020',
         ]);
 
@@ -367,22 +368,44 @@ class PopulacaoTeste extends Seeder
         factory(App\Entities\Course::class)->create([
             'nome' => 'Sistemas de Informação',
             'descricao' => 'Curso possui oito períodos',
-            'status' => 'true',
+            'status' => 1,
+            'id_instutions' => 1,
         ]);
         factory(App\Entities\Course::class)->create([
             'nome' => 'Administração',
             'descricao' => 'Curso possui oito períodos',
-            'status' => 'true',
+            'status' => 1,
+            'id_instutions' => 1,
         ]);
         factory(App\Entities\Course::class)->create([
             'nome' => 'Matemática',
             'descricao' => 'Curso possui oito períodos',
-            'status' => 'true',
+            'status' => 1,
+            'id_instutions' => 1,
         ]);
         factory(App\Entities\Course::class)->create([
             'nome' => 'Química',
             'descricao' => 'Curso possui oito períodos',
-            'status' => 'true',
+            'status' => 1,
+            'id_instutions' => 1,
+        ]);
+        factory(App\Entities\ActivityUser::class)->create([
+            'status'=> '1',
+            'presenca' => 1,
+            'data_entrada' => '2017-07-10 00:00:00',
+            'data_saida' => '2017-10-15 00:00:00',
+            'id_users' => 2,
+            'id_activity' => 3,
+            'id_type_activity_user' => 1,
+        ]);
+        factory(App\Entities\ActivityUser::class)->create([
+            'status'=> '1',
+            'presenca' => 0,
+            'data_entrada' => '2017-07-10 00:00:00',
+            'data_saida' => '2017-10-12 00:00:00',
+            'id_users' => 1,
+            'id_activity' => 4,
+            'id_type_activity_user' => 1,
         ]);
 
     }
