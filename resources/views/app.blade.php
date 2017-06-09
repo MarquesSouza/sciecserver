@@ -36,67 +36,71 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="{{ url('/') }}"><img src="{{ asset('imagens/logosciecp.png') }}" height="50px" width="125px"></a> <!--Adicionar Rotas-->
+            <a href="{{ url('/') }}"><img src="{{ asset('imagens/logosciecp.png') }}" height="50px" width="125px"></a>
+            <!--Adicionar Rotas-->
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-brand">
-                <li><a style="color: #2a88bd" href="{{ url('/') }}">Página Inicial<span class="sr-only">(current)</span></a></li>
+                <li><a style="color: #2a88bd" href="{{ url('/') }}">Página Inicial<span class="sr-only">(current)</span></a>
+                </li>
                 <li>
-                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Eventos</a>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}">Eventos</a>
 
                 </li>
                 <li>
-                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Muda link</a>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}">Muda link</a>
 
                 </li>
                 <li>
-                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Certificados</a>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}">Certificados</a>
 
                 </li>
                 <li>
-                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Artigos</a>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}">Artigos</a>
 
                 </li>
                 <li>
-                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Informações</a>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}">Informações</a>
 
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right text-center ">
                 @if (Auth::guest())
-                        <li><a href="{{ url('login') }}"> <!--Adicionar Rotas-->
-                                <button class="btn btn-primary">
-                                    <i class="fa fa-search fa-fw"></i>
-                                    Login
-                                </button>
-                            </a></li>
-                        <li><a href="{{ url('register') }}"> <!--Adicionar Rotas-->
-                                <button class="btn btn-success">
-                                    <i class="fa fa-search fa-fw"></i>
-                                    Cadastre-se
-                                </button>
-                            </a></li>
+                    <li><a href="{{ url('login') }}"> <!--Adicionar Rotas-->
+                            <button class="btn btn-primary">
+                                <i class="fa fa-search fa-fw"></i>
+                                Login
+                            </button>
+                        </a></li>
+                    <li><a href="{{ url('register') }}"> <!--Adicionar Rotas-->
+                            <button class="btn btn-success">
+                                <i class="fa fa-search fa-fw"></i>
+                                Cadastre-se
+                            </button>
+                        </a></li>
 
                 @else
-                        <li class="dropdown">
-                            <a href="#" style="color: #2a88bd" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+                    <li class="dropdown">
+                        <a href="#" style="color: #2a88bd" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
+                                    Logout
+                                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
 
                     </li>
                 @endif
@@ -105,7 +109,7 @@
     </div>
 </nav>
 
-@yield('content')
+
 
 <body>
 <div>
@@ -113,52 +117,18 @@
 </div>
 </body>
 
-@yield('body')
-
 <!--Footer-->
-<footer class="footer page-footer green center-on-small-only-only">
-    <!--Footer Links-->
-    <div class="container-fluid">
-        <div class="row">
-            <!--First column-->
-            <div class="col-md-3 offset-md-1">
-                <h5 class="title"></h5>
-                <p>Links Úteis sobre Eventos</p>
-            </div>
-            <!--/.First column-->
-
-            <!--Second column-->
-            <div class="col-md-2 offset-md-1">
-                <h5 class="title"></h5>
-            </div>
-            <!--/.Second column-->
-
-            <!--Third column-->
-            <div class="col-md-2">
-                <h5 class="title"></h5>
-            </div>
-            <!--/.Third column-->
-            <!--Fourth column-->
-            <div class="col-md-2">
-                <h5 class="title"></h5>
-            </div>
-            <!--/.Fourth column-->
-        </div>
-    </div>
-    <!--/.Footer Links-->
-
+<footer class="footer page-footer">
     <!--Copyright-->
     <div class="footer-copyright">
         <div class="container-fluid">
-            © 2017 Copyright: <a href="https://ifto.paraiso.edu.br"  rel="nofollow"> 5º Periodo S.I IFTO - Campus Paraíso </a>
-
+            © 2017 Copyright: <a href="https://ifto.paraiso.edu.br" rel="nofollow"> 5º Periodo S.I IFTO - Campus Paraíso </a>
         </div>
     </div>
     <!--/.Copyright-->
-
 </footer>
 <!--/.Footer-->
-@yield('footer')
+@yield('content')
 
 
 <!-- Scripts -->
