@@ -145,7 +145,11 @@ class EventsController extends Controller
         }
 
            }
+    public function evento_user($id){
 
+
+
+    }
     /**
      * Show the form for editing the specified resource.
      *
