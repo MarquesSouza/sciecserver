@@ -21,7 +21,6 @@ class CreateCoursesTable extends Migration
             $table->boolean('status');
             $table->integer('id_instutions')->unsigned();
             $table->foreign('id_instutions')->references('id')->on('instutions')->onDelete('cascade');
-
             $table->timestamps();
         });
     }
