@@ -55,12 +55,12 @@ class ActivitiesController extends Controller
         $userEvent->setAttribute('id_articles',1);
         $userEvent->setAttribute('id_participation',1);
         if($userEvent->valida()){
-            echo "<script>alert('Parabéns!! Você Não Está Cadastrado No Evento, Escolha a Sua Atividade!');</script>";
+          //  echo "<script>alert('Parabéns!! Você Não Está Cadastrado No Evento, Escolha a Sua Atividade!');</script>";
             return redirect('evento/show/'.$id);
 
             //pagina para mensagem que ja ta cadastrador
         }else{
-            echo "<script>alert('Parabéns!! Você Está Cadastrado No Evento, Escolha a Sua Atividade!');</script>";
+          //  echo "<script>alert('Parabéns!! Você Está Cadastrado No Evento, Escolha a Sua Atividade!');</script>";
         }
 
         $activities= Activity::all()->where('id_evento','=',$id);
@@ -86,11 +86,9 @@ class ActivitiesController extends Controller
         $activityUser->data_saida="2017-01-01 00:00:00";
         if($activityUser->valida()){
             $activityUser->save();
-            return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
-        }else{
-            return redirect('/');
-            //pagina para mensagem que ja ta cadastrador
+            return redirect('evento/'.$id_evento.'/atividade/index');
         }
+        return redirect('evento/'.$id_evento.'/atividade/index');
 
     }
 
