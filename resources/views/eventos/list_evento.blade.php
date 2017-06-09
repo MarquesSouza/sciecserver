@@ -14,8 +14,6 @@
                     <th>Data de Início </th>
                     <th>Data de Conclusão</th>
                     <th>Logo do Evento</th>
-
-
                      <tr>
                         @forelse ($events as $ev)
 

@@ -12,6 +12,7 @@ class HomeController extends Controller
      * @return void
      */
 
+
     // Controller View Usuario (Carioca)
     public function index()
     {

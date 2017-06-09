@@ -6,14 +6,18 @@ use App\Entities\Course;
 use App\Entities\Event;
 use App\Entities\UserEvent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\EventCreateRequest;
 use App\Http\Requests\EventUpdateRequest;
 use App\Repositories\EventRepository;
 use App\Validators\EventValidator;
+
+
 
 
 class EventsController extends Controller
@@ -33,6 +37,8 @@ class EventsController extends Controller
     {
         $this->repository = $repository;
         $this->validator  = $validator;
+        $this->middleware('auth');
+
     }
 
 
@@ -121,14 +127,22 @@ class EventsController extends Controller
 
         return view('eventos.exibir_evento',compact('events'));
     }
-    public function insc_evento($id){
-         $userEvent= new UserEvent();
-         $userEvent->setIdUser(Auth::user()->id);
-         $userEvent->setIdEventos($id);
-         $userEvent->setIdArticles(1);
-        $userEvent->setIdParticipation(1);
 
-    }
+   public function insc_evento($id){
+
+         $userEvent= new UserEvent();
+         $userEvent->id_users = Auth::user()->id;
+        $userEvent->id_evento = $id;
+       $userEvent->setAttribute('id_articles',1);
+        $userEvent->setAttribute('id_participation',2);
+        $userEvent->setAttribute('status',1);
+        if($userEvent->valida()){
+            $userEvent->save();
+        }else{
+           //messagem erro
+        }
+
+           }
 
     /**
      * Show the form for editing the specified resource.
