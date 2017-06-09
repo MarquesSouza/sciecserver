@@ -17,7 +17,7 @@ class Activity extends Model implements Transformable
                             'qtd_inscritos',
                             'cod_inscritos',
                             'data_inicio',
-                           // 'id_evento',
+                            'id_evento',
                             'id_tipo_atividade',
                             'status'
                 ];
