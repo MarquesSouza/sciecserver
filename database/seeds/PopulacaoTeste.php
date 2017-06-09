@@ -43,6 +43,8 @@ class PopulacaoTeste extends Seeder
 
         //Usuário Tipo de Usuário
         factory(App\Entities\UserTypeUser::class)->create([
+            'id_user'=> ,
+            'id_type_user' => ,
             'status' => true,
         ]);
 
@@ -367,10 +369,6 @@ class PopulacaoTeste extends Seeder
             'descricao' => 'Curso possui oito períodos',
             'status' => 'true',
         ]);
-        // Erro nessa dois
-        factory(App\Entities\CourseEvent::class,5)->create();
-        factory(App\Entities\UserEvent::class)->create([
-            'status' => 'true',
-        ]);
+
     }
 }

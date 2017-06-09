@@ -367,10 +367,6 @@ class SciecTableSeeder extends Seeder
             'descricao' => 'Curso possui oito períodos',
             'status' => 'true',
         ]);
-        // Erro nessa dois
-        factory(App\Entities\CourseEvent::class,5)->create();
-        factory(App\Entities\UserEvent::class)->create([
-            'status' => 'true',
-        ]);
+
     }
 }
