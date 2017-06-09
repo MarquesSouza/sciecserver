@@ -1,25 +1,14 @@
 @include('form._form1')
 <!-- Select Basic -->
 <div class="form-group">
-    <label class="col-md-4 control-label" for="selectbasic">Instituição</label>
-    <div class="col-md-4">
-        <select id="selectbasic" name="selectbasic" class="form-control">
-            <option value="1">IFTO - Campus Paraíso do Tocantins</option>
-            <option value="2">IFTO - Campus Palmas</option>
-            <option value="3">UFT - Campus Palmas</option>
-        </select>
-    </div>
-</div>
-
-
-<!-- Select Basic -->
-<div class="form-group">
     <label class="col-md-4 control-label" for="selectbasic">Curso</label>
     <div class="col-md-4">
         <select id="selectbasic" name="selectbasic" class="form-control">
-            <option value="1">Bacharelado em Sistemas de Informação</option>
-            <option value="2">Bacharelado em Administração</option>
-            <option value="3">Licenciatura em Quimica</option>
+            @forelse ( $cursos as $c)
+                <option value="{{$c->id}}">{{$c->nome}}</option>
+            @empty
+                <p>No type_users</p>
+            @endforelse
         </select>
     </div>
 </div>
