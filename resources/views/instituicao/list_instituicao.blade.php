@@ -6,6 +6,9 @@
     </div>
     <div class="container">
         <div class="row">
+            <br><br>
+            <a href="{{ url('instituicao/cad') }}" class="btn btn-default">Nova Intituiçao</a>
+            <br><br>
 
                 <table class="table table-inverse">
                     <th>Nome</th>

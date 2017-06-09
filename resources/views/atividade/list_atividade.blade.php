@@ -6,7 +6,11 @@
     </div>
     <div class="container">
         <div class="row">
-                 <table class="table table-inverse">
+            <br><br>
+            <a href="{{ url('atividade/cad') }}" class="btn btn-default">Novo Atividade</a>
+            <br><br>
+
+            <table class="table table-bordered table-inverse">
                     <tr>
                     <th>Nome</th>
                     <th>Descricao</th>

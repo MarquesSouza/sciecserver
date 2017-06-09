@@ -6,6 +6,9 @@
     </div>
     <div class="container">
         <div class="row">
+            <br><br>
+            <a href="{{ url('atividade/config/cad') }}" class="btn btn-default">Novo Tipo Atividade</a>
+            <br><br>
 
                 <table class="table table-inverse">
                     <th>Nome </th>

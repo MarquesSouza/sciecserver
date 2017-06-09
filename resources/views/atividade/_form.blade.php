@@ -21,7 +21,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="cod_inscritos">Código de Inscrição</label>
         <div class="col-md-5">
-            <input id="local" name="local" type="text" placeholder="Local da Atividade"
+            <input id="local" name="local" type="text" placeholder="Do Local da Atividade"
                    class="form-control input-md" required="">
 
         </div>
