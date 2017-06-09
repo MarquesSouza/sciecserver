@@ -9,7 +9,7 @@
             <br><br>
 
             <table class="table table-bordered table-inverse">
-                    <tr>
+                <tr>
                     <th>Nome</th>
                     <th>Descricao</th>
                     <th>status</th>
@@ -19,16 +19,16 @@
                     <th>Cod Inscritos</th>
                     <th>Data de Início</th>
                     <th>Data de Conclusão</th>
-                    <th>Editar</th>
-                     <th>Excluir</th>
+                    <th>Concluir</th>
 
-                    </tr>
-                    <tr>
-                        @forelse ($activities as $a)
-                            <form action="{{url('evento/'.$a->id_evento.'/atividade/insc_atividade/'.$a->id)}}" method="post">
-                                {{csrf_field()}} <br><br>
 
-                                <td>{{ $a->nome }}</td>
+                </tr>
+                <tr>
+                    @forelse ($activities as $a)
+                        <form action="{{url('evento/'.$a->id_evento.'/atividade/insc_atividade/'.$a->id)}}" method="post">
+                            {{csrf_field()}} <br><br>
+
+                            <td>{{ $a->nome }}</td>
                             <td>{{ $a->descricao }}</td>
                             <td>{{ $a->status }}</td>
                             <td>{{ $a->hora }}</td>
@@ -37,21 +37,19 @@
                             <td>{{ $a->cod_inscritos }}</td>
                             <td>{{ $a->data_inicio }}</td>
                             <td>{{ $a->data_conclusao }}</td>
-                                <td>
-                                    <a href="{{url('usuario/config/edit/{id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
-                                </td>
-                                <td>
-                                    <a href="{{url('usuario/config/edit/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
-                                </td>
+                            <td>
+                                <button type="submit" >Confirmar Inscrição</button></td>
 
-                            </form>
-                    </tr>
-                    @empty
+                            </td>
 
-                        <p>No activities</p>
-                    @endforelse
+                        </form>
+                </tr>
+                @empty
 
-                </table>
+                    <p>No activities</p>
+                @endforelse
+
+            </table>
 
         </div>
     </div>
