@@ -53,13 +53,13 @@ class PopulacaoTeste extends Seeder
             'status' => 1,
             'nome' => 'Administrador',
             'descricao' => 'Criar e editar eventos, usuários etc.',
-
         ]);
         factory(App\Entities\TypeUser::class)->create([
             'status' => 1,
             'nome' => 'Administrador',
             'descricao' => 'Criar e editar eventos, usuários etc.',
         ]);
+
         //Usuário Tipo de Usuário
         factory(App\Entities\UserTypeUser::class)->create([
             'id_user'=> 1,
@@ -99,8 +99,6 @@ class PopulacaoTeste extends Seeder
             'descricao' => 'Palestras 2017',
             'status'=> '1',
         ]);
-
-        //Atividades
 
         //Eventos
         factory(App\Entities\Event::class)->create([
@@ -157,6 +155,8 @@ class PopulacaoTeste extends Seeder
             'data_conclusao'=> '2017-10-27 00:00:00',
             'logoEvento'=> 'Tecnológica',
         ]);
+
+        //Atividades
         factory(App\Entities\Activity::class)->create([
             'nome' => 'Mineração de Dados',
             'descricao' => 'Curso completo.',
@@ -266,12 +266,10 @@ class PopulacaoTeste extends Seeder
             'status'=> '1',
         ]);
 
-        //Atividade do usuário
-
         //Artigos
         factory(App\Entities\Article::class)->create([
             'titulo'    => 'SDD - Implantação de sistema para distribuição de disciplinas',
-            'resumo'    => 'A eficiência na realização ',
+            'resumo'    => 'A eficiência na realização.',
             'autores'   => 'Giovanni, Pedro César, Marcos Paulo',
             'local'     => 'Paraíso do Tocantins',
             'subtitulo' => 'SDD',
@@ -280,7 +278,7 @@ class PopulacaoTeste extends Seeder
         ]);
         factory(App\Entities\Article::class)->create([
             'titulo'    => 'Segurança dos Dados',
-            'resumo'    => 'A eficiência na realização ',
+            'resumo'    => 'Banco de dados mais seguros.',
             'autores'   => 'Geverson',
             'local'     => 'Paraíso do Tocantins',
             'subtitulo' => 'Segurança',
@@ -407,6 +405,5 @@ class PopulacaoTeste extends Seeder
             'id_activity' => 4,
             'id_type_activity_user' => 1,
         ]);
-
     }
 }
