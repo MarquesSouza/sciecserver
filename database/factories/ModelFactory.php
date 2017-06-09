@@ -46,9 +46,6 @@ $factory->define(App\Entities\TypeUser::class, function (Faker\Generator $faker)
 });
 
 
-//legal
-
-
 $factory->define(App\Entities\TypeActivity::class, function (Faker\Generator $faker) {
     return [
         'nome' => $faker->name,
@@ -56,6 +53,7 @@ $factory->define(App\Entities\TypeActivity::class, function (Faker\Generator $fa
         'status'=> $faker->numberBetween(0,1),
     ];
 });
+
 $factory->define(App\Entities\Activity::class, function (Faker\Generator $faker) {
     return [
         'nome' => $faker->name,
