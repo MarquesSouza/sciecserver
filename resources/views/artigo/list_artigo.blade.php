@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <br><br>
-            <a href="{{ url('artigo/cad') }}" class="btn btn-default">Novo Artigo</a>
+            <a href="{{ url('participacao/cad') }}" class="btn btn-default">Novo Artigo</a>
             <br><br>
 
                 <table class="table table-bordered table-inverse">
@@ -17,6 +17,8 @@
                     <th>Autores </th>
                     <th>Subtitulo </th>
                     <th>Situação </th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
 
                     <tr>
                         @forelse ($artigo as $a)
@@ -27,6 +29,13 @@
                             <td>{{ $a->local }}</td>
                             <td>{{ $a->subtitulo }}</td>
                             <td>{{ $a->situacao }}</td>
+                            <td>
+                                <a href="{{url('participacao/edite/{id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                            </td>
+                            <td>
+                                <a href="{{url('participacao/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
+                            </td>
+
                     </tr>
                     @empty
                         <p>No users</p>

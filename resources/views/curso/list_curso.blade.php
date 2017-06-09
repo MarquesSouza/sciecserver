@@ -7,20 +7,26 @@
     <div class="container">
         <div class="row">
             <br><br>
-            <a href="{{ url('evento/cad') }}" class="btn btn-default">Novo Curso</a>
+            <a href="{{ url('curso/cad') }}" class="btn-primary btn btn-default">Novo Curso</a>
             <br><br>
 
                 <table class="table table-bordered table-inverse">
                     <th>Nome </th>
                     <th>Descricao </th>
-                    <th>Telefone </th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
 
                     <tr>
                         @forelse ($courses as $c)
 
                             <td>{{ $c->nome }}</td>
                             <td>{{ $c->descricao }}</td>
-                            <td>{{ $c->telefone }}</td>
+                            <td>
+                                <a href="{{url('curso/edite/{id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                            </td>
+                            <td>
+                                <a href="{{url('curso/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
+                            </td>
 
                     </tr>
                     @empty
