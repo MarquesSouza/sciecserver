@@ -13,9 +13,9 @@
                 <table class="table table-bordered table-inverse">
                     <th>Nome</th>
                     <th>Descricão</th>
-                    <th>status</th>
-                    <th>editar</th>
-                    <th>excluir</th>
+                    <th>Status</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
 
 
                     <tr>

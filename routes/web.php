@@ -135,14 +135,16 @@ Route::delete('evento/delete/{id}', 'EventsController@destroy')->middleware('aut
 Route::get('evento/edit/{id}', 'EventsController@edit')->middleware('auth');
 Route::put('evento/update/{id}', 'EventsController@update')->middleware('auth');
 
+Route::get('evento/eventos', 'EventsController@evento_user')->middleware('auth');// feito
 //Atividade
-Route::get('evento/{id}/atividade/cad', 'ActivitiesController@form_cad')->middleware('auth');// feito
-Route::get('evento/{id}/atividade/index', 'ActivitiesController@index')->middleware('auth');// feito
-Route::post('evento/{id}/atividade/store', 'ActivitiesController@store')->middleware('auth');//fazendo
-Route::get('evento/{id_event}/atividade/show/{id1}', 'ActivitiesController@show')->middleware('auth');//feito
-Route::delete('evento/{id}/atividade/delete/{id1}', 'ActivitiesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
-Route::get('evento/{id}/atividade/edit/{id1}', 'ActivitiesController@edit')->middleware('auth');
-Route::put('evento/{id}/atividade/update/{id1}', 'ActivitiesController@update')->middleware('auth');
+Route::get('evento/{id_evento}/atividade/cad', 'ActivitiesController@form_cad')->middleware('auth');// feito
+Route::get('evento/{id_evento}/atividade/index', 'ActivitiesController@index')->middleware('auth');// feito
+Route::post('evento/{id_evento}/atividade/store', 'ActivitiesController@store')->middleware('auth');//fazendo
+Route::get('evento/{id_evento}/atividade/show/{id}', 'ActivitiesController@show')->middleware('auth');//feito
+Route::delete('evento/{id_evento}/atividade/delete/{id}', 'ActivitiesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::get('evento/{id_evento}/atividade/edit/{id}', 'ActivitiesController@edit')->middleware('auth');
+Route::put('evento/{id_evento}/atividade/update/{id}', 'ActivitiesController@update')->middleware('auth');
+Route::post('evento/{id_evento}/atividade/insc_atividade/{id}', 'ActivitiesController@insc_atividade')->middleware('auth');//feito
 
 
 // obs: as outras tabelas assegir sao tabelas n pra n

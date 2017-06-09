@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Activity;
+use App\Entities\ActivityUser;
 use App\Entities\Event;
 use App\Entities\TypeActivity;
+use App\Entities\UserEvent;
 use function GuzzleHttp\Promise\all;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -34,6 +37,7 @@ class ActivitiesController extends Controller
     {
         $this->repository = $repository;
         $this->validator  = $validator;
+        $this->middleware('auth');
     }
 
 
@@ -42,17 +46,50 @@ class ActivitiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $activities = $this->repository->all();
+
+        $userEvent= new UserEvent();
+        $userEvent->id_users = Auth::user()->id;
+        $userEvent->id_evento = $id;
+        $userEvent->setAttribute('id_articles',1);
+        $userEvent->setAttribute('id_participation',1);
+        if($userEvent->valida()){
+          //  echo "<script>alert('Parabéns!! Você Não Está Cadastrado No Evento, Escolha a Sua Atividade!');</script>";
+            return redirect('evento/show/'.$id);
+
+            //pagina para mensagem que ja ta cadastrador
+        }else{
+          //  echo "<script>alert('Parabéns!! Você Está Cadastrado No Evento, Escolha a Sua Atividade!');</script>";
+        }
+
+        $activities= Activity::all()->where('id_evento','=',$id);
+
+
         if (request()->wantsJson()) {
 
             return response()->json([
                 'data' => $activities,
             ]);
         }
-        return view('atividade.list_atividade', compact('activities'));
+        return view('atividade.exibir_atividade', compact('activities'));
+    }
+    public function insc_atividade($id_evento,$id){
+
+        $activityUser= new ActivityUser();
+        $activityUser->id_users= Auth::user()->id;
+        $activityUser->id_activity=$id;
+        $activityUser->id_type_activity_user=1;
+        $activityUser->status=1;
+        $activityUser->presenca=0;
+        $activityUser->data_entrada="2017-01-01 00:00:00";
+        $activityUser->data_saida="2017-01-01 00:00:00";
+        if($activityUser->valida()){
+            $activityUser->save();
+            return redirect('evento/'.$id_evento.'/atividade/index');
+        }
+        return redirect('evento/'.$id_evento.'/atividade/index');
+
     }
 
     /**
@@ -109,18 +146,20 @@ class ActivitiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_evento,$id)
     {
-        $activity = $this->repository->find($id);
+
+        $activities= Activity::all()->where('id','=',$id);
+
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $activity,
+                'data' => $activities,
             ]);
         }
 
-        return view('atividade.list_atividade', compact('activity'));
+        return view('atividade.list_atividade', compact('activities'));
     }
 
 

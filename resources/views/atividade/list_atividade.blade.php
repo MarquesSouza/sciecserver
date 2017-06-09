@@ -7,8 +7,6 @@
     <div class="container">
         <div class="row">
             <br><br>
-            <a href="{{ url('atividade/cad') }}" class="btn-primary btn btn-default">Novo Atividade</a>
-            <br><br>
 
             <table class="table table-bordered table-inverse">
                     <tr>
@@ -27,8 +25,10 @@
                     </tr>
                     <tr>
                         @forelse ($activities as $a)
+                            <form action="{{url('evento/'.$a->id_evento.'/atividade/insc_atividade/'.$a->id)}}" method="post">
+                                {{csrf_field()}} <br><br>
 
-                            <td>{{ $a->nome }}</td>
+                                <td>{{ $a->nome }}</td>
                             <td>{{ $a->descricao }}</td>
                             <td>{{ $a->status }}</td>
                             <td>{{ $a->hora }}</td>
@@ -37,16 +37,17 @@
                             <td>{{ $a->cod_inscritos }}</td>
                             <td>{{ $a->data_inicio }}</td>
                             <td>{{ $a->data_conclusao }}</td>
-                            <td>
-                                <a href="{{url('atividade/edite/{id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
-                            </td>
-                            <td>
-                                <a href="{{url('atividade/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
-                            </td>
+                                <td>
+                                    <a href="{{url('usuario/config/edit/{id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                                </td>
+                                <td>
+                                    <a href="{{url('usuario/config/edit/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
+                                </td>
 
-
+                            </form>
                     </tr>
                     @empty
+
                         <p>No activities</p>
                     @endforelse
 

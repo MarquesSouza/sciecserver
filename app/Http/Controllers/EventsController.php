@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entities\Course;
 use App\Entities\Event;
 use App\Entities\UserEvent;
+use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,6 +17,8 @@ use App\Http\Requests\EventCreateRequest;
 use App\Http\Requests\EventUpdateRequest;
 use App\Repositories\EventRepository;
 use App\Validators\EventValidator;
+
+
 
 
 class EventsController extends Controller
@@ -34,7 +37,7 @@ class EventsController extends Controller
     public function __construct(EventRepository $repository, EventValidator $validator)
     {
         $this->repository = $repository;
-        $this->validator = $validator;
+        $this->validator  = $validator;
         $this->middleware('auth');
 
     }
@@ -69,10 +72,9 @@ class EventsController extends Controller
      */
     public function form_cad()
     {
-        $cursos = Course::all();
-        return view('evento.cad_evento', compact('cursos'));
+        $cursos= Course::all();
+            return view('evento.cad_evento',compact('cursos'));
     }
-
     public function store(EventCreateRequest $request)
     {
 
@@ -84,7 +86,7 @@ class EventsController extends Controller
 
             $response = [
                 'message' => 'Event created.',
-                'data' => $event->toArray(),
+                'data'    => $event->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -96,7 +98,7 @@ class EventsController extends Controller
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
-                    'error' => true,
+                    'error'   => true,
                     'message' => $e->getMessageBag()
                 ]);
             }
@@ -120,31 +122,35 @@ class EventsController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $events,
-            ]);
-        }
+              'data' => $events,
+           ]);
+      }
 
-        return view('evento.exibir_evento', compact('events'));
+        return view('evento.exibir_evento',compact('events'));
     }
 
-    public function insc_evento($id)
-    {
+   public function insc_evento($id){
 
-        $userEvent = new UserEvent();
-        $userEvent->id_users = Auth::user()->id;
+         $userEvent= new UserEvent();
+         $userEvent->id_users = Auth::user()->id;
         $userEvent->id_evento = $id;
-        $userEvent->setAttribute('id_articles', 1);
-        $userEvent->setAttribute('id_participation', 3);
-        $userEvent->setAttribute('status', 1);
-        if ($userEvent->valida()) {
+       $userEvent->setAttribute('id_articles',1);
+        $userEvent->setAttribute('id_participation',1);
+        $userEvent->setAttribute('status',1);
+        if($userEvent->valida()){
             $userEvent->save();
-            return redirect()->route('/');
-        } else {
-            return redirect()->route('/');
+            return redirect('evento/'.$id.'/atividade/index');
+        }else{
+
+            return redirect('evento/show/'.$id);
+
+            //pagina para mensagem que ja ta cadastrador
         }
 
-    }
+           }
+    public function evento_user(){
 
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -165,7 +171,7 @@ class EventsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  EventUpdateRequest $request
-     * @param  string $id
+     * @param  string            $id
      *
      * @return Response
      */
@@ -180,7 +186,7 @@ class EventsController extends Controller
 
             $response = [
                 'message' => 'Event updated.',
-                'data' => $event->toArray(),
+                'data'    => $event->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -194,7 +200,7 @@ class EventsController extends Controller
             if ($request->wantsJson()) {
 
                 return response()->json([
-                    'error' => true,
+                    'error'   => true,
                     'message' => $e->getMessageBag()
                 ]);
             }

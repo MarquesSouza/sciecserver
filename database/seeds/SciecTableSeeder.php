@@ -43,6 +43,23 @@ class SciecTableSeeder extends Seeder
 
         //Usuário Tipo de Usuário
         factory(App\Entities\UserTypeUser::class)->create([
+            'id_user' => '1',
+            'id_type_user' => '1',
+            'status' => true,
+        ]);
+        factory(App\Entities\UserTypeUser::class)->create([
+            'id_user' => '2',
+            'id_type_user' => '2',
+            'status' => true,
+        ]);
+        factory(App\Entities\UserTypeUser::class)->create([
+            'id_user' => '3',
+            'id_type_user' => '3',
+            'status' => true,
+        ]);
+        factory(App\Entities\UserTypeUser::class)->create([
+            'id_user' => '4',
+            'id_type_user' => '4',
             'status' => true,
         ]);
 
@@ -367,10 +384,6 @@ class SciecTableSeeder extends Seeder
             'descricao' => 'Curso possui oito períodos',
             'status' => 'true',
         ]);
-        // Erro nessa dois
-        factory(App\Entities\CourseEvent::class,5)->create();
-        factory(App\Entities\UserEvent::class)->create([
-            'status' => 'true',
-        ]);
+
     }
 }
