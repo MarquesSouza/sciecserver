@@ -22,7 +22,7 @@ class HomeController extends Controller
             'Marketing'
         ];
 
-        return view('usuario.home', compact('listacursos'));
+        redirect('/');
     }
     // Termina aqui..
     public function welcome()

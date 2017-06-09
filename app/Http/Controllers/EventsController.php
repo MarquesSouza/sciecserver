@@ -141,16 +141,14 @@ class EventsController extends Controller
             $userEvent->save();
             return redirect('evento/'.$id.'/atividade/index');
         }else{
-            return redirect('/');
+
+            return redirect('evento/show/'.$id);
+
             //pagina para mensagem que ja ta cadastrador
         }
 
            }
     public function evento_user(){
-    $event=new Event();
-    $evento=Event::all();
-    $event->user();
-    echo $evento;
 
     }
     /**

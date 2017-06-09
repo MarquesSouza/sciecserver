@@ -48,16 +48,19 @@ class ActivitiesController extends Controller
      */
     public function index($id)
     {
+
         $userEvent= new UserEvent();
         $userEvent->id_users = Auth::user()->id;
         $userEvent->id_evento = $id;
         $userEvent->setAttribute('id_articles',1);
         $userEvent->setAttribute('id_participation',1);
         if($userEvent->valida()){
-            return redirect('/');
+            echo "<script>alert('Parabéns!! Você Não Está Cadastrado No Evento, Escolha a Sua Atividade!');</script>";
+            return redirect('evento/show/'.$id);
+
             //pagina para mensagem que ja ta cadastrador
         }else{
-
+            echo "<script>alert('Parabéns!! Você Está Cadastrado No Evento, Escolha a Sua Atividade!');</script>";
         }
 
         $activities= Activity::all()->where('id_evento','=',$id);
