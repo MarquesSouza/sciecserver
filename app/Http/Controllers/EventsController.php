@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entities\Course;
 use App\Entities\Event;
 use App\Entities\UserEvent;
+use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -145,9 +146,11 @@ class EventsController extends Controller
         }
 
            }
-    public function evento_user($id){
-
-
+    public function evento_user(){
+    $event=new Event();
+    $evento=Event::all();
+    $event->user();
+    echo $evento;
 
     }
     /**

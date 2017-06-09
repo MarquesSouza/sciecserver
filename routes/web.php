@@ -134,6 +134,7 @@ Route::delete('evento/delete/{id}', 'EventsController@destroy')->middleware('aut
 Route::get('evento/edit/{id}', 'EventsController@edit')->middleware('auth');
 Route::put('evento/update/{id}', 'EventsController@update')->middleware('auth');
 
+Route::get('evento/eventos', 'EventsController@evento_user')->middleware('auth');// feito
 //Atividade
 Route::get('evento/{id_evento}/atividade/cad', 'ActivitiesController@form_cad')->middleware('auth');// feito
 Route::get('evento/{id_evento}/atividade/index', 'ActivitiesController@index')->middleware('auth');// feito
