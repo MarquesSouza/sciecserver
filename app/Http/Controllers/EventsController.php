@@ -59,7 +59,7 @@ class EventsController extends Controller
             ]);
         }
 
-        return view('eventos.list_evento', compact('events'));
+        return view('evento.list_evento', compact('events'));
     }
 
     /**
@@ -72,7 +72,7 @@ class EventsController extends Controller
     public function form_cad()
     {
         $cursos= Course::all();
-            return view('eventos.cad_evento',compact('cursos'));
+            return view('evento.cad_evento',compact('cursos'));
     }
     public function store(EventCreateRequest $request)
     {
@@ -125,7 +125,7 @@ class EventsController extends Controller
            ]);
       }
 
-        return view('eventos.exibir_evento',compact('events'));
+        return view('evento.exibir_evento',compact('events'));
     }
 
    public function insc_evento($id){
@@ -134,7 +134,7 @@ class EventsController extends Controller
          $userEvent->id_users = Auth::user()->id;
         $userEvent->id_evento = $id;
        $userEvent->setAttribute('id_articles',1);
-        $userEvent->setAttribute('id_participation',2);
+        $userEvent->setAttribute('id_participation',3);
         $userEvent->setAttribute('status',1);
         if($userEvent->valida()){
             $userEvent->save();
