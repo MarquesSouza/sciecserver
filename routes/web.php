@@ -12,9 +12,8 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@welcome');
+
 
 Auth::routes();
 
@@ -54,96 +53,94 @@ Route::get('callback', function (Request $request){
 
     return json_decode((string) $response->getBody(), true);
 
-});
+})->middleware('auth');
 // refazer depois mudando para tabela com campos mais faceis
-Route::get('usuario/index', 'UsersController@index');// feito
-Route::post('usuario/store', 'UsersController@store');//fazendo
-Route::get('usuario/show/{id}', 'UsersController@show');//feito
-Route::delete('usuario/delete/{id}', 'UsersController@destroy');//feito obs: mudar para exclusao logica
-Route::get('usuario/edit/{id}', 'UsersController@edit');
-Route::put('usuario/update/{id}', 'UsersController@update');
+Route::get('usuario/cad', 'UsersController@form_cad')->middleware('auth');// feito
+Route::get('usuario/index', 'UsersController@index')->middleware('auth');// feito
+Route::post('usuario/store', 'UsersController@store')->middleware('auth');//fazendo
+Route::get('usuario/show/{id}', 'UsersController@show')->middleware('auth');//feito
+Route::delete('usuario/delete/{id}', 'UsersController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::get('usuario/edit/{id}', 'UsersController@edit')->middleware('auth');
+Route::put('usuario/update/{id}', 'UsersController@update')->middleware('auth');
 //Tipo de Usuario
-
-Route::get('usuario/config/index', 'TypeUsersController@index');// feito
-Route::post('usuario/config/store', 'TypeUsersController@store');//fazendo
-Route::get('usuario/config/show/{id}', 'TypeUsersController@show');//feito
-Route::delete('usuario/config/delete/{id}', 'TypeUsersController@destroy');//feito obs: mudar para exclusao logica
-Route::get('usuario/config/edit/{id}', 'TypeUsersController@edit');
-Route::put('usuario/config/update/{id}', 'TypeUsersController@update');
+Route::get('usuario/config/cad', 'TypeUsersController@form_cad')->middleware('auth');// feito
+Route::get('usuario/config/index', 'TypeUsersController@index')->middleware('auth');// feito
+Route::post('usuario/config/store', 'TypeUsersController@store')->middleware('auth');//fazendo
+Route::get('usuario/config/show/{id}', 'TypeUsersController@show')->middleware('auth');//feito
+Route::delete('usuario/config/delete/{id}', 'TypeUsersController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::get('usuario/config/edit/{id}', 'TypeUsersController@edit')->middleware('auth');
+Route::put('usuario/config/update/{id}', 'TypeUsersController@update')->middleware('auth');
 //Tipo de Atividade
-// (BindingResolutionException in Container.php line 873: Target [App\Repositories\ActivityRepository] is not instantiable while building [App\Http\Controllers\ActivitiesController].)
-Route::get('atividade/config/index', 'TypeActivitiesController@index');// feito
-Route::post('atividade/config/store', 'TypeActivitiesController@store');//fazendo
-Route::get('atividade/config/show/{id}', 'TypeActivitiesController@show');//feito
-Route::delete('atividade/config/delete/{id}', 'TypeActivitiesController@destroy');//feito obs: mudar para exclusao logica
-Route::get('atividade/config/edit/{id}', 'TypeActivitiesController@edit');
-Route::put('atividade/config/update/{id}', 'TypeActivitiesController@update');
+Route::get('atividade/config/cad', 'TypeActivitiesController@form_cad')->middleware('auth');// feito
+Route::get('atividade/config/index', 'TypeActivitiesController@index')->middleware('auth');// feito
+Route::post('atividade/config/store', 'TypeActivitiesController@store')->middleware('auth');//fazendo
+Route::get('atividade/config/show/{id}', 'TypeActivitiesController@show')->middleware('auth');//feito
+Route::delete('atividade/config/delete/{id}', 'TypeActivitiesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::get('atividade/config/edit/{id}', 'TypeActivitiesController@edit')->middleware('auth');
+Route::put('atividade/config/update/{id}', 'TypeActivitiesController@update')->middleware('auth');
 
 //Tipo de actividade usuario
-//(Target [App\Repositories\ActivityRepository] is not instantiable while building [App\Http\Controllers\ActivitiesController].)
-
-Route::get('usuario/atividade/config/index', 'TypeActivityUsersController@index');// feito
-Route::post('usuario/atividade/config/store', 'TypeActivityUsersController@store');//fazendo
-Route::get('usuario/atividade/config/show/{id}', 'TypeActivityUsersController@show');//feito
-Route::delete('usuario/atividade/config/delete/{id}', 'TypeActivityUsersController@destroy');//feito obs: mudar para exclusao logica
-Route::get('usuario/atividade/config/edit/{id}', 'TypeActivityUsersController@edit');
-Route::put('usuario/atividade/config/update/{id}', 'TypeActivityUsersController@update');
+Route::get('usuario/atividade/config/cad', 'TypeActivityUsersController@form_cad')->middleware('auth');// feito
+Route::get('usuario/atividade/config/index', 'TypeActivityUsersController@index')->middleware('auth');// feito
+Route::post('usuario/atividade/config/store', 'TypeActivityUsersController@store')->middleware('auth');//fazendo
+Route::get('usuario/atividade/config/show/{id}', 'TypeActivityUsersController@show')->middleware('auth');//feito
+Route::delete('usuario/atividade/config/delete/{id}', 'TypeActivityUsersController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::get('usuario/atividade/config/edit/{id}', 'TypeActivityUsersController@edit')->middleware('auth');
+Route::put('usuario/atividade/config/update/{id}', 'TypeActivityUsersController@update')->middleware('auth');
 
 //Instituições
-Route::get('instituicao/cad', 'InstutionsController@create');// feito
-Route::get('instituicao/index', 'InstutionsController@index');// feito
-Route::post('instituicao/store', 'InstutionsController@store');//fazendo
-Route::get('instituicao/show/{id}', 'InstutionsController@show');//feito
-Route::delete('instituicao/delete/{id}', 'InstutionsController@destroy');//feito obs: mudar para exclusao logica
-Route::get('instituicao/edit/{id}', 'InstutionsController@edit');
-Route::put('instituicao/update/{id}', 'InstutionsController@update');
+Route::get('instituicao/cad', 'InstutionsController@create')->middleware('auth');// feito
+Route::get('instituicao/index', 'InstutionsController@index')->middleware('auth');// feito
+Route::post('instituicao/store', 'InstutionsController@store')->middleware('auth');//fazendo
+Route::get('instituicao/show/{id}', 'InstutionsController@show')->middleware('auth');//feito
+Route::delete('instituicao/delete/{id}', 'InstutionsController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::get('instituicao/edit/{id}', 'InstutionsController@edit')->middleware('auth');
+Route::put('instituicao/update/{id}', 'InstutionsController@update')->middleware('auth');
 
 //Course
-Route::get('curso/index','CoursesController@index');// feito
-Route::get('curso/cad','CoursesController@form_cadastro');// feito
-Route::post('curso/store', 'CoursesController@store');//fazendo
-Route::get('curso/show/{id}', 'CoursesController@show');//feito
-Route::delete('curso/delete/{id}', 'CoursesController@destroy');//feito obs: mudar para exclusao logica
-Route::get('curso/edit/{id}', 'CoursesController@edit');
-Route::put('curso/update/{id}', 'CoursesController@update');
+Route::get('curso/cad','CoursesController@form_cadastro')->middleware('auth');// feito
+Route::get('curso/index','CoursesController@index')->middleware('auth');// feito
+Route::post('curso/store', 'CoursesController@store')->middleware('auth');//fazendo
+Route::get('curso/show/{id}', 'CoursesController@show')->middleware('auth');//feito
+Route::delete('curso/delete/{id}', 'CoursesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::get('curso/edit/{id}', 'CoursesController@edit')->middleware('auth');
+Route::put('curso/update/{id}', 'CoursesController@update')->middleware('auth');
 
 //Participação
-
-Route::get('participacao/index', 'ParticipationsController@index');// feito
-Route::post('participacao/store', 'ParticipationsController@store');//fazendo
-Route::get('participacao/show/{id}', 'ParticipationsController@show');//feito
-Route::delete('participacao/delete/{id}', 'ParticipationsController@destroy');//feito obs: mudar para exclusao logica
-Route::get('participacao/edit/{id}', 'ParticipationsController@edit');
-Route::put('participacao/update/{id}', 'ParticipationsController@update');
+Route::get('participacao/cad', 'ParticipationsController@form_cad')->middleware('auth');// feito
+Route::get('participacao/index', 'ParticipationsController@index')->middleware('auth');// feito
+Route::post('participacao/store', 'ParticipationsController@store')->middleware('auth');//fazendo
+Route::get('participacao/show/{id}', 'ParticipationsController@show')->middleware('auth');//feito
+Route::delete('participacao/delete/{id}', 'ParticipationsController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::get('participacao/edit/{id}', 'ParticipationsController@edit')->middleware('auth');
+Route::put('participacao/update/{id}', 'ParticipationsController@update')->middleware('auth');
 
 //Artigos
-
-Route::get('artigo/index', 'ArticlesController@index');// feito
-Route::post('artigo/store', 'ArticlesController@store');//fazendo
-Route::get('artigo/show/{id}', 'ArticlesController@show');//feito
-Route::delete('artigo/delete/{id}', 'ArticlesController@destroy');//feito obs: mudar para exclusao logica
-Route::get('artigo/edit/{id}', 'ArticlesController@edit');
-Route::put('artigo/update/{id}', 'ArticlesController@update');
+Route::get('artigo/cad', 'ArticlesController@form_cad')->middleware('auth');// feito
+Route::get('artigo/index', 'ArticlesController@index')->middleware('auth');// feito
+Route::post('artigo/store', 'ArticlesController@store')->middleware('auth');//fazendo
+Route::get('artigo/show/{id}', 'ArticlesController@show')->middleware('auth');//feito
+Route::delete('artigo/delete/{id}', 'ArticlesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::get('artigo/edit/{id}', 'ArticlesController@edit')->middleware('auth');
+Route::put('artigo/update/{id}', 'ArticlesController@update')->middleware('auth');
 
 //Evento
-//(Target [App\Repositories\EventRepository] is not instantiable while building [App\Http\Controllers\EventsController].)
-
-Route::get('evento/index', 'EventsController@index');// feito
-Route::post('evento/store', 'EventsController@store');//fazendo
-Route::get('evento/show/{id}', 'EventsController@show');//feito
-Route::delete('evento/delete/{id}', 'EventsController@destroy');//feito obs: mudar para exclusao logica
-Route::get('evento/edit/{id}', 'EventsController@edit');
-Route::put('evento/update/{id}', 'EventsController@update');
+Route::get('evento/cad', 'EventsController@form_cad')->middleware('auth');// feito
+Route::get('evento/index', 'EventsController@index')->middleware('auth');// feito
+Route::post('evento/store', 'EventsController@store')->middleware('auth');//fazendo
+Route::get('evento/show/{id}', 'EventsController@show')->middleware('auth');//feito
+Route::get('evento/inscricao_evento/{id}', 'EventsController@insc_evento')->middleware('auth');//feito
+Route::delete('evento/delete/{id}', 'EventsController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::get('evento/edit/{id}', 'EventsController@edit')->middleware('auth');
+Route::put('evento/update/{id}', 'EventsController@update')->middleware('auth');
 
 //Atividade
-//(Target [App\Repositories\ActivityRepository] is not instantiable while building [App\Http\Controllers\ActivitiesController].)
-
-Route::get('atividade/index', 'ActivitiesController@index');// feito
-Route::post('atividade/store', 'ActivitiesController@store');//fazendo
-Route::get('atividade/show/{id}', 'ActivitiesController@show');//feito
-Route::delete('atividade/delete/{id}', 'ActivitiesController@destroy');//feito obs: mudar para exclusao logica
-Route::get('atividade/edit/{id}', 'ActivitiesController@edit');
-Route::put('atividade/update/{id}', 'ActivitiesController@update');
+Route::get('atividade/cad', 'ActivitiesController@form_cad')->middleware('auth');// feito
+Route::post('atividade/store', 'ActivitiesController@store')->middleware('auth');//fazendo
+Route::get('atividade/show/{id}', 'ActivitiesController@show')->middleware('auth');//feito
+Route::delete('atividade/delete/{id}', 'ActivitiesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::get('atividade/edit/{id}', 'ActivitiesController@edit')->middleware('auth');
+Route::put('atividade/update/{id}', 'ActivitiesController@update')->middleware('auth');
 
 
 // obs: as outras tabelas assegir sao tabelas n pra n

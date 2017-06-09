@@ -60,6 +60,10 @@ class ParticipationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function form_cad()
+    {
+        return view('participacao.cad_participacao');
+    }
     public function store(ParticipationCreateRequest $request)
     {
 

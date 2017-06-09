@@ -60,6 +60,10 @@ class TypeActivityUsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function form_cad()
+    {
+        return view('tipo_de_atividade_de_usuario.cad_tipo_de_atividade_de_usuario');
+    }
     public function store(TypeActivityUserCreateRequest $request)
     {
 

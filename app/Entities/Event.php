@@ -33,4 +33,5 @@ class Event extends Model implements Transformable
     public function participation(){
         return $this->belongsToMany(Participation::class,'user_events','id_evento','id_participation');
     }
+
 }

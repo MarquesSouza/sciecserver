@@ -54,7 +54,7 @@
     </div>
     <!-- /.carousel -->
     <!-- Barra de Pesquisa -->
-    <div ng-cloak>
+   {{-- <div ng-cloak>
         <div class="row">
             <div class="col-md-12">
                 <div class="well">
@@ -87,56 +87,28 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
-        </div>
-        <!-- Barra de Pesquisa -->
-        <!-- Lista de Eventos -->
+        </div>--}}
+
         <div class="container text-center">
             <h3 class="text-center"><b>Eventos em Andamento</b></h3> <br>
             <div class="row">
-                <!-- foreach('content')-->
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                    <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-                        <h4>Titulo do evento</h4>
+                @forelse ($evento as $i)
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                            <h4>{{$i->nome}}</h4>
+                        </div>
+                        <p><a href="{{url('evento/show/'.$i->id)}}" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
                     </div>
-                    <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
-                </div>
-                <!--endforeach // Passar Parametros do Evento; Titulo, Banner, Descrição e Link Respectivo do evento-->
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-                        <h4>Titulo do evento</h4>
-                    </div>
-                    <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-                        <h4>Titulo do evento</h4>
-                    </div>
-                    <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
-                </div><br><br><br><br>
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-                        <h4>Titulo do evento</h4>
-                    </div>
-                    <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-                        <h4>Titulo do evento</h4>
-                    </div>
-                    <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-                        <h4>Titulo do evento</h4>
-                    </div>
-                    <p><a href="#" class="btn btn-success" role="button">Inscreva-se!</a> <a href="#" class="btn btn-default" role="button">Mais Informações</a></p>
-                </div>
+
+
+                @empty
+
+
+
+                    <p>Nenhum evento cadastrado</p>
+                @endforelse
             </div>
         </div>
     </div>

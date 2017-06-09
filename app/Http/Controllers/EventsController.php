@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Course;
+use App\Entities\Event;
+use App\Entities\UserEvent;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -60,6 +63,11 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function form_cad()
+    {
+        $cursos= Course::all();
+        return view('evento.cad_evento',compact('cursos'));
+    }
     public function store(EventCreateRequest $request)
     {
 
@@ -102,18 +110,25 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        $event = $this->repository->find($id);
+        $events = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $event,
-            ]);
-        }
+              'data' => $events,
+           ]);
+      }
 
-        return view('events.show', compact('event'));
+        return view('eventos.exibir_evento',compact('events'));
     }
+    public function insc_evento($id){
+         $userEvent= new UserEvent();
+         $userEvent->setIdUser(Auth::user()->id);
+         $userEvent->setIdEventos($id);
+         $userEvent->setIdArticles(1);
+        $userEvent->setIdParticipation(1);
 
+    }
 
     /**
      * Show the form for editing the specified resource.

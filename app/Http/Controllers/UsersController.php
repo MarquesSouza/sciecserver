@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\TypeUser;
+use App\Entities\UserEvent;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -60,6 +62,11 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function form_cad()
+    {
+        $tipoUser=TypeUser::all();
+        return view('usuario.cad_usuario',compact('tipoUser'));
+    }
     public function store(UserCreateRequest $request)
     {
 

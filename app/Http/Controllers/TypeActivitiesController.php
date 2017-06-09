@@ -60,6 +60,10 @@ class TypeActivitiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function form_cad()
+    {
+        return view('tipo_de_atividade.cad_tipo_de_atividade');
+    }
     public function store(TypeActivityCreateRequest $request)
     {
 

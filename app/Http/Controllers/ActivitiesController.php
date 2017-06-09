@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\TypeActivity;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -59,7 +60,14 @@ class ActivitiesController extends Controller
      * @param  ActivityCreateRequest $request
      *
      * @return \Illuminate\Http\Response
+     *
      */
+    public function form_cad()
+    {
+        $tipoAtividade=TypeActivity::all();
+        return view('atividade.cad_atividade',compact('tipoAtividade'));
+    }
+
     public function store(ActivityCreateRequest $request)
     {
 
@@ -106,12 +114,13 @@ class ActivitiesController extends Controller
 
         if (request()->wantsJson()) {
 
-            return response()->json([
+            return response()->json(
+                [
                 'data' => $activity,
             ]);
         }
 
-        return view('activities.show', compact('activity'));
+        return view('atividade.cad_atividade', compact('activity'));
     }
 
 

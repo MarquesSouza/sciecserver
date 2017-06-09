@@ -8,7 +8,8 @@
     <h1>
         <center>Cadastrar Tipo de Usuário</center>
     </h1>
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="post" action="{{ url('usuario/config/store') }}"  >
+        {{csrf_field()}}
         <fieldset>
 
 

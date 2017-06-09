@@ -41,56 +41,63 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-brand">
                 <li><a style="color: #2a88bd" href="{{ url('/') }}">Página Inicial<span class="sr-only">(current)</span></a></li>
-                <li class="dropdown">
-                    <a style="color: #2a88bd" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Eventos<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Evento 1</a></li> <!--Adicionar Rotas-->
-                        <li role="separator" class="divider"></li> <!--Adicionar Rotas-->
-                        <li><a href="#">Evento 2</a></li> <!--Adicionar Rotas-->
-                        <li role="separator" class="divider"></li> <!--Adicionar Rotas-->
-                        <li><a href="#">Evento 3</a></li> <!--Adicionar Rotas-->
-                    </ul>
+                <li>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Eventos</a>
+
                 </li>
-                <li class="dropdown">
-                    <a style="color: #2a88bd" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Atividade<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Atividade 1</a></li> <!--Adicionar Rotas-->
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Atividade 2</a></li> <!--Adicionar Rotas-->
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Atividade 3</a></li> <!--Adicionar Rotas-->
-                    </ul>
+                <li>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Muda link</a>
+
                 </li>
-                <li><a style="color: #2a88bd" href="#">Certificados<span class="sr-only">(current)</span></a></li>
-                <li><a style="color: #2a88bd" href="#">Artigos</a></li>
-                <li><a style="color: #2a88bd" href="#">Informações</a></li>
+                <li>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Certificados</a>
+
+                </li>
+                <li>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Artigos</a>
+
+                </li>
+                <li>
+                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Informações</a>
+
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right text-center ">
-                @if(auth()->guest())
-                    @if(!Request::is('auth/login'))
-                        <li><a href="{{ url('/auth/login') }}"> <!--Adicionar Rotas-->
+                @if (Auth::guest())
+                        <li><a href="{{ url('login') }}"> <!--Adicionar Rotas-->
                                 <button class="btn btn-primary">
                                     <i class="fa fa-search fa-fw"></i>
                                     Login
                                 </button>
                             </a></li>
-                        <li><a href="{{ url('/auth/login') }}"> <!--Adicionar Rotas-->
+                        <li><a href="{{ url('register') }}"> <!--Adicionar Rotas-->
                                 <button class="btn btn-success">
                                     <i class="fa fa-search fa-fw"></i>
                                     Cadastre-se
                                 </button>
                             </a></li>
-                    @endif
+
                 @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/login') }}">Logout</a></li> <!--Adicionar Rotas-->
-                            <li><a href="{{ url('/register') }}">Meu Perfil</a></li> <!--Adicionar Rotas-->
-                        </ul>
+                        <li class="dropdown">
+                            <a href="#" style="color: #2a88bd" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+
                     </li>
                 @endif
             </ul>

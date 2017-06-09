@@ -60,6 +60,10 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function form_cad()
+    {
+        return view('artigo.cad_artigo');
+    }
     public function store(ArticleCreateRequest $request)
     {
 
