@@ -7,18 +7,13 @@
     <!-- foreach -->
     <div class="jumbotron">
         <div class="col-sm-10 col-md-8">
-            <h3><b>Titulo do evento</b></h3>
+            <h3><b>{{$e->nome}}</b></h3>
             <div class="thumbnail">
                 <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
             </div>
         </div>
         <br><br>
-        <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo
-            utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou
-            para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto
-            para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando
-            a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser
-            integrado a softwares de editoração eletrônica como Aldus PageMaker.</p><br>
+        <p>{{$e->descricao}}</p><br>
         <p><a class="btn btn-default btn-lg" href="#" role="button">Ler Mais...</a></p>
         <hr class="hr-light">
         <div class="container-fluid">
