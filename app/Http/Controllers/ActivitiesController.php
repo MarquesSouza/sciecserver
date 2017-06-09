@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Activity;
+use App\Entities\Event;
 use App\Entities\TypeActivity;
 use Illuminate\Http\Request;
 
@@ -41,6 +43,8 @@ class ActivitiesController extends Controller
      */
     public function index($id)
     {
+        $event= new Event();
+        $event->atividade();
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $activities = $this->repository->all();
 
