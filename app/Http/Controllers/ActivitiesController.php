@@ -147,17 +147,18 @@ class ActivitiesController extends Controller
      */
     public function show($id_evento,$id)
     {
-        $activity= Activity::all()->where(array(array('id_evento','=',$id_evento),array('id','=',$id)));
+
+        $activities= Activity::all()->where('id','=',$id);
 
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $activity,
+                'data' => $activities,
             ]);
         }
 
-        return view('atividade.list_atividade', compact('activity'));
+        return view('atividade.list_atividade', compact('activities'));
     }
 
 
