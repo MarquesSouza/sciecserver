@@ -27,4 +27,18 @@ class ActivityUser extends Model implements Transformable
     public function atividadeUser(){
         return $this->belongsTo(TypeActivityUser::class,'id_type_activity_user');
     }
+    public function valida(){
+
+        $data[]=['id_users','=',$this->id_users];
+        $data[]=['id_activity','=',$this->id_activity];
+        $data[]=['id_type_activity_user','=',$this->id_type_activity_user];
+
+        $retorno  = DB::table('activity_users')->where($data)->get();
+
+        if($retorno->count()>0){
+            return false;
+        }
+        return true;
+    }
+
 }

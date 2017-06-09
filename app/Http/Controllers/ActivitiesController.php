@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Activity;
+use App\Entities\Event;
 use App\Entities\TypeActivity;
 use Illuminate\Http\Request;
 
@@ -39,10 +41,13 @@ class ActivitiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
+        $event= new Event();
+        $event->atividade();
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $activities = $this->repository->all();
+
 
         if (request()->wantsJson()) {
 
@@ -114,13 +119,12 @@ class ActivitiesController extends Controller
 
         if (request()->wantsJson()) {
 
-            return response()->json(
-                [
+            return response()->json([
                 'data' => $activity,
             ]);
         }
 
-        return view('atividade.cad_atividade', compact('activity'));
+        return view('atividade.list_atividade', compact('activity'));
     }
 
 

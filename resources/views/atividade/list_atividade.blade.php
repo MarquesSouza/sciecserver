@@ -6,7 +6,11 @@
     </div>
     <div class="container">
         <div class="row">
-                 <table class="table table-inverse">
+            <br><br>
+            <a href="{{ url('atividade/cad') }}" class="btn-primary btn btn-default">Novo Atividade</a>
+            <br><br>
+
+            <table class="table table-bordered table-inverse">
                     <tr>
                     <th>Nome</th>
                     <th>Descricao</th>
@@ -17,6 +21,9 @@
                     <th>Cod Inscritos</th>
                     <th>Data de Início</th>
                     <th>Data de Conclusão</th>
+                    <th>Editar</th>
+                     <th>Excluir</th>
+
                     </tr>
                     <tr>
                         @forelse ($activities as $a)
@@ -30,7 +37,15 @@
                             <td>{{ $a->cod_inscritos }}</td>
                             <td>{{ $a->data_inicio }}</td>
                             <td>{{ $a->data_conclusao }}</td>
-                                   </tr>
+                            <td>
+                                <a href="{{url('atividade/edite/{id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                            </td>
+                            <td>
+                                <a href="{{url('atividade/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
+                            </td>
+
+
+                    </tr>
                     @empty
                         <p>No activities</p>
                     @endforelse

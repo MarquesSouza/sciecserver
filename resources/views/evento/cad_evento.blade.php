@@ -7,13 +7,13 @@
         <center>Cadastrar Evento</center>
     </h1>
     <form class="form-horizontal" method="post" action="{{ url('evento/store') }}"  >
-        {{csrf_field()}}>
+        {{csrf_field()}}
         <fieldset>
 
             <!-- Form Name -->
             <legend></legend>
 
-                @include('eventos._form')
+                @include('evento._form')
 
         </fieldset>
     </form>
