@@ -150,6 +150,9 @@ class EventsController extends Controller
            }
     public function evento_user(){
 
+       $evente= Event::find(6);
+        dd($evente->user()->get()->find(5));
+
     }
     /**
      * Show the form for editing the specified resource.

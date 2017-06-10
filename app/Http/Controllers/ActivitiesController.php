@@ -6,6 +6,7 @@ use App\Entities\Activity;
 use App\Entities\ActivityUser;
 use App\Entities\Event;
 use App\Entities\TypeActivity;
+use App\Entities\User;
 use App\Entities\UserEvent;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Support\Facades\Auth;
@@ -62,7 +63,6 @@ class ActivitiesController extends Controller
         }else{
           //  echo "<script>alert('Parabéns!! Você Está Cadastrado No Evento, Escolha a Sua Atividade!');</script>";
         }
-
         $activities= Activity::all()->where('id_evento','=',$id);
 
 
