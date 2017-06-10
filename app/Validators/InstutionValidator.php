@@ -10,7 +10,7 @@ class InstutionValidator extends LaravelValidator
 
     protected $rules = [
         ValidatorInterface::RULE_CREATE => [
-            'nome' => 'min:5',
+            'nome' => 'required|min:3',
             'site'=> 'required',
             'email'=> 'required',
             'descricao'=> 'required',
@@ -18,11 +18,6 @@ class InstutionValidator extends LaravelValidator
 
         ],
         ValidatorInterface::RULE_UPDATE => [],
-   ];
-
-    Protected  $messages  = [
-    'min:' =>  'O campo de atributo é obrigatório.'
-
     ];
 
 

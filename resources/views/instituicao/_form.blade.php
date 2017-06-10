@@ -2,7 +2,6 @@
 <div class="container"><hr>
 <legend>Cadastro Instituiçao</legend>
 @if(isset($errors) && count($errors) > 0)
-  <div class="container">
     <div class="alert alert-danger">
         @foreach($errors->all() as $error)
             {{$error}}
@@ -10,7 +9,7 @@
     </div>
 
     @endif
-  </div>
+
 @include('form._form1');
 @include('form._form3');
 
