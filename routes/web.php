@@ -89,7 +89,7 @@ Route::get('usuario/atividade/config/edit/{id}', 'TypeActivityUsersController@ed
 Route::put('usuario/atividade/config/update/{id}', 'TypeActivityUsersController@update')->middleware('auth');
 
 //Instituições
-Route::get('instituicao/cad', 'InstutionsController@create')->middleware('auth');// feito
+Route::get('instituicao/cad', 'InstutionsController@form_cad')->middleware('auth');// feito
 Route::get('instituicao/index', 'InstutionsController@index')->middleware('auth');// feito
 Route::post('instituicao/store', 'InstutionsController@store')->middleware('auth');//fazendo
 Route::get('instituicao/show/{id}', 'InstutionsController@show')->middleware('auth');//feito
