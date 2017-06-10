@@ -3,7 +3,7 @@
 <div class="form-group">
     <label class="col-md-4 control-label" for="selectbasic">Curso</label>
     <div class="col-md-4">
-        <select id="selectbasic" name="selectbasic" class="form-control">
+        <select id="id_curso" name="id_curso" class="form-control">
             @forelse ( $cursos as $c)
                 <option value="{{$c->id}}">{{$c->nome}}</option>
             @empty
