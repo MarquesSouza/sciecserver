@@ -18,15 +18,22 @@
                     <th>Data de Início </th>
                     <th>Data de Conclusão</th>
                     <th>Logo do Evento</th>
+
                      <tr>
                         @forelse ($events as $ev)
 
-                            <td>{{ $ev->nome }}</td>
+                                 <td>{{ $ev->nome }}</td>
                             <td>{{ $ev->descricao }}</td>
                             <td>{{ $ev->local }}</td>
                             <td>{{ $ev->data_inicio }}</td>
                             <td>{{ $ev->data_conclusao }}</td>
                             <td>{{ $ev->logoEvento }}</td>
+                                 <td>
+                                     <a href="{{url('usuario/config/edit/{id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                                 </td>
+                                 <td>
+                                     <a href="{{url('usuario/config/edit/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
+                                 </td>
 
                     </tr>
                     @empty
@@ -34,7 +41,7 @@
                     @endforelse
 
                     </table>
-                {!! $events->render() !!}
+
             </div>
         </div>
     </div>

@@ -1,0 +1,56 @@
+@extends('app')
+
+@section('content')
+    <div>
+        <br><br><br><br>
+    </div>
+    <div class="container">
+        <div class="row">
+            <br><br>
+
+            <table class="table table-bordered table-inverse">
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Status</th>
+                    <th>Hora</th>
+                    <th>Local</th>
+                    <th>QTD Inscritos</th>
+                    <th>Cod Inscritos</th>
+                    <th>Data de Início</th>
+                    <th>Data de Conclusão</th>
+                    <th>Concluir</th>
+
+
+                </tr>
+                <tr>
+                    @forelse ($activities as $a)
+                        <form action="{{url('evento/'.$a->id_evento.'/atividade/insc_atividade/'.$a->id)}}" method="post">
+                            {{csrf_field()}} <br><br>
+
+                            <td>{{ $a->nome }}</td>
+                            <td>{{ $a->descricao }}</td>
+                            <td>{{ $a->status }}</td>
+                            <td>{{ $a->hora }}</td>
+                            <td>{{ $a->local }}</td>
+                            <td>{{ $a->qtd_inscritos }}</td>
+                            <td>{{ $a->cod_inscritos }}</td>
+                            <td>{{ $a->data_inicio }}</td>
+                            <td>{{ $a->data_conclusao }}</td>
+                            <td>
+                                <button type="submit" >Confirmar Inscrição</button></td>
+
+                            </td>
+
+                        </form>
+                </tr>
+                @empty
+
+                    <p>No activities</p>
+                @endforelse
+
+            </table>
+
+        </div>
+    </div>
+@endsection

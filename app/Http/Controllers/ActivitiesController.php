@@ -44,7 +44,7 @@ class ActivitiesController extends Controller
      */
     public function index($id)
     {
-        $atividade= Activity::g;
+        $atividade= Activity::all();
 
         $activities=$atividade->where('id_evento','=',$id);
 

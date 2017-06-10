@@ -40,25 +40,24 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-brand">
-                <li><a style="color: #2a88bd" href="{{ url('/') }}">Página Inicial<span class="sr-only">(current)</span></a></li>
                 <li>
-                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Eventos</a>
+                    <a style="color: #2a88bd" href="{{url('/')}}" >Eventos</a>
 
                 </li>
                 <li>
-                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Muda link</a>
+                    <a style="color: #2a88bd" href="evento/6/atividade/index" >Atividades</a>
 
                 </li>
                 <li>
-                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Certificados</a>
+                    <a style="color: #2a88bd" href="#" >Certificados</a>
 
                 </li>
                 <li>
-                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Artigos</a>
+                    <a style="color: #2a88bd" href="#" >Artigos</a>
 
                 </li>
                 <li>
-                    <a style="color: #2a88bd" href="{{url('evento/index')}}" >Informações</a>
+                    <a style="color: #2a88bd" href="#" >Informações</a>
 
                 </li>
             </ul>
