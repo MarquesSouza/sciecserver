@@ -90,7 +90,7 @@ Route::put('usuario/atividade/config/update/{id}', 'TypeActivityUsersController@
 
 //Instituições
 Route::get('instituicao/cad', 'InstutionsController@form_cad')->middleware('auth');// feito
-Route::get('instituicao/index', 'InstutionsController@index')->middleware('auth');// feito
+Route::get('instituicao/index', 'InstutionsController@index')->middleware('auth')->name('index');;// feito
 Route::post('instituicao/store', 'InstutionsController@store')->middleware('auth');//fazendo
 Route::get('instituicao/show/{id}', 'InstutionsController@show')->middleware('auth');//feito
 Route::delete('instituicao/delete/{id}', 'InstutionsController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
