@@ -4,18 +4,20 @@
     <div>
         <br><br><br><br>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="c   ol-md-8 col-md-offset-2">
+    <div class="jumbotron green">
+        <div class="container-fluid">
+            <div class="col-md-8 col-md-offset-2">
                 <form action="{{url('evento/inscricao_evento/'.$events->id)}}" method="post">
                     {{csrf_field()}}
-                    <table class="table table-inverse">
+                    <br><br><br><br><br><br><br><br><br><br><br>
+                    <table class="table table-bordered table-inverse">
                     <th>Nome </th>
                     <th>Descricão </th>
                     <th>Local </th>
                     <th>Data de Início </th>
                     <th>Data de Conclusão</th>
                     <th>Logo do Evento</th>
+                    <th>Confirmar Inscrição</th>
 
 
                     <tr>
@@ -25,7 +27,7 @@
                             <td>{{ $events->data_inicio }}</td>
                             <td>{{ $events->data_conclusao }}</td>
                             <td>{{ $events->logoEvento }}</td>
-                        <td><button type="submit" >Confirmar Inscrição</button></td>
+                        <td><button type="submit" class="btn-primary">Confirmar Inscrição</button></td>
 
                     </tr>
 
