@@ -41,16 +41,16 @@ class ArticlesController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $artigo = $this->repository->all();
+        $articles = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $artigo,
+                'data' => $articles,
             ]);
         }
 
-        return view('artigo.list_artigo', compact('artigo'));
+        return view('artigo.list_artigo', compact('articles'));
     }
 
     /**
@@ -62,7 +62,8 @@ class ArticlesController extends Controller
      */
     public function form_cad()
     {
-        return view('artigo.cad_artigo');
+        $titulo = 'Cadastro Artigo';
+        return view('artigo.create-edit-artigo',compact('titulo'));
     }
     public function store(ArticleCreateRequest $request)
     {
@@ -128,10 +129,10 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-
+        $titulo='Editar Artigo';
         $article = $this->repository->find($id);
 
-        return view('articles.edit', compact('article'));
+        return view('artigo.create-edit-artigo', compact('titulo','article'));
     }
 
 

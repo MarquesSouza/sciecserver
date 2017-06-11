@@ -1,0 +1,114 @@
+<!-- Form Name -->
+@extends('app')
+
+@section('content')
+    <div>
+        <br><br><br><br>
+    </div>
+         @if( isset($users))
+            <form class="form-horizontal" method="post" action="{{ url('usuario/update', $users->id) }}">
+            {!! method_field('PUT') !!}
+         @else
+             <form class="form-horizontal" method="post" action="{{ url('usuario/store') }}">
+         @endif
+
+         {{csrf_field()}}
+         <fieldset>
+                <div class="container">
+                    <hr>
+                       <legend>{{$titulo}}</legend>
+                          @if(isset($errors) && count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    @foreach($errors->all() as $error)
+                                        {{$error}}
+                                    @endforeach
+                 </div>
+
+                            @endif
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Nome</label>
+                                <div class="col-md-5">
+                                    <input id="nome" name="nome" type="text" placeholder="Nome"
+                                           class="form-control input-md" required="" value="{{$users->nome or old('nome')}}">
+
+                                </div>
+                            </div>
+                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control" name="email"                                            required="" value="{{$users->email or old('email')}}">
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <label for="password" class="col-md-4 control-label">Password</label>
+
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control" name="password" required>
+
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                </div>
+                            </div>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="email">Email</label>
+                                <div class="col-md-4">
+                                    <input id="email" name="email" type="text" placeholder="email" class="form-control input-md"
+                                           required="" value="{{$users->email or old('email')}}">
+
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="telefone">Telefone</label>
+                                <div class="col-md-4">
+                                    <input id="telefone" name="telefone" type="text" placeholder="telefone"
+                                           class="form-control input-md" required="" value="{{$users->telefone or old('telefone')}}">
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="cpf">Cpf</label>
+                                <div class="col-md-4">
+                                    <input id="cpf" name="cpf" type="text" placeholder="cpf"
+                                           class="form-control input-md" required="" value="{{$users->cpf or old('cpf')}}">
+
+                                </div>
+                            </div>
+
+
+                            <!-- Button -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for=""></label>
+                                <div class="col-md-4">
+                                    <button id="" name="" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <!-- /.container -->
+
+@endsection
