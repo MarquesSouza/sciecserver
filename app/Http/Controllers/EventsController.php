@@ -150,6 +150,10 @@ class EventsController extends Controller
            }
     public function evento_user(){
 
+
+
+
+
     }
     /**
      * Show the form for editing the specified resource.

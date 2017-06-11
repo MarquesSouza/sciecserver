@@ -23,6 +23,7 @@ class HomeController extends Controller
         ];
 
         redirect('/');
+        return;
     }
     // Termina aqui..
     public function welcome()
