@@ -89,8 +89,8 @@ Route::get('usuario/atividade/config/edit/{id}', 'TypeActivityUsersController@ed
 Route::put('usuario/atividade/config/update/{id}', 'TypeActivityUsersController@update')->middleware('auth');
 
 //Instituições
-Route::get('instituicao/cad', 'InstutionsController@create')->middleware('auth');// feito
-Route::get('instituicao/index', 'InstutionsController@index')->middleware('auth');// feito
+Route::get('instituicao/cad', 'InstutionsController@form_cad')->middleware('auth');// feito
+Route::get('instituicao/index', 'InstutionsController@index')->middleware('auth')->name('index');;// feito
 Route::post('instituicao/store', 'InstutionsController@store')->middleware('auth');//fazendo
 Route::get('instituicao/show/{id}', 'InstutionsController@show')->middleware('auth');//feito
 Route::delete('instituicao/delete/{id}', 'InstutionsController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
@@ -130,6 +130,7 @@ Route::get('evento/index', 'EventsController@index')->middleware('auth');// feit
 Route::post('evento/store', 'EventsController@store')->middleware('auth');//fazendo
 Route::get('evento/show/{id}', 'EventsController@show')->middleware('auth');//feito
 Route::post('evento/inscricao_evento/{id}', 'EventsController@insc_evento')->middleware('auth');//feito
+Route::post('evento/detalhar_evento/{id}', 'EventsController@insc_evento')->middleware('auth');//feito ///
 Route::delete('evento/delete/{id}', 'EventsController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
 Route::get('evento/edit/{id}', 'EventsController@edit')->middleware('auth');
 Route::put('evento/update/{id}', 'EventsController@update')->middleware('auth');

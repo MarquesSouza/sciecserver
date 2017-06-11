@@ -17,7 +17,8 @@ class Event extends Model implements Transformable
                             'local',
                             'data_inicio',
                             'data_conclusao',
-                            'logoEvento'];
+                            'logoEvento'
+    ];
     public function curso(){
         return $this->belongsToMany(CourseEvent::class,'course_events','id_eventos','id_cursos');
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Instution;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -62,14 +63,14 @@ class InstutionsController extends Controller
      */
     public function form_cad()
     {
-        return view('instituicao.cad_instituicao');
+        $titulo = "Cadastrar Instituiçao";
+        return view('instituicao.create-edit', compact('titulo'));
     }
 
     public function store(Request $request)
     {
 
         try {
-
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
@@ -130,10 +131,12 @@ class InstutionsController extends Controller
      */
     public function edit($id)
     {
+        $titulo = "Editar Instituiçao";
 
-        $instution = $this->repository->find($id);
+        $instutions = new Instution();
+        $instutions = $instutions->find($id);
 
-        return view('instutions.edit', compact('instution'));
+        return view('instituicao.create-edit', compact('titulo','instutions'));
     }
 
 
@@ -145,7 +148,7 @@ class InstutionsController extends Controller
      *
      * @return Response
      */
-    public function update(InstutionsUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {
@@ -164,7 +167,7 @@ class InstutionsController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect()->route('index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -175,7 +178,10 @@ class InstutionsController extends Controller
                 ]);
             }
 
-            return redirect()->back()->withErrors($e->getMessageBag())->withInput();
+
+                return redirect()->back()->withErrors($e->getMessageBag())->withInput();
+
+
         }
     }
 
