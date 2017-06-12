@@ -16,19 +16,19 @@
     <div class="col-md-6 col-xs-12">
         <div class="input-group">
             <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-            <input id="data_inicio" name="data_inicio" type="datetime-local" placeholder="Data de Início do Evento"
+            <input id="data_inicio" name="data_inicio" type="datetime-local" placeholder="Selecione"
                    class="form-control datepicker" required="">
         </div>
     </div>
 </div>
 <!-- Data de Conclusão-->
 <div class="form-group">
-    <label class="col-md-3 col-xs-12 control-label" for="data_inicio">Data de Início</label>
+    <label class="col-md-3 col-xs-12 control-label" for="data_inicio">Data de Encerramento</label>
     <div class="col-md-6 col-xs-12">
         <div class="input-group">
             <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
             <input id="data_conclusao" name="data_conclusao" type="datetime-local"
-                   placeholder="Data de Conclusão" class="form-control datepicker" required="">
+                   placeholder="Selecione" class="form-control datepicker" required="">
         </div>
     </div>
 </div>
