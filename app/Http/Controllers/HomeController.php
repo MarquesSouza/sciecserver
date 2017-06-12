@@ -16,13 +16,8 @@ class HomeController extends Controller
     // Controller View Usuario (Carioca)
     public function index()
     {
-        $listacursos = [
-            'Banco de dados',
-            'Desenvolvimento',
-            'Marketing'
-        ];
-
         redirect('/');
+        return;
     }
     // Termina aqui..
     public function welcome()

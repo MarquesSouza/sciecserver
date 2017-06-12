@@ -1,56 +1,62 @@
 @extends('app')
-
 @section('content')
-    <div>
-        <br><br><br><br>
-    </div>
-    <div class="container">
+    <div class="page-content-wrap">
+
         <div class="row">
-            <br><br>
+            <div class="col-md-12">
 
-            <table class="table table-bordered table-inverse">
-                <tr>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Status</th>
-                    <th>Hora</th>
-                    <th>Local</th>
-                    <th>QTD Inscritos</th>
-                    <th>Cod Inscritos</th>
-                    <th>Data de Início</th>
-                    <th>Data de Conclusão</th>
-                    <th>Concluir</th>
+                <!-- START DEFAULT DATATABLE -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Atividades do Evento</h3>
+                        <ul class="panel-controls">
+                            <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                            <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                            <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table datatable">
+                            <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Status</th>
+                                <th>Carg. Horária</th>
+                                <th>Local</th>
+                                <th>QTD Inscritos</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                @forelse ($activities as $a)
+                                    <form action="{{url('evento/'.$a->id_evento.'/atividade/insc_atividade/'.$a->id)}}"
+                                          method="post"><
+                                        {{csrf_field()}}
+                                        <td>{{ $a->nome }}</td>
+                                        <td>{{ $a->descricao }}</td>
+                                        <td>{{ $a->status }}</td>
+                                        <td>{{ $a->hora }}</td>
+                                        <td>{{ $a->local }}</td>
+                                        <td>{{ $a->qtd_inscritos }}</td>
 
+                                        <td>
+                                            <button type="submit">Confirmar Inscrição</button>
+                                        </td>
+                                    </form>
 
-                </tr>
-                <tr>
-                    @forelse ($activities as $a)
-                        <form action="{{url('evento/'.$a->id_evento.'/atividade/insc_atividade/'.$a->id)}}" method="post">
-                            {{csrf_field()}} <br><br>
+                            </tr>
+                            </tbody>
+                            @empty
 
-                            <td>{{ $a->nome }}</td>
-                            <td>{{ $a->descricao }}</td>
-                            <td>{{ $a->status }}</td>
-                            <td>{{ $a->hora }}</td>
-                            <td>{{ $a->local }}</td>
-                            <td>{{ $a->qtd_inscritos }}</td>
-                            <td>{{ $a->cod_inscritos }}</td>
-                            <td>{{ $a->data_inicio }}</td>
-                            <td>{{ $a->data_conclusao }}</td>
-                            <td>
-                                <button type="submit" >Confirmar Inscrição</button></td>
+                                <p>No activities</p>
+                            @endforelse
 
-                            </td>
+                        </table>
 
-                        </form>
-                </tr>
-                @empty
-
-                    <p>No activities</p>
-                @endforelse
-
-            </table>
-
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

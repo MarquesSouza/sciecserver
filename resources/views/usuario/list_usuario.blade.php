@@ -26,7 +26,7 @@
                             <td>{{ $u->email }}</td>
                             <td>{{ $u->telefone }}</td>
                             <td>
-                                <a href="{{url('usuario/edite')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                                <a href="{{url('usuario/edit',$u->id)}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
                             </td>
                             <td>
                                 <a href="{{url('usuario/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>

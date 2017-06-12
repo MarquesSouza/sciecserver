@@ -1,27 +1,45 @@
-@include('form._form1')
-<!-- Select Basic -->
-<div class="form-group">
-    <label class="col-md-4 control-label" for="selectbasic">Curso</label>
-    <div class="col-md-4">
-        <select id="id_curso" name="id_curso" class="form-control">
-            @forelse ( $cursos as $c)
-                <option value="{{$c->id}}">{{$c->nome}}</option>
-            @empty
-                <p>No type_users</p>
-            @endforelse
-        </select>
+<div class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+
+            <form class="form-horizontal">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                    @include('form._form1') <!-- Reaproveitamento de cógigo para formulários -->
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label" for="selectbasic">Curso</label>
+                            <div class="col-md-6 col-xs-12">
+                                <select id="id_curso" name="id_curso" class="form-control select">
+                                    @forelse ( $cursos as $c) <!-- Aqui está pegando o Curso do Evento -->
+                                        <option value="{{$c->id}}">{{$c->nome}}</option>
+                                    @empty
+                                        <p>No type_users</p>
+                                    @endforelse
+                                </select>
+                                <span class="help-block">Selecione o curso no qual será vinculo o evento..</span>
+                            </div>
+                        </div>
+                        <input type="hidden" name="status" value="1">
+
+                    @include('form._form2') <!-- Reaproveitamento de cógigo para formulários -->
+
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-<input type="hidden" name="status" value="1">
 
-
-@include('form._form2')
-
-<!-- Button -->
+<!-- Button  -->
 <div class="form-group">
-    <label class="col-md-4 control-label" for="singlebutton"></label>
-    <div class="col-md-4">
+    <label class="col-md-3 col-xs-12 control-label" for="singlebutton"></label>
+    <div class="btn-block">
         <button id="singlebutton" name="singlebutton" class="btn btn-success">Cadastrar</button>
-        <button id="singlebutton" name="singlebutton" class="btn btn-danger">Voltar</button>
+        <a href="{{('/')}}">
+            <button id="singlebutton" name="singlebutton" class="btn btn-danger">Voltar</button>
+        </a>
     </div>
 </div>
