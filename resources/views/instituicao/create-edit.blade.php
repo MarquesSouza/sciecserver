@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Nome</label>
                     <div class="col-md-5">
-                        <input id="nome" name="nome" type="text" placeholder="Nome"
+                        <input id="nome" name="nome" type="text" placeholder=""
                                class="form-control input-md" required="" value="{{$instutions->nome or old('nome')}}">
 
                     </div>
@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Descrição</label>
                     <div class="col-md-5">
-                        <input id="descricao" name="descricao" type="text" placeholder="Descrição da Atividade"
+                        <input id="descricao" name="descricao" type="text" placeholder=""
                                class="form-control input-md" required="" value="{{$instutions->descricao or old('descricao')}}">
 
                     </div>
@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="email">Email</label>
                     <div class="col-md-4">
-                        <input id="email" name="email" type="text" placeholder="email" class="form-control input-md"
+                        <input id="email" name="email" type="text" placeholder="" class="form-control input-md"
                                required="" value="{{$instutions->email or old('email')}}">
 
                     </div>
@@ -59,7 +59,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="telefone">Telefone</label>
                     <div class="col-md-4">
-                        <input id="telefone" name="telefone" type="text" placeholder="telefone"
+                        <input id="telefone" name="telefone" type="text" placeholder=""
                                class="form-control input-md" required="" value="{{$instutions->telefone or old('telefone')}}">
 
                     </div>
@@ -81,7 +81,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for=""></label>
                     <div class="col-md-4">
-                        <button id="" name="" class="btn btn-primary">Salvar</button>
+                        <button id="" name="" class="btn btn-primary">Cadastrar</button>
                     </div>
                 </div>
             </div>

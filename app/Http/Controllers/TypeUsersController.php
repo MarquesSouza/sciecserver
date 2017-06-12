@@ -64,7 +64,7 @@ class TypeUsersController extends Controller
     {
         return view('tipo_de_usuario.cad_tipo_de_usuario');
     }
-    public function store(TypeUserCreateRequest $request)
+    public function store(Request $request)
     {
 
         try {
