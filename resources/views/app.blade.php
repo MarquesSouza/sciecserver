@@ -206,17 +206,15 @@
         <!-- BARRA DE NAVEGAÇÃO SUPERIOR -->
         <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
             <!-- SIGN OUT -->
-            <li class="xn-icon-button pull-right">
+            <li class="pull-right">
                 <a href="{{ route('logout') }}"
                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
+                      document.getElementById('logout-form').submit();"><span class="fa fa-sign-out"></span>Logout
 
+                </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
-                <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
             </li>
             <!-- END SIGN OUT -->
         </ul>
@@ -250,12 +248,6 @@
 <!-- START THIS PAGE PLUGINS-->
 <script type='text/javascript' src='{{ asset('js/plugins/icheck/icheck.min.js') }}'></script>
 <script type="text/javascript" src="{{ asset('js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/plugins/scrolltotop/scrolltopcontrol.js') }}"></script>
-
-<script type="text/javascript" src="{{ asset('js/plugins/morris/raphael-min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/plugins/morris/morris.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/plugins/rickshaw/d3.v3.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/plugins/rickshaw/rickshaw.min.js') }}"></script>
 <script type='text/javascript' src='{{ asset('js/plugins/bootstrap/bootstrap-datepicker.js') }}'></script>
 
 <script type="text/javascript" src="{{ asset('js/plugins/moment.min.js') }}"></script>
