@@ -58,8 +58,9 @@ class CoursesController extends Controller
 
     public function form_cadastro()
     {
-        $instution= Instution::all();
-        return view('curso.cad_curso', compact('instution'));
+        $titulo = "Cadastrar Curso";
+        $instution = Instution::all();
+        return view('curso.create-edit',compact('titulo','instution'));
     }
 
 
@@ -72,9 +73,9 @@ class CoursesController extends Controller
      */
     public function form_cad()
     {
-        return view('curso.cad_curso');
+
     }
-    public function store(CourseCreateRequest $request)
+    public function store(Request $request)
     {
 
         try {
@@ -138,10 +139,11 @@ class CoursesController extends Controller
      */
     public function edit($id)
     {
+        $titulo = "Editar Curso";
 
-        $course = $this->repository->find($id);
-
-        return view('courses.edit', compact('course'));
+        $instution = Instution::all();
+        $courses = $this->repository->find($id);
+        return view('curso.create-edit', compact('titulo','courses','instution'));
     }
 
 
@@ -153,7 +155,7 @@ class CoursesController extends Controller
      *
      * @return Response
      */
-    public function update(CourseUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {

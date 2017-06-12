@@ -22,7 +22,7 @@
                             <td>{{ $c->nome }}</td>
                             <td>{{ $c->descricao }}</td>
                             <td>
-                                <a href="{{url('curso/edite/{id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                                <a href="{{url('curso/edit',$c->id)}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
                             </td>
                             <td>
                                 <a href="{{url('curso/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>

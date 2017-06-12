@@ -133,8 +133,8 @@ class InstutionsController extends Controller
     {
         $titulo = "Editar Instituiçao";
 
-        $instutions = new Instution();
-        $instutions = $instutions->find($id);
+
+        $instutions = $this->repository->find($id);
 
         return view('instituicao.create-edit', compact('titulo','instutions'));
     }

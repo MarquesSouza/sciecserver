@@ -10,15 +10,20 @@ class Course extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [ 'nome',
-                            'descricao',
-                            'status',
-                            'id_instutions'
-                            ];
-    public function instution(){
-        return $this->belongsTo(Instution::class,'id_instutions');
+    protected $fillable = [
+        'nome',
+        'descricao',
+        'id_instutions',
+        'status',
+    ];
+
+    public function instution()
+    {
+        return $this->belongsTo(Instution::class, 'id_instutions');
     }
-    public function evento(){
-        return $this->belongsToMany(Event::class,'course_events','id_cursos','id_eventos');
+
+    public function evento()
+    {
+        return $this->belongsToMany(Event::class, 'course_events', 'id_cursos', 'id_eventos');
     }
 }
