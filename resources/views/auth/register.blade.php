@@ -131,11 +131,8 @@
 <!-- END THIS PAGE PLUGINS-->
 
 <!-- START TEMPLATE -->
-<script type="text/javascript" src="{{ asset('js/settings.js') }}"></script>
-
 <script type="text/javascript" src="{{ asset('js/plugins.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/actions.js') }}"></script>
-
 <script type="text/javascript" src="{{ asset('js/demo_dashboard.js') }}"></script>
 <!-- END TEMPLATE -->
 <!-- END SCRIPTS -->
