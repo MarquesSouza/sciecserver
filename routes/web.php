@@ -13,8 +13,8 @@
 
 Auth::routes();
 
+Route::get('/home', 'HomeController@welcome');
 Route::get('/', 'HomeController@welcome');
-
 Route::get('token', function (){
 
     $http = new GuzzleHttp\Client;
