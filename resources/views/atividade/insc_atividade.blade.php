@@ -1,8 +1,6 @@
 @extends('app')
 
 @section('content')
-    <br><br><br><br>
-    <!-- Default panel contents -->
     <div class="container-fluid">
         <div class="panel panel-default">
             <div class="panel-heading text-center"><h3>Titulo do Evento</h3></div>
