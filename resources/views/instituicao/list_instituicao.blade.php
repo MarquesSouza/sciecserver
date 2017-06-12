@@ -10,7 +10,7 @@
             <a href="{{ url('instituicao/cad') }}" class="btn-primary btn btn-default">Nova Instituiçao</a>
             <br><br>
 
-                <table class="table table-hover">
+                <table class="table table-bordered table-hover">
                     <th>Nome</th>
                     <th>Descricão</th>
                     <th>Site</th>

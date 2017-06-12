@@ -21,7 +21,7 @@
                     <th>Excluir</th>
 
                     <tr>
-                        @forelse ($artigo as $a)
+                        @forelse ($articles as $a)
 
                             <td>{{ $a->titulo }}</td>
                             <td>{{ $a->resumo }}</td>
@@ -30,10 +30,10 @@
                             <td>{{ $a->subtitulo }}</td>
                             <td>{{ $a->situacao }}</td>
                             <td>
-                                <a href="{{url('participacao/edite/{id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                                <a href="{{url('artigo/edit',$a->id)}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
                             </td>
                             <td>
-                                <a href="{{url('participacao/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
+                                <a href="{{url('artigo/delete',$a->id)}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
                             </td>
 
                     </tr>

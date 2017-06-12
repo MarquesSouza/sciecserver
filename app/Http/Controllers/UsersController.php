@@ -64,13 +64,14 @@ class UsersController extends Controller
      */
     public function form_cad()
     {
-        $tipoUser=TypeUser::all();
-        return view('usuario.cad_usuario',compact('tipoUser'));
+        $titulo= "Cadastra Usuarios";
+        return view('usuario.create-edit-user',compact('titulo'));
     }
     public function store(UserCreateRequest $request)
     {
 
         try {
+
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
@@ -132,9 +133,10 @@ class UsersController extends Controller
     public function edit($id)
     {
 
-        $user = $this->repository->find($id);
+        $titulo = "Editar Usuario";
+        $users = $this->repository->find($id);
+        return view('usuario.create-edit-user', compact('titulo','users'));
 
-        return view('users.edit', compact('user'));
     }
 
 

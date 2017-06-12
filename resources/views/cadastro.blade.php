@@ -71,9 +71,4 @@
 
       </fieldset>
   </form>
-
-
-
-
-
 @endsection
