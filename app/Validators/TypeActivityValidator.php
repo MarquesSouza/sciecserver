@@ -9,7 +9,15 @@ class TypeActivityValidator extends LaravelValidator
 {
 
     protected $rules = [
-        ValidatorInterface::RULE_CREATE => [],
-        ValidatorInterface::RULE_UPDATE => [],
+        ValidatorInterface::RULE_CREATE => [
+            'nome' => 'required|min:3|max:100',
+            'descricao' => 'min:3|max:100',
+            'status' => 'required',
+        ],
+        ValidatorInterface::RULE_UPDATE => [
+            'nome' => 'required|min:3|max:100',
+            'descricao' => 'min:3|max:100',
+            'status' => 'required',
+        ],
    ];
 }
