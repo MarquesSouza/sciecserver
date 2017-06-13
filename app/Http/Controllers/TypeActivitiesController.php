@@ -62,7 +62,9 @@ class TypeActivitiesController extends Controller
      */
     public function form_cad()
     {
-        return view('tipo_de_atividade.cad_tipo_de_atividade');
+//        return view('tipo_de_atividade.cad_tipo_de_atividade');
+        $titulo = "Cadastrar Tipo de Atividade";
+        return view('tipo_de_atividade.create-edit', compact('titulo'));
     }
     public function store(Request $request)
     {
@@ -128,10 +130,12 @@ class TypeActivitiesController extends Controller
      */
     public function edit($id)
     {
+        $titulo = "Editar Tipo de Atividade";
 
         $typeActivity = $this->repository->find($id);
 
-        return view('typeActivities.edit', compact('typeActivity'));
+//        return view('typeActivities.edit', compact('typeActivity'));
+        return view('tipo_de_atividade.create-edit', compact('titulo','typeActivity'));
     }
 
 
@@ -143,7 +147,7 @@ class TypeActivitiesController extends Controller
      *
      * @return Response
      */
-    public function update(TypeActivityUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {
@@ -162,7 +166,7 @@ class TypeActivitiesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect()->route("index_type_activity");
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {

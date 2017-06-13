@@ -18,8 +18,7 @@ use App\Http\Requests\EventCreateRequest;
 use App\Http\Requests\EventUpdateRequest;
 use App\Repositories\EventRepository;
 use App\Validators\EventValidator;
-
-
+use Psy\Util\Json;
 
 
 class EventsController extends Controller

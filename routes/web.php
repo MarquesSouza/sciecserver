@@ -71,7 +71,7 @@ Route::put('usuario/config/update/{id}', 'TypeUsersController@update')->middlewa
 
 //Tipo de Atividade
 Route::get('atividade/config/cad', 'TypeActivitiesController@form_cad')->middleware('auth');// feito
-Route::get('atividade/config/index', 'TypeActivitiesController@index')->middleware('auth');// feito
+Route::get('atividade/config/index', 'TypeActivitiesController@index')->middleware('auth')->name('index_type_activity');// feito
 Route::post('atividade/config/store', 'TypeActivitiesController@store')->middleware('auth');//fazendo
 Route::get('atividade/config/show/{id}', 'TypeActivitiesController@show')->middleware('auth');//feito
 Route::delete('atividade/config/delete/{id}', 'TypeActivitiesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
@@ -136,6 +136,8 @@ Route::put('evento/update/{id}', 'EventsController@update')->middleware('auth');
 Route::get('evento/eventos', 'EventsController@evento_user')->middleware('auth');// feito
 
 //Atividade
+Route::get('evento/{id_evento}/atividade/atividades', 'ActivitiesController@atividade_user')->middleware('auth');// feito
+
 Route::get('evento/{id_evento}/atividade/cad', 'ActivitiesController@form_cad')->middleware('auth');// feito
 Route::get('evento/{id_evento}/atividade/insc_atividade', 'ActivitiesController@form_insc_atividade')->middleware('auth');// feito
 Route::get('evento/{id_evento}/atividade/index', 'ActivitiesController@index')->middleware('auth');// feito

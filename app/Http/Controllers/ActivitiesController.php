@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Entities\Activity;
 use App\Entities\Event;
 use App\Entities\TypeActivity;
+use App\Entities\User;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
@@ -33,7 +35,8 @@ class ActivitiesController extends Controller
     public function __construct(ActivityRepository $repository, ActivityValidator $validator)
     {
         $this->repository = $repository;
-        $this->validator = $validator;
+        $this->validator  = $validator;
+        $this->middleware('auth');
     }
 
 
@@ -44,9 +47,9 @@ class ActivitiesController extends Controller
      */
     public function index($id)
     {
-        $atividade = Activity::all();
+        $atividade= Activity::all();
 
-        $activities = $atividade->where('id_evento', '=', $id);
+        $activities=$atividade->where('id_evento','=',$id);
 
         if (request()->wantsJson()) {
 
@@ -67,17 +70,8 @@ class ActivitiesController extends Controller
      */
     public function form_cad()
     {
-        $tipoAtividade = TypeActivity::all();
-        return view('atividade.cad_atividade', compact('tipoAtividade'));
-    }
-
-    public function form_insc_atividade($id)
-    {
-
-        $evento = Event::find($id);
-        $atividades = $evento->atividade;
-        return view('atividade.insc_atividade', compact('atividades'));
-
+        $tipoAtividade=TypeActivity::all();
+        return view('atividade.cad_atividade',compact('tipoAtividade'));
     }
 
     public function store(ActivityCreateRequest $request)
@@ -91,7 +85,7 @@ class ActivitiesController extends Controller
 
             $response = [
                 'message' => 'Activity created.',
-                'data' => $activity->toArray(),
+                'data'    => $activity->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -103,7 +97,7 @@ class ActivitiesController extends Controller
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
-                    'error' => true,
+                    'error'   => true,
                     'message' => $e->getMessageBag()
                 ]);
             }
@@ -150,12 +144,20 @@ class ActivitiesController extends Controller
         return view('activities.edit', compact('activity'));
     }
 
+    public function atividade_user(){
+        $User= new User();
+        $User->id=Auth::user()->id;
+        $atividade=$User->atividade()->get()->all();
+       dd($atividade);
 
+        //return view('evento.list_evento', compact('events'));
+
+    }
     /**
      * Update the specified resource in storage.
      *
      * @param  ActivityUpdateRequest $request
-     * @param  string $id
+     * @param  string            $id
      *
      * @return Response
      */
@@ -170,7 +172,7 @@ class ActivitiesController extends Controller
 
             $response = [
                 'message' => 'Activity updated.',
-                'data' => $activity->toArray(),
+                'data'    => $activity->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -184,7 +186,7 @@ class ActivitiesController extends Controller
             if ($request->wantsJson()) {
 
                 return response()->json([
-                    'error' => true,
+                    'error'   => true,
                     'message' => $e->getMessageBag()
                 ]);
             }
