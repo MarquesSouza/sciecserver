@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('content')
     <div>
         <br><br><br><br>

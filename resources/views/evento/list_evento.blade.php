@@ -1,9 +1,8 @@
 @extends('app')
-
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="c   ol-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2">
                 <br><br>
                 <a href="{{ url('evento/cad') }}" class="btn btn-default">Novo Evento</a>
                 <br><br>
