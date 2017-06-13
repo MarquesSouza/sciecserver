@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Activity;
+use App\Entities\ActivityUser;
 use App\Entities\Event;
 use App\Entities\TypeActivity;
 use App\Entities\User;
@@ -151,6 +152,25 @@ class ActivitiesController extends Controller
        dd($atividade);
 
         //return view('evento.list_evento', compact('events'));
+
+    }
+    public function insc_atividade($id_evento,$id){
+
+        $AtividadeUser= new ActivityUser();
+        $AtividadeUser->id_users = Auth::user()->id;
+        $userEvent->id_evento = $id;
+        $userEvent->setAttribute('id_articles',1);
+        $userEvent->setAttribute('id_participation',1);
+        $userEvent->setAttribute('status',1);
+        if($userEvent->valida()){
+            $userEvent->save();
+            return redirect('evento/'.$id.'/atividade/index');
+        }else{
+
+            return redirect('evento/show/'.$id);
+
+            //pagina para mensagem que ja ta cadastrador
+        }
 
     }
     /**
