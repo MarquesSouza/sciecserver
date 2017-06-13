@@ -33,7 +33,7 @@ class ActivitiesController extends Controller
     public function __construct(ActivityRepository $repository, ActivityValidator $validator)
     {
         $this->repository = $repository;
-        $this->validator  = $validator;
+        $this->validator = $validator;
     }
 
 
@@ -44,9 +44,9 @@ class ActivitiesController extends Controller
      */
     public function index($id)
     {
-        $atividade= Activity::all();
+        $atividade = Activity::all();
 
-        $activities=$atividade->where('id_evento','=',$id);
+        $activities = $atividade->where('id_evento', '=', $id);
 
         if (request()->wantsJson()) {
 
@@ -67,14 +67,17 @@ class ActivitiesController extends Controller
      */
     public function form_cad()
     {
-        $tipoAtividade=TypeActivity::all();
-        return view('atividade.cad_atividade',compact('tipoAtividade'));
+        $tipoAtividade = TypeActivity::all();
+        return view('atividade.cad_atividade', compact('tipoAtividade'));
     }
 
-    public function form_insc_atividade()
+    public function form_insc_atividade($id)
     {
-        $atividade=Activity::all();
-        return view('atividade.insc_atividade',compact('atividade'));
+
+        $evento = Event::find($id);
+        $atividades = $evento->atividade;
+        return view('atividade.insc_atividade', compact('atividades'));
+
     }
 
     public function store(ActivityCreateRequest $request)
@@ -88,7 +91,7 @@ class ActivitiesController extends Controller
 
             $response = [
                 'message' => 'Activity created.',
-                'data'    => $activity->toArray(),
+                'data' => $activity->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -100,7 +103,7 @@ class ActivitiesController extends Controller
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
-                    'error'   => true,
+                    'error' => true,
                     'message' => $e->getMessageBag()
                 ]);
             }
@@ -152,7 +155,7 @@ class ActivitiesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  ActivityUpdateRequest $request
-     * @param  string            $id
+     * @param  string $id
      *
      * @return Response
      */
@@ -167,7 +170,7 @@ class ActivitiesController extends Controller
 
             $response = [
                 'message' => 'Activity updated.',
-                'data'    => $activity->toArray(),
+                'data' => $activity->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -181,7 +184,7 @@ class ActivitiesController extends Controller
             if ($request->wantsJson()) {
 
                 return response()->json([
-                    'error'   => true,
+                    'error' => true,
                     'message' => $e->getMessageBag()
                 ]);
             }

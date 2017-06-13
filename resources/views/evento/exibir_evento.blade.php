@@ -25,7 +25,9 @@
                                     <td>{{ $events->data_conclusao }}</td>
                                     <td>{{ $events->logoEvento }}</td>
                                     <td>
-                                        <button type="submit" class="btn-primary">Confirmar Inscrição</button>
+
+                                        <a href="{{url('evento/'.$events->id.'/atividade/insc_atividade')}}" class="btn btn-primary">Confirmar Inscrição</a>
+
                                     </td>
                                 </tr>
                             </table>
