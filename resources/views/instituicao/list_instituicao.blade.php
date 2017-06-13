@@ -29,9 +29,16 @@
                             <td>
                                 <a href="{{url('instituicao/edit',$u->id)}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
                             </td>
-                            <td>
-                                <a href="{{url('instituicao/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
-                            </td>
+
+
+
+                                <form class="form-horizontal" method="post" action="{{ url('instituicao/delete', $u->id) }}">
+                                    {{csrf_field()}}
+                                    <td>
+                                <button type="submit" id="" name="" class="btn btn-danger">Excluir</button>
+                                    </td>
+                                </form>
+
 
 
                     </tr>
