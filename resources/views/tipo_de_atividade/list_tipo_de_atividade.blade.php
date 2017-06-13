@@ -24,7 +24,7 @@
                             <td>{{ $ev->descricao }}</td>
                              <th>{{$ev->status}}</th>
                              <td>
-                                 <a href="{{url('atividade/config/edite')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                                 <a href="{{url('atividade/config/edit',$ev->id)}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
                              </td>
                              <td>
                                  <a href="{{url('atividade/config/cad/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
