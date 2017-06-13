@@ -21,30 +21,39 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Descrição</th>
-                                <th>Status</th>
                                 <th>Carg. Horária</th>
                                 <th>Local</th>
-                                <th>QTD Inscritos</th>
+                                <th>Quantidade De Inscritos</th>
+                                <th>Inscrição</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
+
                                 @forelse ($activities as $a)
+                                    @if($a->status==1)
                                     <form action="{{url('evento/'.$a->id_evento.'/atividade/insc_atividade/'.$a->id)}}"
-                                          method="post"><
+                                          method="post">
                                         {{csrf_field()}}
+
                                         <td>{{ $a->nome }}</td>
                                         <td>{{ $a->descricao }}</td>
-                                        <td>{{ $a->status }}</td>
                                         <td>{{ $a->hora }}</td>
                                         <td>{{ $a->local }}</td>
-                                        <td>{{ $a->qtd_inscritos }}</td>
+                                        <td>{{ $a->qtd_inscritos- $atividadeUser->quantidade($a->id) }}</td>
+                                        @if(($atividadeUser->validaUserAtividade($a->id, $id_user))&&($a->qtd_inscritos>0))
+                                            <td>
+                                                <button type="submit">Confirmar Inscrição</button>
 
-                                        <td>
-                                            <button type="submit">Confirmar Inscrição</button>
+                                            <td>
+                                                @else
+                                                    <td>
+                                                        Ja Inscrito!!
+                                                    </td>
+                                                    @endif
                                         </td>
                                     </form>
-
+                                    @endif
                             </tr>
                             </tbody>
                             @empty
