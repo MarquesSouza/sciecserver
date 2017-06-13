@@ -158,13 +158,11 @@ class ActivitiesController extends Controller
 
         $AtividadeUser= new ActivityUser();
         $AtividadeUser->id_users = Auth::user()->id;
-        $userEvent->id_evento = $id;
-        $userEvent->setAttribute('id_articles',1);
-        $userEvent->setAttribute('id_participation',1);
-        $userEvent->setAttribute('status',1);
-        if($userEvent->valida()){
-            $userEvent->save();
-            return redirect('evento/'.$id.'/atividade/index');
+        $AtividadeUser->id_activity=$id;
+        $AtividadeUser->id_type_activity_user=1;
+          if($AtividadeUser->valida()){
+            $AtividadeUser->save();
+            return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
         }else{
 
             return redirect('evento/show/'.$id);
