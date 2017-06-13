@@ -71,6 +71,12 @@ class ActivitiesController extends Controller
         return view('atividade.cad_atividade',compact('tipoAtividade'));
     }
 
+    public function form_insc_atividade()
+    {
+        $atividade=Activity::all();
+        return view('atividade.insc_atividade',compact('atividade'));
+    }
+
     public function store(ActivityCreateRequest $request)
     {
 
