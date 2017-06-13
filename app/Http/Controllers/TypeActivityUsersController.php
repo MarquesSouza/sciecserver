@@ -64,7 +64,7 @@ class TypeActivityUsersController extends Controller
     {
         return view('tipo_de_atividade_de_usuario.cad_tipo_de_atividade_de_usuario');
     }
-    public function store(TypeActivityUserCreateRequest $request)
+    public function store(Request $request)
     {
 
         try {

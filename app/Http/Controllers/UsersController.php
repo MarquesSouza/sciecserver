@@ -67,7 +67,7 @@ class UsersController extends Controller
         $titulo= "Cadastra Usuarios";
         return view('usuario.create-edit-user',compact('titulo'));
     }
-    public function store(UserCreateRequest $request)
+    public function store(Request $request)
     {
 
         try {
