@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Entities\Activity;
 use App\Entities\Event;
 use App\Entities\TypeActivity;
+use App\Entities\User;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
@@ -34,6 +36,7 @@ class ActivitiesController extends Controller
     {
         $this->repository = $repository;
         $this->validator  = $validator;
+        $this->middleware('auth');
     }
 
 
@@ -141,7 +144,15 @@ class ActivitiesController extends Controller
         return view('activities.edit', compact('activity'));
     }
 
+    public function atividade_user(){
+        $User= new User();
+        $User->id=Auth::user()->id;
+        $atividade=$User->atividade()->get()->all();
+       dd($atividade);
 
+        //return view('evento.list_evento', compact('events'));
+
+    }
     /**
      * Update the specified resource in storage.
      *

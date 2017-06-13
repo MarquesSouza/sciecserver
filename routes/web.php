@@ -136,6 +136,8 @@ Route::put('evento/update/{id}', 'EventsController@update')->middleware('auth');
 Route::get('evento/eventos', 'EventsController@evento_user')->middleware('auth');// feito
 
 //Atividade
+Route::get('evento/{id_evento}/atividade/atividades', 'ActivitiesController@atividade_user')->middleware('auth');// feito
+
 Route::get('evento/{id_evento}/atividade/cad', 'ActivitiesController@form_cad')->middleware('auth');// feito
 Route::get('evento/{id_evento}/atividade/index', 'ActivitiesController@index')->middleware('auth');// feito
 Route::post('evento/{id_evento}/atividade/store', 'ActivitiesController@store')->middleware('auth');//fazendo
