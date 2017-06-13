@@ -146,7 +146,7 @@ Route::get('evento/{id_evento}/atividade/show/{id}', 'ActivitiesController@show'
 Route::delete('evento/{id_evento}/atividade/delete/{id}', 'ActivitiesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
 Route::get('evento/{id_evento}/atividade/edit/{id}', 'ActivitiesController@edit')->middleware('auth');
 Route::put('evento/{id_evento}/atividade/update/{id}', 'ActivitiesController@update')->middleware('auth');
-Route::post('evento/{id_evento}/atividade/insc_atividade/{id}', 'ActivitiesController@form_insc_atividade')->middleware('auth');//feito
+Route::post('evento/{id_evento}/atividade/insc_atividade/{id}', 'ActivitiesController@insc_atividade')->middleware('auth');//feito
 
 
 // obs: as outras tabelas assegir sao tabelas n pra n

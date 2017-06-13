@@ -58,7 +58,7 @@ class ActivitiesController extends Controller
                 'data' => $activities,
             ]);
         }
-        return view('atividade.list_atividade', compact('activities'));
+        return view('atividade.exibir_atividade', compact('activities'));
     }
 
     /**
@@ -148,10 +148,10 @@ class ActivitiesController extends Controller
     public function atividade_user(){
         $User= new User();
         $User->id=Auth::user()->id;
-        $atividade=$User->atividade()->get()->all();
-       dd($atividade);
+        $activities=$User->atividade()->get()->all();
 
-        //return view('evento.list_evento', compact('events'));
+
+        return view('atividade.list_atividade', compact('activities'));
 
     }
     public function insc_atividade($id_evento,$id){
@@ -160,7 +160,11 @@ class ActivitiesController extends Controller
         $AtividadeUser->id_users = Auth::user()->id;
         $AtividadeUser->id_activity=$id;
         $AtividadeUser->id_type_activity_user=1;
-          if($AtividadeUser->valida()){
+        $AtividadeUser->status=1;
+        $AtividadeUser->data_entrada="2017-07-03 00:00:00";
+        $AtividadeUser->data_saida="2017-07-03 00:00:00";
+        $AtividadeUser->presenca=1;
+        if($AtividadeUser->valida()){
             $AtividadeUser->save();
             return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
         }else{
