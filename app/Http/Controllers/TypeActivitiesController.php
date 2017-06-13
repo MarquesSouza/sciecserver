@@ -64,7 +64,7 @@ class TypeActivitiesController extends Controller
     {
         return view('tipo_de_atividade.cad_tipo_de_atividade');
     }
-    public function store(TypeActivityCreateRequest $request)
+    public function store(Request $request)
     {
 
         try {

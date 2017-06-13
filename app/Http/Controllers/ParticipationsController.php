@@ -64,7 +64,7 @@ class ParticipationsController extends Controller
     {
         return view('participacao.cad_participacao');
     }
-    public function store(ParticipationCreateRequest $request)
+    public function store(Request $request)
     {
 
         try {
