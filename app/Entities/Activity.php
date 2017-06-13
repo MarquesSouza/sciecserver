@@ -36,4 +36,5 @@ class Activity extends Model implements Transformable
      public function tipoAtividadeUser(){
          return $this->belongsToMany(TypeActivityUser::class,'activity_users','id_activity','id_type_activity_user');
      }
+
 }
