@@ -26,11 +26,11 @@
             </li>
             <li class="xn-profile">
                 <a href="#" class="profile-mini">
-                    <img src="{{asset('assets/images/users/avatar.jpg')}}" alt="John Doe"/>
+                    <img src="{{asset('assets/images/users/no-image.jpg')}}" alt="John Doe"/>
                 </a>
                 <div class="profile">
                     <div class="profile-image">
-                        <img src="{{asset('assets/images/users/avatar.jpg')}}" alt="John Doe"/>
+                        <img src="{{asset('assets/images/users/no-image.jpg')}}" alt="John Doe"/>
                     </div>
                     <div class="profile-data">
                         <div class="profile-data-name">{{ Auth::user()->name }}</div>
@@ -45,8 +45,8 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Eventos</span></a>
                 <ul>
-                    <li><a href="pages-gallery.html">Cadastrar</a></li>
-                    <li><a href="pages-profile.html">Listar</a></li>
+                    <li><a href="evento/cad">Cadastrar</a></li>
+                    <li><a href="evento/index">Listar</a></li>
                 </ul>
             </li>
             <!-- FINAL MENU EVENTOS-->
@@ -55,8 +55,8 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Instituição</span></a>
                 <ul>
-                    <li><a href="pages-gallery.html">Cadastrar</a></li>
-                    <li><a href="pages-profile.html">Listar</a></li>
+                    <li><a href="instituicao/cad">Cadastrar</a></li>
+                    <li><a href="instituicao/index">Listar</a></li>
                 </ul>
             </li>
             <!-- FINAL MENU INSTITUIÇÕES-->
@@ -65,8 +65,8 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Curso</span></a>
                 <ul>
-                    <li><a href="pages-gallery.html">Cadastrar</a></li>
-                    <li><a href="pages-profile.html">Listar</a></li>
+                    <li><a href="curso/cad">Cadastrar</a></li>
+                    <li><a href="curso/index">Listar</a></li>
                 </ul>
             </li>
             <!-- FINAL MENU CURSO-->
@@ -75,14 +75,14 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-user"></span> <span class="xn-text">Usuário</span></a>
                 <ul>
-                    <li><a href="pages-gallery.html">Cadastrar</a></li>
-                    <li><a href="pages-profile.html">Listar</a></li>
+                    <li><a href="usuario/cad">Cadastrar</a></li>
+                    <li><a href="usuario/index">Listar</a></li>
                     <!-- INICIO MENU TIPO DE USUÁRIO-->
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-user-md"></span> Tipos de Usuário</a>
                         <ul>
-                            <li><a href="pages-timeline.html">Cadastrar</a></li>
-                            <li><a href="pages-timeline-simple.html">Listar</a></li>
+                            <li><a href="usuario/config/cad">Cadastrar</a></li>
+                            <li><a href="usuario/config/index">Listar</a></li>
                         </ul>
                     </li>
                     <!-- FINAL MENU TIPO DE USUÁRIO-->
@@ -90,8 +90,8 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-user-md"></span> Tipo de Atividade do Usuário</a>
                         <ul>
-                            <li><a href="pages-timeline.html">Cadastrar</a></li>
-                            <li><a href="pages-timeline-simple.html">Listar</a></li>
+                            <li><a href="usuario/atividade/config/cad">Cadastrar</a></li>
+                            <li><a href="usuario/atividade/config/index">Listar</a></li>
                         </ul>
                     </li>
                     <!-- FINAL MENU TIPO DE ATIVIDADE DO USUÁRIO-->
@@ -104,14 +104,14 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-user"></span> <span class="xn-text">Atividade</span></a>
                 <ul>
-                    <li><a href="pages-gallery.html">Cadastrar</a></li>
-                    <li><a href="pages-profile.html">Listar</a></li>
+                    <li><a href="evento/{id_evento}/atividade/cad">Cadastrar</a></li>
+                    <li><a href="evento/{id_evento}/atividade/index">Listar</a></li>
                     <!-- INICIO MENU TIPOS DE ATIVIDADES-->
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-user-md"></span> Tipo de Atividade</a>
                         <ul>
-                            <li><a href="pages-timeline.html">Cadastrar</a></li>
-                            <li><a href="pages-timeline-simple.html">Listar</a></li>
+                            <li><a href="atividade/config/cad">Cadastrar</a></li>
+                            <li><a href="atividade/config/index">Listar</a></li>
                         </ul>
                     </li>
                     <!-- FINAL MENU TIPOS DE ATIVIDADES-->
@@ -123,8 +123,8 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Artigos</span></a>
                 <ul>
-                    <li><a href="pages-gallery.html">Cadastrar</a></li>
-                    <li><a href="pages-profile.html">Listar</a></li>
+                    <li><a href="artigo/cad">Cadastrar</a></li>
+                    <li><a href="artigo/index">Listar</a></li>
                 </ul>
             </li>
             <!-- FINAL MENU ARTIGOS-->
@@ -133,8 +133,8 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Participação</span></a>
                 <ul>
-                    <li><a href="pages-gallery.html">Cadastrar</a></li>
-                    <li><a href="pages-profile.html">Listar</a></li>
+                    <li><a href="participacao/cad">Cadastrar</a></li>
+                    <li><a href="participacao/index">Listar</a></li>
                 </ul>
             </li>
             <!-- FINAL MENU PARTICIPAÇÃO-->
