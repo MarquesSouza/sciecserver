@@ -68,7 +68,7 @@ Route::get('usuario/config/edit/{id}', 'TypeUsersController@edit')->middleware('
 Route::put('usuario/config/update/{id}', 'TypeUsersController@update')->middleware('auth');
 //Tipo de Atividade
 Route::get('atividade/config/cad', 'TypeActivitiesController@form_cad')->middleware('auth');// feito
-Route::get('atividade/config/index', 'TypeActivitiesController@index')->middleware('auth');// feito
+Route::get('atividade/config/index', 'TypeActivitiesController@index')->middleware('auth')->name('index_type_activity');// feito
 Route::post('atividade/config/store', 'TypeActivitiesController@store')->middleware('auth');//fazendo
 Route::get('atividade/config/show/{id}', 'TypeActivitiesController@show')->middleware('auth');//feito
 Route::delete('atividade/config/delete/{id}', 'TypeActivitiesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
