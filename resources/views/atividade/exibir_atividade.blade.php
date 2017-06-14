@@ -41,7 +41,8 @@
                                         <td>{{ $a->hora }}</td>
                                         <td>{{ $a->local }}</td>
                                         <td>{{ $a->qtd_inscritos- $atividadeUser->quantidade($a->id) }}</td>
-                                        @if(($atividadeUser->validaUserAtividade($a->id, $id_user))&&($a->qtd_inscritos>0))
+                                        @if($a->qtd_inscritos>0)
+                                        @if($atividadeUser->validaUserAtividade($a->id, $id_user))
                                             <td>
                                                 <button type="submit">Confirmar Inscrição</button>
 
@@ -51,6 +52,11 @@
                                                         Ja Inscrito!!
                                                     </td>
                                                     @endif
+                                                            @else
+                                            <td>
+                                                Quantidade de vagras preenchidas!!
+                                            </td>
+                                                            @endif
                                         </td>
                                     </form>
                                     @endif
