@@ -59,7 +59,7 @@ class ActivitiesController extends Controller
                 'data' => $activities,
             ]);
         }
-        return view('atividade.insc_atividade', compact('activities','atividadeUser','id_user'));
+        return view('atividade.exibir_atividade', compact('activities','atividadeUser','id_user'));
     }
 
     /**
@@ -163,7 +163,7 @@ class ActivitiesController extends Controller
         return view('atividade.list_atividade', compact('activities'));
 
     }
-    public function insc_atividade($id_evento,$id){
+    public function insc_atividade($id_evento,Request $request){
 
         $AtividadeUser= new ActivityUser();
         $AtividadeUser->id_users = Auth::user()->id;
@@ -178,7 +178,7 @@ class ActivitiesController extends Controller
             return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
         }else{
 
-            return redirect('evento/show/'.$id);
+            return redirect('evento/'.$id_evento.'/atividade/index');
 
             //pagina para mensagem que ja ta cadastrador
         }
