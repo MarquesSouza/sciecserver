@@ -70,7 +70,7 @@ class ActivityUser extends Model implements Transformable
                     $data[]=$ativiEspelho->id;
                 }
             }
-            $teste[]=$data;
+            $teste[$ativi->id]=$data;
             unset($data);
             }
         }
