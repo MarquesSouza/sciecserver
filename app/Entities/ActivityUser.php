@@ -40,5 +40,48 @@ class ActivityUser extends Model implements Transformable
         }
         return true;
     }
+    public function quantidade($id_atividade){
+        $data[]=['id_activity','=',$id_atividade];
+
+        $retorno  = DB::table('activity_users')->where($data)->get();
+
+        return $retorno->count();
+
+    }
+    public function validaUserAtividade($id_atividade,$id_user){
+        $data[]=['id_users','=',$id_user];
+        $data[]=['id_activity','=',$id_atividade];
+
+        $retorno  = DB::table('activity_users')->where($data)->get();
+
+        if($retorno->count()>0){
+            return false;
+        }
+        return true;
+    }
+    public function colisaoAtividade($id_evento){
+        $atividade = Activity::all();
+        $activities = $atividade->where('id_evento', '=', $id_evento);
+        $activitiesEspelho=$activities;
+        foreach ($activities as $ativi){
+            if($ativi->status==1){
+            foreach ($activitiesEspelho as $ativiEspelho){
+                if(($ativi->data_inicio<$ativiEspelho->data_inicio)&&($ativi->data_conclusao<$ativiEspelho->data_inicio)||($ativi->data_inicio>$ativiEspelho->data_conclusao)&&($ativi->data_conclusao>$ativiEspelho->data_conclusao)){
+                    $data[]=$ativiEspelho->id;
+                }
+            }
+            $teste[$ativi->id]=$data;
+            unset($data);
+            }
+        }
+
+        //$data[]=['id_activity','=',$id_atividade];
+
+        //$retorno  = DB::table('activity_users')->where($data)->get();
+
+        return $teste;
+
+    }
+
 
 }

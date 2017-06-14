@@ -48,17 +48,23 @@ class ActivitiesController extends Controller
      */
     public function index($id)
     {
-        $atividade= Activity::all();
+        $atividade = Activity::all();
 
-        $activities=$atividade->where('id_evento','=',$id);
+        $activities = $atividade->where('id_evento', '=', $id);
+        $atividadeUser = new ActivityUser();
+        $id_user=Auth::user()->id;
+        $id_evento=$id;
+        $teste=$atividadeUser->colisaoAtividade($id_evento);
+        $lista=[1,3,4];
 
+        dd($teste);
         if (request()->wantsJson()) {
 
             return response()->json([
                 'data' => $activities,
             ]);
         }
-        return view('atividade.exibir_atividade', compact('activities'));
+       // return view('atividade.insc_atividade', compact('activities','atividadeUser','id_user','id_evento'));
     }
 
     /**
@@ -73,6 +79,14 @@ class ActivitiesController extends Controller
     {
         $tipoAtividade=TypeActivity::all();
         return view('atividade.cad_atividade',compact('tipoAtividade'));
+    }
+
+    public function form_insc_atividade($id)
+    {
+        $evento=Event::find($id);
+        $atividades = $evento->atividade;
+
+        return view('atividade.insc_atividade',compact('atividades'));
     }
 
     public function store(ActivityCreateRequest $request)
