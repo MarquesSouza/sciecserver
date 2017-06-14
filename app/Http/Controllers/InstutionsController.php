@@ -193,18 +193,39 @@ class InstutionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $deleted = $this->repository->delete($id);
 
-        if (request()->wantsJson()) {
+        try {
 
-            return response()->json([
-                'message' => 'Instutions deleted.',
-                'deleted' => $deleted,
-            ]);
+            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
+
+            $instution = $this->repository->update($request->all(), $id);
+
+            $response = [
+                'message' => 'Instutions updated.',
+                'data'    => $instution->toArray(),
+            ];
+
+            if ($request->wantsJson()) {
+
+                return response()->json($response);
+            }
+
+        } catch (ValidatorException $e) {
+
+            if ($request->wantsJson()) {
+
+                return response()->json([
+                    'error'   => true,
+                    'message' => $e->getMessageBag()
+                ]);
+            }
+
+
+            return redirect()->back()->withErrors($e->getMessageBag())->withInput();
+
+
         }
-
-        return redirect()->back()->with('message', 'Instutions deleted.');
     }
 }
