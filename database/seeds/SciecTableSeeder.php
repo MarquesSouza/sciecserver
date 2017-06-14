@@ -103,7 +103,7 @@ class SciecTableSeeder extends Seeder
         factory(App\Entities\Activity::class)->create([
             'nome' => 'Mineração de Dados',
             'descricao' => 'Curso completo.',
-            'status'=> '0',
+            'status'=> '1',
             'hora' => '8',
             'local'=> 'IFTO - Campus Paraíso',
             'qtd_inscritos' => '40',
@@ -136,7 +136,7 @@ class SciecTableSeeder extends Seeder
         factory(App\Entities\Activity::class)->create([
             'nome' => 'Scrum',
             'descricao' => 'Curso completo de Scrum.',
-            'status'=> '0',
+            'status'=> '1',
             'hora' => '7',
             'local'=> 'IFTO - Campus Paraíso',
             'qtd_inscritos' => '40',
@@ -147,7 +147,7 @@ class SciecTableSeeder extends Seeder
         factory(App\Entities\Activity::class)->create([
             'nome' => 'Inteligência Artificial',
             'descricao' => 'Curso completo de Inteligência Artificial.',
-            'status'=> '0',
+            'status'=> '1',
             'hora' => '8',
             'local'=> 'IFTO - Campus Paraíso',
             'qtd_inscritos' => '38',
@@ -169,7 +169,7 @@ class SciecTableSeeder extends Seeder
         factory(App\Entities\Activity::class)->create([
             'nome' => 'PHP Avançado',
             'descricao' => 'Mini curso sobre PHP.',
-            'status'=> '0',
+            'status'=> '1',
             'hora' => '8',
             'local'=> 'IFTO - Campus Paraíso',
             'qtd_inscritos' => '40',

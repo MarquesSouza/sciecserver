@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Activity;
+use App\Entities\ActivityUser;
 use App\Entities\Event;
 use App\Entities\TypeActivity;
+use App\Entities\User;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
@@ -34,6 +37,7 @@ class ActivitiesController extends Controller
     {
         $this->repository = $repository;
         $this->validator  = $validator;
+        $this->middleware('auth');
     }
 
 
@@ -44,17 +48,18 @@ class ActivitiesController extends Controller
      */
     public function index($id)
     {
-        $atividade= Activity::all();
+        $atividade = Activity::all();
 
-        $activities=$atividade->where('id_evento','=',$id);
-
+        $activities = $atividade->where('id_evento', '=', $id);
+        $atividadeUser = new ActivityUser();
+        $id_user=Auth::user()->id;
         if (request()->wantsJson()) {
 
             return response()->json([
                 'data' => $activities,
             ]);
         }
-        return view('atividade.list_atividade', compact('activities'));
+        return view('atividade.insc_atividade', compact('activities','atividadeUser','id_user'));
     }
 
     /**
@@ -69,6 +74,14 @@ class ActivitiesController extends Controller
     {
         $tipoAtividade=TypeActivity::all();
         return view('atividade.cad_atividade',compact('tipoAtividade'));
+    }
+
+    public function form_insc_atividade($id)
+    {
+        $evento=Event::find($id);
+        $atividades = $evento->atividade;
+
+        return view('atividade.insc_atividade',compact('atividades'));
     }
 
     public function store(ActivityCreateRequest $request)
@@ -141,7 +154,36 @@ class ActivitiesController extends Controller
         return view('activities.edit', compact('activity'));
     }
 
+    public function atividade_user(){
+        $User= new User();
+        $User->id=Auth::user()->id;
+        $activities=$User->atividade()->get()->all();
 
+
+        return view('atividade.list_atividade', compact('activities'));
+
+    }
+    public function insc_atividade($id_evento,$id){
+
+        $AtividadeUser= new ActivityUser();
+        $AtividadeUser->id_users = Auth::user()->id;
+        $AtividadeUser->id_activity=$id;
+        $AtividadeUser->id_type_activity_user=1;
+        $AtividadeUser->status=1;
+        $AtividadeUser->data_entrada="2017-07-03 00:00:00";
+        $AtividadeUser->data_saida="2017-07-03 00:00:00";
+        $AtividadeUser->presenca=1;
+        if($AtividadeUser->valida()){
+            $AtividadeUser->save();
+            return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
+        }else{
+
+            return redirect('evento/show/'.$id);
+
+            //pagina para mensagem que ja ta cadastrador
+        }
+
+    }
     /**
      * Update the specified resource in storage.
      *
