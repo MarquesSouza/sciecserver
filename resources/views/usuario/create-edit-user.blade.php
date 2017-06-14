@@ -50,7 +50,7 @@
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label for="password" class="col-md-4 control-label">Senha</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-5">
                                     <input id="password" type="password"  placeholder="senha"class="form-control" name="senha" required value="{{old('senha')}}">
 
                                     @if ($errors->has('password'))
@@ -63,14 +63,14 @@
                             <div class="form-group">
                                 <label for="password-confirm" class="col-md-4 control-label">Confirmar Senha</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-5">
                                     <input id="password-confirm" type="password" placeholder="confirmar senha" class="form-control" name="senha" required value="{{old('senha')}}">
                                 </div>
                             </div>
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="email">E-mail</label>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <input id="email" name="email" type="text" placeholder="e-mail" class="form-control input-md"
                                            required="" value="{{$users->email or old('email')}}">
 
@@ -80,7 +80,7 @@
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="telefone">Telefone</label>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <input id="telefone" name="telefone" type="text" placeholder="telefone"
                                            class="form-control input-md" required="" value="{{$users->telefone or old('telefone')}}">
 
@@ -90,7 +90,7 @@
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="cpf">CPF</label>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <input id="cpf" name="cpf" type="text" placeholder="CPF (colocar só números)"
                                            class="form-control input-md" required="" value="{{$users->cpf or old('cpf')}}">
 
