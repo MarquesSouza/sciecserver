@@ -1,15 +1,15 @@
 @extends('app')
 
 @section('content')
-    <div>
-        <br><br><br><br>
-    </div>
-    <div class="container">
+    <div class="page-content-wrap">
         <div class="row">
-            <br><br>
-            <a href="{{ url('usuario/atividade/config/cad') }}" class="btn-primary btn btn-default">Novo Tipo Atividade Usuario</a>
-            <br><br>
-                <table class="table table-bordered table-inverse">
+            <div class="col-md-12">
+                <!-- START DEFAULT DATATABLE -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+            <a href="{{ url('usuario/atividade/config/cad') }}" class="btn btn-primary ">Novo Tipo Atividade Usuario</a>
+
+                <table class="table table-bordered">
                     <th>Nome </th>
                     <th>Descricão </th>
                     <th>Status</th>
@@ -22,10 +22,10 @@
                             <td>{{ $ev->descricao }}</td>
                              <th>{{$ev->status}}</th>
                              <td>
-                                 <a href="{{url('usuario/atividade/config/edit/{id)')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                                 <a href="{{url('usuario/atividade/config/edit/{id)')}}" class="btn btn-success ">EDITAR</a>
                              </td>
                              <td>
-                                 <a href="{{url('usuario/atividade/config/cad/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
+                                 <a href="{{url('usuario/atividade/config/cad/delete/{id}')}}" class="btn btn-danger">EXCLUIR</a>
                              </td>
 
 
@@ -35,7 +35,8 @@
                     @endforelse
 
                     </table>
-
+                 </div>
+            </div>
         </div>
     </div>
 @endsection

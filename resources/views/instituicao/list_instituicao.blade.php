@@ -1,14 +1,14 @@
 @extends('app')
 
 @section('content')
-    <div>
-        <br><br><br><br>
-    </div>
-    <div class="container">
+    <div class="page-content-wrap">
         <div class="row">
-            <br><br>
-            <a href="{{ url('instituicao/cad') }}" class="btn-primary btn btn-default">Nova Instituiçao</a>
-            <br><br>
+            <div class="col-md-12">
+                <!-- START DEFAULT DATATABLE -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+            <a href="{{ url('instituicao/cad') }}" class="btn btn-primary ">Nova Instituiçao</a>
+
 
                 <table class="table table-bordered table-hover">
                     <th>Nome</th>
@@ -27,10 +27,8 @@
                             <td>{{ $u->email }}</td>
                             <td>{{ $u->telefone }}</td>
                             <td>
-                                <a href="{{url('instituicao/edit',$u->id)}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                                <a href="{{url('instituicao/edit',$u->id)}}" class="btn btn-success">EDITAR</a>
                             </td>
-
-
 
                                 <form class="form-horizontal" method="post" action="{{ url('instituicao/delete', $u->id) }}">
                                     {{csrf_field()}}
@@ -47,7 +45,8 @@
                     @endforelse
 
                 </table>
-
+                  </div>
+                    </div>
         </div>
     </div>
 @endsection
