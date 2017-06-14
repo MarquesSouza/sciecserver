@@ -53,13 +53,16 @@ class ActivitiesController extends Controller
         $activities = $atividade->where('id_evento', '=', $id);
         $atividadeUser = new ActivityUser();
         $id_user=Auth::user()->id;
+        $id_evento=$id;
+        $teste=$atividadeUser->colisaoAtividade($id_evento);
+        dd($teste);
         if (request()->wantsJson()) {
 
             return response()->json([
                 'data' => $activities,
             ]);
         }
-        return view('atividade.insc_atividade', compact('activities','atividadeUser','id_user'));
+       // return view('atividade.insc_atividade', compact('activities','atividadeUser','id_user','id_evento'));
     }
 
     /**
