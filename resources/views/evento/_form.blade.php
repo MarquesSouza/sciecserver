@@ -19,7 +19,7 @@
                                         <p>No type_users</p>
                                     @endforelse
                                 </select>
-                                <span class="help-block">Selecione o curso no qual será vinculo o evento..</span>
+                                <span class="help-block">Selecione o Curso no Qual Será Vinculado ao Evento</span>
                             </div>
                         </div>
                         <input type="hidden" name="status" value="1">
