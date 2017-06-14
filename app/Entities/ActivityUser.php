@@ -40,5 +40,25 @@ class ActivityUser extends Model implements Transformable
         }
         return true;
     }
+    public function quantidade($id_atividade){
+        $data[]=['id_activity','=',$id_atividade];
+
+        $retorno  = DB::table('activity_users')->where($data)->get();
+
+        return $retorno->count();
+
+    }
+    public function validaUserAtividade($id_atividade,$id_user){
+        $data[]=['id_users','=',$id_user];
+        $data[]=['id_activity','=',$id_atividade];
+
+        $retorno  = DB::table('activity_users')->where($data)->get();
+
+        if($retorno->count()>0){
+            return false;
+        }
+        return true;
+    }
+
 
 }

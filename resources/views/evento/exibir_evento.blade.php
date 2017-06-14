@@ -25,7 +25,9 @@
                                     <td>{{ $events->data_conclusao }}</td>
                                     <td>{{ $events->logoEvento }}</td>
                                     <td>
-                                        <button type="submit" class="btn-primary">Confirmar Inscrição</button>
+                                        <input type="submit" class="btn btn-primary" value="Confirmar Inscrição">
+
+
                                     </td>
                                 </tr>
                             </table>

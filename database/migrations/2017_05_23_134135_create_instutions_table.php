@@ -14,9 +14,9 @@ class CreateInstutionsTable extends Migration
     public function up()
     {
         Schema::create('instutions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id',100);
             $table->string('nome',45);
-            $table->string('site',255)->unique();
+            $table->string('site',100)->unique();
             $table->string('email',45)->unique();
             $table->text('descricao');
             $table->string('telefone',45);

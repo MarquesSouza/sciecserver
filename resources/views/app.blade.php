@@ -11,6 +11,7 @@
     <!-- END META SECTION -->
     <!-- CSS INCLUDE -->
     <link rel="stylesheet" type="text/css" id="theme" href="{{asset('css/theme-default.css')}}"/>
+    <link rel="stylesheet" type="text/css" id="theme" href="{{asset('css/theme-brown.css')}}"/>
     <!-- EOF CSS INCLUDE -->
 </head>
 <body>
@@ -39,14 +40,12 @@
 
                 </div>
             </li>
-
-
             <!-- INICIO MENU EVENTOS-->
-            <li class="xn-openable">
-                <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Eventos</span></a>
+            <li class="xn-openable dropdown">
+                <a ref="#"><span class="fa fa-university"></span><span class="xn-text">Eventos</span></a>
                 <ul>
-                    <li><a href="evento/cad">Cadastrar</a></li>
-                    <li><a href="evento/index">Listar</a></li>
+                    <li><a href="{{url('evento/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('evento/index')}}">Listar</a></li>
                 </ul>
             </li>
             <!-- FINAL MENU EVENTOS-->
@@ -138,8 +137,6 @@
                 </ul>
             </li>
             <!-- FINAL MENU PARTICIPAÇÃO-->
-
-
         </ul>
         <!-- END BARRA DE NAVEGAÇÃO LATERAL -->
     </div>
@@ -165,25 +162,22 @@
             <!-- END SIGN OUT -->
         </ul>
         <!-- END BARRA DE NAVEGAÇÃO SUPERIOR -->
-
         <!-- START BREADCRUMB -->
         <ul class="breadcrumb">
             <li><a href="#">Home</a></li>
             <li class="active">Lista de Eventos</li>
         </ul>
         <!-- END BREADCRUMB -->
-
         <!-- PAGE CONTENT WRAPPER -->
         <div class="page-content-wrap">
             @yield('content')
         </div>
         <!-- END PAGE CONTENT WRAPPER -->
-
     </div>
+
     <!-- END PAGE CONTENT -->
-
-
 </div>
+
 <!-- END PAGE CONTAINER -->
 <!-- START SCRIPTS -->
 <!-- START PLUGINS -->
