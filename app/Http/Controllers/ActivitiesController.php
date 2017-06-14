@@ -53,13 +53,18 @@ class ActivitiesController extends Controller
         $activities = $atividade->where('id_evento', '=', $id);
         $atividadeUser = new ActivityUser();
         $id_user=Auth::user()->id;
+        $id_evento=$id;
+        $teste=$atividadeUser->colisaoAtividade($id_evento);
+        $lista=[1,3,4];
+
+        dd($teste);
         if (request()->wantsJson()) {
 
             return response()->json([
                 'data' => $activities,
             ]);
         }
-        return view('atividade.exibir_atividade', compact('activities','atividadeUser','id_user'));
+       // return view('atividade.insc_atividade', compact('activities','atividadeUser','id_user','id_evento'));
     }
 
     /**
@@ -163,7 +168,7 @@ class ActivitiesController extends Controller
         return view('atividade.list_atividade', compact('activities'));
 
     }
-    public function insc_atividade($id_evento,Request $request){
+    public function insc_atividade($id_evento,$id){
 
         $AtividadeUser= new ActivityUser();
         $AtividadeUser->id_users = Auth::user()->id;
@@ -178,7 +183,7 @@ class ActivitiesController extends Controller
             return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
         }else{
 
-            return redirect('evento/'.$id_evento.'/atividade/index');
+            return redirect('evento/show/'.$id);
 
             //pagina para mensagem que ja ta cadastrador
         }
