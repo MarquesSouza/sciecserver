@@ -55,6 +55,8 @@ class ActivitiesController extends Controller
         $id_user=Auth::user()->id;
         $id_evento=$id;
         $teste=$atividadeUser->colisaoAtividade($id_evento);
+        $lista=[1,3,4];
+
         dd($teste);
         if (request()->wantsJson()) {
 
