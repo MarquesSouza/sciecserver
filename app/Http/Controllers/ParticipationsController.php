@@ -17,27 +17,20 @@ use App\Validators\ParticipationValidator;
 class ParticipationsController extends Controller
 {
 
-    /**
-     * @var ParticipationRepository
+    /** ------------------------------------------Import repository Participations-------------------------------------------------------------------------
      */
     protected $repository;
-
-    /**
-     * @var ParticipationValidator
+    /** ------------------------------------------Import validator Participation -------------------------------------------------------------------------
      */
     protected $validator;
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct(ParticipationRepository $repository, ParticipationValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
     public function index()
     {
@@ -54,19 +47,8 @@ class ParticipationsController extends Controller
         return view('participacao.list_participacao', compact('participations'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  ParticipationCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function form_cad()
-    {
-//        return view('participacao.cad_participacao');
-        $titulo = "Cadastrar Participação";
-        return view('participacao.create-edit', compact('titulo'));
-    }
     public function store(Request $request)
     {
 
@@ -98,14 +80,7 @@ class ParticipationsController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -120,14 +95,7 @@ class ParticipationsController extends Controller
 
         return view('participations.show', compact('participation'));
     }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -137,15 +105,7 @@ class ParticipationsController extends Controller
 
         return view('participacao.create-edit',compact('titulo','participation'));
     }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  ParticipationUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(Request $request, $id)
     {
@@ -180,14 +140,7 @@ class ParticipationsController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
     public function destroy(Request $request, $id)
     {
@@ -198,5 +151,13 @@ class ParticipationsController extends Controller
         if($update){
             return redirect()->route('index_participacao');
         }
+    }
+    /** ------------------------------------------Formulario de Cadastro-------------------------------------------------------------------------
+     */
+    public function form_cad()
+    {
+//        return view('participacao.cad_participacao');
+        $titulo = "Cadastrar Participação";
+        return view('participacao.create-edit', compact('titulo'));
     }
 }

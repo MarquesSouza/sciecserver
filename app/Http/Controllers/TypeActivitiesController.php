@@ -16,28 +16,21 @@ use App\Validators\TypeActivityValidator;
 
 class TypeActivitiesController extends Controller
 {
-
-    /**
-     * @var TypeActivityRepository
+    /** ------------------------------------------Import repository Tipo Atividade-------------------------------------------------------------------------
      */
     protected $repository;
-
-    /**
-     * @var TypeActivityValidator
+    /** ------------------------------------------Import validator Tipo Atividade-------------------------------------------------------------------------
      */
     protected $validator;
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
 
     public function __construct(TypeActivityRepository $repository, TypeActivityValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
     public function index()
     {
@@ -54,19 +47,8 @@ class TypeActivitiesController extends Controller
         return view('tipo_de_atividade.list_tipo_de_atividade', compact('typeActivities'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  TypeActivityCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function form_cad()
-    {
-//        return view('tipo_de_atividade.cad_tipo_de_atividade');
-        $titulo = "Cadastrar Tipo de Atividade";
-        return view('tipo_de_atividade.create-edit', compact('titulo'));
-    }
     public function store(Request $request)
     {
 
@@ -98,14 +80,7 @@ class TypeActivitiesController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -120,14 +95,7 @@ class TypeActivitiesController extends Controller
 
         return view('typeActivities.show', compact('typeActivity'));
     }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -138,15 +106,7 @@ class TypeActivitiesController extends Controller
 //        return view('typeActivities.edit', compact('typeActivity'));
         return view('tipo_de_atividade.create-edit', compact('titulo','typeActivity'));
     }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  TypeActivityUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(Request $request, $id)
     {
@@ -181,14 +141,7 @@ class TypeActivitiesController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
     public function destroy(Request $request, $id)
     {
@@ -199,5 +152,13 @@ class TypeActivitiesController extends Controller
         if($update){
             return redirect()->route('index_type_activity');
         }
+    }
+    /** ------------------------------------------Formulario de Cadastro-------------------------------------------------------------------------
+     */
+    public function form_cad()
+    {
+//        return view('tipo_de_atividade.cad_tipo_de_atividade');
+        $titulo = "Cadastrar Tipo de Atividade";
+        return view('tipo_de_atividade.create-edit', compact('titulo'));
     }
 }

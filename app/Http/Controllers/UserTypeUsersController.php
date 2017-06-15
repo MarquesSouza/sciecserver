@@ -16,27 +16,20 @@ use App\Validators\UserTypeUserValidator;
 class UserTypeUsersController extends Controller
 {
 
-    /**
-     * @var UserTypeUserRepository
+    /** ------------------------------------------Import repository  Usuario tipo de Usuario-------------------------------------------------------------------------
      */
     protected $repository;
-
-    /**
-     * @var UserTypeUserValidator
+    /** ------------------------------------------Import validator  Usuario tipo de Usuario-------------------------------------------------------------------------
      */
     protected $validator;
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct(UserTypeUserRepository $repository, UserTypeUserValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
     public function index()
     {
@@ -52,13 +45,7 @@ class UserTypeUsersController extends Controller
 
         return view('userTypeUsers.index', compact('userTypeUsers'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  UserTypeUserCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
     public function store(UserTypeUserCreateRequest $request)
     {
@@ -91,14 +78,7 @@ class UserTypeUsersController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -113,14 +93,7 @@ class UserTypeUsersController extends Controller
 
         return view('userTypeUsers.show', compact('userTypeUser'));
     }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -129,15 +102,7 @@ class UserTypeUsersController extends Controller
 
         return view('userTypeUsers.edit', compact('userTypeUser'));
     }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  UserTypeUserUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(UserTypeUserUpdateRequest $request, $id)
     {
@@ -172,14 +137,7 @@ class UserTypeUsersController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
     public function destroy($id)
     {

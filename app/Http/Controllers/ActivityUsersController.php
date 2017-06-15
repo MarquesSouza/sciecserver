@@ -16,28 +16,24 @@ use App\Validators\ActivityUserValidator;
 class ActivityUsersController extends Controller
 {
 
-    /**
-     * @var ActivityUserRepository
+    /** ------------------------------------------Import repository Actividade User-------------------------------------------------------------------------
      */
     protected $repository;
 
-    /**
-     * @var ActivityUserValidator
+    /** ------------------------------------------Import validator Actividade User-------------------------------------------------------------------------
      */
     protected $validator;
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct(ActivityUserRepository $repository, ActivityUserValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
 
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
+
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
@@ -53,12 +49,8 @@ class ActivityUsersController extends Controller
         return view('activityUsers.index', compact('activityUsers'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  ActivityUserCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
+
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
     public function store(ActivityUserCreateRequest $request)
     {
@@ -93,12 +85,7 @@ class ActivityUsersController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -115,12 +102,7 @@ class ActivityUsersController extends Controller
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -131,13 +113,7 @@ class ActivityUsersController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  ActivityUserUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(ActivityUserUpdateRequest $request, $id)
     {
@@ -174,12 +150,7 @@ class ActivityUsersController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
     public function destroy($id)
     {

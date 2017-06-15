@@ -18,27 +18,20 @@ use App\Validators\UserValidator;
 class UsersController extends Controller
 {
 
-    /**
-     * @var UserRepository
+    /** ------------------------------------------Import repository  Usuario-------------------------------------------------------------------------
      */
     protected $repository;
-
-    /**
-     * @var UserValidator
+    /** ------------------------------------------Import validator Usuario-------------------------------------------------------------------------
      */
     protected $validator;
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct(UserRepository $repository, UserValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
     public function index()
     {
@@ -55,18 +48,8 @@ class UsersController extends Controller
         return view('usuario.list_usuario', compact('users'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  UserCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function form_cad()
-    {
-        $titulo= "Cadastra Usuarios";
-        return view('usuario.create-edit-user',compact('titulo'));
-    }
     public function store(Request $request)
     {
 
@@ -99,14 +82,7 @@ class UsersController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -121,14 +97,7 @@ class UsersController extends Controller
 
         return view('users.show', compact('user'));
     }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -138,15 +107,7 @@ class UsersController extends Controller
         return view('usuario.create-edit-user', compact('titulo','users'));
 
     }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  UserUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(UserUpdateRequest $request, $id)
     {
@@ -181,14 +142,7 @@ class UsersController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
     public function destroy($id)
     {
@@ -203,5 +157,12 @@ class UsersController extends Controller
         }
 
         return redirect()->back()->with('message', 'User deleted.');
+    }
+    /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------
+     */
+    public function form_cad()
+    {
+        $titulo= "Cadastra Usuarios";
+        return view('usuario.create-edit-user',compact('titulo'));
     }
 }
