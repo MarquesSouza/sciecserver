@@ -2,9 +2,12 @@
 @extends('app')
 
 @section('content')
-<div>
-    <br><br><br><br>
-</div>
+    <div class="page-content-wrap">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- START DEFAULT DATATABLE -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
 @if( isset($articles))
 <form class="form-horizontal" method="post" action="{{ url('artigo/update', $articles->id) }}">
     {!! method_field('PUT') !!}
@@ -74,8 +77,6 @@
                     </div>
                 </div>
 
-                <input id="situacao" name="situacao" type="hidden" value="em espera">
-                <input type="hidden" name="status" value="1">
 
                 <!-- Button -->
                 <div class="form-group">
@@ -87,7 +88,11 @@
             </div>
         </fieldset>
     </form>
-
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- /.container -->
 
     @endsection

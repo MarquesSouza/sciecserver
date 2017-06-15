@@ -1,10 +1,12 @@
 @extends('app')
 
 @section('content')
-    <div>
-        <br><br><br><br>
-    </div>
-
+    <div class="page-content-wrap">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- START DEFAULT DATATABLE -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
         @if( isset($courses))
             <form class="form-horizontal" method="post" action="{{ url('curso/update', $courses->id) }}">
                 {!! method_field('PUT') !!}
@@ -69,6 +71,10 @@
           </div>
         </fieldset>
     </form>
-
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
     <!-- /.container -->
 @endsection

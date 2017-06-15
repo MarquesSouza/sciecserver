@@ -2,9 +2,12 @@
 @extends('app')
 
 @section('content')
-    <div>
-        <br><br><br><br>
-    </div>
+    <div class="page-content-wrap">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- START DEFAULT DATATABLE -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
         @if( isset($instutions))
             <form class="form-horizontal" method="post" action="{{ url('instituicao/update', $instutions->id) }}">
                 {!! method_field('PUT') !!}
@@ -81,13 +84,17 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for=""></label>
                     <div class="col-md-4">
-                        <button id="" name="" class="btn btn-primary">Salvar</button>
+                        <button id="" name="" class="btn btn-success ">Salvar</button>
                     </div>
                 </div>
             </div>
         </fieldset>
     </form>
-
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- /.container -->
 
 @endsection
