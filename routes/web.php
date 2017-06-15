@@ -92,7 +92,7 @@ Route::get('instituicao/cad', 'InstutionsController@form_cad')->middleware('auth
 Route::get('instituicao/index', 'InstutionsController@index')->middleware('auth')->name('index');;// feito
 Route::post('instituicao/store', 'InstutionsController@store')->middleware('auth');//fazendo
 Route::get('instituicao/show/{id}', 'InstutionsController@show')->middleware('auth');//feito
-Route::delete('instituicao/delete/{id}', 'InstutionsController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::put('instituicao/delete/{id}', 'InstutionsController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
 Route::get('instituicao/edit/{id}', 'InstutionsController@edit')->middleware('auth');
 Route::put('instituicao/update/{id}', 'InstutionsController@update')->middleware('auth');
 

@@ -18,10 +18,7 @@ class InstutionValidator extends LaravelValidator
 
         ],
         ValidatorInterface::RULE_UPDATE => [
-            'nome' => 'required|min:3',
-            'descricao' => 'min:5|max:150',
-            'email' => 'required|email',
-            'telefone' => 'numeric|required',
+
         ],
     ];
 

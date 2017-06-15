@@ -19,33 +19,37 @@
                 <th>Editar</th>
                 <th>Excluir</th>
                 <tr>
+
                     @forelse ( $instutions as $u)
-
-                        <td>{{ $u->nome }}</td>
-                        <td>{{ $u->descricao }}</td>
-                        <td>{{ $u->site }}</td>
-                        <td>{{ $u->email }}</td>
-                        <td>{{ $u->telefone }}</td>
-                        <td>
-                            <a href="{{url('instituicao/edit',$u->id)}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
-                        </td>
-
-
-
-                        <form class="form-horizontal" method="post" action="{{ url('instituicao/delete', $u->id) }}">
-                            {!! method_field('PUT') !!}
-                            {{csrf_field()}}
+                        @if($u->status == 1)
+                            <td>{{ $u->nome }}</td>
+                            <td>{{ $u->descricao }}</td>
+                            <td>{{ $u->site }}</td>
+                            <td>{{ $u->email }}</td>
+                            <td>{{ $u->telefone }}</td>
                             <td>
-                                <input type="hidden" name="status" value="0">
-                                <button type="submit" id="" name="" class="btn btn-danger">Excluir</button>
+                                <a href="{{url('instituicao/edit',$u->id)}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
                             </td>
-                        </form>
 
+
+
+                            <form class="form-horizontal" method="post"
+                                  action="{{ url('instituicao/delete', $u->id) }}">
+                                {!! method_field('PUT') !!}
+                                {{csrf_field()}}
+                                <td>
+                                    <input type="hidden" name="status" value="0">
+                                    <button type="submit" id="" name="" class="btn btn-danger">Excluir</button>
+                                </td>
+                            </form>
 
                 </tr>
+                @endif
+
                 @empty
                     <p>No type_users</p>
                 @endforelse
+
 
             </table>
 
