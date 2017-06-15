@@ -62,10 +62,10 @@ Route::put('usuario/update/{id}', 'UsersController@update')->middleware('auth');
 
 //Tipo de Usuario
 Route::get('usuario/config/cad', 'TypeUsersController@form_cad')->middleware('auth');// feito
-Route::get('usuario/config/index', 'TypeUsersController@index')->middleware('auth');// feito
+Route::get('usuario/config/index', 'TypeUsersController@index')->middleware('auth')->name('index_type_user');// feito
 Route::post('usuario/config/store', 'TypeUsersController@store')->middleware('auth');//fazendo
 Route::get('usuario/config/show/{id}', 'TypeUsersController@show')->middleware('auth');//feito
-Route::delete('usuario/config/delete/{id}', 'TypeUsersController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::put('usuario/config/delete/{id}', 'TypeUsersController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
 Route::get('usuario/config/edit/{id}', 'TypeUsersController@edit')->middleware('auth');
 Route::put('usuario/config/update/{id}', 'TypeUsersController@update')->middleware('auth');
 

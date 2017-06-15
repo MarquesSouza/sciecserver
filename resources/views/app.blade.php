@@ -145,7 +145,7 @@
 
             <!-- INICIO MENU MEUS EVENTOS-->
             <li class="glyphicon-menu-down">
-                <a href="#"><span class="fa fa-calendar"></span> <span class="xn-text">Meus Eventos</span></a>
+                <a href="evento/eventos"><span class="fa fa-calendar"></span> <span class="xn-text">Meus Eventos</span></a>
             </li>
             <!-- FINAL MENU MEUS EVENTOS-->
 
