@@ -107,7 +107,7 @@ Route::put('curso/update/{id}', 'CoursesController@update')->middleware('auth');
 
 //Participação
 Route::get('participacao/cad', 'ParticipationsController@form_cad')->middleware('auth');// feito
-Route::get('participacao/index', 'ParticipationsController@index')->middleware('auth');// feito
+Route::get('participacao/index', 'ParticipationsController@index')->middleware('auth')->name('index_participacao');// feito
 Route::post('participacao/store', 'ParticipationsController@store')->middleware('auth');//fazendo
 Route::get('participacao/show/{id}', 'ParticipationsController@show')->middleware('auth');//feito
 Route::delete('participacao/delete/{id}', 'ParticipationsController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica

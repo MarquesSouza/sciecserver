@@ -1,9 +1,7 @@
 @extends('app')
 
 @section('content')
-    <div>
-        <br><br><br><br>
-    </div>
+
     <div class="container">
         <div class="row">
             <br><br>
@@ -16,13 +14,13 @@
                     <th>Editar</th>
                     <th>Excluir</th>
                      <tr>
-                        @forelse ($participations as $ev)
+                        @forelse ($participations as $part)
 
-                            <td>{{ $ev->nome }}</td>
-                            <td>{{ $ev->descricao }}</td>
-                             <td>{{$ev->status}}</td>
+                            <td>{{ $part->nome }}</td>
+                            <td>{{ $part->descricao }}</td>
+                             <td>{{$part->status}}</td>
                              <td>
-                                 <a href="{{url('participacao/edite {id}')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                                 <a href="{{url('participacao/edit',$part->id)}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
                              </td>
                              <td>
                                  <a href="{{url('participacao/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>

@@ -62,7 +62,9 @@ class ParticipationsController extends Controller
      */
     public function form_cad()
     {
-        return view('participacao.cad_participacao');
+//        return view('participacao.cad_participacao');
+        $titulo = "Cadastrar Participação";
+        return view('participacao.create-edit', compact('titulo'));
     }
     public function store(Request $request)
     {
@@ -128,10 +130,11 @@ class ParticipationsController extends Controller
      */
     public function edit($id)
     {
+        $titulo = "Editar Participação";
 
         $participation = $this->repository->find($id);
 
-        return view('participations.edit', compact('participation'));
+        return view('participacao.create-edit',compact('titulo','participation'));
     }
 
 
@@ -143,7 +146,7 @@ class ParticipationsController extends Controller
      *
      * @return Response
      */
-    public function update(ParticipationUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {
@@ -162,7 +165,7 @@ class ParticipationsController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect()->route('index_participacao');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
