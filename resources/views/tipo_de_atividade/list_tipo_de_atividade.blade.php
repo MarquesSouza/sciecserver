@@ -1,14 +1,16 @@
 @extends('app')
 
 @section('content')
-    <div class="page-content-wrap">
+    <div>
+        <br><br><br><br>
+    </div>
+    <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <!-- START DEFAULT DATATABLE -->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                    <a href="{{ url('atividade/config/cad') }}" class="btn btn-primary ">Novo Tipo Atividade</a>
-                <table class="table table-bordered">
+            <br><br>
+            <a href="{{ url('atividade/config/cad') }}" class="btn-primary btn btn-default">Novo Tipo Atividade</a>
+            <br><br>
+
+                <table class="table table-bordered table-inverse">
                     <th>Nome </th>
                     <th>Descricão </th>
                     <th>Status</th>
@@ -16,27 +18,33 @@
                     <th>Excluir</th>
 
                      <tr>
-                        @forelse ($typeActivities as $ev)
-
-                            <td>{{ $ev->nome }}</td>
-                            <td>{{ $ev->descricao }}</td>
-                             <th>{{$ev->status}}</th>
+                        @forelse ($typeActivities as $ta)
+                             @if($ta->status == 1)
+                            <td>{{ $ta->nome }}</td>
+                            <td>{{ $ta->descricao }}</td>
+                             <th>{{$ta->status}}</th>
                              <td>
-                                 <a href="{{url('atividade/config/edit',$ev->id)}}" class="btn btn-success ">EDITAR</a>
+                                 <a href="{{url('atividade/config/edit',$ta->id)}}" class="btn-success btn btn-default btn-sm">Editar</a>
                              </td>
-                             <td>
-                                 <a href="{{url('atividade/config/cad/delete/{id}')}}" class="btn btn-danger">EXCLUIR</a>
-                             </td>
+                             <form class="form-horizontal" method="post"
+                                   action="{{ url('atividade/config/delete',$ta->id) }}">
+                                 {!! method_field('PUT') !!}
+                                 {{csrf_field()}}
+                                 <td>
+                                     <input type="hidden" name="status" value="0">
+                                     <button type="submit" id="" name="" class="btn btn-danger">Excluir</button>
+                                 </td>
+                             </form>
 
 
                     </tr>
+                    @endif
                     @empty
                         <p>No type_activities</p>
                     @endforelse
 
                     </table>
-                 </div>
-              </div>
+
         </div>
     </div>
 @endsection

@@ -1,3 +1,4 @@
+{{--
 @extends('home')
 
 @section('content')
@@ -20,3 +21,5 @@
         </fieldset>
     </form>
 @endsection
+--}}
+//foi necessário desfazer esse formulario para fazer cadastro e atualização em um só  formulario

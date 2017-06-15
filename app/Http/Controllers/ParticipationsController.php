@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Participation;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -62,7 +63,9 @@ class ParticipationsController extends Controller
      */
     public function form_cad()
     {
-        return view('participacao.cad_participacao');
+//        return view('participacao.cad_participacao');
+        $titulo = "Cadastrar Participação";
+        return view('participacao.create-edit', compact('titulo'));
     }
     public function store(Request $request)
     {
@@ -128,10 +131,11 @@ class ParticipationsController extends Controller
      */
     public function edit($id)
     {
+        $titulo = "Editar Participação";
 
         $participation = $this->repository->find($id);
 
-        return view('participations.edit', compact('participation'));
+        return view('participacao.create-edit',compact('titulo','participation'));
     }
 
 
@@ -143,7 +147,7 @@ class ParticipationsController extends Controller
      *
      * @return Response
      */
-    public function update(ParticipationUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {
@@ -162,7 +166,7 @@ class ParticipationsController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect()->route('index_participacao');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -185,18 +189,14 @@ class ParticipationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $deleted = $this->repository->delete($id);
+        $dataForm = $request->all();
+        $participations = Participation::find($id);
+        $update = $participations->update($dataForm);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'Participation deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect()->route('index_participacao');
         }
-
-        return redirect()->back()->with('message', 'Participation deleted.');
     }
 }

@@ -1,7 +1,7 @@
 @extends('app')
 @section('content')
     <div>
-        <br><br><br><br>
+
     </div>
     <!-- foreach -->
     <div class="jumbotron">

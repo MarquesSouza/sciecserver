@@ -1,41 +1,46 @@
 @extends('app')
 
 @section('content')
-    <div class="page-content-wrap">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- START DEFAULT DATATABLE -->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-            <a href="{{ url('participacao/cad') }}" class="btn btn-primary ">Nova participacao</a>
 
-                <table class="table table-bordered">
+    <div class="container">
+        <div class="row">
+            <br><br>
+            <a href="{{ url('participacao/cad') }}" class="btn-primary btn btn-default">Nova participacao</a>
+            <br><br>
+                <table class="table table-bordered table-inverse">
                     <th>Nome </th>
                     <th>Descricão </th>
                     <th>Status</th>
                     <th>Editar</th>
                     <th>Excluir</th>
                      <tr>
-                        @forelse ($participations as $ev)
-
-                            <td>{{ $ev->nome }}</td>
-                            <td>{{ $ev->descricao }}</td>
-                             <td>{{$ev->status}}</td>
+                        @forelse ($participations as $part)
+                             @if($part->status == 1)
+                            <td>{{ $part->nome }}</td>
+                            <td>{{ $part->descricao }}</td>
+                             <td>{{$part->status}}</td>
                              <td>
-                                 <a href="{{url('participacao/edite {id}')}}" class="btn btn-success">EDITAR</a>
+                                 <a href="{{url('participacao/edit',$part->id)}}" class="btn-success btn btn-default btn-sm">Editar</a>
                              </td>
-                             <td>
-                                 <a href="{{url('participacao/delete/{id}')}}" class="btn btn-danger">EXCLUIR</a>
-                             </td>
+                             <form class="form-horizontal" method="post"
+                                   action="{{ url('participacao/delete',$part->id)}}">
+                                 {!! method_field('PUT') !!}
+                                 {{csrf_field()}}
+                                 <td>
+                                     <input type="hidden" name="status" value="0">
+                                     <button type="submit" id="" name="" class="btn btn-danger">Excluir</button>
+                                 </td>
+                             </form>
 
 
                      </tr>
+                    @endif
                     @empty
                         <p>No type_activities</p>
                     @endforelse
+
                     </table>
-                </div>
-            </div>
+
         </div>
     </div>
 @endsection

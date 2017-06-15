@@ -24,16 +24,17 @@ use Psy\Util\Json;
 class EventsController extends Controller
 {
 
-    /**
-     * @var EventRepository
+
+    /** ------------------------------------------Importando Repository Evento-------------------------------------------------------------------------
      */
     protected $repository;
 
-    /**
-     * @var EventValidator
+    /** ------------------------------------------Importando Repository Validator-------------------------------------------------------------------------
      */
     protected $validator;
 
+    /** ------------------------------------------Contruct-------------------------------------------------------------------------
+     */
     public function __construct(EventRepository $repository, EventValidator $validator)
     {
         $this->repository = $repository;
@@ -43,10 +44,7 @@ class EventsController extends Controller
     }
 
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------INDEX-------------------------------------------------------------------------
      */
     public function index()
     {
@@ -63,18 +61,9 @@ class EventsController extends Controller
         return view('evento.list_evento', compact('events'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  EventCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
+
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function form_cad()
-    {
-        $cursos= Course::all();
-            return view('evento.cad_evento',compact('cursos'));
-    }
     public function store(EventCreateRequest $request)
     {
 
@@ -108,12 +97,7 @@ class EventsController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -129,38 +113,8 @@ class EventsController extends Controller
         return view('evento.exibir_evento',compact('events'));
     }
 
-   public function insc_evento($id){
 
-         $userEvent= new UserEvent();
-         $userEvent->id_users = Auth::user()->id;
-        $userEvent->id_evento = $id;
-       $userEvent->setAttribute('id_articles',1);
-        $userEvent->setAttribute('id_participation',1);
-        $userEvent->setAttribute('status',1);
-        if($userEvent->valida()){
-            $userEvent->save();
-            return redirect('evento/'.$id.'/atividade/index');
-        }else{
-
-            return redirect('evento/show/'.$id);
-
-            //pagina para mensagem que ja ta cadastrador
-        }
-
-           }
-    public function evento_user(){
-       $User= new User();
-       $User->id=Auth::user()->id;
-       $events=$User->evento()->get()->all();
-        return view('evento.list_evento', compact('events'));
-
-    }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -171,13 +125,7 @@ class EventsController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  EventUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Updade-------------------------------------------------------------------------
      */
     public function update(EventUpdateRequest $request, $id)
     {
@@ -214,12 +162,7 @@ class EventsController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
     public function destroy($id)
     {
@@ -234,5 +177,65 @@ class EventsController extends Controller
         }
 
         return redirect()->back()->with('message', 'Event deleted.');
+    }
+
+    /** ------------------------------------------Form_Cadastro-------------------------------------------------------------------------
+     */
+    public function form_cad()
+    {
+        $cursos= Course::all();
+        return view('evento.cad_evento',compact('cursos'));
+    }
+
+
+    /** ------------------------------------------Exibir Evento-------------------------------------------------------------------------
+     */
+    public function exibir_evento()
+    {
+        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+        $events = $this->repository->all();
+
+        if (request()->wantsJson()) {
+
+            return response()->json([
+                'data' => $events,
+            ]);
+        }
+
+        return view('evento.list_evento', compact('events'));
+    }
+
+    /** ------------------------------------------Inscrição Na Atividade-------------------------------------------------------------------------
+     */
+
+    public function insc_evento($id){
+
+        $userEvent= new UserEvent();
+        $userEvent->id_users = Auth::user()->id;
+        $userEvent->id_evento = $id;
+        $userEvent->setAttribute('id_articles',1);
+        $userEvent->setAttribute('id_participation',1);
+        $userEvent->setAttribute('status',1);
+        if($userEvent->valida()){
+            $userEvent->save();
+            return redirect('evento/'.$id.'/atividade/index');
+        }else{
+
+            return redirect('evento/show/'.$id);
+
+            //pagina para mensagem que ja ta cadastrador
+        }
+
+    }
+
+    /** ------------------------------------------Eventos do Usuario-------------------------------------------------------------------------
+     */
+
+    public function evento_user(){
+        $User= new User();
+        $User->id=Auth::user()->id;
+        $events=$User->evento()->get()->all();
+        return view('evento.list_evento', compact('events'));
+
     }
 }

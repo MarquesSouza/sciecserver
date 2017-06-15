@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\TypeUser;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -62,7 +63,9 @@ class TypeUsersController extends Controller
      */
     public function form_cad()
     {
-        return view('tipo_de_usuario.cad_tipo_de_usuario');
+//        return view('tipo_de_usuario.cad_tipo_de_usuario');
+        $titulo = "Cadastrar Tipo de Usuário";
+        return view('tipo_de_usuario.create-edit', compact('titulo'));
     }
     public function store(Request $request)
     {
@@ -116,6 +119,7 @@ class TypeUsersController extends Controller
         }
 
         return view('typeUsers.show', compact('typeUser'));
+
     }
 
 
@@ -128,10 +132,11 @@ class TypeUsersController extends Controller
      */
     public function edit($id)
     {
+        $titulo = "Editar Tipo de Atividade";
 
-        $typeUser = $this->repository->find($id);
+        $typeUsers = $this->repository->find($id);
 
-        return view('typeUsers.edit', compact('typeUser'));
+        return view('tipo_de_usuario.create-edit', compact('titulo','typeUsers'));
     }
 
 
@@ -143,7 +148,7 @@ class TypeUsersController extends Controller
      *
      * @return Response
      */
-    public function update(TypeUserUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {
@@ -162,7 +167,7 @@ class TypeUsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect()->route("index_type_user");
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -185,18 +190,14 @@ class TypeUsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $deleted = $this->repository->delete($id);
+        $dataForm = $request->all();
+        $typeUser = TypeUser::find($id);
+        $update = $typeUser->update($dataForm);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'TypeUser deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect()->route('index_type_user');
         }
-
-        return redirect()->back()->with('message', 'TypeUser deleted.');
     }
 }
