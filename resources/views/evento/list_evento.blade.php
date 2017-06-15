@@ -18,7 +18,7 @@
                             <th>Excluir</th>
                             <tr>
                                 @forelse ($events as $ev)
-
+                                    @if($ev->status == 1)
                                     <td>{{ $ev->nome }}</td>
                                     <td>{{ $ev->descricao }}</td>
                                     <td>{{ $ev->local }}</td>
@@ -28,11 +28,17 @@
                                     <td>
                                         <a href="{{url('evento/edit',$ev->id)}}" class="btn btn-success">EDITAR</a>
                                     </td>
-                                    <td>
-                                        <a href="{{url('usuario/config/edit/{id}')}}" class="btn btn-danger">EXCLUIR</a>
-                                    </td>
-
+                                    <form class="form-horizontal" method="post"
+                                          action="{{ url('evento/delete',$ev->id)}}">
+                                        {!! method_field('PUT') !!}
+                                        {{csrf_field()}}
+                                        <td>
+                                            <input type="hidden" name="status" value="0">
+                                            <button type="submit" id="" name="" class="btn btn-danger">Excluir</button>
+                                        </td>
+                                    </form>
                             </tr>
+                            @endif
                             @empty
                                 <p>No events</p>
                             @endforelse

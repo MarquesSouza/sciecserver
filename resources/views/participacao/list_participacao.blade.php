@@ -20,7 +20,7 @@
                             <td>{{ $part->descricao }}</td>
                              <td>{{$part->status}}</td>
                              <td>
-                                 <a href="{{url('participacao/edit',$part->id)}}" class="btn-success btn btn-default btn-sm">Editar</a>
+                                 <a href="{{url('participacao/edit',$part->id)}}" class="btn-success ">Editar</a>
                              </td>
                              <form class="form-horizontal" method="post"
                                    action="{{ url('participacao/delete',$part->id)}}">

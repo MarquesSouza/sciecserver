@@ -64,7 +64,7 @@ class EventsController extends Controller
 
     /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function store(EventCreateRequest $request)
+    public function store(Request $request)
     {
 
         try {
@@ -121,7 +121,7 @@ class EventsController extends Controller
 
         $event = $this->repository->find($id);
 
-        return view('events.edit', compact('event'));
+        return view('evento.edit', compact('event'));
     }
 
 
@@ -183,8 +183,9 @@ class EventsController extends Controller
      */
     public function form_cad()
     {
+        $titulo = "Cadastro Evento";
         $cursos= Course::all();
-        return view('evento.cad_evento',compact('cursos'));
+        return view('evento.create-edit-evento',compact('titulo','cursos'));
     }
 
 
