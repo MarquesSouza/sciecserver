@@ -154,3 +154,4 @@ Route::post('evento/{id_evento}/atividade/insc_atividade/{id}', 'ActivitiesContr
 
 
 
+

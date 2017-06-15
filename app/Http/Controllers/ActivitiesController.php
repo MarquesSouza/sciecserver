@@ -51,15 +51,46 @@ class ActivitiesController extends Controller
         $atividade = Activity::all();
 
         $activities = $atividade->where('id_evento', '=', $id);
+        $activitiesEspelho=$activities;
+        foreach ($activities as $ativi){
+            if($ativi->status==1){
+                foreach ($activitiesEspelho as $ativiEspelho){
+                    echo $ativi->data_inicio.",".$ativiEspelho->data_inicio;
+
+
+                }
+            }
+        }
         $atividadeUser = new ActivityUser();
         $id_user=Auth::user()->id;
+        $id_evento=$id;
+        $teste=$atividadeUser->colisaoAtividade($id_evento);
+        $lista=[1,2,3,4,5,6];
+        for ($i=0;$i<count($lista);$i++){
+            for($j=0;$j<count($lista);$j++){
+                if($lista[$i]!=$lista[$j]){
+                    $a=$lista[$i];
+                    $b=$lista[$j];
+                    foreach ($teste as $te=>$va){
+                        if($te==$a) {
+                            foreach ($va as $temp => $item) {
+                                if($item==$b){
+                                    echo "colizao:".$a." e :".$b ."</br>";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        dd($teste);
         if (request()->wantsJson()) {
 
             return response()->json([
                 'data' => $activities,
             ]);
         }
-        return view('atividade.insc_atividade', compact('activities','atividadeUser','id_user'));
+       // return view('atividade.insc_atividade', compact('activities','atividadeUser','id_user','id_evento'));
     }
 
     /**
