@@ -232,10 +232,11 @@ class EventsController extends Controller
      */
 
     public function evento_user(){
+
         $User= new User();
         $User->id=Auth::user()->id;
         $events=$User->evento()->get()->all();
-        return view('evento.list_evento', compact('events'));
+        return view('evento.list_meus_eventos', compact('events'));
 
     }
 }

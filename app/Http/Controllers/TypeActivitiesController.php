@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\TypeActivity;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -142,19 +143,15 @@ class TypeActivitiesController extends Controller
     }
     /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $deleted = $this->repository->delete($id);
+        $dataForm = $request->all();
+        $typeActivity = TypeActivity::find($id);
+        $update = $typeActivity->update($dataForm);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'TypeActivity deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect()->route('index_type_activity');
         }
-
-        return redirect()->back()->with('message', 'TypeActivity deleted.');
     }
     /** ------------------------------------------Formulario de Cadastro-------------------------------------------------------------------------
      */
