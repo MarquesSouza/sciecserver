@@ -193,18 +193,15 @@ class InstutionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $deleted = $this->repository->delete($id);
 
-        if (request()->wantsJson()) {
+      $dataForm = $request->all();
+      $instituicao = Instution::find($id);
+      $update = $instituicao->update($dataForm);
 
-            return response()->json([
-                'message' => 'Instutions deleted.',
-                'deleted' => $deleted,
-            ]);
-        }
-
-        return redirect()->back()->with('message', 'Instutions deleted.');
+      if($update){
+          return redirect()->route('index');
+      }
     }
 }
