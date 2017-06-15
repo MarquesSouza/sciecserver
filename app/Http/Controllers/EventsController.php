@@ -187,8 +187,27 @@ class EventsController extends Controller
         return view('evento.cad_evento',compact('cursos'));
     }
 
+
+    /** ------------------------------------------Exibir Evento-------------------------------------------------------------------------
+     */
+    public function exibir_evento()
+    {
+        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+        $events = $this->repository->all();
+
+        if (request()->wantsJson()) {
+
+            return response()->json([
+                'data' => $events,
+            ]);
+        }
+
+        return view('evento.list_evento', compact('events'));
+    }
+
     /** ------------------------------------------Inscrição Na Atividade-------------------------------------------------------------------------
      */
+
     public function insc_evento($id){
 
         $userEvent= new UserEvent();
