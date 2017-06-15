@@ -26,7 +26,7 @@
                                     <td>{{ $ev->data_conclusao }}</td>
                                     <td>{{ $ev->logoEvento }}</td>
                                     <td>
-                                        <a href="{{url('usuario/config/edit/{id}')}}" class="btn btn-success">EDITAR</a>
+                                        <a href="{{url('evento/edit',$ev->id)}}" class="btn btn-success">EDITAR</a>
                                     </td>
                                     <td>
                                         <a href="{{url('usuario/config/edit/{id}')}}" class="btn btn-danger">EXCLUIR</a>

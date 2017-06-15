@@ -2,9 +2,12 @@
 @extends('app')
 
 @section('content')
-    <div>
-        <br><br><br><br>
-    </div>
+    <div class="page-content-wrap">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- START DEFAULT DATATABLE -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
     @if( isset($typeActivity))
         <form class="form-horizontal" method="post" action="{{ url('atividade/config/update', $typeActivity->id) }}">
             {!! method_field('PUT') !!}
@@ -56,7 +59,10 @@
                         </div>
                     </fieldset>
                 </form>
-
-                <!-- /.container -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                <!-- /.container -->
 
 @endsection

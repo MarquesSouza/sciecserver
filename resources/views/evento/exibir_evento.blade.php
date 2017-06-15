@@ -15,7 +15,7 @@
                         <form action="{{url('evento/inscricao_evento/'.$events->id)}}" method="post">
                             {{csrf_field()}}
                             <br><br><br><br><br><br><br><br><br><br><br>
-                            <table class="table table-bordered table-inverse">
+                            <table class="table table-bordered ">
                                 <th>Nome</th>
                                 <th>Descricão</th>
                                 <th>Local</th>
