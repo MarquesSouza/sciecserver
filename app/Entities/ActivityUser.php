@@ -48,6 +48,15 @@ class ActivityUser extends Model implements Transformable
         return $retorno->count();
 
     }
+    public function listaAtividade($id_atividade,$id_type_activity_user){
+        $data[]=['id_type_activity_user','=',$id_type_activity_user];
+        $data[]=['id_activity','=',$id_atividade];
+
+        $retorno  = DB::table('activity_users')->where($data)->get();
+
+        return $retorno;
+
+    }
     public function validaUserAtividade($id_atividade,$id_user){
         $data[]=['id_users','=',$id_user];
         $data[]=['id_activity','=',$id_atividade];
@@ -77,11 +86,7 @@ class ActivityUser extends Model implements Transformable
             }
             };
         };
-
-
         return $teste;
-
     }
-
 
 }
