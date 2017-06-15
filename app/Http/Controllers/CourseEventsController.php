@@ -16,27 +16,21 @@ use App\Validators\CourseEventValidator;
 class CourseEventsController extends Controller
 {
 
-    /**
-     * @var CourseEventRepository
+    /** ------------------------------------------Import repository  Curso Evento-------------------------------------------------------------------------
      */
     protected $repository;
 
-    /**
-     * @var CourseEventValidator
+    /** ------------------------------------------Import validator Curso Evento-------------------------------------------------------------------------
      */
     protected $validator;
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct(CourseEventRepository $repository, CourseEventValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
     public function index()
     {
@@ -52,13 +46,7 @@ class CourseEventsController extends Controller
 
         return view('courseEvents.index', compact('courseEvents'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  CourseEventCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
     public function store(CourseEventCreateRequest $request)
     {
@@ -92,13 +80,7 @@ class CourseEventsController extends Controller
         }
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -113,14 +95,7 @@ class CourseEventsController extends Controller
 
         return view('courseEvents.show', compact('courseEvent'));
     }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -129,15 +104,7 @@ class CourseEventsController extends Controller
 
         return view('courseEvents.edit', compact('courseEvent'));
     }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  CourseEventUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(CourseEventUpdateRequest $request, $id)
     {
@@ -172,14 +139,7 @@ class CourseEventsController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy-------------------------------------------------------------------------
      */
     public function destroy($id)
     {

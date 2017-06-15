@@ -16,27 +16,20 @@ use App\Validators\TypeActivityUserValidator;
 class TypeActivityUsersController extends Controller
 {
 
-    /**
-     * @var TypeActivityUserRepository
+    /** ------------------------------------------Import repository Tipo Atividade de Usuario-------------------------------------------------------------------------
      */
     protected $repository;
-
-    /**
-     * @var TypeActivityUserValidator
+    /** ------------------------------------------Import validator Tipo Atividade de Usuario-------------------------------------------------------------------------
      */
     protected $validator;
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct(TypeActivityUserRepository $repository, TypeActivityUserValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
     public function index()
     {
@@ -53,17 +46,8 @@ class TypeActivityUsersController extends Controller
         return view('tipo_de_atividade_de_usuario.list_tipo_de_atividade_de_usuario', compact('typeActivityUsers'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  TypeActivityUserCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function form_cad()
-    {
-        return view('tipo_de_atividade_de_usuario.cad_tipo_de_atividade_de_usuario');
-    }
     public function store(Request $request)
     {
 
@@ -95,14 +79,7 @@ class TypeActivityUsersController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -117,14 +94,7 @@ class TypeActivityUsersController extends Controller
 
         return view('typeActivityUsers.show', compact('typeActivityUser'));
     }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -133,15 +103,7 @@ class TypeActivityUsersController extends Controller
 
         return view('typeActivityUsers.edit', compact('typeActivityUser'));
     }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  TypeActivityUserUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(TypeActivityUserUpdateRequest $request, $id)
     {
@@ -176,14 +138,7 @@ class TypeActivityUsersController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy-------------------------------------------------------------------------
      */
     public function destroy($id)
     {
@@ -198,5 +153,11 @@ class TypeActivityUsersController extends Controller
         }
 
         return redirect()->back()->with('message', 'TypeActivityUser deleted.');
+    }
+    /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------
+     */
+    public function form_cad()
+    {
+        return view('tipo_de_atividade_de_usuario.cad_tipo_de_atividade_de_usuario');
     }
 }

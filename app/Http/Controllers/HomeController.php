@@ -6,34 +6,26 @@ use App\Entities\Event;
 use Illuminate\Http\Request;
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
-
-
-    // Controller View Usuario (Carioca)
     public function index()
     {
         redirect('/');
         return;
     }
-    // Termina aqui..
+    /** ------------------------------------------Welcome-------------------------------------------------------------------------
+     */
     public function welcome()
     {
         $evento=Event::all();
         return view('welcome', compact('evento'));
     }
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
 }

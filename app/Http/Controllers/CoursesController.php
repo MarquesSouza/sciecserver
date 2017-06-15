@@ -18,28 +18,21 @@ use App\Validators\CourseValidator;
 
 class CoursesController extends Controller
 {
-
-    /**
-     * @var CourseRepository
+    /** ------------------------------------------Import repository Cursos-------------------------------------------------------------------------
      */
     protected $repository;
 
-    /**
-     * @var CourseValidator
+    /** ------------------------------------------Import validator Cursos-------------------------------------------------------------------------
      */
     protected $validator;
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct(CourseRepository $repository, CourseValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
     public function index()
     {
@@ -56,25 +49,9 @@ class CoursesController extends Controller
         return view('curso.list_curso', compact('courses'));
     }
 
-    public function form_cadastro()
-    {
-        $titulo = "Cadastrar Curso";
-        $instution = Instution::all();
-        return view('curso.create-edit',compact('titulo','instution'));
-    }
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  CourseCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function form_cad()
-    {
 
-    }
     public function store(Request $request)
     {
 
@@ -106,14 +83,7 @@ class CoursesController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -128,14 +98,7 @@ class CoursesController extends Controller
 
         return view('courses.show', compact('course'));
     }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -145,15 +108,7 @@ class CoursesController extends Controller
         $courses = $this->repository->find($id);
         return view('curso.create-edit', compact('titulo','courses','instution'));
     }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  CourseUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(Request $request, $id)
     {
@@ -188,14 +143,7 @@ class CoursesController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
     public function destroy($id)
     {
@@ -210,5 +158,13 @@ class CoursesController extends Controller
         }
 
         return redirect()->back()->with('message', 'Course deleted.');
+    }
+    /** ------------------------------------------Formulario de cadastro-------------------------------------------------------------------------
+     */
+    public function form_cad()
+    {
+        $titulo = "Cadastrar Curso";
+        $instution = Instution::all();
+        return view('curso.create-edit',compact('titulo','instution'));
     }
 }

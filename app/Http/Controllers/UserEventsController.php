@@ -16,27 +16,20 @@ use App\Validators\UserEventValidator;
 class UserEventsController extends Controller
 {
 
-    /**
-     * @var UserEventRepository
+    /** ------------------------------------------Import repository  Usuario Evento-------------------------------------------------------------------------
      */
     protected $repository;
-
-    /**
-     * @var UserEventValidator
+    /** ------------------------------------------Import validator  Usuario Evento-------------------------------------------------------------------------
      */
     protected $validator;
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct(UserEventRepository $repository, UserEventValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
     public function index()
     {
@@ -52,13 +45,7 @@ class UserEventsController extends Controller
 
         return view('userEvents.index', compact('userEvents'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  UserEventCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
     public function store(UserEventCreateRequest $request)
     {
@@ -91,14 +78,7 @@ class UserEventsController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -113,14 +93,7 @@ class UserEventsController extends Controller
 
         return view('userEvents.show', compact('userEvent'));
     }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -129,15 +102,7 @@ class UserEventsController extends Controller
 
         return view('userEvents.edit', compact('userEvent'));
     }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  UserEventUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(UserEventUpdateRequest $request, $id)
     {
@@ -172,14 +137,7 @@ class UserEventsController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
     public function destroy($id)
     {

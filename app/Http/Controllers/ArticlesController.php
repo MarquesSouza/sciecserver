@@ -16,27 +16,21 @@ use App\Validators\ArticleValidator;
 class ArticlesController extends Controller
 {
 
-    /**
-     * @var ArticleRepository
+    /** ------------------------------------------Import repository Artigos-------------------------------------------------------------------------
      */
     protected $repository;
 
-    /**
-     * @var ArticleValidator
+    /** ------------------------------------------Import validator Artigos-------------------------------------------------------------------------
      */
     protected $validator;
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct(ArticleRepository $repository, ArticleValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
     public function index()
     {
@@ -52,19 +46,8 @@ class ArticlesController extends Controller
 
         return view('artigo.list_artigo', compact('articles'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  ArticleCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function form_cad()
-    {
-        $titulo = 'Cadastro Artigo';
-        return view('artigo.create-edit-artigo',compact('titulo'));
-    }
+    /** ------------------------------------------Store-------------------------------------------------------------------------
+ */
     public function store(ArticleCreateRequest $request)
     {
 
@@ -96,14 +79,7 @@ class ArticlesController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -118,14 +94,7 @@ class ArticlesController extends Controller
 
         return view('articles.show', compact('article'));
     }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -134,15 +103,7 @@ class ArticlesController extends Controller
 
         return view('artigo.create-edit-artigo', compact('titulo','article'));
     }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  ArticleUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(ArticleUpdateRequest $request, $id)
     {
@@ -177,14 +138,7 @@ class ArticlesController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
     public function destroy($id)
     {
@@ -199,5 +153,12 @@ class ArticlesController extends Controller
         }
 
         return redirect()->back()->with('message', 'Article deleted.');
+    }
+    /** ------------------------------------------Formulario de cadastro-------------------------------------------------------------------------
+     */
+    public function form_cad()
+    {
+        $titulo = 'Cadastro Artigo';
+        return view('artigo.create-edit-artigo',compact('titulo'));
     }
 }

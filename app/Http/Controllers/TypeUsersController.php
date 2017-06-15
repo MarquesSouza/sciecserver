@@ -16,27 +16,20 @@ use App\Validators\TypeUserValidator;
 class TypeUsersController extends Controller
 {
 
-    /**
-     * @var TypeUserRepository
+    /** ------------------------------------------Import repository Tipo de Usuario-------------------------------------------------------------------------
      */
     protected $repository;
-
-    /**
-     * @var TypeUserValidator
+    /** ------------------------------------------Import validator Tipo  de Usuario-------------------------------------------------------------------------
      */
     protected $validator;
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct(TypeUserRepository $repository, TypeUserValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
     public function index()
     {
@@ -53,17 +46,8 @@ class TypeUsersController extends Controller
         return view('tipo_de_usuario.list_tipo_de_usuario', compact('typeUsers'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  TypeUserCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function form_cad()
-    {
-        return view('tipo_de_usuario.cad_tipo_de_usuario');
-    }
     public function store(Request $request)
     {
 
@@ -95,14 +79,7 @@ class TypeUsersController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -117,14 +94,7 @@ class TypeUsersController extends Controller
 
         return view('typeUsers.show', compact('typeUser'));
     }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -133,15 +103,7 @@ class TypeUsersController extends Controller
 
         return view('typeUsers.edit', compact('typeUser'));
     }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  TypeUserUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(TypeUserUpdateRequest $request, $id)
     {
@@ -176,14 +138,7 @@ class TypeUsersController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
     public function destroy($id)
     {
@@ -198,5 +153,11 @@ class TypeUsersController extends Controller
         }
 
         return redirect()->back()->with('message', 'TypeUser deleted.');
+    }
+    /** ------------------------------------------Formulario Casdastro-------------------------------------------------------------------------
+     */
+    public function form_cad()
+    {
+        return view('tipo_de_usuario.cad_tipo_de_usuario');
     }
 }

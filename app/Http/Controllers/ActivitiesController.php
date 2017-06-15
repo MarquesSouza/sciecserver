@@ -23,28 +23,21 @@ use App\Validators\ActivityValidator;
 class ActivitiesController extends Controller
 {
 
-    /**
-     * @var ActivityRepository
+    /** ------------------------------------------Import Repository Atividade-------------------------------------------------------------------------
      */
     protected $repository;
-
-    /**
-     * @var ActivityValidator
+    /** ------------------------------------------Import Validator Atividade-------------------------------------------------------------------------
      */
     protected $validator;
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct(ActivityRepository $repository, ActivityValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
         $this->middleware('auth');
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
     public function index($id)
     {
@@ -73,34 +66,12 @@ class ActivitiesController extends Controller
                 }
             }
         }
-        $lista=$atividadeUser->listaAtividade(3,1);
-        dd($lista);
 
-       // return view('atividade.insc_atividade', compact('activities','atividadeUser','id_user','id_evento'));
+        return view('atividade.insc_atividade', compact('activities','atividadeUser','id_user','id_evento'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  ActivityCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
-     *
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function form_cad()
-    {
-        $tipoAtividade=TypeActivity::all();
-        return view('atividade.cad_atividade',compact('tipoAtividade'));
-    }
-
-    public function form_insc_atividade($id)
-    {
-        $evento=Event::find($id);
-        $atividades = $evento->atividade;
-
-        return view('atividade.insc_atividade',compact('atividades'));
-    }
-
     public function store(ActivityCreateRequest $request)
     {
 
@@ -133,13 +104,7 @@ class ActivitiesController extends Controller
         }
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -155,13 +120,7 @@ class ActivitiesController extends Controller
         return view('atividade.list_atividade', compact('activity'));
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -171,43 +130,7 @@ class ActivitiesController extends Controller
         return view('activities.edit', compact('activity'));
     }
 
-    public function atividade_user(){
-        $User= new User();
-        $User->id=Auth::user()->id;
-        $activities=$User->atividade()->get()->all();
-
-
-        return view('atividade.list_atividade', compact('activities'));
-
-    }
-    public function insc_atividade($id_evento,$id){
-
-        $AtividadeUser= new ActivityUser();
-        $AtividadeUser->id_users = Auth::user()->id;
-        $AtividadeUser->id_activity=$id;
-        $AtividadeUser->id_type_activity_user=1;
-        $AtividadeUser->status=1;
-        $AtividadeUser->data_entrada="2017-07-03 00:00:00";
-        $AtividadeUser->data_saida="2017-07-03 00:00:00";
-        $AtividadeUser->presenca=1;
-        if($AtividadeUser->valida()){
-            $AtividadeUser->save();
-            return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
-        }else{
-
-            return redirect('evento/show/'.$id);
-
-            //pagina para mensagem que ja ta cadastrador
-        }
-
-    }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  ActivityUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(ActivityUpdateRequest $request, $id)
     {
@@ -242,14 +165,7 @@ class ActivitiesController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
     public function destroy($id)
     {
@@ -265,4 +181,69 @@ class ActivitiesController extends Controller
 
         return redirect()->back()->with('message', 'Activity deleted.');
     }
+
+    /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------
+     */
+    public function form_cad()
+    {
+        $tipoAtividade=TypeActivity::all();
+        return view('atividade.cad_atividade',compact('tipoAtividade'));
+    }
+    /** ------------------------------------------Formulario Inscrição Atividade-------------------------------------------------------------------------
+     */
+    public function form_insc_atividade($id)
+    {
+        $evento=Event::find($id);
+        $atividades = $evento->atividade;
+
+        return view('atividade.insc_atividade',compact('atividades'));
+    }
+
+
+    /** ------------------------------------------Lista de ATividade do Usuario-------------------------------------------------------------------------
+     */
+    public function atividade_user(){
+        $User= new User();
+        $User->id=Auth::user()->id;
+        $activities=$User->atividade()->get()->all();
+
+
+        return view('atividade.list_atividade', compact('activities'));
+
+    }
+    /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
+     */
+    public function insc_atividade($id_evento,$id){
+
+        $AtividadeUser= new ActivityUser();
+        $AtividadeUser->id_users = Auth::user()->id;
+        $AtividadeUser->id_activity=$id;
+        $AtividadeUser->id_type_activity_user=1;
+        $AtividadeUser->status=1;
+        $AtividadeUser->data_entrada="2017-07-03 00:00:00";
+        $AtividadeUser->data_saida="2017-07-03 00:00:00";
+        $AtividadeUser->presenca=1;
+        if($AtividadeUser->valida()){
+            $AtividadeUser->save();
+            return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
+        }else{
+
+            return redirect('evento/show/'.$id);
+
+            //pagina para mensagem que ja ta cadastrador
+        }
+
+    }
+    /** ------------------------------------------Lista de Usuario na atividade------------------------------------------------------------------------
+     */
+    public function lista_user_atividade(){
+        $atividadeUser = new ActivityUser();
+        $lista=$atividadeUser->listaAtividade(3,1);
+
+        return view('atividade.list_atividade', compact('activities'));
+
+    }
+
+
+
 }

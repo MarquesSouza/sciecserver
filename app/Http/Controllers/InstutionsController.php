@@ -17,27 +17,20 @@ use App\Validators\InstutionValidator;
 class InstutionsController extends Controller
 {
 
-    /**
-     * @var InstutionsRepository
+    /** ------------------------------------------Import repository Instutions-------------------------------------------------------------------------
      */
     protected $repository;
-
-    /**
-     * @var InstutionsValidator
+    /** ------------------------------------------Import validator Instutions-------------------------------------------------------------------------
      */
     protected $validator;
-
+    /** ------------------------------------------Construct-------------------------------------------------------------------------
+     */
     public function __construct(InstutionRepository $repository, InstutionValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Index-------------------------------------------------------------------------
      */
     public function index()
     {
@@ -54,19 +47,8 @@ class InstutionsController extends Controller
         return view('instituicao.list_instituicao',  compact('instutions'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  InstutionsCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function form_cad()
-    {
-        $titulo = "Cadastrar Instituiçao";
-        return view('instituicao.create-edit', compact('titulo'));
-    }
-
     public function store(Request $request)
     {
 
@@ -98,14 +80,7 @@ class InstutionsController extends Controller
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Show-------------------------------------------------------------------------
      */
     public function show($id)
     {
@@ -120,14 +95,7 @@ class InstutionsController extends Controller
 
         return view('instutions.show', compact('instution'));
     }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
     public function edit($id)
     {
@@ -138,15 +106,7 @@ class InstutionsController extends Controller
 
         return view('instituicao.create-edit', compact('titulo','instutions'));
     }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  InstutionsUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
+    /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(Request $request, $id)
     {
@@ -177,21 +137,11 @@ class InstutionsController extends Controller
                     'message' => $e->getMessageBag()
                 ]);
             }
-
-
                 return redirect()->back()->withErrors($e->getMessageBag())->withInput();
-
-
         }
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+    /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
     public function destroy(Request $request, $id)
     {
@@ -203,5 +153,12 @@ class InstutionsController extends Controller
       if($update){
           return redirect()->route('index');
       }
+    }
+    /** ------------------------------------------Formulario de Cadastro-------------------------------------------------------------------------
+     */
+    public function form_cad()
+    {
+        $titulo = "Cadastrar Instituiçao";
+        return view('instituicao.create-edit', compact('titulo'));
     }
 }
