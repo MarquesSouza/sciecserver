@@ -1,55 +1,11 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
+/** ------------------------------------------Auth-------------------------------------------------------------------------
+ */
 Auth::routes();
-
+/** ------------------------------------------Home-------------------------------------------------------------------------
+ */
 Route::get('/home', 'HomeController@welcome');
 Route::get('/', 'HomeController@welcome');
-Route::get('token', function (){
-
-    $http = new GuzzleHttp\Client;
-
-    $response = $http->post('http://sciec.app/oauth/token', [
-        'form_params' => [
-            'grant_type' => 'password',
-            'client_id' => '4',
-            'client_secret' => 'hf8Wt37OParqZFxSD9SfFmJeFv7DacWwjBuCZlek',
-            'username' => 'jonasjunior@ifto.edu.br',
-            'password' => 'secret',
-            'scope' => '',
-        ],
-    ]);
-
-    return json_decode((string) $response->getBody(), true);
-
- })->middleware('auth');
-//php artisan passport:keys
-
-Route::get('callback', function (Request $request){
-    $http = new GuzzleHttp\Client;
-    $response = $http->post('http://sciec.app/oauth/token', [
-        'form_params' => [
-            'grant_type' => 'authorization_code',
-            'client_id' => '1',
-            'client_secret' => '6vJZ0PfjPD14dMDSZTyB37LBflh4pFCiToaZaxaq',
-            'redirect_uri' => 'http//sciec.app/callback',
-            'code' => $request->code,
-        ],
-    ]);
-
-    return json_decode((string) $response->getBody(), true);
-
-})->middleware('auth');
 
 // refazer depois mudando para tabela com campos mais faceis
 Route::get('usuario/cad', 'UsersController@form_cad')->middleware('auth');// feito
@@ -151,6 +107,41 @@ Route::post('evento/{id_evento}/atividade/insc_atividade/{id}', 'ActivitiesContr
 
 // obs: as outras tabelas assegir sao tabelas n pra n
 
+Route::get('token', function (){
+
+    $http = new GuzzleHttp\Client;
+
+    $response = $http->post('http://sciec.app/oauth/token', [
+        'form_params' => [
+            'grant_type' => 'password',
+            'client_id' => '4',
+            'client_secret' => 'hf8Wt37OParqZFxSD9SfFmJeFv7DacWwjBuCZlek',
+            'username' => 'jonasjunior@ifto.edu.br',
+            'password' => 'secret',
+            'scope' => '',
+        ],
+    ]);
+
+    return json_decode((string) $response->getBody(), true);
+
+})->middleware('auth');
+//php artisan passport:keys
+
+Route::get('callback', function (Request $request){
+    $http = new GuzzleHttp\Client;
+    $response = $http->post('http://sciec.app/oauth/token', [
+        'form_params' => [
+            'grant_type' => 'authorization_code',
+            'client_id' => '1',
+            'client_secret' => '6vJZ0PfjPD14dMDSZTyB37LBflh4pFCiToaZaxaq',
+            'redirect_uri' => 'http//sciec.app/callback',
+            'code' => $request->code,
+        ],
+    ]);
+
+    return json_decode((string) $response->getBody(), true);
+
+})->middleware('auth');
 
 
 
