@@ -15,6 +15,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@welcome');
 Route::get('/', 'HomeController@welcome');
+
+
 Route::get('token', function (){
 
     $http = new GuzzleHttp\Client;
@@ -59,6 +61,7 @@ Route::get('usuario/show/{id}', 'UsersController@show')->middleware('auth');//fe
 Route::delete('usuario/delete/{id}', 'UsersController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
 Route::get('usuario/edit/{id}', 'UsersController@edit')->middleware('auth');
 Route::put('usuario/update/{id}', 'UsersController@update')->middleware('auth');
+Route::get('certificado/index', 'UsersController@certificado')->middleware('auth');
 
 //Tipo de Usuario
 Route::get('usuario/config/cad', 'TypeUsersController@form_cad')->middleware('auth');// feito
