@@ -41,7 +41,7 @@
             </li>
             <!-- INICIO MENU EVENTOS-->
             <li class="xn-openable">
-                <a href="#"><span class="fa fa-university"></span><span class="xn-text">Eventos</span></a>
+                <a href="#"><span class="fa fa-calendar-o"></span><span class="xn-text">Eventos</span></a>
                 <ul>
                     <li><a href="{{url('evento/cad')}}">Cadastrar</a></li>
                     <li><a href="{{url('evento/index')}}">Listar</a></li>
@@ -61,7 +61,7 @@
 
             <!-- INICIO MENU CURSO-->
             <li class="xn-openable">
-                <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Curso</span></a>
+                <a href="#"><span class="fa fa-graduation-cap"></span> <span class="xn-text">Curso</span></a>
                 <ul>
                     <li><a href="curso/cad">Cadastrar</a></li>
                     <li><a href="curso/index">Listar</a></li>
@@ -100,7 +100,7 @@
 
             <!-- INICIO MENU ATIVIDADES-->
             <li class="xn-openable">
-                <a href="#"><span class="fa fa-user"></span> <span class="xn-text">Atividade</span></a>
+                <a href="#"><span class="fa fa-history"></span> <span class="xn-text">Atividade</span></a>
                 <ul>
                     <li><a href="evento/{id_evento}/atividade/cad">Cadastrar</a></li>
                     <li><a href="evento/{id_evento}/atividade/index">Listar</a></li>
@@ -119,7 +119,7 @@
 
             <!-- INICIO MENU ARTIGOS-->
             <li class="xn-openable">
-                <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Artigos</span></a>
+                <a href="#"><span class="fa fa-hacker-news"></span> <span class="xn-text">Artigos</span></a>
                 <ul>
                     <li><a href="artigo/cad">Cadastrar</a></li>
                     <li><a href="artigo/index">Listar</a></li>
@@ -135,7 +135,26 @@
                     <li><a href="participacao/index">Listar</a></li>
                 </ul>
             </li>
-            <!-- FINAL MENU PARTICIPAÇÃO-->
+            <!-- FINAL MENU MEUS CERTIFICADOS-->
+
+            <!-- INICIO MENU PARTICIPAÇÃO-->
+            <li class="glyphicon-menu-down">
+                <a href="#"><span class="fa fa-certificate"></span> <span class="xn-text">Meus Certificados</span></a>
+            </li>
+            <!-- FINAL MENU MEUS CERTIFICADOS-->
+
+            <!-- INICIO MENU MEUS EVENTOS-->
+            <li class="glyphicon-menu-down">
+                <a href="#"><span class="fa fa-calendar"></span> <span class="xn-text">Meus Eventos</span></a>
+            </li>
+            <!-- FINAL MENU MEUS EVENTOS-->
+
+            <!-- INICIO MENU MINHAS ATIVIDADES-->
+            <li class="glyphicon-menu-down">
+                <a href="#"><span class="fa fa-history"></span> <span class="xn-text">Minhas Atividades</span></a>
+            </li>
+            <!-- FINAL MENU MINHAS ATIVIDADES -->
+
         </ul>
         <!-- END BARRA DE NAVEGAÇÃO LATERAL -->
     </div>
