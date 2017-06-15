@@ -178,8 +178,8 @@ class PopulacaoTeste extends Seeder
             'local'=> 'IFTO - Campus Paraíso',
             'qtd_inscritos' => '30',
             'cod_inscritos'=> '8080',
-            'data_inicio'=> '2017-07-08 00:01:00',
-            'data_conclusao'=> '2017-07-08 00:03:00',
+            'data_inicio'=> '2017-07-06 00:01:00',
+            'data_conclusao'=> '2017-07-07 00:03:00',
             'id_evento'=> 6 ,
             'id_tipo_atividade'=> 2,
         ]);
