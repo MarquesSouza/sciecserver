@@ -18,20 +18,27 @@
                     <th>Excluir</th>
 
                      <tr>
-                        @forelse ($typeActivities as $ev)
-
-                            <td>{{ $ev->nome }}</td>
-                            <td>{{ $ev->descricao }}</td>
-                             <th>{{$ev->status}}</th>
+                        @forelse ($typeActivities as $ta)
+                             @if($ta->status == 1)
+                            <td>{{ $ta->nome }}</td>
+                            <td>{{ $ta->descricao }}</td>
+                             <th>{{$ta->status}}</th>
                              <td>
-                                 <a href="{{url('atividade/config/edit',$ev->id)}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
+                                 <a href="{{url('atividade/config/edit',$ta->id)}}" class="btn-success btn btn-default btn-sm">Editar</a>
                              </td>
-                             <td>
-                                 <a href="{{url('atividade/config/cad/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
-                             </td>
+                             <form class="form-horizontal" method="post"
+                                   action="{{ url('atividade/config/delete',$ta->id) }}">
+                                 {!! method_field('PUT') !!}
+                                 {{csrf_field()}}
+                                 <td>
+                                     <input type="hidden" name="status" value="0">
+                                     <button type="submit" id="" name="" class="btn btn-danger">Excluir</button>
+                                 </td>
+                             </form>
 
 
                     </tr>
+                    @endif
                     @empty
                         <p>No type_activities</p>
                     @endforelse

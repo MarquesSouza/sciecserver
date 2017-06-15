@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Participation;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -188,18 +189,14 @@ class ParticipationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $deleted = $this->repository->delete($id);
+        $dataForm = $request->all();
+        $participations = Participation::find($id);
+        $update = $participations->update($dataForm);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'Participation deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect()->route('index_participacao');
         }
-
-        return redirect()->back()->with('message', 'Participation deleted.');
     }
 }
