@@ -56,8 +56,23 @@ class ActivitiesController extends Controller
         $id_evento=$id;
         $teste=$atividadeUser->colisaoAtividade($id_evento);
         $lista=[1,3,4];
-
-        dd($teste);
+        for ($i=0;$i<count($lista);$i++){
+            for($j=0;$j<count($lista);$j++){
+                if($lista[$i]!=$lista[$j]){
+                    $a=$lista[$i];
+                    $b=$lista[$j];
+                    foreach ($teste as $te=>$va){
+                        if($te==$a) {
+                            foreach ($va as $temp => $item) {
+                                if($item==$b){
+                                    echo "colizao:".$a." e :".$b ."</br>";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         if (request()->wantsJson()) {
 
             return response()->json([
