@@ -6,6 +6,12 @@
                 <!-- START DEFAULT DATATABLE -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
+                        <!-- INICIO MENSAGEM DE CONFIRMAÇÃO DE INSCRIÇÃO NO EVENTO -->
+                        <div class="alert alert-success alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Parabéns!</strong> Sua Inscrição No Evento Foi Confirmada Com Sucesso!
+                        </div>
+                        <!-- FINAL MENSAGEM DE CONFIRMAÇÃO DE INSCRIÇÃO NO EVENTO -->
                         <form action="{{url('evento/inscricao_evento/'.$events->id)}}" method="post">
                             {{csrf_field()}}
                             <br><br><br><br><br><br><br><br><br><br><br>
