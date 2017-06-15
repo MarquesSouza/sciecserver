@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\TypeUser;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -98,10 +99,12 @@ class TypeUsersController extends Controller
      */
     public function edit($id)
     {
+        $titulo = "Editar Tipos de Usuário";
 
         $typeUser = $this->repository->find($id);
 
-        return view('typeUsers.edit', compact('typeUser'));
+        return view('tipo_de_usuario.create-edit', compact('titulo','typeUser'));
+//        return view('typeUsers.edit', compact('typeUser'));
     }
     /** ------------------------------------------Update-------------------------------------------------------------------------
      */
@@ -124,7 +127,7 @@ class TypeUsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect()->route('index_type_user');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -140,24 +143,22 @@ class TypeUsersController extends Controller
     }
     /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $deleted = $this->repository->delete($id);
+        $dataForm = $request->all();
+        $typeUser = TypeUser::find($id);
+        $update = $typeUser->update($dataForm);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'TypeUser deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect()->route('index_type_user');
         }
-
-        return redirect()->back()->with('message', 'TypeUser deleted.');
     }
     /** ------------------------------------------Formulario Casdastro-------------------------------------------------------------------------
      */
     public function form_cad()
     {
-        return view('tipo_de_usuario.cad_tipo_de_usuario');
+        $titulo = "Cadastrar Tipos de Usuário";
+        return view('tipo_de_usuario.create-edit', compact('titulo'));
+//        return view('tipo_de_usuario.cad_tipo_de_usuario');
     }
 }

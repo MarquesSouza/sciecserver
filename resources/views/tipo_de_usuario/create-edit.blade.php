@@ -3,8 +3,8 @@
 
 @section('content')
 
-    @if( isset($typeUsers))
-        <form class="form-horizontal" method="post" action="{{ url('usuario/config/update', $typeUsers->id) }}">
+    @if( isset($typeUser))
+        <form class="form-horizontal" method="post" action="{{ url('usuario/config/update', $typeUser->id) }}">
             {!! method_field('PUT') !!}
             @else
                 <form class="form-horizontal" method="post" action="{{ url('usuario/config/store') }}">
@@ -30,7 +30,7 @@
                                 <label class="col-md-4 control-label">Nome</label>
                                 <div class="col-md-5">
                                     <input id="nome" name="nome" type="text" placeholder=""
-                                           class="form-control input-md" required="" value="{{$typeUsers->nome or old('nome')}}">
+                                           class="form-control input-md" required="" value="{{$typeUser->nome or old('nome')}}">
 
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                                 <label class="col-md-4 control-label">Descrição</label>
                                 <div class="col-md-5">
                                     <input id="descricao" name="descricao" type="text" placeholder=""
-                                           class="form-control input-md" required="" value="{{$typeUsers->descricao or old('descricao')}}">
+                                           class="form-control input-md" required="" value="{{$typeUser->descricao or old('descricao')}}">
 
                                 </div>
                             </div>
