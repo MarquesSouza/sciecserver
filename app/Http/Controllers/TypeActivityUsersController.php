@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\TypeActivityUser;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -83,6 +84,7 @@ class TypeActivityUsersController extends Controller
      */
     public function show($id)
     {
+
         $typeActivityUser = $this->repository->find($id);
 
         if (request()->wantsJson()) {
@@ -98,14 +100,16 @@ class TypeActivityUsersController extends Controller
      */
     public function edit($id)
     {
+        $titulo = "Editar Tipos de Atividade do Usuário";
 
         $typeActivityUser = $this->repository->find($id);
 
-        return view('typeActivityUsers.edit', compact('typeActivityUser'));
+        return view('tipo_de_atividade_de_usuario.create-edit', compact('titulo','typeActivityUser'));
+//        return view('typeActivityUsers.edit', compact('typeActivityUser'));
     }
     /** ------------------------------------------Update-------------------------------------------------------------------------
      */
-    public function update(TypeActivityUserUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {
@@ -124,7 +128,7 @@ class TypeActivityUsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect()->route('index_type_activity_user');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -140,24 +144,22 @@ class TypeActivityUsersController extends Controller
     }
     /** ------------------------------------------Destroy-------------------------------------------------------------------------
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $deleted = $this->repository->delete($id);
+        $dataForm = $request->all();
+        $typeActivityUser = TypeActivityUser::find($id);
+        $update = $typeActivityUser->update($dataForm);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'TypeActivityUser deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect()->route('index_type_activity_user');
         }
-
-        return redirect()->back()->with('message', 'TypeActivityUser deleted.');
     }
     /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------
      */
     public function form_cad()
     {
-        return view('tipo_de_atividade_de_usuario.cad_tipo_de_atividade_de_usuario');
+        $titulo = "Cadastrar Tipos de Atividade do Usuário";
+        return view('tipo_de_atividade_de_usuario.create-edit', compact('titulo'));
+//        return view('tipo_de_atividade_de_usuario.cad_tipo_de_atividade_de_usuario');
     }
 }
