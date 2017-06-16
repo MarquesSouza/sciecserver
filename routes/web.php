@@ -52,7 +52,6 @@ Route::get('callback', function (Request $request){
     return json_decode((string) $response->getBody(), true);
 
 })->middleware('auth');
-
 // refazer depois mudando para tabela com campos mais faceis
 Route::get('usuario/cad', 'UsersController@form_cad')->middleware('auth');// feito
 Route::get('usuario/index', 'UsersController@index')->middleware('auth');// feito
