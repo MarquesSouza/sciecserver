@@ -53,8 +53,8 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Instituição</span></a>
                 <ul>
-                    <li><a href="instituicao/cad">Cadastrar</a></li>
-                    <li><a href="instituicao/index">Listar</a></li>
+                    <li><a href="{{url('instituicao/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('instituicao/index')}}">Listar</a></li>
                 </ul>
             </li>
             <!-- FINAL MENU INSTITUIÇÕES-->
@@ -63,8 +63,8 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-graduation-cap"></span> <span class="xn-text">Curso</span></a>
                 <ul>
-                    <li><a href="curso/cad">Cadastrar</a></li>
-                    <li><a href="curso/index">Listar</a></li>
+                    <li><a href="{{url('curso/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('curso/index')}}">Listar</a></li>
                 </ul>
             </li>
             <!-- FINAL MENU CURSO-->
@@ -73,14 +73,14 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-user"></span> <span class="xn-text">Usuário</span></a>
                 <ul>
-                    <li><a href="usuario/cad">Cadastrar</a></li>
-                    <li><a href="usuario/index">Listar</a></li>
+                    <li><a href="{{url('usuario/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('usuario/index')}}">Listar</a></li>
                     <!-- INICIO MENU TIPO DE USUÁRIO-->
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-user-md"></span> Tipos de Usuário</a>
                         <ul>
-                            <li><a href="usuario/config/cad">Cadastrar</a></li>
-                            <li><a href="usuario/config/index">Listar</a></li>
+                            <li><a href="{{url('usuario/config/cad')}}">Cadastrar</a></li>
+                            <li><a href="{{url('usuario/config/index')}}">Listar</a></li>
                         </ul>
                     </li>
                     <!-- FINAL MENU TIPO DE USUÁRIO-->
@@ -88,8 +88,8 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-user-md"></span> Tipo de Atividade do Usuário</a>
                         <ul>
-                            <li><a href="usuario/atividade/config/cad">Cadastrar</a></li>
-                            <li><a href="usuario/atividade/config/index">Listar</a></li>
+                            <li><a href="{{url('usuario/tipo/atividade/cad')}}">Cadastrar</a></li>
+                            <li><a href="{{url('usuario/tipo/atividade/index')}}">Listar</a></li>
                         </ul>
                     </li>
                     <!-- FINAL MENU TIPO DE ATIVIDADE DO USUÁRIO-->
@@ -102,14 +102,14 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-history"></span> <span class="xn-text">Atividade</span></a>
                 <ul>
-                    <li><a href="evento/{id_evento}/atividade/cad">Cadastrar</a></li>
-                    <li><a href="evento/{id_evento}/atividade/index">Listar</a></li>
+                    <li><a href="{{url('evento/{id_evento}/atividade/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('evento/{id_evento}/atividade/index')}}">Listar</a></li>
                     <!-- INICIO MENU TIPOS DE ATIVIDADES-->
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-user-md"></span> Tipo de Atividade</a>
                         <ul>
-                            <li><a href="atividade/config/cad">Cadastrar</a></li>
-                            <li><a href="atividade/config/index">Listar</a></li>
+                            <li><a href="{{url('atividade/tipo/cad')}}">Cadastrar</a></li>
+                            <li><a href="{{url('atividade/tipo/index')}}">Listar</a></li>
                         </ul>
                     </li>
                     <!-- FINAL MENU TIPOS DE ATIVIDADES-->
@@ -121,8 +121,8 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-hacker-news"></span> <span class="xn-text">Artigos</span></a>
                 <ul>
-                    <li><a href="artigo/cad">Cadastrar</a></li>
-                    <li><a href="artigo/index">Listar</a></li>
+                    <li><a href="{{url('artigo/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('artigo/index')}}">Listar</a></li>
                 </ul>
             </li>
             <!-- FINAL MENU ARTIGOS-->
@@ -131,8 +131,8 @@
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Participação</span></a>
                 <ul>
-                    <li><a href="participacao/cad">Cadastrar</a></li>
-                    <li><a href="participacao/index">Listar</a></li>
+                    <li><a href="{{url('participacao/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('participacao/index')}}">Listar</a></li>
                 </ul>
             </li>
 
@@ -140,22 +140,21 @@
 
             <!-- INICIO MENU MEUS CERTIFICADOS-->
             <li class="glyphicon-menu-down">
-                <a href="certificado/index"><span class="fa fa-certificate"></span> <span class="xn-text">Meus Certificados</span></a>
+                <a href="{{url('certificado/index')}}"><span class="fa fa-certificate"></span> <span class="xn-text">Meus Certificados</span></a>
             </li>
             <!-- FINAL MENU MEUS CERTIFICADOS-->
 
             <!-- INICIO MENU MEUS EVENTOS-->
             <li class="glyphicon-menu-down">
-                <a href="evento/eventos"><span class="fa fa-calendar"></span> <span class="xn-text">Meus Eventos</span></a>
+                <a href="{{url('evento/eventos')}}"><span class="fa fa-calendar"></span> <span class="xn-text">Meus Eventos</span></a>
             </li>
             <!-- FINAL MENU MEUS EVENTOS-->
 
             <!-- INICIO MENU MINHAS ATIVIDADES-->
             <li class="glyphicon-menu-down">
-                <a href="#"><span class="fa fa-history"></span> <span class="xn-text">Minhas Atividades</span></a>
+                <a href="{{url('#')}}"><span class="fa fa-history"></span> <span class="xn-text">Minhas Atividades</span></a>
             </li>
             <!-- FINAL MENU MINHAS ATIVIDADES -->
-
         </ul>
         <!-- END BARRA DE NAVEGAÇÃO LATERAL -->
     </div>
@@ -180,7 +179,8 @@
         <!-- START BREADCRUMB -->
         <ul class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active">Lista de Eventos</li>
+            <li><a href="#">Tables</a></li>
+            <li class="active">Data Tables</li>
         </ul>
         <!-- END BREADCRUMB -->
         <!-- PAGE CONTENT WRAPPER -->
@@ -196,24 +196,24 @@
 <!-- END PAGE CONTAINER -->
 <!-- START SCRIPTS -->
 <!-- START PLUGINS -->
-<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{asset('js/plugins/jquery/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/plugins/jquery/jquery-ui.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap.min.js')}}"></script>
 <!-- END PLUGINS -->
 
 <!-- START THIS PAGE PLUGINS-->
-<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
-<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
-<script type="text/javascript" src="js/plugins/scrolltotop/scrolltopcontrol.js"></script>
-<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
-
-<script type="text/javascript" src="js/plugins/moment.min.js"></script>
-<script type="text/javascript" src="js/plugins/daterangepicker/daterangepicker.js"></script>
+<script type='text/javascript' src='{{asset('js/plugins/icheck/icheck.min.js')}}'></script>
+<script type="text/javascript" src="{{asset('js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/plugins/scrolltotop/scrolltopcontrol.js')}}"></script>
+<script type='text/javascript' src='{{asset('js/plugins/bootstrap/bootstrap-datepicker.js')}}'></script>
+<script type="text/javascript" src="{{asset('js/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/plugins/moment.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/plugins/daterangepicker/daterangepicker.js')}}"></script>
 <!-- END THIS PAGE PLUGINS-->
 
-<script type="text/javascript" src="js/plugins.js"></script>
-<script type="text/javascript" src="js/actions.js"></script>
-<script type="text/javascript" src="js/demo_dashboard.js"></script>
+<script type="text/javascript" src="{{asset('js/plugins.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/actions.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/demo_dashboard.js')}}"></script>
 <!-- END TEMPLATE -->
 <!-- END SCRIPTS -->
 </body>

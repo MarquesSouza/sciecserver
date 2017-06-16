@@ -1,12 +1,6 @@
 @extends('app')
 
 @section('content')
-    <div class="page-content-wrap">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- START DEFAULT DATATABLE -->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
         @if( isset($courses))
             <form class="form-horizontal" method="post" action="{{ url('curso/update', $courses->id) }}">
                 {!! method_field('PUT') !!}
@@ -46,7 +40,7 @@
             </div>
             <div class="form-group">
                 <label class="col-md-4 control-label" for="instituicao">Instituição:</label>
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <select id="instituicao" name="id_instutions" class="form-control">
                         @forelse ($instution as $i)
 
@@ -71,10 +65,6 @@
           </div>
         </fieldset>
     </form>
-                </div>
-                </div>
-            </div>
-        </div>
-        </div>
+
     <!-- /.container -->
 @endsection
