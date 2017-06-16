@@ -118,10 +118,11 @@ class EventsController extends Controller
      */
     public function edit($id)
     {
+        $titulo = "Editar Evento";
 
         $event = $this->repository->find($id);
 
-        return view('evento.edit', compact('event'));
+        return view('evento.create-edit-evento', compact("titulo",'event'));
     }
 
 

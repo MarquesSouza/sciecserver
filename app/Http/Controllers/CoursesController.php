@@ -145,19 +145,15 @@ class CoursesController extends Controller
     }
     /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        $deleted = $this->repository->delete($id);
+        $dataForm = $request->all();
+        $curso = Instution::find($id);
+        $update = $curso->update($dataForm);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'Course deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect()->route('index');
         }
-
-        return redirect()->back()->with('message', 'Course deleted.');
     }
     /** ------------------------------------------Formulario de cadastro-------------------------------------------------------------------------
      */
