@@ -2,17 +2,13 @@
 @extends('app')
 
 @section('content')
-    <div class="page-content-wrap">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- START DEFAULT DATATABLE -->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-    @if( isset($typeActivity))
-        <form class="form-horizontal" method="post" action="{{ url('atividade/tipo/update', $typeActivity->id) }}">
+
+    @if( isset($typeActivityUser))
+        <form class="form-horizontal" method="post"
+              action="{{ url('usuario/tipo/atividade/update', $typeActivityUser->id) }}">
             {!! method_field('PUT') !!}
             @else
-                <form class="form-horizontal" method="post" action="{{ url('atividade/tipo/store') }}">
+                <form class="form-horizontal" method="post" action="{{ url('usuario/tipo/atividade/store') }}">
                     @endif
 
                     {{csrf_field()}}
@@ -35,7 +31,8 @@
                                 <label class="col-md-4 control-label">Nome</label>
                                 <div class="col-md-5">
                                     <input id="nome" name="nome" type="text" placeholder=""
-                                           class="form-control input-md" required="" value="{{$typeActivity->nome or old('nome')}}">
+                                           class="form-control input-md" required=""
+                                           value="{{$typeActivityUser->nome or old('nome')}}">
 
                                 </div>
                             </div>
@@ -43,7 +40,8 @@
                                 <label class="col-md-4 control-label">Descrição</label>
                                 <div class="col-md-5">
                                     <input id="descricao" name="descricao" type="text" placeholder=""
-                                           class="form-control input-md" required="" value="{{$typeActivity->descricao or old('descricao')}}">
+                                           class="form-control input-md" required=""
+                                           value="{{$typeActivityUser->descricao or old('descricao')}}">
 
                                 </div>
                             </div>
@@ -59,10 +57,7 @@
                         </div>
                     </fieldset>
                 </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>                <!-- /.container -->
+
+                <!-- /.container -->
 
 @endsection

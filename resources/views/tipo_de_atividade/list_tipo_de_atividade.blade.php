@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <br><br>
-            <a href="{{ url('atividade/config/cad') }}" class="btn-primary btn btn-default">Novo Tipo Atividade</a>
+            <a href="{{ url('atividade/tipo/cad') }}" class="btn-primary btn btn-default">Novo Tipo Atividade</a>
             <br><br>
 
                 <table class="table table-bordered table-inverse">
@@ -24,10 +24,10 @@
                             <td>{{ $ta->descricao }}</td>
                              <th>{{$ta->status}}</th>
                              <td>
-                                 <a href="{{url('atividade/config/edit',$ta->id)}}" class="btn-success btn btn-default btn-sm">Editar</a>
+                                 <a href="{{url('atividade/tipo/edit',$ta->id)}}" class="btn-success btn btn-default btn-sm">Editar</a>
                              </td>
                              <form class="form-horizontal" method="post"
-                                   action="{{ url('atividade/config/delete',$ta->id) }}">
+                                   action="{{ url('atividade/tipo/delete',$ta->id) }}">
                                  {!! method_field('PUT') !!}
                                  {{csrf_field()}}
                                  <td>
