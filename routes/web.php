@@ -38,10 +38,10 @@ Route::put('atividade/tipo/update/{id}', 'TypeActivitiesController@update')->mid
 /** ------------------------------------------Tipo Atividade Usuario(Administrador)-------------------------------------------------------------------------
  */
 Route::get('usuario/tipo/atividade/cad', 'TypeActivityUsersController@form_cad')->middleware('auth');//arrumar
-Route::get('usuario/tipo/atividade/index', 'TypeActivityUsersController@index')->middleware('auth')->name('index_type_activity_user');//corrigir rotas
+Route::get('usuario/tipo/atividade/index', 'TypeActivityUsersController@index')->middleware('auth');//corrigir rotas
 Route::post('usuario/tipo/atividade/store', 'TypeActivityUsersController@store')->middleware('auth');//arrumar
 Route::get('usuario/tipo/atividade/show/{id}', 'TypeActivityUsersController@show')->middleware('auth');//sem tela
-Route::put('usuario/tipo/atividade/delete/{id}', 'TypeActivityUsersController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::delete('usuario/tipo/atividade/delete/{id}', 'TypeActivityUsersController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
 Route::get('usuario/tipo/atividade/edit/{id}', 'TypeActivityUsersController@edit')->middleware('auth');//faltando
 Route::put('usuario/tipo/atividade/update/{id}', 'TypeActivityUsersController@update')->middleware('auth');//faltanto
 /** ------------------------------------------Instituiçoes(Administrador)-------------------------------------------------------------------------

@@ -135,11 +135,12 @@
                     <li><a href="participacao/index">Listar</a></li>
                 </ul>
             </li>
-            <!-- FINAL MENU MEUS CERTIFICADOS-->
 
-            <!-- INICIO MENU PARTICIPAÇÃO-->
+            <!-- FINAL MENU PARTICIPAÇÃO-->
+
+            <!-- INICIO MENU MEUS CERTIFICADOS-->
             <li class="glyphicon-menu-down">
-                <a href="#"><span class="fa fa-certificate"></span> <span class="xn-text">Meus Certificados</span></a>
+                <a href="certificado/index"><span class="fa fa-certificate"></span> <span class="xn-text">Meus Certificados</span></a>
             </li>
             <!-- FINAL MENU MEUS CERTIFICADOS-->
 
