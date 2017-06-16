@@ -165,4 +165,9 @@ class UsersController extends Controller
         $titulo= "Cadastra Usuarios";
         return view('usuario.create-edit-user',compact('titulo'));
     }
+
+    public function certificado()
+    {
+        return view('certificado.exibir_certificado', compact('certificado'));
+    }
 }
