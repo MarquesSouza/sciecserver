@@ -1,5 +1,4 @@
 <?php
-
 /** ------------------------------------------Auth-------------------------------------------------------------------------
  */
 Auth::routes();
@@ -120,7 +119,7 @@ Route::post('evento/{id_evento}/atividade/insc_atividade/{id}', 'ActivitiesContr
 /** ------------------------------------------Token Jonas(Administrador)-------------------------------------------------------------------------
  */
 
-// obs: as outras tabelas assegir sao tabelas n pra n
+// Obs: as outras tabelas assegir sao tabelas n pra n
 
 Route::get('token', function (){
 
