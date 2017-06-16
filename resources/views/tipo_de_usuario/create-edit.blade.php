@@ -4,10 +4,10 @@
 @section('content')
 
     @if( isset($typeUser))
-        <form class="form-horizontal" method="post" action="{{ url('usuario/config/update', $typeUser->id) }}">
+        <form class="form-horizontal" method="post" action="{{ url('usuario/tipo/update', $typeUser->id) }}">
             {!! method_field('PUT') !!}
             @else
-                <form class="form-horizontal" method="post" action="{{ url('usuario/config/store') }}">
+                <form class="form-horizontal" method="post" action="{{ url('usuario/tipo/store') }}">
                     @endif
 
                     {{csrf_field()}}
