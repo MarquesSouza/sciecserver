@@ -1,9 +1,12 @@
 @extends('app')
 @section('content')
-    <div class="container">
+    <div class="page-content-wrap">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <table class="table table-bordered table-inverse">
+            <div class="col-md-12">
+                <!-- START DEFAULT DATATABLE -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <table class="table table-bordered ">
                     <th>Nome </th>
                     <th>Descricão </th>
                     <th>Local </th>
@@ -32,5 +35,7 @@
 
             </div>
         </div>
+    </div>
+    </div>
     </div>
 @endsection
