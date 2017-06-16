@@ -1,10 +1,7 @@
 @extends('app')
 @section('content')
-    <div class="page-content-wrap">
-
         <div class="row">
             <div class="col-md-12">
-
                 <!-- START DEFAULT DATATABLE -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -42,10 +39,12 @@
                                         <td>{{ $a->local }}</td>
                                         <td>{{ $a->qtd_inscritos }}</td>
                                         <td>
-                                            <a href="{{url('usuario/config/edit/{id}')}}" class="btn-success btn btn-default btn-sm">Editar</a>
+                                            <a href="{{url('usuario/config/edit/{id}')}}"
+                                               class="btn-success btn btn-default btn-sm">Editar</a>
                                         </td>
                                         <td>
-                                            <a href="{{url('usuario/config/edit/{id}')}}" class="btn danger-color  btn-default btn-sm">Excluir</a>
+                                            <a href="{{url('usuario/config/edit/{id}')}}"
+                                               class="btn danger-color  btn-default btn-sm">Excluir</a>
                                         </td>
                                     </form>
                             </tr>
@@ -62,5 +61,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection

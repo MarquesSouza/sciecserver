@@ -1,10 +1,6 @@
 @extends('app')
 
 @section('content')
-    <div>
-        <br><br><br><br>
-    </div>
-
         @if( isset($courses))
             <form class="form-horizontal" method="post" action="{{ url('curso/update', $courses->id) }}">
                 {!! method_field('PUT') !!}
