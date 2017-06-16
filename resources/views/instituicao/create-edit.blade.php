@@ -2,16 +2,12 @@
 @extends('app')
 
 @section('content')
-    <div>
-        <br><br><br><br>
-    </div>
         @if( isset($instutions))
             <form class="form-horizontal" method="post" action="{{ url('instituicao/update', $instutions->id) }}">
                 {!! method_field('PUT') !!}
         @else
             <form class="form-horizontal" method="post" action="{{ url('instituicao/store') }}">
         @endif
-
         {{csrf_field()}}
         <fieldset>
             <div class="container">

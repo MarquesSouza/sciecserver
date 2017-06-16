@@ -1,9 +1,7 @@
 @extends('app')
-
 @section('content')
-    <div class="container">
         <div class="row">
-            <div class="c   ol-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2">
                 <table class="table table-inverse">
                     <th>Nome </th>
                     <th>Descricão </th>
@@ -22,5 +20,4 @@
                     <table class="table">
             </div>
         </div>
-    </div>
 @endsection
