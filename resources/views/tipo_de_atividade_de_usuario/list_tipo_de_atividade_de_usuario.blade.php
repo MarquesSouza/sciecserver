@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <br><br>
-            <a href="{{ url('usuario/atividade/config/cad') }}" class="btn-primary btn btn-default">Novo Tipo Atividade Usuario</a>
+            <a href="{{ url('usuario/tipo/atividade/cad') }}" class="btn-primary btn btn-default">Novo Tipo Atividade Usuario</a>
             <br><br>
                 <table class="table table-bordered table-inverse">
                     <th>Nome </th>
@@ -16,18 +16,23 @@
                     <th>Editar </th>
                     <th>Excluir </th>
                      <tr>
-                        @forelse ($typeActivityUsers as $ev)
-
-                            <td>{{ $ev->nome }}</td>
-                            <td>{{ $ev->descricao }}</td>
-                             <th>{{$ev->status}}</th>
+                        @forelse ($typeActivityUsers as $tau)
+                            <td>{{ $tau->nome }}</td>
+                            <td>{{ $tau->descricao }}</td>
+                             <th>{{$tau->status}}</th>
                              <td>
-                                 <a href="{{url('usuario/atividade/config/edit/{id)')}}" class="btn-success btn btn-default btn-sm">EDITAR</a>
-                             </td>
-                             <td>
-                                 <a href="{{url('usuario/atividade/config/cad/delete/{id}')}}" class="btn danger-color  btn-default btn-sm">EXCLUIR</a>
+                                 <a href="{{url('usuario/tipo/atividade/edit',$tau->id)}}" class="btn-success btn btn-default btn-sm">Editar</a>
                              </td>
 
+                             <form class="form-horizontal" method="post"
+                                   action="{{ url('usuario/tipo/atividade/delete', $tau->id) }}">
+                                 {!! method_field('PUT') !!}
+                                 {{csrf_field()}}
+                                 <td>
+                                     <input type="hidden" name="status" value="0">
+                                     <button type="submit" id="" name="" class="btn btn-danger">Excluir</button>
+                                 </td>
+                             </form>
 
                     </tr>
                     @empty

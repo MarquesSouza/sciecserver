@@ -7,7 +7,7 @@
                 <!-- START DEFAULT DATATABLE -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="{{ url('usuario/config/cad') }}" class="btn-primary btn btn-default">Novo Tipo Usuario</a>
+                        <a href="{{ url('usuario/tipo/cad') }}" class="btn-primary btn btn-default">Novo Tipo Usuario</a>
                         <table class="table table-bordered table-inverse">
                             <th>Nome</th>
                             <th>Descricão</th>
@@ -21,10 +21,10 @@
                                     <td>{{ $tu->descricao }}</td>
                                     <th>{{$tu->status }}</th>
                                     <td>
-                                        <a href="{{url('usuario/config/edit',$tu->id)}}" class="btn-success btn btn-default btn-sm">Editar</a>
+                                        <a href="{{url('usuario/tipo/edit',$tu->id)}}" class="btn-success btn btn-default btn-sm">Editar</a>
                                     </td>
                                     <form class="form-horizontal" method="post"
-                                          action="{{ url('usuario/config/delete',$tu->id) }}">
+                                          action="{{ url('usuario/tipo/delete',$tu->id) }}">
                                         {!! method_field('PUT') !!}
                                         {{csrf_field()}}
                                         <td>
