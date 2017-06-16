@@ -15,6 +15,7 @@ Route::get('usuario/show/{id}', 'UsersController@show')->middleware('auth');//fa
 Route::delete('usuario/delete/{id}', 'UsersController@destroy')->middleware('auth');//mudar para exclusao logica
 Route::get('usuario/edit/{id}', 'UsersController@edit')->middleware('auth');// arrumar
 Route::put('usuario/update/{id}', 'UsersController@update')->middleware('auth');// arrumar
+Route::get('certificado/index', 'UsersController@certificado')->middleware('auth');
 /** ------------------------------------------Tipo Usuario(Administrador)-------------------------------------------------------------------------
  */
 
