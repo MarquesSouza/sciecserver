@@ -180,7 +180,8 @@
         <!-- START BREADCRUMB -->
         <ul class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active">Lista de Eventos</li>
+            <li><a href="#">Tables</a></li>
+            <li class="active">Data Tables</li>
         </ul>
         <!-- END BREADCRUMB -->
         <!-- PAGE CONTENT WRAPPER -->
