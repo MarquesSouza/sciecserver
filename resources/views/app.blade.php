@@ -88,8 +88,8 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-user-md"></span> Tipo de Atividade do Usuário</a>
                         <ul>
-                            <li><a href="{{url('usuario/atividade/config/cad')}}">Cadastrar</a></li>
-                            <li><a href="{{url('usuario/atividade/config/index')}}">Listar</a></li>
+                            <li><a href="{{url('usuario/tipo/atividade/cad')}}">Cadastrar</a></li>
+                            <li><a href="{{url('usuario/tipo/atividade/index')}}">Listar</a></li>
                         </ul>
                     </li>
                     <!-- FINAL MENU TIPO DE ATIVIDADE DO USUÁRIO-->
@@ -108,8 +108,8 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-user-md"></span> Tipo de Atividade</a>
                         <ul>
-                            <li><a href="{{url('atividade/config/cad')}}">Cadastrar</a></li>
-                            <li><a href="{{url('atividade/config/index')}}">Listar</a></li>
+                            <li><a href="{{url('atividade/tipo/cad')}}">Cadastrar</a></li>
+                            <li><a href="{{url('atividade/tipo/index')}}">Listar</a></li>
                         </ul>
                     </li>
                     <!-- FINAL MENU TIPOS DE ATIVIDADES-->
@@ -152,10 +152,9 @@
 
             <!-- INICIO MENU MINHAS ATIVIDADES-->
             <li class="glyphicon-menu-down">
-                <a href="#"><span class="fa fa-history"></span> <span class="xn-text">Minhas Atividades</span></a>
+                <a href="{{url('#')}}"><span class="fa fa-history"></span> <span class="xn-text">Minhas Atividades</span></a>
             </li>
             <!-- FINAL MENU MINHAS ATIVIDADES -->
-
         </ul>
         <!-- END BARRA DE NAVEGAÇÃO LATERAL -->
     </div>
