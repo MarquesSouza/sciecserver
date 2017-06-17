@@ -124,7 +124,7 @@ class TypeUsersController extends Controller
 
             if ($request->wantsJson()) {
 
-                return response()->json($response);
+                return response()->json($request);
             }
 
             return redirect('usuario/tipo/index');
