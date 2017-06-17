@@ -79,8 +79,8 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-user-md"></span> Tipos de Usuário</a>
                         <ul>
-                            <li><a href="{{url('usuario/config/cad')}}">Cadastrar</a></li>
-                            <li><a href="{{url('usuario/config/index')}}">Listar</a></li>
+                            <li><a href="{{url('usuario/tipo/cad')}}">Cadastrar</a></li>
+                            <li><a href="{{url('usuario/tipo/index')}}">Listar</a></li>
                         </ul>
                     </li>
                     <!-- FINAL MENU TIPO DE USUÁRIO-->
