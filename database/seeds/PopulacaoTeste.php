@@ -13,10 +13,10 @@ class PopulacaoTeste extends Seeder
     {
         //Usuários
         factory(App\Entities\User::class)->create([
-            'name' => 'Pedro César',
+            'name' => 'Administrador',
             'password' =>  bcrypt('123'),
             'cpf'  => '99999999999',
-            'email' => 'pedrocesar1010@gmail.com',
+            'email' => 'ifto2017@gmail.com',
             'telefone' => '63992194736',
         ]);
         factory(App\Entities\User::class)->create([
@@ -45,8 +45,8 @@ class PopulacaoTeste extends Seeder
         //Tipo de usuários
         factory(App\Entities\TypeUser::class)->create([
             'status' => 1,
-            'nome' => 'Organizador',
-            'descricao' => 'Criar e editar evento',
+            'nome' => 'Usuario',
+            'descricao' => 'Usuario comum so inscreve no evento',
 
         ]);
         factory(App\Entities\TypeUser::class)->create([
@@ -56,14 +56,14 @@ class PopulacaoTeste extends Seeder
         ]);
         factory(App\Entities\TypeUser::class)->create([
             'status' => 1,
-            'nome' => 'Administrador',
-            'descricao' => 'Criar e editar eventos, usuários etc.',
+            'nome' => 'Organizador',
+            'descricao' => 'Criar e editar eventos, etc.',
         ]);
 
         //Usuário Tipo de Usuário
         factory(App\Entities\UserTypeUser::class)->create([
             'id_user'=> 1,
-            'id_type_user' => 1,
+            'id_type_user' => 2,
             'status' => 1,
         ]);
         factory(App\Entities\UserTypeUser::class)->create([
