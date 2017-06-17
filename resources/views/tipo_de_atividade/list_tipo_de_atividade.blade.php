@@ -24,7 +24,7 @@
                         <th>Excluir</th>
                         </thead>
                         @forelse ($typeActivities as $ta)
-                            @if($ta->status == 1)
+
                                 <tbody>
                                 <tr>
                                     <td>{{ $ta->nome }}</td>
@@ -45,10 +45,10 @@
                                     </form>
                                 </tr>
                                 </tbody>
-                            @endif
+
                         @empty
                             <p>No type_activities</p>
-                        @endforels
+                        @endforelse
                     </table>
                 </div>
             </div>

@@ -28,7 +28,7 @@
                             </thead>
 
                             @forelse ( $instutions as $u)
-                                @if($u->status == 1)
+
                                     <tbody>
                                     <tr>
                                         <td>{{ $u->nome }}</td>
@@ -44,14 +44,18 @@
                                             {!! method_field('PUT') !!}
                                             {{csrf_field()}}
                                             <td>
+                                                @if($u->status == 1)
                                                 <input type="hidden" name="status" value="0">
-                                                <button type="submit" id="" name="" class="btn btn-danger">Excluir
-                                                </button>
+                                                    <button type="submit" id="" name="" class="btn btn-danger ">Excluir </button>
+                                                @else
+                                                    <input type="hidden" name="status" value="1">
+                                                            <button type="submit" id="" name="" class="btn btn-primary">Ativar </button>
+                                                    @endif
                                             </td>
                                         </form>
                                     </tr>
                                     </tbody>
-                                @endif
+
 
                             @empty
                                 <p>No type_users</p>

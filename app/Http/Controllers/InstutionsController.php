@@ -68,7 +68,7 @@ class InstutionsController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('instituicao/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -124,7 +124,7 @@ class InstutionsController extends Controller
 
             if ($request->wantsJson()) {
 
-                return response()->json($response);
+                return response('instituicao/index');
             }
 
             return redirect()->route('index');

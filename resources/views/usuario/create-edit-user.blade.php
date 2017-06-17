@@ -4,7 +4,8 @@
         <form class="form-horizontal" method="post" action="{{ url('usuario/update', $users->id) }}">
             {!! method_field('PUT') !!}
             @else
-                <form class="form-horizontal" method="post" action="{{ url('usuario/store') }}">
+                <form class="form-horizontal" method="post" action="{{ url('usuario/store') }}"
+                {{csrf_field()}}>
                     @endif
 
                     {{csrf_field()}}
