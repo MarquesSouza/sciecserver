@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Article;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -48,7 +49,7 @@ class ArticlesController extends Controller
     }
     /** ------------------------------------------Store-------------------------------------------------------------------------
  */
-    public function store(ArticleCreateRequest $request)
+    public function store(Request $request)
     {
 
         try {
@@ -67,7 +68,7 @@ class ArticlesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('artigo/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -105,7 +106,7 @@ class ArticlesController extends Controller
     }
     /** ------------------------------------------Update-------------------------------------------------------------------------
      */
-    public function update(ArticleUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {
@@ -124,7 +125,7 @@ class ArticlesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('artigo/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -140,19 +141,15 @@ class ArticlesController extends Controller
     }
     /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $deleted = $this->repository->delete($id);
+        $dataForm = $request->all();
+        $article = Article::find($id);
+        $update = $article->update($dataForm);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'Article deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect('artigo/index');
         }
-
-        return redirect()->back()->with('message', 'Article deleted.');
     }
     /** ------------------------------------------Formulario de cadastro-------------------------------------------------------------------------
      */

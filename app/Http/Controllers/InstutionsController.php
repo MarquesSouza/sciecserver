@@ -124,10 +124,10 @@ class InstutionsController extends Controller
 
             if ($request->wantsJson()) {
 
-                return response('instituicao/index');
+                return redirect('instituicao/index');
             }
 
-            return redirect()->route('index');
+            return redirect('instituicao/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -151,7 +151,7 @@ class InstutionsController extends Controller
       $update = $instituicao->update($dataForm);
 
       if($update){
-          return redirect()->route('index');
+          return redirect('instituicao/index');
       }
     }
     /** ------------------------------------------Formulario de Cadastro-------------------------------------------------------------------------

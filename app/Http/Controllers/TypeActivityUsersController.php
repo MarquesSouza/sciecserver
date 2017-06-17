@@ -151,7 +151,7 @@ class TypeActivityUsersController extends Controller
         $update = $typeActivityUser->update($dataForm);
 
         if($update){
-            return redirect()->route('index_type_activity_user');
+            return redirect('usuario/tipo/atividade/index');
         }
     }
     /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------
