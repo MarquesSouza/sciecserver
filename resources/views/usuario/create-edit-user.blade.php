@@ -26,7 +26,7 @@
                                 <div class="col-md-5">
                                     <input id="nome" name="nome" type="text" placeholder="Nome"
                                            class="form-control input-md" required=""
-                                           value="{{$users->nome or old('nome')}}">
+                                           value="{{$users->name or old('name')}}">
 
                                 </div>
                             </div>

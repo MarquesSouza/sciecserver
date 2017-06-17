@@ -21,20 +21,30 @@
                         <th>Nome</th>
                         <th>Descricao</th>
                         <th>Editar</th>
-                        <th>Excluir</th>
+                        <th>Ativar / Desativar</th>
                         </thead>
                         @forelse ($courses as $c)
                             <tbody>
                             <tr>
                                 <td>{{ $c->nome }}</td>
                                 <td>{{ $c->descricao }}</td>
-                                <td>
-                                    <a href="{{url('curso/edit',$c->id)}}" class="btn btn-success">EDITAR</a>
+                                <td><a href="{{url('curso/edit',$c->id)}}"
+                                       class="btn btn-success">Editar</a>
                                 </td>
-                                <td>
-                                    <a href="{{url('curso/delete/{id}')}}" class="btn btn-danger">EXCLUIR</a>
-                                </td>
-
+                                <form class="form-horizontal" method="post"
+                                      action="{{ url('curso/delete', $c->id) }}">
+                                    {!! method_field('PUT') !!}
+                                    {{csrf_field()}}
+                                    <td>
+                                        @if($c->status == 1)
+                                            <input type="hidden" name="status" value="0">
+                                            <button type="submit" id="" name="" class="btn btn-danger ">Desativar </button>
+                                        @else
+                                            <input type="hidden" name="status" value="1">
+                                            <button type="submit" id="" name="" class="btn btn-primary">Ativar </button>
+                                        @endif
+                                    </td>
+                                </form>
                             </tr>
                             </tbody>
                         @empty

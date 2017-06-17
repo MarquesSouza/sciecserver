@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Entities\Course;
 use App\Entities\Instution;
 use Illuminate\Http\Request;
 
@@ -145,19 +146,16 @@ class CoursesController extends Controller
     }
     /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $deleted = $this->repository->delete($id);
 
-        if (request()->wantsJson()) {
+        $dataForm = $request->all();
+        $courses = Course::find($id);
+        $update = $courses->update($dataForm);
 
-            return response()->json([
-                'message' => 'Course deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect('curso/index');
         }
-
-        return redirect()->back()->with('message', 'Course deleted.');
     }
     /** ------------------------------------------Formulario de cadastro-------------------------------------------------------------------------
      */

@@ -22,7 +22,7 @@
                         <th>Descricão</th>
                         <th>Status</th>
                         <th>Editar</th>
-                        <th>Excluir</th>
+                        <th>Ativar / Desativar</th>
                         </thead>
                         @forelse ($typeActivityUsers as $tau)
                             <tbody>
@@ -39,8 +39,13 @@
                                     {!! method_field('PUT') !!}
                                     {{csrf_field()}}
                                     <td>
-                                        <input type="hidden" name="status" value="0">
-                                        <button type="submit" id="" name="" class="btn btn-danger">Excluir</button>
+                                        @if($tau->status == 1)
+                                            <input type="hidden" name="status" value="0">
+                                            <button type="submit" id="" name="" class="btn btn-danger ">Desativar </button>
+                                        @else
+                                            <input type="hidden" name="status" value="1">
+                                            <button type="submit" id="" name="" class="btn btn-primary">Ativar </button>
+                                        @endif
                                     </td>
                                 </form>
                             </tr>

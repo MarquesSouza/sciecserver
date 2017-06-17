@@ -12,7 +12,7 @@ Route::get('usuario/cad', 'UsersController@form_cad')->middleware('admin');// Se
 Route::get('usuario/index', 'UsersController@index')->middleware('auth');
 Route::post('usuario/store', 'UsersController@store')->middleware('auth');//arrumar
 Route::get('usuario/show/{id}', 'UsersController@show')->middleware('auth');//faltando tela
-Route::delete('usuario/delete/{id}', 'UsersController@destroy')->middleware('auth');//mudar para exclusao logica
+Route::put('usuario/delete/{id}', 'UsersController@destroy')->middleware('auth');//mudar para exclusao logica
 Route::get('usuario/edit/{id}', 'UsersController@edit')->middleware('auth');// arrumar
 Route::put('usuario/update/{id}', 'UsersController@update')->middleware('auth');// arrumar
 Route::get('certificado/index', 'UsersController@certificado')->middleware('auth');
@@ -20,7 +20,7 @@ Route::get('certificado/index', 'UsersController@certificado')->middleware('auth
  */
 
 Route::get('usuario/tipo/cad', 'TypeUsersController@form_cad')->middleware('auth');// arrumar
-Route::get('usuario/tipo/index', 'TypeUsersController@index')->middleware('auth')->name('index_type_user');
+Route::get('usuario/tipo/index', 'TypeUsersController@index')->middleware('auth');
 Route::post('usuario/tipo/store', 'TypeUsersController@store')->middleware('auth');//arrumar
 Route::get('usuario/tipo/show/{id}', 'TypeUsersController@show')->middleware('auth');//ta sem tela
 Route::put('usuario/tipo/delete/{id}', 'TypeUsersController@destroy')->middleware('auth');//mudar para exclusao logica
@@ -29,7 +29,7 @@ Route::put('usuario/tipo/update/{id}', 'TypeUsersController@update')->middleware
 /** ------------------------------------------Tipo Atividade(Administrador)-------------------------------------------------------------------------
  */
 Route::get('atividade/tipo/cad', 'TypeActivitiesController@form_cad')->middleware('auth');
-Route::get('atividade/tipo/index', 'TypeActivitiesController@index')->middleware('auth')->name('index_type_activity');//tira o if pra mostra as atividade desativadas
+Route::get('atividade/tipo/index', 'TypeActivitiesController@index')->middleware('auth');//tira o if pra mostra as atividade desativadas
 Route::post('atividade/tipo/store', 'TypeActivitiesController@store')->middleware('auth');//redirecionar pra index
 Route::get('atividade/tipo/show/{id}', 'TypeActivitiesController@show')->middleware('auth');//ta sem tela
 Route::put('atividade/tipo/delete/{id}', 'TypeActivitiesController@destroy')->middleware('auth');
@@ -41,13 +41,13 @@ Route::get('usuario/tipo/atividade/cad', 'TypeActivityUsersController@form_cad')
 Route::get('usuario/tipo/atividade/index', 'TypeActivityUsersController@index')->middleware('auth');//corrigir rotas
 Route::post('usuario/tipo/atividade/store', 'TypeActivityUsersController@store')->middleware('auth');//arrumar
 Route::get('usuario/tipo/atividade/show/{id}', 'TypeActivityUsersController@show')->middleware('auth');//sem tela
-Route::delete('usuario/tipo/atividade/delete/{id}', 'TypeActivityUsersController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::put('usuario/tipo/atividade/delete/{id}', 'TypeActivityUsersController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
 Route::get('usuario/tipo/atividade/edit/{id}', 'TypeActivityUsersController@edit')->middleware('auth');//faltando
 Route::put('usuario/tipo/atividade/update/{id}', 'TypeActivityUsersController@update')->middleware('auth');//faltanto
 /** ------------------------------------------Instituiçoes(Administrador)-------------------------------------------------------------------------
  */
 Route::get('instituicao/cad', 'InstutionsController@form_cad')->middleware('auth');
-Route::get('instituicao/index', 'InstutionsController@index')->middleware('auth')->name('index');//mostra os desativo.
+Route::get('instituicao/index', 'InstutionsController@index')->middleware('auth');//mostra os desativo.
 Route::post('instituicao/store', 'InstutionsController@store')->middleware('auth');// redirecionar pra index
 Route::get('instituicao/show/{id}', 'InstutionsController@show')->middleware('auth');//sem tela
 Route::put('instituicao/delete/{id}', 'InstutionsController@destroy')->middleware('auth');
@@ -59,13 +59,13 @@ Route::get('curso/cad','CoursesController@form_cad')->middleware('auth');
 Route::get('curso/index','CoursesController@index')->middleware('auth');// mudar pra exibir todos
 Route::post('curso/store', 'CoursesController@store')->middleware('auth');// redirecionar pra index
 Route::get('curso/show/{id}', 'CoursesController@show')->middleware('auth');//
-Route::delete('curso/delete/{id}', 'CoursesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::put('curso/delete/{id}', 'CoursesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
 Route::get('curso/edit/{id}', 'CoursesController@edit')->middleware('auth');
 Route::put('curso/update/{id}', 'CoursesController@update')->middleware('auth');//redirecionar pra index
 /** ------------------------------------------Participacao(Administrador)-------------------------------------------------------------------------
  */
 Route::get('participacao/cad', 'ParticipationsController@form_cad')->middleware('auth');
-Route::get('participacao/index', 'ParticipationsController@index')->middleware('auth')->name('index_participacao');//mostra os que estao desativado
+Route::get('participacao/index', 'ParticipationsController@index')->middleware('auth');//mostra os que estao desativado
 Route::post('participacao/store', 'ParticipationsController@store')->middleware('auth');//redirecionar pra index
 Route::get('participacao/show/{id}', 'ParticipationsController@show')->middleware('auth');//sem tela
 Route::put('participacao/delete/{id}', 'ParticipationsController@destroy')->middleware('auth');
@@ -77,7 +77,7 @@ Route::get('artigo/cad', 'ArticlesController@form_cad')->middleware('auth');//ar
 Route::get('artigo/index', 'ArticlesController@index')->middleware('auth');//mostrar os que estao desativo
 Route::post('artigo/store', 'ArticlesController@store')->middleware('auth');//arrumar
 Route::get('artigo/show/{id}', 'ArticlesController@show')->middleware('auth');//sem tela
-Route::delete('artigo/delete/{id}', 'ArticlesController@destroy')->middleware('auth');//mudar para exclusao logica
+Route::put('artigo/delete/{id}', 'ArticlesController@destroy')->middleware('auth');//mudar para exclusao logica
 Route::get('artigo/edit/{id}', 'ArticlesController@edit')->middleware('auth');//arrumar
 Route::put('artigo/update/{id}', 'ArticlesController@update')->middleware('auth');//arrumar
 /** ------------------------------------------Eventos(Administrador)-------------------------------------------------------------------------
@@ -88,7 +88,7 @@ Route::post('evento/store', 'EventsController@store')->middleware('auth');//faze
 Route::get('evento/show/{id}', 'EventsController@show')->middleware('auth');//feito
 Route::post('evento/inscricao_evento/{id}', 'EventsController@insc_evento')->middleware('auth');//feito
 Route::post('evento/detalhar_evento/{id}', 'EventsController@insc_evento')->middleware('auth');//feito ///
-Route::delete('evento/delete/{id}', 'EventsController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::put('evento/delete/{id}', 'EventsController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
 Route::get('evento/edit/{id}', 'EventsController@edit')->middleware('auth');
 Route::put('evento/update/{id}', 'EventsController@update')->middleware('auth');
 Route::get('evento/eventos', 'EventsController@evento_user')->middleware('auth');// feito
@@ -100,7 +100,7 @@ Route::get('evento/{id_evento}/atividade/insc_atividade', 'ActivitiesController@
 Route::get('evento/{id_evento}/atividade/index', 'ActivitiesController@index')->middleware('auth');// feito
 Route::post('evento/{id_evento}/atividade/store', 'ActivitiesController@store')->middleware('auth');//fazendo
 Route::get('evento/{id_evento}/atividade/show/{id}', 'ActivitiesController@show')->middleware('auth');//feito
-Route::delete('evento/{id_evento}/atividade/delete/{id}', 'ActivitiesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
+Route::put('evento/{id_evento}/atividade/delete/{id}', 'ActivitiesController@destroy')->middleware('auth');//feito obs: mudar para exclusao logica
 Route::get('evento/{id_evento}/atividade/edit/{id}', 'ActivitiesController@edit')->middleware('auth');
 Route::put('evento/{id_evento}/atividade/update/{id}', 'ActivitiesController@update')->middleware('auth');
 Route::post('evento/{id_evento}/atividade/insc_atividade/{id}', 'ActivitiesController@insc_atividade')->middleware('auth');//feito

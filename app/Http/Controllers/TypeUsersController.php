@@ -108,7 +108,7 @@ class TypeUsersController extends Controller
     }
     /** ------------------------------------------Update-------------------------------------------------------------------------
      */
-    public function update(TypeUserUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {

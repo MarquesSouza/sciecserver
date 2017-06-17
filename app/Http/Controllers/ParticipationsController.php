@@ -149,7 +149,7 @@ class ParticipationsController extends Controller
         $update = $participations->update($dataForm);
 
         if($update){
-            return redirect()->route('index_participacao');
+            return redirect('participacao/index');
         }
     }
     /** ------------------------------------------Formulario de Cadastro-------------------------------------------------------------------------
