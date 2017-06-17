@@ -78,6 +78,7 @@
 
                     </div>
                 </div>
+                <input type="hidden" name="status" value="1">
                 <div class="form-group">
                     <label class="col-md-12" for="cpf" style="color: #EEEEEE">CPF</label>
                     <div class="col-md-12">

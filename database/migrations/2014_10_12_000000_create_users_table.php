@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('cpf')->unique();
             $table->string( 'telefone');
             $table->string('password');
+            $table->boolean('status');
             $table->rememberToken();
             $table->timestamps();
         });

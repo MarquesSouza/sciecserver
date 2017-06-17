@@ -18,6 +18,7 @@ class PopulacaoTeste extends Seeder
             'cpf'  => '99999999999',
             'email' => 'ifto2017@gmail.com',
             'telefone' => '63992194736',
+            'status' => 1,
         ]);
         factory(App\Entities\User::class)->create([
             'name' => 'Jonas',
@@ -25,6 +26,7 @@ class PopulacaoTeste extends Seeder
             'cpf'  => '22999999999',
             'email' => 'jonasjunior@ifto.edu.br',
             'telefone' => '63992194736',
+            'status' => 1,
         ]);
         factory(App\Entities\User::class)->create([
             'name' => 'Álvaro',
@@ -32,6 +34,7 @@ class PopulacaoTeste extends Seeder
             'cpf'  => '99999999988',
             'email' => 'alvaro@gmail.com',
             'telefone' => '63992194736',
+            'status' => 1,
         ]);
         factory(App\Entities\User::class)->create([
             'name' => 'Marcos',
@@ -39,6 +42,7 @@ class PopulacaoTeste extends Seeder
             'cpf'  => '22999990000',
             'email' => 'marcos@ifto.edu.br',
             'telefone' => '63992194736',
+            'status' => 1,
         ]);
 
 
