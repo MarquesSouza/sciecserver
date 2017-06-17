@@ -25,12 +25,15 @@ class AdimAuthentic
         foreach ($tipo as $t){
             $tipouser=$t->id;
         }
+        if(isset($tipouser)) {
+            if (($tipouser == 2) || ($tipouser == 3)) {
 
-                if(($tipouser==2)||($tipouser==3)){
-
-                }else{
-                    return $next($request);
-                }
+            }else {
+                return $next($request);
+            };
+        }else{
+                return redirect('home');
+            }
         }
         return $next($request);
 
