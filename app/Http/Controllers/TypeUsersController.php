@@ -68,7 +68,7 @@ class TypeUsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('usuario/tipo/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -127,7 +127,7 @@ class TypeUsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->route('index_type_user');
+            return redirect('usuario/tipo/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {

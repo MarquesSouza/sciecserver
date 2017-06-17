@@ -71,7 +71,7 @@ class CoursesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('curso/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -129,7 +129,7 @@ class CoursesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('curso/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {

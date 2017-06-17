@@ -68,7 +68,7 @@ class TypeActivityUsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('usuario/tipo/atividade/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -128,7 +128,7 @@ class TypeActivityUsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->route('index_type_activity_user');
+            return redirect('usuario/tipo/atividade/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {

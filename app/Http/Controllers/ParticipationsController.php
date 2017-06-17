@@ -68,7 +68,7 @@ class ParticipationsController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('participacao/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -126,7 +126,7 @@ class ParticipationsController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->route('index_participacao');
+            return redirect('participacao/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {

@@ -68,7 +68,7 @@ class TypeActivitiesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('atividade/tipo/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -127,7 +127,7 @@ class TypeActivitiesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->route("index_type_activity");
+            return redirect('atividade/tipo/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
