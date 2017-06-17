@@ -180,8 +180,6 @@ class EventsController extends Controller
      */
     public function form_cad()
     {
-//        $cursos= Course::all();
-//        return view('evento.cad_evento',compact('cursos'));
         $titulo = "Cadastrar Evento";
         return view('evento.create-edit', compact('titulo'));
     }

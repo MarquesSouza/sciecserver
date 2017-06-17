@@ -69,23 +69,25 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Data de Conclusão</label>
                                 <div class="col-md-4">
-                                    <input id="data_conclusao" name="data_conclusao" type="datetime-local" placeholder=""
+                                    <input id="data_conclusao" name="data_conclusao" type="datetime-local"
+                                           placeholder=""
                                            class="form-control input-md"
                                            required="" value="{{$event->data_conclusao or old('data_conclusao')}}">
 
                                 </div>
                             </div>
 
-                            <input type="hidden" name="status" value="1">
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Logo do Evento</label>
                                 <div class="col-md-5">
-                                    <input id="logo_evento" name="logo_evento" placeholder=""
-                                           class="form-control input-md" required=""
-                                           type="text" value="{{$event->logoEvento or old('logoEvento')}}">
+                                    <input id="logoEvento" name="logoEvento"
+                                           placeholder="" class="form-control input-md" required=""
+                                           type="file" value="{{$event->logoEvento or old('logoEvento')}}">
 
                                 </div>
                             </div>
+
+                            <input type="hidden" name="status" value="1">
 
                             <!-- Button -->
                             <div class="form-group">
