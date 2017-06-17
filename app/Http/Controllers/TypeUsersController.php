@@ -150,7 +150,7 @@ class TypeUsersController extends Controller
         $update = $typeUser->update($dataForm);
 
         if($update){
-            return redirect()->route('index_type_user');
+            return redirect('usuario/tipo/index');
         }
     }
     /** ------------------------------------------Formulario Casdastro-------------------------------------------------------------------------
