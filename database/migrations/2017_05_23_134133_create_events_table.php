@@ -17,7 +17,7 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->longText('descricao');
-            $table->boolean('status');
+            $table->integer('status');
             $table->longText('local');
             $table->dateTime('data_inicio');
             $table->dateTime('data_conclusao');
