@@ -19,7 +19,8 @@ class User extends Authenticatable
                             'email',
                             'password',
                             'cpf',
-                            'telefone'
+                            'telefone',
+                            'status',
     ];
 
     /**

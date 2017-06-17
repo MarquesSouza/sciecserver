@@ -1,8 +1,5 @@
-<!-- Form Name -->
 @extends('app')
-
 @section('content')
-
     @if( isset($typeActivityUser))
         <form class="form-horizontal" method="post"
               action="{{ url('usuario/tipo/atividade/update', $typeActivityUser->id) }}">
@@ -33,7 +30,6 @@
                                     <input id="nome" name="nome" type="text" placeholder=""
                                            class="form-control input-md" required=""
                                            value="{{$typeActivityUser->nome or old('nome')}}">
-
                                 </div>
                             </div>
                             <div class="form-group">
@@ -42,7 +38,6 @@
                                     <input id="descricao" name="descricao" type="text" placeholder=""
                                            class="form-control input-md" required=""
                                            value="{{$typeActivityUser->descricao or old('descricao')}}">
-
                                 </div>
                             </div>
                             <input type="hidden" name="status" value="1">
@@ -57,7 +52,4 @@
                         </div>
                     </fieldset>
                 </form>
-
-                <!-- /.container -->
-
 @endsection

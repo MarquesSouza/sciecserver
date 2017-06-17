@@ -12,21 +12,26 @@
                         <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
                     </ul>
                 </div>
-                <table class="table table-bordered table-inverse">
-                    <th>Evento</th>
-                    <th>Atividades</th>
-                    <th>Quantidade de Horas</th>
-                    <th>Ação</th>
-
-                    <tr>
-                        <td>{{ 'TESTE' }}</td>
-                        <td>{{ 'TESTE'}}</td>
-                        <td>{{ 'TESTE'}}</td>
-                        <td>
-                            <a href="#" class="btn btn-success">IMPRIMIR</a>
-                        </td>
-                    </tr>
-                </table>
+                <div class="panel-body">
+                    <table class="table datatable">
+                        <thead>
+                        <th>Evento</th>
+                        <th>Atividades</th>
+                        <th>Quantidade de Horas</th>
+                        <th>Ação</th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{ 'TESTE' }}</td>
+                            <td>{{ 'TESTE'}}</td>
+                            <td>{{ 'TESTE'}}</td>
+                            <td>
+                                <a href="#" class="btn btn-success">IMPRIMIR</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

@@ -22,6 +22,7 @@ $factory->define(App\Entities\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'telefone' => $faker->phoneNumber,
         'remember_token' => str_random(10),
+        'status' => $faker->boolean,
 
     ];
 });
