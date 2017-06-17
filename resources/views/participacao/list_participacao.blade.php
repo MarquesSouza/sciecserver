@@ -50,9 +50,7 @@
                         @empty
                             <p>No type_activities</p>
                         @endforelse
-
                     </table>
-
                 </div>
             </div>
         </div>

@@ -1,46 +1,56 @@
 @extends('app')
-
 @section('content')
-    <div>
-        <br><br><br><br>
-    </div>
-    <div class="container">
-        <div class="row">
-            <br><br>
-            <a href="{{ url('usuario/tipo/atividade/cad') }}" class="btn-primary btn btn-default">Novo Tipo Atividade Usuario</a>
-            <br><br>
-                <table class="table table-bordered table-inverse">
-                    <th>Nome </th>
-                    <th>Descricão </th>
-                    <th>Status</th>
-                    <th>Editar </th>
-                    <th>Excluir </th>
-                     <tr>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- START DEFAULT DATATABLE -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Tipo_de_Atividade_de_Usuario</h3>
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                    </ul>
+                </div>
+                <a href="{{ url('usuario/tipo/atividade/cad') }}" class="btn btn-primary">Novo Tipo
+                    Atividade Usuario</a>
+                <br><br>
+                <div class="panel-body">
+                    <table class="table datatable">
+                        <thead>
+                        <th>Nome</th>
+                        <th>Descricão</th>
+                        <th>Status</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                        </thead>
                         @forelse ($typeActivityUsers as $tau)
-                            <td>{{ $tau->nome }}</td>
-                            <td>{{ $tau->descricao }}</td>
-                             <th>{{$tau->status}}</th>
-                             <td>
-                                 <a href="{{url('usuario/tipo/atividade/edit',$tau->id)}}" class="btn-success btn btn-default btn-sm">Editar</a>
-                             </td>
-
-                             <form class="form-horizontal" method="post"
-                                   action="{{ url('usuario/tipo/atividade/delete', $tau->id) }}">
-                                 {!! method_field('PUT') !!}
-                                 {{csrf_field()}}
-                                 <td>
-                                     <input type="hidden" name="status" value="0">
-                                     <button type="submit" id="" name="" class="btn btn-danger">Excluir</button>
-                                 </td>
-                             </form>
-
-                    </tr>
-                    @empty
-                        <p>No type_activities</p>
-                    @endforelse
-
+                            <tbody>
+                            <tr>
+                                <td>{{ $tau->nome }}</td>
+                                <td>{{ $tau->descricao }}</td>
+                                <th>{{$tau->status}}</th>
+                                <td>
+                                    <a href="{{url('usuario/tipo/atividade/edit',$tau->id)}}"
+                                       class="btn btn-success">Editar</a>
+                                </td>
+                                <form class="form-horizontal" method="post"
+                                      action="{{ url('usuario/tipo/atividade/delete', $tau->id) }}">
+                                    {!! method_field('PUT') !!}
+                                    {{csrf_field()}}
+                                    <td>
+                                        <input type="hidden" name="status" value="0">
+                                        <button type="submit" id="" name="" class="btn btn-danger">Excluir</button>
+                                    </td>
+                                </form>
+                            </tr>
+                            </tbody>
+                        @empty
+                            <p>No type_activities</p>
+                        @endforelse
                     </table>
-
+                </div>
+            </div>
         </div>
     </div>
 @endsection
