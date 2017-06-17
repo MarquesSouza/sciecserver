@@ -8,7 +8,7 @@ Route::get('/home', 'HomeController@welcome');
 Route::get('/', 'HomeController@welcome');
 /** ------------------------------------------Usuario (Administrador)-------------------------------------------------------------------------
  */
-Route::get('usuario/cad', 'UsersController@form_cad')->middleware('auth');// Selecionar tipo de Usuario.
+Route::get('usuario/cad', 'UsersController@form_cad')->middleware('admin');// Selecionar tipo de Usuario.
 Route::get('usuario/index', 'UsersController@index')->middleware('auth');
 Route::post('usuario/store', 'UsersController@store')->middleware('auth');//arrumar
 Route::get('usuario/show/{id}', 'UsersController@show')->middleware('auth');//faltando tela
