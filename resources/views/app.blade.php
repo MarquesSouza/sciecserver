@@ -155,6 +155,12 @@
                 <a href="{{url('#')}}"><span class="fa fa-history"></span> <span class="xn-text">Minhas Atividades</span></a>
             </li>
             <!-- FINAL MENU MINHAS ATIVIDADES -->
+            <!-- INICIO MENU GERENCIAR FREQUENCIA-->
+            <li class="glyphicon-menu-down">
+                <a href="{{url('frequencia/index')}}"><span class="fa fa-key"></span> <span class="xn-text">Gerenciar Frequência</span></a>
+            </li>
+            <!-- FINAL MENU GERENCIAR FREQUENCIA-->
+
         </ul>
         <!-- END BARRA DE NAVEGAÇÃO LATERAL -->
     </div>

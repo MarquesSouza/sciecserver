@@ -4,6 +4,8 @@
 Auth::routes();
 /** ------------------------------------------Home-------------------------------------------------------------------------
  */
+
+
 Route::get('/home', 'HomeController@welcome');
 Route::get('/', 'HomeController@welcome');
 /** ------------------------------------------Usuario (Administrador)-------------------------------------------------------------------------
@@ -16,6 +18,7 @@ Route::put('usuario/delete/{id}', 'UsersController@destroy')->middleware('auth')
 Route::get('usuario/edit/{id}', 'UsersController@edit')->middleware('auth');// arrumar
 Route::put('usuario/update/{id}', 'UsersController@update')->middleware('auth');// arrumar
 Route::get('certificado/index', 'UsersController@certificado')->middleware('auth');
+Route::get('frequencia/index', 'UsersController@frequencia')->middleware('auth');
 /** ------------------------------------------Tipo Usuario(Administrador)-------------------------------------------------------------------------
  */
 

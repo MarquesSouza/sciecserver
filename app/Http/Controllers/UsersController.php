@@ -167,4 +167,9 @@ class UsersController extends Controller
     {
         return view('certificado.exibir_certificado', compact('certificado'));
     }
+
+    public function frequencia()
+    {
+        return view('frequencia.controle_frequencia', compact('frequencia'));
+    }
 }
