@@ -103,7 +103,6 @@ class TypeActivitiesController extends Controller
 
         $typeActivity = $this->repository->find($id);
 
-//        return view('typeActivities.edit', compact('typeActivity'));
         return view('tipo_de_atividade.create-edit', compact('titulo','typeActivity'));
     }
     /** ------------------------------------------Update-------------------------------------------------------------------------
@@ -150,14 +149,13 @@ class TypeActivitiesController extends Controller
         $update = $typeActivity->update($dataForm);
 
         if($update){
-            return redirect()->route('index_type_activity');
+            return redirect('atividade/tipo/index');
         }
     }
     /** ------------------------------------------Formulario de Cadastro-------------------------------------------------------------------------
      */
     public function form_cad()
     {
-//        return view('tipo_de_atividade.cad_tipo_de_atividade');
         $titulo = "Cadastrar Tipo de Atividade";
         return view('tipo_de_atividade.create-edit', compact('titulo'));
     }

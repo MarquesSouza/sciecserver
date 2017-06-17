@@ -25,7 +25,7 @@
                             <th>Data de Conclusão</th>
                             <th>Logo do Evento</th>
                             <th>Editar</th>
-                            <th>Excluir</th>
+                            <th>Ativar / Desativar</th>
                             </thead>
                             @forelse ($events as $ev)
                                 <tbody>
@@ -37,15 +37,25 @@
                                     <td>{{ $ev->data_conclusao }}</td>
                                     <td>{{ $ev->logoEvento }}</td>
                                     <td>
-                                        <a href="{{url('usuario/config/edit/{id}')}}"
-                                           class="btn btn-success">EDITAR</a>
+                                        <a href="{{url('evento/edit',$ev->id)}}" class="btn btn-success">Editar</a>
                                     </td>
-                                    <td>
-                                        <a href="{{url('usuario/config/edit/{id}')}}"
-                                           class="btn btn-danger">EXCLUIR</a>
-                                    </td>
+                                    <form class="form-horizontal" method="post"
+                                          action="{{ url('evento/delete',$ev->id) }}">
+                                        {!! method_field('PUT') !!}
+                                        {{csrf_field()}}
+                                        <td>
+                                            @if($ev->status == 1)
+                                                <input type="hidden" name="status" value="0">
+                                                <button type="submit" id="" name="" class="btn btn-danger ">Desativar </button>
+                                            @else
+                                                <input type="hidden" name="status" value="1">
+                                                <button type="submit" id="" name="" class="btn btn-primary">Ativar </button>
+
+                                        </td>
+                                    </form>
                                 </tr>
                                 </tbody>
+                                @endif
                             @empty
                                 <p>No events</p>
                             @endforelse
