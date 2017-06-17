@@ -75,7 +75,7 @@ class ActivityUser extends Model implements Transformable
         foreach ($activities as $ativi){
             if($ativi->status==1){
             foreach ($activitiesEspelho as $ativiEspelho){
-                if(!(($ativi->data_inicio<$ativiEspelho->data_inicio)&&($ativi->data_conclusao<$ativiEspelho->data_inicio))||(($ativi->data_inicio>$ativiEspelho->data_conclusao)&&($ativi->data_conclusao>$ativiEspelho->data_conclusao))){
+                if(!((strtotime($ativi->data_inicio)<strtotime($ativiEspelho->data_inicio))&&(strtotime($ativi->data_conclusao)<strtotime($ativiEspelho->data_inicio)))||((strtotime($ativi->data_inicio)>strtotime($ativiEspelho->data_conclusao))&&($ativi->data_conclusao>$ativiEspelho->data_conclusao))){
                     $data[]=$ativiEspelho->id;
                 }
             }
