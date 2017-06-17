@@ -39,8 +39,9 @@
                                     <td>
                                         <a href="{{url('evento/edit',$ev->id)}}" class="btn btn-success">Editar</a>
                                     </td>
+
                                     <form class="form-horizontal" method="post"
-                                          action="{{ url('evento/delete',$ev->id) }}">
+                                          action="{{ url('evento/delete', $ev->id) }}">
                                         {!! method_field('PUT') !!}
                                         {{csrf_field()}}
                                         <td>
@@ -50,12 +51,12 @@
                                             @else
                                                 <input type="hidden" name="status" value="1">
                                                 <button type="submit" id="" name="" class="btn btn-primary">Ativar </button>
-
+                                            @endif
                                         </td>
                                     </form>
                                 </tr>
                                 </tbody>
-                                @endif
+
                             @empty
                                 <p>No events</p>
                             @endforelse
