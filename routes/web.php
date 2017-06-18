@@ -88,7 +88,6 @@ Route::put('artigo/update/{id}', 'ArticlesController@update')->middleware('admin
 Route::get('evento/cad', 'EventsController@form_cad')->middleware('admin');// feito
 Route::get('evento/index', 'EventsController@index')->middleware('admin');// feito
 Route::post('evento/store', 'EventsController@store')->middleware('admin');//fazendo
-Route::get('evento/show/{id}', 'EventsController@show')->middleware('admin');//feito
 Route::post('evento/inscricao_evento/{id}', 'EventsController@insc_evento')->middleware('auth');//feito
 Route::post('evento/detalhar_evento/{id}', 'EventsController@insc_evento')->middleware('auth');//feito ///
 Route::put('evento/delete/{id}', 'EventsController@destroy')->middleware('admin');//feito obs: mudar para exclusao logica
@@ -99,25 +98,27 @@ Route::get('evento/eventos', 'EventsController@evento_user')->middleware('auth')
  */
 Route::get('evento/{id_evento}/atividade/atividades', 'ActivitiesController@atividade_user')->middleware('admin');// feito
 Route::get('evento/{id_evento}/atividade/cad', 'ActivitiesController@form_cad')->middleware('admin');// feito
-Route::get('evento/{id_evento}/atividade/insc_atividade', 'ActivitiesController@form_insc_atividade')->middleware('admin');// feito
+
 Route::get('evento/{id_evento}/atividade/index', 'ActivitiesController@index')->middleware('admin');// feito
 Route::post('evento/{id_evento}/atividade/store', 'ActivitiesController@store')->middleware('admin');//fazendo
 Route::get('evento/{id_evento}/atividade/show/{id}', 'ActivitiesController@show')->middleware('admin');//feito
 Route::put('evento/{id_evento}/atividade/delete/{id}', 'ActivitiesController@destroy')->middleware('admin');//feito obs: mudar para exclusao logica
 Route::get('evento/{id_evento}/atividade/edit/{id}', 'ActivitiesController@edit')->middleware('admin');
 Route::put('evento/{id_evento}/atividade/update/{id}', 'ActivitiesController@update')->middleware('admin');
-Route::post('evento/{id_evento}/atividade/insc_atividade/{id}', 'ActivitiesController@insc_atividade')->middleware('admin');//feito
+//feito
 
 /** ------------------------------------------Eventos(Usuario)-------------------------------------------------------------------------
  */
 Route::post('evento/inscricao_evento/{id}', 'EventsController@insc_evento')->middleware('auth');//feito
 Route::post('evento/detalhar_evento/{id}', 'EventsController@insc_evento')->middleware('auth');//feito ///
 Route::get('evento/eventos', 'EventsController@evento_user')->middleware('auth');// feito
+Route::get('evento/show/{id}', 'EventsController@show')->middleware('auth');//feitos
 /** ------------------------------------------Atividade(Usuario)-------------------------------------------------------------------------
  */
 Route::get('evento/{id_evento}/atividade/atividades', 'ActivitiesController@atividade_user')->middleware('auth');// feito
 Route::get('evento/{id_evento}/atividade/insc_atividade', 'ActivitiesController@form_insc_atividade')->middleware('auth');// feito
 Route::post('evento/{id_evento}/atividade/insc_atividade/{id}', 'ActivitiesController@insc_atividade')->middleware('auth');//feito
+Route::get('evento/{id_evento}/atividade/lista', 'ActivitiesController@index')->middleware('auth');// feito
 
 
 /** ------------------------------------------Token Jonas(Administrador)-------------------------------------------------------------------------

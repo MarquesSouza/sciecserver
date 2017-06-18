@@ -67,7 +67,7 @@ class ActivitiesController extends Controller
             }
         }
 
-        return view('atividade.insc_atividade', compact('activities','atividadeUser','id_user','id_evento'));
+        return view('atividade.list_atividade', compact('activities','atividadeUser','id_user','id_evento'));
     }
 
     /** ------------------------------------------Store-------------------------------------------------------------------------
@@ -193,10 +193,33 @@ class ActivitiesController extends Controller
      */
     public function form_insc_atividade($id)
     {
-        $evento=Event::find($id);
-        $atividades = $evento->atividade;
+        $atividade = Activity::all();
 
-        return view('atividade.insc_atividade',compact('atividades'));
+        $activities = $atividade->where('id_evento', '=', $id);
+        $atividadeUser = new ActivityUser();
+        $id_user=Auth::user()->id;
+        $id_evento=$id;
+        $teste=$atividadeUser->colisaoAtividade($id_evento);
+        $lista=[1,2,3];
+        for ($i=0;$i<count($lista);$i++){
+            for($j=0;$j<count($lista);$j++){
+                if($lista[$i]!=$lista[$j]){
+                    $a=$lista[$i];
+                    $b=$lista[$j];
+                    foreach ($teste as $te=>$va){
+                        if($te==$a) {
+                            foreach ($va as $temp => $item) {
+                                if($item==$b){
+                                    echo "colizao:".$a." e :".$b ."</br>";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
     }
 
 
