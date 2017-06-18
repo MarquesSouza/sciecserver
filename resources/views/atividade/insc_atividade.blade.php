@@ -21,7 +21,7 @@
 
                                 <li class="list-group-item list-group-item-success"><p>Deseja se inscrever nesta
                                         Atividade?</p>
-
+                                    <input type="checkbox" name="id_atividade[]" id="checkboxes-0" value="{{$a->id}}">
                                     @else
                                 </li>
                                 <li class="list-group-item list-group-item-success"><p>Deseja se inscrever nesta
@@ -30,14 +30,16 @@
                                 </li>
                             @endif
                         </ul>
-            </form>
+
             @endif
             @endforeach
+
             <p class="text-center">
                 <button class="btn btn-success" type="submit">Confirmar Inscrição</button>
 
                 <a href="{{ url('/insc_evento') }}" class="btn btn-danger" role="button">Voltar</a></p>
             <!-- endforeach // Passar Parametros Acima -->
+            </form>
         </div>
     </div>
 @endsection
