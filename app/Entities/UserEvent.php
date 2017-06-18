@@ -35,5 +35,16 @@ class UserEvent extends Model implements Transformable
         }
         return true;
     }
+    public function validaEvento($id_evento,$id_user){
+        $data[]=['id_users','=',$id_user];
+        $data[]=['id_evento','=',$id_evento];
+
+        $retorno  = DB::table('user_events')->where($data)->get();
+
+        if($retorno->count()>0){
+            return false;
+        }
+        return true;
+    }
 
 }

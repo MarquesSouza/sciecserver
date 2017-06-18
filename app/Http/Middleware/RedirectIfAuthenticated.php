@@ -25,10 +25,12 @@ class RedirectIfAuthenticated
                 $status=$u->status;
             }
             if($status==1){
+
             return redirect('/home');
+
             }else{
                 return $next($request);
-            }
+            };
             }
 
         return $next($request);

@@ -102,7 +102,11 @@ class EventsController extends Controller
     public function show($id)
     {
         $events = $this->repository->find($id);
-
+        $userEvent=new UserEvent();
+        $verifica=$userEvent->validaEvento($id, Auth::user()->id);
+        if($verifica==false){
+            return redirect('evento/'.$id.'/atividade/insc_atividade');
+        }
         if (request()->wantsJson()) {
 
             return response()->json([
@@ -215,12 +219,9 @@ class EventsController extends Controller
         $userEvent->setAttribute('status',1);
         if($userEvent->valida()){
             $userEvent->save();
-            return redirect('evento/'.$id.'/atividade/index');
+            return redirect('evento/'.$id.'/atividade/insc_atividade');
         }else{
-
             return redirect('evento/show/'.$id);
-
-            //pagina para mensagem que ja ta cadastrador
         }
 
     }
