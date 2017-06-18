@@ -46,7 +46,7 @@
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Local</label>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <input id="local" name="local" type="text" placeholder=""
                                            class="form-control input-md"
                                            required="" value="{{$event->local or old('local')}}">
@@ -57,7 +57,7 @@
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Data de Início</label>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <input id="data_inicio" name="data_inicio" type="datetime-local" placeholder=""
                                            class="form-control input-md" required=""
                                            value="{{$event->data_inicio or old('data_inicio')}}">
@@ -68,7 +68,7 @@
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Data de Conclusão</label>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <input id="data_conclusao" name="data_conclusao" type="datetime-local"
                                            placeholder=""
                                            class="form-control input-md"
@@ -92,7 +92,7 @@
                             <!-- Button -->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for=""></label>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <button id="" name="" class="btn btn-primary">Salvar</button>
                                 </div>
                             </div>

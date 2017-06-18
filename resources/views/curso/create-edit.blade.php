@@ -40,7 +40,7 @@
             </div>
             <div class="form-group">
                 <label class="col-md-4 control-label" for="instituicao">Instituição:</label>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <select id="instituicao" name="id_instutions" class="form-control">
                         @forelse ($instution as $i)
 
