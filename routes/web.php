@@ -6,6 +6,7 @@ Auth::routes();
  */
 Route::get('/home', 'HomeController@welcome');
 Route::get('/', 'HomeController@welcome');
+
 /** ------------------------------------------Usuario (Administrador)-------------------------------------------------------------------------
  */
 Route::get('usuario/cad', 'UsersController@form_cad')->middleware('admin');// Selecionar tipo de Usuario.
@@ -16,6 +17,8 @@ Route::put('usuario/delete/{id}', 'UsersController@destroy')->middleware('admin'
 Route::get('usuario/edit/{id}', 'UsersController@edit')->middleware('admin');// arrumar
 Route::put('usuario/update/{id}', 'UsersController@update')->middleware('admin');// arrumar
 Route::get('certificado/index', 'UsersController@certificado')->middleware('admin');
+Route::get('certificado/cad', 'UsersController@cad_certificado')->middleware('admin');
+
 /** ------------------------------------------Tipo Usuario(Administrador)-------------------------------------------------------------------------
  */
 

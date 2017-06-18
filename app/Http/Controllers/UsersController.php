@@ -162,12 +162,20 @@ class UsersController extends Controller
         $titulo= "Cadastra Usuarios";
         return view('usuario.create-edit-user',compact('titulo'));
     }
+    /** ------------------------------------------Certificados-------------------------------------------------------------------------
+     */
+    public function cad_certificado()
+    {
+        $titulo="Cadastro de Certificados";
+        return view('certificado.create-edit-certificado', compact('titulo'));
+    }
 
     public function certificado()
     {
         return view('certificado.exibir_certificado', compact('certificado'));
     }
-
+    /** ------------------------------------------Controle de Frequencia-------------------------------------------------------------------------
+     */
     public function frequencia()
     {
         return view('frequencia.controle_frequencia', compact('frequencia'));
