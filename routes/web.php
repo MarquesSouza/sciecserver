@@ -16,6 +16,8 @@ Route::put('usuario/delete/{id}', 'UsersController@destroy')->middleware('admin'
 Route::get('usuario/edit/{id}', 'UsersController@edit')->middleware('admin');// arrumar
 Route::put('usuario/update/{id}', 'UsersController@update')->middleware('admin');// arrumar
 Route::get('certificado/index', 'UsersController@certificado')->middleware('admin');
+Route::get('frequencia/index', 'UsersController@frequencia')->middleware('admin');
+
 /** ------------------------------------------Tipo Usuario(Administrador)-------------------------------------------------------------------------
  */
 
