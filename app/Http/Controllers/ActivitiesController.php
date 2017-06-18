@@ -179,7 +179,7 @@ class ActivitiesController extends Controller
         $activities = $atividade->where('id_evento', '=', $id);
         $id_user=Auth::user()->id;
         $id_evento=$id;
-        if($activities==''){
+        if($activities!=''){
             $atividadeUser = new ActivityUser();
             $teste=$atividadeUser->colisaoAtividade($id_evento);
             $lista=[1,2,3];
@@ -222,8 +222,8 @@ class ActivitiesController extends Controller
     }
     /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
      */
-    public function insc_atividade($id_evento,$id){
-
+    public function insc_atividade(Request $request,$id_evento){
+        dd($request);
         $AtividadeUser= new ActivityUser();
         $AtividadeUser->id_users = Auth::user()->id;
         $AtividadeUser->id_activity=$id;
@@ -234,10 +234,10 @@ class ActivitiesController extends Controller
         $AtividadeUser->presenca=1;
         if($AtividadeUser->valida()){
             $AtividadeUser->save();
-            return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
+        //    return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
         }else{
 
-            return redirect('evento/show/'.$id);
+          //  return redirect('evento/show/'.$id);
 
             //pagina para mensagem que ja ta cadastrador
         }
