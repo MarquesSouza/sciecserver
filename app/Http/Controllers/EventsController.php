@@ -105,7 +105,7 @@ class EventsController extends Controller
         $userEvent=new UserEvent();
         $verifica=$userEvent->validaEvento($id, Auth::user()->id);
         if($verifica){
-            return redirect('evento/'.$id.'/atividade/lista');
+            return redirect('evento/'.$id.'/atividade/insc_atividade');
         }
         if (request()->wantsJson()) {
 
