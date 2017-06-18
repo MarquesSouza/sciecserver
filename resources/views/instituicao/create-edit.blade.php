@@ -83,7 +83,11 @@
                                 <label class="col-md-4 control-label" for=""></label>
                                 <div class="col-md-5">
                                     <button id="" name="" class="btn btn-primary">Salvar</button>
+                                    <a href="{{('instituicao/list_instituicao')}}">
+                                      <button id="singlebutton" name="singlebutton" class="btn btn-danger">Voltar</button>
+                                     </a>
                                 </div>
+                                    </div> </div>
                             </div>
                         </div>
                     </fieldset>

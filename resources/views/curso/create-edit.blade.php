@@ -60,6 +60,10 @@
                 <label class="col-md-4 control-label" for="salvar"></label>
                 <div class="col-md-4">
                     <button id="salvar" name="salvar" class="btn btn-primary">Salvar</button>
+                  <a href="{{('curso/list_curso')}}">
+                  <button id="singlebutton" name="singlebutton" class="btn btn-danger">Voltar</button>
+                 </a>
+                 </div>
                 </div>
             </div>
           </div>

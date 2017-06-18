@@ -23,7 +23,7 @@
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Nome</label>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <input id="nome" name="nome" type="text" placeholder="Nome"
                                            class="form-control input-md" required=""
                                            value="{{$users->name or old('name')}}">
