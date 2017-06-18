@@ -23,7 +23,7 @@
                                 <th>Subtitulo</th>
                                 <th>Situação</th>
                                 <th>Editar</th>
-                            <th>Excluir</th>
+                                <th>Ativar / Desativar</th>
                             </thead>
                             @forelse ($articles as $a)
                                 <tbody>
@@ -33,14 +33,23 @@
                                     <td>{{ $a->autores }}</td>
                                     <td>{{ $a->subtitulo }}</td>
                                     <td>{{ $a->situacao }}</td>
-                                    <td>
-                                        <a href="{{url('artigo/edit',$a->id)}}"
-                                           class="btn btn-success">EDITAR</a>
+                                    <td><a href="{{url('artigo/edit',$a->id)}}"
+                                           class="btn btn-success">Editar</a>
                                     </td>
-                                    <td>
-                                        <a href="{{url('artigo/delete',$a->id)}}"
-                                           class="btn btn-danger">EXCLUIR</a>
-                                    </td>
+                                    <form class="form-horizontal" method="post"
+                                          action="{{ url('artigo/delete', $a->id) }}">
+                                        {!! method_field('PUT') !!}
+                                        {{csrf_field()}}
+                                        <td>
+                                            @if($a->status == 1)
+                                                <input type="hidden" name="status" value="0">
+                                                <button type="submit" id="" name="" class="btn btn-danger ">Desativar </button>
+                                            @else
+                                                <input type="hidden" name="status" value="1">
+                                                <button type="submit" id="" name="" class="btn btn-primary">Ativar </button>
+                                            @endif
+                                        </td>
+                                    </form>
                                 </tr>
                                 </tbody>
                             @empty

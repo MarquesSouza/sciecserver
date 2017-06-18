@@ -83,7 +83,7 @@ class EventsController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('evento/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -122,13 +122,13 @@ class EventsController extends Controller
 
         $event = $this->repository->find($id);
 
-        return view('evento.create-edit-evento', compact("titulo",'event'));
+        return view('evento.create-edit', compact('titulo','event'));
     }
 
 
     /** ------------------------------------------Updade-------------------------------------------------------------------------
      */
-    public function update(EventUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {
@@ -147,7 +147,7 @@ class EventsController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('evento/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -165,28 +165,23 @@ class EventsController extends Controller
 
     /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $deleted = $this->repository->delete($id);
+        $dataForm = $request->all();
+        $event = Event::find($id);
+        $update = $event->update($dataForm);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'Event deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect('evento/index');
         }
-
-        return redirect()->back()->with('message', 'Event deleted.');
     }
 
     /** ------------------------------------------Form_Cadastro-------------------------------------------------------------------------
      */
     public function form_cad()
     {
-        $titulo = "Cadastro Evento";
-        $cursos= Course::all();
-        return view('evento.create-edit-evento',compact('titulo','cursos'));
+        $titulo = "Cadastrar Evento";
+        return view('evento.create-edit', compact('titulo'));
     }
 
 

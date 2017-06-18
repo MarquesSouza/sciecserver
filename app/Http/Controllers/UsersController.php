@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entities\TypeUser;
+use App\Entities\User;
 use App\Entities\UserEvent;
 use Illuminate\Http\Request;
 
@@ -70,7 +71,7 @@ class UsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('usuario/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -109,7 +110,7 @@ class UsersController extends Controller
     }
     /** ------------------------------------------Update-------------------------------------------------------------------------
      */
-    public function update(UserUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {
@@ -128,7 +129,7 @@ class UsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('usuario/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -144,19 +145,15 @@ class UsersController extends Controller
     }
     /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $deleted = $this->repository->delete($id);
+        $dataForm = $request->all();
+        $user = User::find($id);
+        $update = $user->update($dataForm);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'User deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect('usuario/index');
         }
-
-        return redirect()->back()->with('message', 'User deleted.');
     }
     /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------
      */
@@ -169,5 +166,10 @@ class UsersController extends Controller
     public function certificado()
     {
         return view('certificado.exibir_certificado', compact('certificado'));
+    }
+
+    public function frequencia()
+    {
+        return view('frequencia.controle_frequencia', compact('frequencia'));
     }
 }

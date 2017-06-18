@@ -68,7 +68,7 @@ class TypeUsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('usuario/tipo/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -108,7 +108,7 @@ class TypeUsersController extends Controller
     }
     /** ------------------------------------------Update-------------------------------------------------------------------------
      */
-    public function update(TypeUserUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
         try {
@@ -124,10 +124,10 @@ class TypeUsersController extends Controller
 
             if ($request->wantsJson()) {
 
-                return response()->json($response);
+                return response()->json($request);
             }
 
-            return redirect()->route('index_type_user');
+            return redirect('usuario/tipo/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -150,7 +150,7 @@ class TypeUsersController extends Controller
         $update = $typeUser->update($dataForm);
 
         if($update){
-            return redirect()->route('index_type_user');
+            return redirect('usuario/tipo/index');
         }
     }
     /** ------------------------------------------Formulario Casdastro-------------------------------------------------------------------------

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Entities\Course;
 use App\Entities\Instution;
 use Illuminate\Http\Request;
 
@@ -71,7 +72,7 @@ class CoursesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('curso/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -129,7 +130,7 @@ class CoursesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('curso/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -145,14 +146,15 @@ class CoursesController extends Controller
     }
     /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
+
         $dataForm = $request->all();
-        $curso = Instution::find($id);
-        $update = $curso->update($dataForm);
+        $courses = Course::find($id);
+        $update = $courses->update($dataForm);
 
         if($update){
-            return redirect()->route('index');
+            return redirect('curso/index');
         }
     }
     /** ------------------------------------------Formulario de cadastro-------------------------------------------------------------------------

@@ -48,7 +48,7 @@ class ActivitiesController extends Controller
         $id_user=Auth::user()->id;
         $id_evento=$id;
         $teste=$atividadeUser->colisaoAtividade($id_evento);
-        $lista=[1,2,3,4,5,6];
+        $lista=[1,2,3];
         for ($i=0;$i<count($lista);$i++){
             for($j=0;$j<count($lista);$j++){
                 if($lista[$i]!=$lista[$j]){

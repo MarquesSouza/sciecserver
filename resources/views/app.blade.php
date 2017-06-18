@@ -79,8 +79,8 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-user-md"></span> Tipos de Usuário</a>
                         <ul>
-                            <li><a href="{{url('usuario/config/cad')}}">Cadastrar</a></li>
-                            <li><a href="{{url('usuario/config/index')}}">Listar</a></li>
+                            <li><a href="{{url('usuario/tipo/cad')}}">Cadastrar</a></li>
+                            <li><a href="{{url('usuario/tipo/index')}}">Listar</a></li>
                         </ul>
                     </li>
                     <!-- FINAL MENU TIPO DE USUÁRIO-->
@@ -155,6 +155,12 @@
                 <a href="{{url('#')}}"><span class="fa fa-history"></span> <span class="xn-text">Minhas Atividades</span></a>
             </li>
             <!-- FINAL MENU MINHAS ATIVIDADES -->
+            <!-- INICIO MENU GERENCIAR FREQUENCIA-->
+            <li class="glyphicon-menu-down">
+                <a href="{{url('frequencia/index')}}"><span class="fa fa-key"></span> <span class="xn-text">Gerenciar Frequência</span></a>
+            </li>
+            <!-- FINAL MENU GERENCIAR FREQUENCIA-->
+
         </ul>
         <!-- END BARRA DE NAVEGAÇÃO LATERAL -->
     </div>
