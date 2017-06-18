@@ -18,6 +18,7 @@ Route::get('usuario/edit/{id}', 'UsersController@edit')->middleware('admin');// 
 Route::put('usuario/update/{id}', 'UsersController@update')->middleware('admin');// arrumar
 Route::get('certificado/index', 'UsersController@certificado')->middleware('admin');
 Route::get('certificado/cad', 'UsersController@cad_certificado')->middleware('admin');
+Route::get('frequencia/index', 'UsersController@frequencia')->middleware('admin');
 
 /** ------------------------------------------Tipo Usuario(Administrador)-------------------------------------------------------------------------
  */
