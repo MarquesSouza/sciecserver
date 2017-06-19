@@ -19,6 +19,7 @@
                             <th>Data de Início</th>
                             <th>Data de Conclusão</th>
                             <th>Logo do Evento</th>
+                            <th>Gerenciar Evento</th>
                             <th>Editar</th>
                             <th>Ativar / Desativar</th>
                             </thead>
@@ -31,6 +32,9 @@
                                     <td>{{ $ev->data_inicio }}</td>
                                     <td>{{ $ev->data_conclusao }}</td>
                                     <td>{{ $ev->logoEvento }}</td>
+                                    <td>
+                                        <a href="{{url('evento/'.$ev->id.'/atividade/index')}}" class="btn btn-success">Gerenciar</a>
+                                    </td>
                                     <td>
                                         <a href="{{url('evento/edit',$ev->id)}}" class="btn btn-success">Editar</a>
                                     </td>
