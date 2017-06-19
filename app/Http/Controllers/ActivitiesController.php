@@ -223,32 +223,31 @@ class ActivitiesController extends Controller
     }
     /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
      */
-    public function insc_atividade(Request $request){
-        foreach ($request as $r=>$item){
-            foreach ($item as $a=>$te){
-                 foreach ($te as  $b=>$c){
-                     echo $c;
-                 }
-            }
-        }
-        $AtividadeUser= new ActivityUser();
+    public function insc_atividade(Request $request)
+    {
+        date_default_timezone_set('America/Araguaina');
+
+        $id_evento = $request->input('id_evento');
+        $count=0;
+        foreach ($request->input('id_atividade') as $id_atividade) {
+        $AtividadeUser = new ActivityUser();
         $AtividadeUser->id_users = Auth::user()->id;
-        $AtividadeUser->id_activity=$id;
-        $AtividadeUser->id_type_activity_user=1;
-        $AtividadeUser->status=1;
-        $AtividadeUser->data_entrada="2017-07-03 00:00:00";
-        $AtividadeUser->data_saida="2017-07-03 00:00:00";
-        $AtividadeUser->presenca=1;
-        if($AtividadeUser->valida()){
+        $AtividadeUser->id_activity = $id_atividade;
+        $AtividadeUser->id_type_activity_user = 1;
+        $AtividadeUser->status = 1;
+        $AtividadeUser->data_entrada =Date('Y-m-d H:i:s');
+        $AtividadeUser->data_saida = Date('Y-m-d H:i:s');
+        $AtividadeUser->presenca = 1;
+        if ($AtividadeUser->valida()) {
             $AtividadeUser->save();
-        //    return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
-        }else{
-
-          //  return redirect('evento/show/'.$id);
-
-            //pagina para mensagem que ja ta cadastrador
+            $count++;
         }
-
+    };
+        if($count>0){
+            return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
+        }else{
+            return redirect('evento/show/'.$id_evento);
+        }
     }
     /** ------------------------------------------Lista de Usuario na atividade------------------------------------------------------------------------
      */
