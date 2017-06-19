@@ -43,13 +43,18 @@
             </li>
 
             <!-- INICIO MENU EVENTOS-->
-            <li class="xn-openable">
-                <a href="#"><span class="fa fa-calendar-o"></span><span class="xn-text">Eventos</span></a>
-                <ul>
-                    <li><a href="{{url('evento/cad')}}">Cadastrar</a></li>
-                    <li><a href="{{url('evento/index')}}">Listar</a></li>
-                </ul>
-            </li>
+
+
+
+                <li class="xn-openable">
+                    <a href="#"><span class="fa fa-calendar-o"></span><span class="xn-text">Eventos</span></a>
+                    <ul>
+                        <li><a href="{{url('evento/cad')}}">Cadastrar</a></li>
+                        <li><a href="{{url('evento/index')}}">Listar</a></li>
+                    </ul>
+                </li>
+
+
             <!-- FINAL MENU EVENTOS-->
 
             <!-- INICIO MENU INSTITUIÇÕES-->
