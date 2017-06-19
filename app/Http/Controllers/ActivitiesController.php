@@ -179,8 +179,9 @@ class ActivitiesController extends Controller
         $activities = $atividade->where('id_evento', '=', $id);
         $id_user=Auth::user()->id;
         $id_evento=$id;
-        if($activities!=''){
-            $atividadeUser = new ActivityUser();
+        $atividadeUser = new ActivityUser();
+       /* if($activities!=''){
+
             $teste=$atividadeUser->colisaoAtividade($id_evento);
             $lista=[1,2,3];
             for ($i=0;$i<count($lista);$i++){
@@ -202,7 +203,7 @@ class ActivitiesController extends Controller
             }
             return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
 
-        }
+        }*/
         return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
 
 
