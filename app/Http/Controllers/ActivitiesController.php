@@ -148,19 +148,16 @@ class ActivitiesController extends Controller
     }
     /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id_evento,$id)
     {
-        $deleted = $this->repository->delete($id);
+        $dataForm = $request->all();
+        $atividade = Activity::find($id);
+        $update = $atividade->update($dataForm);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'Activity deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect('evento/'.$id_evento.'/atividade/index');
         }
 
-        return redirect()->back()->with('message', 'Activity deleted.');
     }
 
     /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------

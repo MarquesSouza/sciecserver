@@ -6,12 +6,13 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Atividades do Evento</h3>
-                        <a> <!--Inserir link rota cadastro de atividade -->
-                            <button class="btn btn-success">Cadastrar Atividade</button>
-                        </a>
+
                     </div>
                     <div class="panel-body">
-
+                        <div class="panel-body">
+                            <a href="{{ url('evento/'.$id_evento.'/atividade/cad') }}" class="btn btn-primary">Nova Atividade</a>
+                            <br>
+                            <br>
                         <table class="table datatable">
                             <thead>
 
@@ -30,10 +31,7 @@
                             <tbody>
                             <tr>
                                 @forelse ($activities as $a)
-                                    @if($a->status==1)
-                                        <form action="{{url('evento/'.$a->id_evento.'/atividade/insc_atividade/'.$a->id)}}"
-                                              method="post">
-                                            {{csrf_field()}}
+
                                             <td>{{ $a->nome }}</td>
                                             <td>{{ $a->descricao }}</td>
                                             <td>{{ $a->status }}</td>
@@ -47,18 +45,28 @@
                                                 </td>
                                             @endif
                                             <td>
-                                                <a href="{{url('usuario/config/edit/{id}')}}"
+                                                <a href="{{url('evento/'.$id_evento.'/atividade/edit/'.$a->id)}}"
                                                    class="btn-success btn btn-default btn-sm">Editar</a>
                                             </td>
-                                            <td>
-                                                <a href="{{url('usuario/config/edit/{id}')}}"
-                                                   class="btn danger-color  btn-default btn-sm">Excluir</a>
-                                            </td>
+                                            <form class="form-horizontal" method="post"
+                                                  action="{{ url('evento/'.$id_evento.'/atividade/delete/'.$a->id) }}">
+                                                {!! method_field('PUT') !!}
+                                                {{csrf_field()}}
+                                                <td>
+                                                    @if($a->status == 1)
+                                                        <input type="hidden" name="status" value="0">
+                                                        <button type="submit" id="" name="" class="btn btn-danger ">Desativar </button>
+                                                    @else
+                                                        <input type="hidden" name="status" value="1">
+                                                        <button type="submit" id="" name="" class="btn btn-primary">Ativar </button>
+                                                    @endif
+                                                </td>
+                                            </form>
 
 
                                                 </td>
-                                        </form>
-                                    @endif
+
+
 
                             </tr>
                             </tbody>
