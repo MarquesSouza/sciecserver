@@ -39,7 +39,7 @@
                                         <td>{{ $a->local }}</td>
 
                                         <td>
-                                            <a href="{{url('usuario/config/edit/{id}')}}"
+                                            <a href="{{url('certificado/index')}}"
                                                class="btn-success btn btn-default btn-sm">Visualizar</a>
                                         </td>
 
