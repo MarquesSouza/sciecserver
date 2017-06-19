@@ -233,7 +233,7 @@ class ActivitiesController extends Controller
         $AtividadeUser->status = 1;
         $AtividadeUser->data_entrada =Date('Y-m-d H:i:s');
         $AtividadeUser->data_saida = Date('Y-m-d H:i:s');
-        $AtividadeUser->presenca = 1;
+        $AtividadeUser->presenca = 0;
         if ($AtividadeUser->valida()) {
             $AtividadeUser->save();
             $count++;
