@@ -21,6 +21,7 @@
                             <th>Logo do Evento</th>
                             <th>Gerenciar Evento</th>
                             <th>Editar</th>
+                            <th>Concluir Evento</th>
                             <th>Ativar / Desativar</th>
                             </thead>
                             @forelse ($events as $ev)
@@ -38,6 +39,24 @@
                                     <td>
                                         <a href="{{url('evento/edit',$ev->id)}}" class="btn btn-success">Editar</a>
                                     </td>
+                                    <form class="form-horizontal" method="post"
+                                          action="{{ url('evento/delete', $ev->id) }}">
+                                        {!! method_field('PUT') !!}
+                                        {{csrf_field()}}
+                                        <td>
+                                            @if($ev->status == 3)
+                                                Evento Concluido
+                                            @else
+                                                @if($ev->status == 0)
+                                                    Evento desativado
+                                                @else
+                                                    <input type="hidden" name="status" value="3">
+                                                    <button type="submit" id="" name="" class="btn btn-primary">Concluir </button>
+
+                                                @endif
+                                            @endif
+                                        </td>
+                                    </form>
 
                                     <form class="form-horizontal" method="post"
                                           action="{{ url('evento/delete', $ev->id) }}">
@@ -53,6 +72,7 @@
                                             @endif
                                         </td>
                                     </form>
+
                                 </tr>
                                 </tbody>
 
