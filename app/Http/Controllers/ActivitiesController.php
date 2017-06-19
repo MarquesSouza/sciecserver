@@ -225,7 +225,9 @@ class ActivitiesController extends Controller
     public function insc_atividade(Request $request){
         foreach ($request as $r=>$item){
             foreach ($item as $a=>$te){
-                echo $te;
+                 foreach ($te as  $b=>$c){
+                     echo $c;
+                 }
             }
         }
         $AtividadeUser= new ActivityUser();
