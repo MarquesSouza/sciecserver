@@ -212,13 +212,12 @@ class ActivitiesController extends Controller
 
     /** ------------------------------------------Lista de ATividade do Usuario-------------------------------------------------------------------------
      */
-    public function atividade_user(){
+    public function atividade_user($id_evento){
         $User= new User();
         $User->id=Auth::user()->id;
         $activities=$User->atividade()->get()->all();
 
-
-        return view('atividade.list_atividade', compact('activities'));
+        return view('atividade.minhas_atividade', compact('activities','id_evento'));
 
     }
     /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
