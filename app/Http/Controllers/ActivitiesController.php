@@ -243,7 +243,7 @@ class ActivitiesController extends Controller
         }
     };
         if($count>0){
-            return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
+            return redirect('evento/'.$id_evento.'/atividade/atividades');
         }else{
             return redirect('evento/show/'.$id_evento);
         }
