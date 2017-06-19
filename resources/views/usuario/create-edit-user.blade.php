@@ -24,7 +24,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Nome</label>
                                 <div class="col-md-5">
-                                    <input id="nome" name="nome" type="text" placeholder="Nome"
+                                    <input id="name" name="name" type="text" placeholder="Nome"
                                            class="form-control input-md" required=""
                                            value="{{$users->name or old('name')}}">
 
@@ -48,7 +48,7 @@
 
                                 <div class="col-md-4">
                                     <input id="password" type="password" placeholder="senha" class="form-control"
-                                           name="senha" required value="{{old('senha')}}">
+                                           name="password" required value="{{$user->password or old('password')}}">
 
                                     @if ($errors->has('password'))
                                         <span class="help-block">
@@ -62,7 +62,7 @@
 
                                 <div class="col-md-4">
                                     <input id="password-confirm" type="password" placeholder="confirmar senha"
-                                           class="form-control" name="senha" required value="{{old('senha')}}">
+                                           class="form-control" name="senha" required value="{{$user->password or old('password')}}">
                                 </div>
                             </div>
                             <!-- Text input-->
