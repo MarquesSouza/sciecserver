@@ -9,7 +9,8 @@
                 {{csrf_field()}}
                 @forelse ($activities as $a)
                     @if($a->status==1)
-
+                    <input type="hidden" name="id_evento"value="{{$id_evento}}" >
+                     <input type="hidden" name="id_user"value="{{$id_user}}" >
                         <ul class="list-group-item"><h4>{{$a->tipoAtividade->nome}}</h4>
                             <li class="list-group-item">Atividade: {{$a->nome}}</li>
                             <li class="list-group-item">Sobre: {{$a->descricao}}</li>
@@ -21,7 +22,7 @@
 
                                 <li class="list-group-item list-group-item-success"><p>Deseja se inscrever nesta
                                         Atividade?</p>
-                                    <input type="checkbox" name="id_atividade[]" id="checkboxes-0" value="{{$a->id}}">
+                                    <input type="checkbox" name="id_atividade[]" value="{{$a->id}}"/>
                                     @else
                                 </li>
                                 <li class="list-group-item list-group-item-success"><p>Deseja se inscrever nesta
