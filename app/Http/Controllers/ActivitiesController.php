@@ -222,8 +222,12 @@ class ActivitiesController extends Controller
     }
     /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
      */
-    public function insc_atividade(Request $request,$id_evento){
-        dd($request);
+    public function insc_atividade(Request $request){
+        foreach ($request as $r=>$item){
+            foreach ($item as $a=>$te){
+                echo $te;
+            }
+        }
         $AtividadeUser= new ActivityUser();
         $AtividadeUser->id_users = Auth::user()->id;
         $AtividadeUser->id_activity=$id;
