@@ -36,7 +36,11 @@
                                     <td>{{ $a->telefone }}</td>
                                     <td>{{ $a->data_entrada }}</td>
                                     <td>{{ $a->data_saida }}</td>
-                                    <td></td>
+                                    <td>@if($a->frequencia==0)
+
+                                        @else
+                                        @endif
+                                    </td>
                                     <td></td>
                                     <td></td>
 
