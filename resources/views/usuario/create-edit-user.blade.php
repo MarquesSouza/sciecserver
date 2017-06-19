@@ -96,7 +96,7 @@
                                            value="{{$users->cpf or old('cpf')}}">
 
                                 </div>
-                            </div>
+                            </div> <input type="hidden" name="status" value="1">
 
 
                             <!-- Button -->
