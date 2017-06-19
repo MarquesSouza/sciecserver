@@ -247,11 +247,11 @@ class ActivitiesController extends Controller
     }
     /** ------------------------------------------Lista de Usuario na atividade------------------------------------------------------------------------
      */
-    public function lista_user_atividade($id_evento){
+    public function lista_user_atividade($id_evento,$id){
         $atividadeUser = new ActivityUser();
-        $lista=$atividadeUser->listaAtividade(3,1);
-        //mudar essa para uma tela de atividade propria que tem dois link um para index pra confirmar outra atividade e um para visualizar certificado
-        return view('atividade.minhas_atividade', compact('activities','id_evento'));
+        $lista=$atividadeUser->listaAtividade($id,1);
+
+        return view('atividade.frequencia_atividade', compact('lista'));
 
     }
 
