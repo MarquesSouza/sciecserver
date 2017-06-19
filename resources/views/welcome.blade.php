@@ -17,8 +17,8 @@
             @empty
                 <p>Nenhum evento cadastrado</p>
             @endforelse
-            </div>
         </div>
+    </div>
     </div>
     <!--Lista de Eventos-->
 
