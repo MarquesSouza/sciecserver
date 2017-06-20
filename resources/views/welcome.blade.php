@@ -1,4 +1,4 @@
-@extends('app2')
+@extends('app')
 @section('content')
     <div class="content text-center">
         <div class="row">

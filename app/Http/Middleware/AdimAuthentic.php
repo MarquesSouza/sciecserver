@@ -27,7 +27,7 @@ class AdimAuthentic
         }
         if(isset($tipouser)) {
             if (($tipouser == 2) || ($tipouser == 3)) {
-                return redirect('admin');
+
             }else {
                 return $next($request);
             };

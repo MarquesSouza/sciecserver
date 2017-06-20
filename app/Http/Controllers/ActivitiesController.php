@@ -240,8 +240,14 @@ class ActivitiesController extends Controller
         $User= new User();
         $User->id=Auth::user()->id;
         $activities=$User->atividade()->get()->all();
+        $evento= Event::find($id_evento)->get();
 
-        return view('atividade.minhas_atividade', compact('activities','id_evento'));
+        foreach($evento as $e){
+        $status=$e->status;
+
+        }
+
+        return view('atividade.minhas_atividade', compact('activities','id_evento','status'));
 
     }
     /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
