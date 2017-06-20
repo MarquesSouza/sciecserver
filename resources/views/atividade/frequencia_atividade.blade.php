@@ -78,7 +78,6 @@
                                 <p>No activities</p>
                             @endforelse
                         </table>
-
                     </div>
                 </div>
             </div>
