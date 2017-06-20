@@ -159,8 +159,9 @@ class UsersController extends Controller
      */
     public function form_cad()
     {
+        $tipo=TypeUser::all();
         $titulo= "Cadastra Usuarios";
-        return view('usuario.create-edit-user',compact('titulo'));
+        return view('usuario.create-edit-user',compact('titulo','tipo'));
     }
     /** ------------------------------------------Certificados-------------------------------------------------------------------------
      */

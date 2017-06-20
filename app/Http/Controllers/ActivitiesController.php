@@ -53,7 +53,7 @@ class ActivitiesController extends Controller
 
     /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function store(Request $request)
+    public function store(Request $request,$id_evento)
     {
 
         try {
@@ -72,7 +72,7 @@ class ActivitiesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('evento/'.$id_evento.'/atividade/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -106,11 +106,12 @@ class ActivitiesController extends Controller
     public function edit($id_evento,$id)
     {
 
+
+        $tipoAtividade=TypeActivity::all();
         $evento = Event::find($id_evento);
 
         $activity = $this->repository->find($id);
-
-        return view('atividade.create-edit', compact('activity','evento'));
+        return view('atividade.create-edit', compact('activity','evento','tipoAtividade'));
     }
 
     /** ------------------------------------------Update-------------------------------------------------------------------------
@@ -134,7 +135,7 @@ class ActivitiesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('evento/'.$id_evento.'/atividade/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
