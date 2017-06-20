@@ -20,10 +20,11 @@ class HomeController extends Controller
         $evento=Event::all();
         return view('welcome', compact('evento'));
     }
-    public function admin(){
+    public function admin()
+    {
         $evento=Event::all();
-        return view('admin', compact('evento'));
 
+        return view('admin.home', compact('evento'));
     }
     /** ------------------------------------------Construct-------------------------------------------------------------------------
      */

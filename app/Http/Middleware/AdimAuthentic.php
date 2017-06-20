@@ -34,7 +34,7 @@ class AdimAuthentic
         }else{
                 return redirect('home');
             }
-        }
+        };
         return $next($request);
 
         }

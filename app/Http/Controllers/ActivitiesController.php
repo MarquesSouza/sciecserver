@@ -161,6 +161,30 @@ class ActivitiesController extends Controller
         }
 
     }
+    /** ------------------------------------------Entrada-------------------------------------------------------------------------
+     */
+    public function entrada(Request $request,$id_evento,$id)
+    {   //tem que arrumar
+
+            return redirect('evento/'.$id_evento.'/atividade/frequencia/'.$id);
+
+    }
+    /** ------------------------------------------Sainda-------------------------------------------------------------------------
+     */
+    public function saida(Request $request,$id_evento,$id)
+    {   //tem que arrumar
+
+        return redirect('evento/'.$id_evento.'/atividade/frequencia/'.$id);
+
+    }
+    /** ------------------------------------------Presença-------------------------------------------------------------------------
+     */
+    public function presenca(Request $request,$id_evento,$id)
+    {
+
+        return redirect('evento/'.$id_evento.'/atividade/frequencia/'.$id);
+
+    }
 
     /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------
      */
@@ -254,7 +278,7 @@ class ActivitiesController extends Controller
         $atividadeUser = new ActivityUser();
         $lista=$atividadeUser->listaAtividade($id,1);
 
-        return view('atividade.frequencia_atividade', compact('lista'));
+        return view('atividade.frequencia_atividade', compact('lista','id_evento','id'));
 
     }
 

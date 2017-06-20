@@ -29,44 +29,69 @@
 
                             <tbody>
 
-                                @forelse ($lista as $a)
-                                    <tr>
+                            @forelse ($lista as $a)
+                                <tr>
                                     <td>{{ $a->name }}</td>
                                     <td>{{ $a->email }}</td>
                                     <td>{{ $a->telefone }}</td>
                                     <td>{{ $a->data_entrada }}</td>
                                     <td>{{ $a->data_saida }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-success btn-rounded"><span class="glyphicon glyphicon-thumbs-up"></span> </a>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-rounded"><span class="glyphicon glyphicon-thumbs-up"></span> </a>
-                                    </td>
-                                    @if($a->presenca==1)
-                                        <td>
-                                            <form class="form-horizontal" method="post"
-                                                  action="{{ url('atividade/delete', $a->id) }}">
+                                        <form class="form-horizontal" method="post"
+                                              action="{{ url('evento/'.$id_evento.'/atividade/entrada/'. $id) }}">
                                             {!! method_field('PUT') !!}
                                             {{csrf_field()}}
-
-                                                @if($a->status == 0)
-                                                    <input type="hidden" name="status" value="0">
-                                                    <button type="submit" id="" name="" class="btn btn-danger ">Desativar </button>
+                                            @if($a->presenca==1)
+                                                <input type="hidden" name="id_user" value="{{$a->id}}">
+                                                <button type="submit" id="" name="" class="btn btn-danger ">
+                                                    Entrada
+                                                </button>
                                                 @else
-                                                    <input type="hidden" name="status" value="1">
-                                                    <button type="submit" id="" name="" class="btn btn-success">Ativar </button>
-                                                @endif
+                                                Não estar presente
+                                            @endif
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form class="form-horizontal" method="post"
+                                              action="{{ url('evento/'.$id_evento.'/atividade/saida/'. $id) }}">
+                                            {!! method_field('PUT') !!}
+                                            {{csrf_field()}}
+                                            @if($a->presenca==1)
+                                                <input type="hidden" name="id_user" value="{{$a->id}}">
+                                                <button type="submit" id="" name="" class="btn btn-danger ">
+                                                    Saida
+                                                </button>
+                                            @else
+                                                Não estar presente
+                                            @endif
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form class="form-horizontal" method="post"
+                                              action="{{ url('evento/'.$id_evento.'/atividade/presenca/'. $id) }}">
+                                            {!! method_field('PUT') !!}
+                                            {{csrf_field()}}
+                                    @if($a->presenca==1)
+                                                    <input type="hidden" name="presenca" value="0">
+                                                    <input type="hidden" name="id_user" value="{{$a->id}}">
+                                                    <button type="submit" id="" name="" class="btn btn-danger ">
+                                                        Desativar
+                                                    </button>
 
-                                            </form>
 
-                                        </td>
-                                        @else
-                                        <td>
-                                            <a href="#" class="btn btn-danger">Ausente</a>
-                                        </td>
-                                        @endif
 
-                            </tr>
+
+                                    @else
+                                            <input type="hidden" name="presenca" value="1">
+                                                <input type="hidden" name="id_user" value="{{$a->id}}">
+
+                                                <button type="submit" id="" name="" class="btn btn-success">Ativar
+                                            </button>
+                                    @endif
+                                        </form>
+                                    </td>
+
+                                </tr>
                             </tbody>
                             @empty
 
