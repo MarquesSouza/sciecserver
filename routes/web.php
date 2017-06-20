@@ -4,8 +4,8 @@
 Auth::routes();
 /** ------------------------------------------Home-------------------------------------------------------------------------
  */
-Route::get('/home', 'HomeController@welcome');
-Route::get('/', 'HomeController@welcome');
+Route::get('/home', 'HomeController@welcome')->middleware('admin','auth');
+Route::get('/', 'HomeController@welcome')->middleware('admin','auth');
 
 /** ------------------------------------------Usuario (Administrador)-------------------------------------------------------------------------
  */
