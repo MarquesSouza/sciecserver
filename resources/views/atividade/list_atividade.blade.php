@@ -23,6 +23,7 @@
                                 <th>Carg. Horária</th>
                                 <th>Local</th>
                                 <th>QTD Inscritos</th>
+                                <th>Frequencia</th>
                                 <th>Editar</th>
                                 <th>Excluir</th>
                             </tr>
@@ -44,6 +45,10 @@
                                                     Quantidade de vagras preenchidas!!
                                                 </td>
                                             @endif
+                                            <td>
+                                            <a href="{{url('evento/'.$id_evento.'/atividade/frequencia/'.$a->id)}}"
+                                           class="btn-success btn btn-default btn-sm">Frequencia</a>
+                                            </td>
                                             <td>
                                                 <a href="{{url('evento/'.$id_evento.'/atividade/edit/'.$a->id)}}"
                                                    class="btn-success btn btn-default btn-sm">Editar</a>

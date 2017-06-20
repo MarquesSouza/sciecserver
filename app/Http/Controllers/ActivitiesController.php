@@ -53,7 +53,7 @@ class ActivitiesController extends Controller
 
     /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function store(ActivityCreateRequest $request)
+    public function store(Request $request)
     {
 
         try {
@@ -103,17 +103,19 @@ class ActivitiesController extends Controller
 
     /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
-    public function edit($id)
+    public function edit($id_evento,$id)
     {
+
+        $evento = Event::find($id_evento);
 
         $activity = $this->repository->find($id);
 
-        return view('activities.edit', compact('activity'));
+        return view('atividade.create-edit', compact('activity','evento'));
     }
 
     /** ------------------------------------------Update-------------------------------------------------------------------------
      */
-    public function update(ActivityUpdateRequest $request, $id)
+    public function update(Request $request, $id_evento,$id)
     {
 
         try {
@@ -159,13 +161,38 @@ class ActivitiesController extends Controller
         }
 
     }
+    /** ------------------------------------------Entrada-------------------------------------------------------------------------
+     */
+    public function entrada(Request $request,$id_evento,$id)
+    {   //tem que arrumar
+
+            return redirect('evento/'.$id_evento.'/atividade/frequencia/'.$id);
+
+    }
+    /** ------------------------------------------Sainda-------------------------------------------------------------------------
+     */
+    public function saida(Request $request,$id_evento,$id)
+    {   //tem que arrumar
+
+        return redirect('evento/'.$id_evento.'/atividade/frequencia/'.$id);
+
+    }
+    /** ------------------------------------------Presença-------------------------------------------------------------------------
+     */
+    public function presenca(Request $request,$id_evento,$id)
+    {
+
+        return redirect('evento/'.$id_evento.'/atividade/frequencia/'.$id);
+
+    }
 
     /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------
      */
-    public function form_cad()
+    public function form_cad($id)
     {
         $tipoAtividade=TypeActivity::all();
-        return view('atividade.cad_atividade',compact('tipoAtividade'));
+        $evento=Event::find($id);
+        return view('atividade.create-edit',compact('tipoAtividade','evento'));
     }
     /** ------------------------------------------Formulario Inscrição Atividade-------------------------------------------------------------------------
      */
@@ -233,7 +260,7 @@ class ActivitiesController extends Controller
         $AtividadeUser->status = 1;
         $AtividadeUser->data_entrada =Date('Y-m-d H:i:s');
         $AtividadeUser->data_saida = Date('Y-m-d H:i:s');
-        $AtividadeUser->presenca = 1;
+        $AtividadeUser->presenca = 0;
         if ($AtividadeUser->valida()) {
             $AtividadeUser->save();
             $count++;
@@ -247,11 +274,11 @@ class ActivitiesController extends Controller
     }
     /** ------------------------------------------Lista de Usuario na atividade------------------------------------------------------------------------
      */
-    public function lista_user_atividade($id_evento){
+    public function lista_user_atividade($id_evento,$id){
         $atividadeUser = new ActivityUser();
-        $lista=$atividadeUser->listaAtividade(3,1);
-        //mudar essa para uma tela de atividade propria que tem dois link um para index pra confirmar outra atividade e um para visualizar certificado
-        return view('atividade.minhas_atividade', compact('activities','id_evento'));
+        $lista=$atividadeUser->listaAtividade($id,1);
+
+        return view('atividade.frequencia_atividade', compact('lista','id_evento','id'));
 
     }
 
