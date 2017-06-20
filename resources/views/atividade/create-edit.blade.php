@@ -96,12 +96,13 @@
 
                 <!-- Select Basic -->
                 <div class="form-group">
-                    <label class="col-md-3 col-xs-12 control-label" for="selectbasic"> Tipo de Atividade</label>
+                    <label class="col-md-3 col-xs-12 control-label" for="id_tipo_atividade"> Tipo de Atividade</label>
                     <div class="col-md-6 col-xs-12">
-                        <select id="selectbasic" name="id_tipo_atividade" class="form-control">
-                            <option value="1">Palestra</option>
-                            <option value="1">Minicurso</option>
-                        </select>
+                        {{--<select id="selectbasic" name="id_tipo_atividade" class="form-control">--}}
+                            {{--<option value="1">Palestra</option>--}}
+                            {{--<option value="1">Minicurso</option>--}}
+                        {{--</select>--}}
+
                     </div>
                 </div>
                 <input type="hidden" name="status" value="1">
