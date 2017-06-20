@@ -116,8 +116,9 @@ class UsersController extends Controller
     {
 
         $titulo = "Editar Usuario";
+        $tipo=TypeUser::all();
         $users = $this->repository->find($id);
-        return view('usuario.create-edit-user', compact('titulo','users'));
+        return view('usuario.create-edit-user', compact('titulo','users', 'tipo'));
 
     }
     /** ------------------------------------------Update-------------------------------------------------------------------------
