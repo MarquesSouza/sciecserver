@@ -14,10 +14,10 @@ class ActivityValidator extends LaravelValidator
             'descricao' => 'required|min:3|max:1000',
             'hora' => 'required',
             'local' => 'required|min:3|max:100',
-            'qtd_inscritos' => 'required',
-            'cod_inscritos' => 'required|numeric',
-            'data_inicio' => 'required|numeric',
-            'data_conclusao' => 'required|numeric',
+            'qtd_inscritos' => 'required|numeric',
+            'cod_inscritos' => 'required|numeric|unique:activities,cod_inscritos',
+            'data_inicio' => 'required',
+            'data_conclusao' => 'required',
         ],
         ValidatorInterface::RULE_UPDATE => [
 
@@ -25,10 +25,10 @@ class ActivityValidator extends LaravelValidator
             'descricao' => 'required|min:3|max:1000',
             'hora' => 'required',
             'local' => 'required|min:3|max:100',
-            'qtd_inscritos' => 'required',
-            'cod_inscritos' => 'required|numeric',
-            'data_inicio' => 'required|numeric',
-            'data_conclusao' => 'required|numeric',
+            'qtd_inscritos' => 'required|numeric',
+            'cod_inscritos' => 'required|numeric|unique:activities,cod_inscritos',
+            'data_inicio' => 'required',
+            'data_conclusao' => 'required',
         ],
    ];
 }

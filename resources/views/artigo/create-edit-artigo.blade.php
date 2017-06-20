@@ -13,15 +13,17 @@
                     {{csrf_field()}}
                     <div class="panel-heading">
                         <h2 class="panel-title text-center"><strong>{{$titulo}}</strong></h2>
+
+                        @if(isset($errors) && count($errors) > 0)
+                            <div class="alert alert-danger">
+                                @foreach($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </div>
+                        @endif
+
                     </div>
 
-                    @if(isset($errors) && count($errors) > 0)
-                        <div class="alert alert-danger">
-                            @foreach($errors->all() as $error)
-                                {{$error}}
-                            @endforeach
-                        </div>
-                    @endif
                     <div class="row">
                         <div class="col-md-12">
                             <!-- START DEFAULT DATATABLE -->

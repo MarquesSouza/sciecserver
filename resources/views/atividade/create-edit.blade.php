@@ -1,6 +1,15 @@
 @extends('app')
 @section('content')
     <div class="container-fluid">
+
+        @if(isset($errors) && count($errors) > 0)
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </div>
+        @endif
+
         <h1 class="text-center">Cadastrar Atividade</h1>
 
             @if( isset($activity))
