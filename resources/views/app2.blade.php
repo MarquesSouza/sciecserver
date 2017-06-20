@@ -44,6 +44,88 @@
 
 
 
+            <!-- INICIO MENU EVENTOS-->
+            <li class="xn-openable">
+                <a href="#"><span class="fa fa-calendar-o"></span><span class="xn-text">Eventos</span></a>
+                <ul>
+                    <li><a href="{{url('evento/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('evento/index')}}">Listar</a></li>
+                </ul>
+            </li>
+            <!-- FINAL MENU EVENTOS-->
+
+            <!-- INICIO MENU INSTITUIÇÕES-->
+            <li class="xn-openable">
+                <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Instituição</span></a>
+                <ul>
+                    <li><a href="{{url('instituicao/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('instituicao/index')}}">Listar</a></li>
+                </ul>
+            </li>
+            <!-- FINAL MENU INSTITUIÇÕES-->
+
+            <!-- INICIO MENU CURSO-->
+            <li class="xn-openable">
+                <a href="#"><span class="fa fa-graduation-cap"></span> <span class="xn-text">Curso</span></a>
+                <ul>
+                    <li><a href="{{url('curso/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('curso/index')}}">Listar</a></li>
+                </ul>
+            </li>
+            <!-- FINAL MENU CURSO-->
+
+            <!-- INICIO MENU USUÁRIO-->
+            <li class="xn-openable">
+                <a href="#"><span class="fa fa-user"></span> <span class="xn-text">Usuário</span></a>
+                <ul>
+                    <li><a href="{{url('usuario/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('usuario/index')}}">Listar</a></li>
+                    <!-- INICIO MENU TIPO DE USUÁRIO-->
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-user-md"></span> Tipos de Usuário</a>
+                        <ul>
+                            <li><a href="{{url('usuario/tipo/cad')}}">Cadastrar</a></li>
+                            <li><a href="{{url('usuario/tipo/index')}}">Listar</a></li>
+                        </ul>
+                    </li>
+                    <!-- FINAL MENU TIPO DE USUÁRIO-->
+                    <!-- INICIO MENU TIPO DE ATIVIDADE DO USUÁRIO-->
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-user-md"></span> Tipo de Atividade do Usuário</a>
+                        <ul>
+                            <li><a href="{{url('usuario/tipo/atividade/cad')}}">Cadastrar</a></li>
+                            <li><a href="{{url('usuario/tipo/atividade/index')}}">Listar</a></li>
+                        </ul>
+                    </li>
+                    <!-- FINAL MENU TIPO DE ATIVIDADE DO USUÁRIO-->
+
+                </ul>
+            </li>
+            <!-- FINAL MENU USUÁRIO-->
+
+
+
+            <!-- INICIO MENU ARTIGOS-->
+            <li class="xn-openable">
+                <a href="#"><span class="fa fa-hacker-news"></span> <span class="xn-text">Artigos</span></a>
+                <ul>
+                    <li><a href="{{url('artigo/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('artigo/index')}}">Listar</a></li>
+                </ul>
+            </li>
+            <!-- FINAL MENU ARTIGOS-->
+
+            <!-- INICIO MENU PARTICIPAÇÃO-->
+            <li class="xn-openable">
+                <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Participação</span></a>
+                <ul>
+                    <li><a href="{{url('participacao/cad')}}">Cadastrar</a></li>
+                    <li><a href="{{url('participacao/index')}}">Listar</a></li>
+                </ul>
+            </li>
+
+            <!-- FINAL MENU PARTICIPAÇÃO-->
+
             <!-- INICIO MENU MEUS CERTIFICADOS-->
             <li class="glyphicon-menu-down">
                 <a href="{{url('certificado/index')}}"><span class="fa fa-certificate"></span> <span class="xn-text">Meus Certificados</span></a>
@@ -56,10 +138,11 @@
             </li>
             <!-- FINAL MENU MEUS EVENTOS-->
 
-            <!-- INICIO MENU MINHAS ATIVIDADES-->
+
             <li class="glyphicon-menu-down">
-                <a href="{{url('#')}}"><span class="fa fa-history"></span> <span class="xn-text">Minhas Atividades</span></a>
+                <a href="{{url('frequencia/index')}}"><span class="fa fa-key"></span> <span class="xn-text">Gerenciar Frequência</span></a>
             </li>
+            <!-- FINAL MENU GERENCIAR FREQUENCIA-->
 
         <!-- END BARRA DE NAVEGAÇÃO LATERAL -->
     </div>
