@@ -1,4 +1,4 @@
-@extends('app')
+@extends('app2')
 @section('content')
     @if( isset($users))
         <form class="form-horizontal" method="post" action="{{ url('usuario/update', $users->id) }}">
