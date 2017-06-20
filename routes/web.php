@@ -4,8 +4,8 @@
 Auth::routes();
 /** ------------------------------------------Home-------------------------------------------------------------------------
  */
-Route::get('/home', 'HomeController@welcome');
-Route::get('/', 'HomeController@welcome');
+Route::get('/home', 'HomeController@welcome')->middleware('admin','auth');
+Route::get('/', 'HomeController@welcome')->middleware('admin','auth');
 
 /** ------------------------------------------Usuario (Administrador)-------------------------------------------------------------------------
  */
@@ -99,7 +99,7 @@ Route::get('evento/eventos', 'EventsController@evento_user')->middleware('auth')
  */
 Route::get('evento/{id_evento}/atividade/atividades', 'ActivitiesController@atividade_user')->middleware('admin');// feito
 Route::get('evento/{id_evento}/atividade/cad', 'ActivitiesController@form_cad')->middleware('admin');// feito
-
+Route::get('evento/{id_evento}/atividade/frequencia/{id}', 'ActivitiesController@lista_user_atividade')->middleware('admin');// feito
 Route::get('evento/{id_evento}/atividade/index', 'ActivitiesController@index')->middleware('admin');// feito
 Route::post('evento/{id_evento}/atividade/store', 'ActivitiesController@store')->middleware('admin');//fazendo
 Route::get('evento/{id_evento}/atividade/show/{id}', 'ActivitiesController@show')->middleware('admin');//feito

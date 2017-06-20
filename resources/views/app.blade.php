@@ -41,6 +41,7 @@
 
                 </div>
             </li>
+
             <!-- INICIO MENU EVENTOS-->
             <li class="xn-openable">
                 <a href="#"><span class="fa fa-calendar-o"></span><span class="xn-text">Eventos</span></a>
@@ -100,24 +101,7 @@
             </li>
             <!-- FINAL MENU USUÁRIO-->
 
-            <!-- INICIO MENU ATIVIDADES-->
-            <li class="xn-openable">
-                <a href="#"><span class="fa fa-history"></span> <span class="xn-text">Atividade</span></a>
-                <ul>
-                    <li><a href="{{url('evento/{id_evento}/atividade/cad')}}">Cadastrar</a></li>
-                    <li><a href="{{url('evento/{id_evento}/atividade/index')}}">Listar</a></li>
-                    <!-- INICIO MENU TIPOS DE ATIVIDADES-->
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-user-md"></span> Tipo de Atividade</a>
-                        <ul>
-                            <li><a href="{{url('atividade/tipo/cad')}}">Cadastrar</a></li>
-                            <li><a href="{{url('atividade/tipo/index')}}">Listar</a></li>
-                        </ul>
-                    </li>
-                    <!-- FINAL MENU TIPOS DE ATIVIDADES-->
-                </ul>
-            </li>
-            <!-- FINAL MENU ATIVIDADES-->
+
 
             <!-- INICIO MENU ARTIGOS-->
             <li class="xn-openable">
@@ -227,9 +211,3 @@
 <!-- END SCRIPTS -->
 </body>
 </html>
-
-
-
-
-
-

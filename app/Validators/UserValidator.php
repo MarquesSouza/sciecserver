@@ -11,17 +11,18 @@ class UserValidator extends LaravelValidator
     protected $rules = [
         ValidatorInterface::RULE_CREATE => [
             'name' => 'required|min:3|max:100',
-            'email'=> 'required|email|unique|min:3|max:100',
+            'email'=> 'email|required|unique:users,email',
             'password'=> 'required|min:6|max:100',
-            'cpf'=> 'required|unique|min:11|max:11',
-            'telefone'=> 'required:min:8|max:16',
+            'cpf'=> 'required|min:11|max:11|unique:users,cpf',
+            'telefone' => 'required|min:8|max:16',
         ],
         ValidatorInterface::RULE_UPDATE => [
+
             'name' => 'required|min:3|max:100',
-            'email'=> 'required|email|unique|min:3|max:100',
+            'email'=> 'email|required|unique:users,email',
             'password'=> 'required|min:6|max:100',
-            'cpf'=> 'required|unique|min:11|max:11',
-            'telefone'=> 'required|min:8|max:16',
+            'cpf'=> 'required|min:11|max:11|unique:users,cpf',
+            'telefone' => 'required|min:8|max:16',
         ],
    ];
 }

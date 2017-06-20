@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-12">
             <!-- START DEFAULT DATATABLE -->
-            < class="panel panel-default">
+            <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Tipo_de_Usuario</h3>
             </div>
@@ -39,12 +39,11 @@
                                         @else
                                             <input type="hidden" name="status" value="1">
                                             <button type="submit" id="" name="" class="btn btn-primary">Ativar </button>
-
+                                        @endif
                                     </td>
                                 </form>
                             </tr>
                             </tbody>
-                        @endif
                     @empty
                         <p>No type_users</p>
                     @endforelse

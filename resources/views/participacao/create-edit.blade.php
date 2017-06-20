@@ -49,6 +49,10 @@
                     <label class="col-md-4 control-label" for=""></label>
                     <div class="col-md-4">
                         <button id="" name="" class="btn btn-primary">Salvar</button>
+                        <a href="{{('participacao/list_participacao')}}">
+                            <button id="singlebutton" name="singlebutton" class="btn btn-danger">Voltar</button>
+                        </a>
+
                     </div>
                 </div>
             </div>

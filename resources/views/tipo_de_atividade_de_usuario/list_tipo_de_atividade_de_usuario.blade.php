@@ -7,8 +7,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Tipo_de_Atividade_de_Usuario</h3>
                 </div>
-                <a href="{{ url('usuario/tipo/atividade/cad') }}" class="btn btn-primary">Novo Tipo
-                    Atividade Usuario</a>
+                <a href="{{ url('usuario/tipo/atividade/cad') }}" class="btn btn-primary">Novo Tipo Atividade Usuario</a>
                 <br><br>
                 <div class="panel-body">
                     <table class="table datatable">

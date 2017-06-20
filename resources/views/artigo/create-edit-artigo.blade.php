@@ -108,6 +108,10 @@
                                             <button id="" name=""
                                                     class="btn btn-primary">Salvar
                                             </button>
+                                            <a href="{{('artigo/list_artigo')}}">
+                                                <button id="singlebutton" name="singlebutton" class="btn btn-danger">Voltar</button>
+                                            </a>
+
                                         </div>
                                     </div>
                                 </div>

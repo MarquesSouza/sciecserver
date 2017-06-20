@@ -53,7 +53,7 @@ class ActivitiesController extends Controller
 
     /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function store(ActivityCreateRequest $request)
+    public function store(Request $request)
     {
 
         try {
@@ -103,17 +103,19 @@ class ActivitiesController extends Controller
 
     /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
-    public function edit($id)
+    public function edit($id_evento,$id)
     {
+
+        $evento = Event::find($id_evento);
 
         $activity = $this->repository->find($id);
 
-        return view('activities.edit', compact('activity'));
+        return view('atividade.create-edit', compact('activity','evento'));
     }
 
     /** ------------------------------------------Update-------------------------------------------------------------------------
      */
-    public function update(ActivityUpdateRequest $request, $id)
+    public function update(Request $request, $id_evento,$id)
     {
 
         try {
@@ -148,27 +150,25 @@ class ActivitiesController extends Controller
     }
     /** ------------------------------------------Destroy Logic-------------------------------------------------------------------------
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id_evento,$id)
     {
-        $deleted = $this->repository->delete($id);
+        $dataForm = $request->all();
+        $atividade = Activity::find($id);
+        $update = $atividade->update($dataForm);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'Activity deleted.',
-                'deleted' => $deleted,
-            ]);
+        if($update){
+            return redirect('evento/'.$id_evento.'/atividade/index');
         }
 
-        return redirect()->back()->with('message', 'Activity deleted.');
     }
 
     /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------
      */
-    public function form_cad()
+    public function form_cad($id)
     {
         $tipoAtividade=TypeActivity::all();
-        return view('atividade.cad_atividade',compact('tipoAtividade'));
+        $evento=Event::find($id);
+        return view('atividade.create-edit',compact('tipoAtividade','evento'));
     }
     /** ------------------------------------------Formulario Inscrição Atividade-------------------------------------------------------------------------
      */
@@ -179,8 +179,9 @@ class ActivitiesController extends Controller
         $activities = $atividade->where('id_evento', '=', $id);
         $id_user=Auth::user()->id;
         $id_evento=$id;
-        if($activities!=''){
-            $atividadeUser = new ActivityUser();
+        $atividadeUser = new ActivityUser();
+       /* if($activities!=''){
+
             $teste=$atividadeUser->colisaoAtividade($id_evento);
             $lista=[1,2,3];
             for ($i=0;$i<count($lista);$i++){
@@ -202,7 +203,7 @@ class ActivitiesController extends Controller
             }
             return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
 
-        }
+        }*/
         return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
 
 
@@ -211,45 +212,49 @@ class ActivitiesController extends Controller
 
     /** ------------------------------------------Lista de ATividade do Usuario-------------------------------------------------------------------------
      */
-    public function atividade_user(){
+    public function atividade_user($id_evento){
         $User= new User();
         $User->id=Auth::user()->id;
         $activities=$User->atividade()->get()->all();
 
-
-        return view('atividade.list_atividade', compact('activities'));
+        return view('atividade.minhas_atividade', compact('activities','id_evento'));
 
     }
     /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
      */
-    public function insc_atividade(Request $request,$id_evento){
-        dd($request);
-        $AtividadeUser= new ActivityUser();
+    public function insc_atividade(Request $request)
+    {
+        date_default_timezone_set('America/Araguaina');
+
+        $id_evento = $request->input('id_evento');
+        $count=0;
+        foreach ($request->input('id_atividade') as $id_atividade) {
+        $AtividadeUser = new ActivityUser();
         $AtividadeUser->id_users = Auth::user()->id;
-        $AtividadeUser->id_activity=$id;
-        $AtividadeUser->id_type_activity_user=1;
-        $AtividadeUser->status=1;
-        $AtividadeUser->data_entrada="2017-07-03 00:00:00";
-        $AtividadeUser->data_saida="2017-07-03 00:00:00";
-        $AtividadeUser->presenca=1;
-        if($AtividadeUser->valida()){
+        $AtividadeUser->id_activity = $id_atividade;
+        $AtividadeUser->id_type_activity_user = 1;
+        $AtividadeUser->status = 1;
+        $AtividadeUser->data_entrada =Date('Y-m-d H:i:s');
+        $AtividadeUser->data_saida = Date('Y-m-d H:i:s');
+        $AtividadeUser->presenca = 0;
+        if ($AtividadeUser->valida()) {
             $AtividadeUser->save();
-        //    return redirect('evento/'.$id_evento.'/atividade/show/'.$id);
-        }else{
-
-          //  return redirect('evento/show/'.$id);
-
-            //pagina para mensagem que ja ta cadastrador
+            $count++;
         }
-
+    };
+        if($count>0){
+            return redirect('evento/'.$id_evento.'/atividade/atividades');
+        }else{
+            return redirect('evento/show/'.$id_evento);
+        }
     }
     /** ------------------------------------------Lista de Usuario na atividade------------------------------------------------------------------------
      */
-    public function lista_user_atividade(){
+    public function lista_user_atividade($id_evento,$id){
         $atividadeUser = new ActivityUser();
-        $lista=$atividadeUser->listaAtividade(3,1);
+        $lista=$atividadeUser->listaAtividade($id,1);
 
-        return view('atividade.list_atividade', compact('activities'));
+        return view('atividade.frequencia_atividade', compact('lista'));
 
     }
 

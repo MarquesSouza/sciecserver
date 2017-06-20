@@ -9,6 +9,8 @@
 
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <!-- END META SECTION -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800|Lily+Script+One|Lato:300,400,700,900,300italic,400italic,700italic,900italic|Roboto:400,900,700,500,300,100" rel="stylesheet" type="text/css">
+    <!-- CSS INCLUDE -->
 
     <!-- CSS INCLUDE -->
     <link rel="stylesheet" type="text/css" id="theme" href="{{ asset('css/theme-default.css') }}"/>

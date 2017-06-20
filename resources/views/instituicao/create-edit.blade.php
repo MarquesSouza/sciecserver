@@ -46,7 +46,7 @@
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="email">Email</label>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <input id="email" name="email" type="text" placeholder=""
                                            class="form-control input-md"
                                            required="" value="{{$instutions->email or old('email')}}">
@@ -57,7 +57,7 @@
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="telefone">Telefone</label>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <input id="telefone" name="telefone" type="text" placeholder=""
                                            class="form-control input-md" required=""
                                            value="{{$instutions->telefone or old('telefone')}}">
@@ -69,7 +69,7 @@
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="site">Site</label>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <input id="site" name="site" type="text" placeholder=""
                                            class="form-control input-md"
                                            required="" value="{{$instutions->site or old('site')}}">
@@ -81,9 +81,13 @@
                             <!-- Button -->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for=""></label>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <button id="" name="" class="btn btn-primary">Salvar</button>
+                                    <a href="{{('instituicao/list_instituicao')}}">
+                                      <button id="singlebutton" name="singlebutton" class="btn btn-danger">Voltar</button>
+                                     </a>
                                 </div>
+                                    </div> </div>
                             </div>
                         </div>
                     </fieldset>
