@@ -46,7 +46,7 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
                             <input id="data_inicio" name="data_inicio" type="datetime-local" placeholder="Selecione"
-                                   class="form-control datepicker" required=""  value="{{$activity->data_inicio or old('data_inicio')}}">
+                                   class="form-control " required=""  value="{{$activity->data_inicio or old('data_inicio')}}">
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
                             <input id="data_conclusao" name="data_conclusao" type="datetime-local"
-                                   placeholder="Selecione" class="form-control datepicker" required="" value="{{$activity->data_conclusao or old('data_conclusao')}}">
+                                   placeholder="Selecione" class="form-control " required="" value="{{$activity->data_conclusao or old('data_conclusao')}}">
                         </div>
                     </div>
                 </div>
