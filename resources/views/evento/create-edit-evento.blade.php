@@ -2,7 +2,7 @@
 @extends('app2')
 
 @section('content')
-    <div class="page-content-wrap">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <!-- START DEFAULT DATATABLE -->
@@ -19,9 +19,9 @@
 
                                         {{csrf_field()}}
                                         <fieldset>
-                                            <div class="container">
+                                            <div class="container-fluid">
                                                 <hr>
-                                                <legend>{{$titulo}}</legend>
+                                                <legend class="text-center">{{$titulo}}</legend>
                                                 @if(isset($errors) && count($errors) > 0)
                                                     <div class="alert alert-danger">
                                                         <ul>
@@ -30,7 +30,6 @@
                                                             @endforeach
                                                         </ul>
                                                     </div>
-
                                                 @endif
 
                                                 <div class="form-group">

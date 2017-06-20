@@ -124,17 +124,12 @@
                     <input type="hidden" name="id_evento" value="{{$evento->id}}">
                                 @endif
 
-
+<br> <br> <br>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="cadastrar"></label>
-                    <div class="col-md-4">
+                    <label class="col-md-5 control-label" for="cadastrar"></label>
+                    <div class="col-md-5">
                         <button id="cadastrar" name="cadastrar" class="btn btn-success">Cadastrar</button>
                     </div>
-                    <a href="#"> <!-- Inserir link para página anterior -->
-                        <div class="col-md-4">
-                            <button class="btn btn-danger">Voltar</button>
-                        </div>
-                    </a>
                 </div>
 
             </fieldset>

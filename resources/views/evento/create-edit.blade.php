@@ -10,9 +10,9 @@
                     @endif
                     {{csrf_field()}}
                     <fieldset>
-                        <div class="container">
+                        <div class="container-fluid">
                             <hr>
-                            <legend>{{$titulo}}</legend>
+                            <h1 class="text-center">{{$titulo}}</h1>
                             @if(isset($errors) && count($errors) > 0)
                                 <div class="alert alert-danger">
                                     <ul>
@@ -25,8 +25,8 @@
                             @endif
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Nome</label>
-                                <div class="col-md-5">
+                                <label class="col-md-3 col-xs-12 control-label">Nome</label>
+                                <div class="col-md-6 col-xs-12">
                                     <input id="nome" name="nome" type="text" placeholder=""
                                            class="form-control input-md" required=""
                                            value="{{$event->nome or old('nome')}}">
@@ -34,8 +34,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Descrição</label>
-                                <div class="col-md-5">
+                                <label class="col-md-3 col-xs-12 control-label">Descrição</label>
+                                <div class="col-md-6 col-xs-12">
                                     <input id="descricao" name="descricao" type="text" placeholder=""
                                            class="form-control input-md" required=""
                                            value="{{$event->descricao or old('descricao')}}">
@@ -43,43 +43,46 @@
                                 </div>
                             </div>
 
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Local</label>
-                                <div class="col-md-5">
-                                    <input id="local" name="local" type="text" placeholder=""
-                                           class="form-control input-md"
-                                           required="" value="{{$event->local or old('local')}}">
 
+                            <!-- Local do Evento -->
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label" for="local">Local</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-home"></span></span>
+                                        <input id="local" name="local" type="text" placeholder="Local"
+                                               class="form-control"required="" value="{{$event->local or old('local')}}">
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Text input-->
+                            <!-- Data de Início-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Data de Início</label>
-                                <div class="col-md-5">
-                                    <input id="data_inicio" name="data_inicio" type="datetime-local" placeholder=""
-                                           class="form-control input-md" required=""
-                                           value="{{$event->data_inicio or old('data_inicio')}}">
-
+                                <label class="col-md-3 col-xs-12 control-label" for="data_inicio">Data de Início</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                        <input id="data_inicio" name="data_inicio" type="datetime-local" placeholder="Selecione"
+                                               class="form-control " required=""  value="{{$event->data_inicio or old('data_inicio')}}">
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Text input-->
+                            <!-- Data de Conclusão-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Data de Conclusão</label>
-                                <div class="col-md-5">
-                                    <input id="data_conclusao" name="data_conclusao" type="datetime-local"
-                                           placeholder=""
-                                           class="form-control input-md"
-                                           required="" value="{{$event->data_conclusao or old('data_conclusao')}}">
-
+                                <label class="col-md-3 col-xs-12 control-label" for="data_conclusao">Data de Encerramento</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                        <input id="data_conclusao" name="data_conclusao" type="datetime-local"
+                                               placeholder="Selecione" class="form-control " required="" value="{{$event->data_conclusao or old('data_conclusao')}}">
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Logo do Evento</label>
-                                <div class="col-md-5">
+                                <label class="col-md-3 col-xs-12 control-label">Logo do Evento</label>
+                                <div class="col-md-6 col-xs-12">
                                     <input id="logoEvento" name="logoEvento"
                                            placeholder="" class="form-control input-md" required=""
                                            type="file" value="{{$event->logoEvento or old('logoEvento')}}">
@@ -90,8 +93,9 @@
                             <input type="hidden" name="status" value="1">
 
                             <!-- Button -->
+                            <br> <br> <br>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for=""></label>
+                                <label class="col-md-5 control-label" for=""></label>
                                 <div class="col-md-5">
                                     <button id="" name="" class="btn btn-primary">Salvar</button>
                                 </div>
