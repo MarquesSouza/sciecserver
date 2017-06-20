@@ -13,15 +13,14 @@ class InstutionValidator extends LaravelValidator
             'nome' => 'required|min:3|max:100',
             'descricao' => 'required|min:3|max:150',
             'email' => 'required|email|unique:instutions,email',
-            'telefone' => 'numeric|min:8|max:16',
+            'telefone' => 'required|min:8|numeric',
         ],
         ValidatorInterface::RULE_UPDATE => [
             'nome' => 'required|min:3|max:100',
             'descricao' => 'required|min:3|max:150',
             'email' => 'required|email|unique:instutions,email',
-            'telefone' => 'numeric|min:8|max:16',
+            'telefone' => 'required|min:3|numeric',
         ],
     ];
-
 
 }
