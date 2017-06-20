@@ -38,7 +38,7 @@
                                     <td>{{ $a->data_saida }}</td>
                                     <td>
                                         <form class="form-horizontal" method="post"
-                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/entrada/'. $id) }}">
+                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/entrada/'. $a->id) }}">
                                         {!! method_field('PUT') !!}
                                             {{csrf_field()}}
                                             @if($a->presenca==1)
@@ -53,7 +53,7 @@
                                     </td>
                                     <td>
                                         <form class="form-horizontal" method="post"
-                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/saida/'. $id) }}">
+                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/saida/'. $a->id) }}">
                                         {!! method_field('PUT') !!}
                                             {{csrf_field()}}
                                             @if($a->presenca==1)
@@ -67,7 +67,7 @@
                                     </td>
                                     <td>
                                         <form class="form-horizontal" method="post"
-                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/presenca/'. $id) }}">
+                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/presenca/'. $a->id) }}">
                                             {!! method_field('PUT') !!}
                                             {{csrf_field()}}
                                                  @if($a->presenca==1)
