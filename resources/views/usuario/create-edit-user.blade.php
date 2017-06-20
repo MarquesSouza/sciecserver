@@ -4,8 +4,8 @@
         <form class="form-horizontal" method="post" action="{{ url('usuario/update', $users->id) }}">
             {!! method_field('PUT') !!}
             @else
-                <form class="form-horizontal" method="post" action="{{ url('usuario/store') }}"
-                {{csrf_field()}}>
+                <form class="form-horizontal" method="post" action="{{ url('usuario/store') }}">
+                {{csrf_field()}}
                     @endif
 
                     {{csrf_field()}}
@@ -82,6 +82,18 @@
                                     <input id="cpf" name="cpf" type="text" placeholder="CPF (colocar só números)"
                                            class="form-control input-md" required=""
                                            value="{{$users->cpf or old('cpf')}}">
+
+                                </div>
+                            </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="id_tipo_atividade"> Tipo de User</label>
+                                    <div class="col-md-4">
+                                        <select id="selectbasic" name="id_tipo" class="form-control">
+                                            @foreach($tipo as $t)
+                                                <option value="{{$t->id}}">{{$t->nome}}</option>
+                                            @endforeach
+                                        </select>
+
 
                                 </div>
                             </div> <input type="hidden" name="status" value="1">
