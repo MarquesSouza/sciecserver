@@ -1,6 +1,15 @@
-@extends('app')
+@extends('app2')
 @section('content')
     <div class="container-fluid">
+
+        @if(isset($errors) && count($errors) > 0)
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </div>
+        @endif
+
         <h1 class="text-center">Cadastrar Atividade</h1>
 
             @if( isset($activity))
@@ -98,10 +107,11 @@
                 <div class="form-group">
                     <label class="col-md-3 col-xs-12 control-label" for="id_tipo_atividade"> Tipo de Atividade</label>
                     <div class="col-md-6 col-xs-12">
-                        {{--<select id="selectbasic" name="id_tipo_atividade" class="form-control">--}}
-                            {{--<option value="1">Palestra</option>--}}
-                            {{--<option value="1">Minicurso</option>--}}
-                        {{--</select>--}}
+                        <select id="selectbasic" name="id_tipo_atividade" class="form-control">
+                            @foreach($tipoAtividade as $t)
+                            <option value="{{$t->id}}">{{$t->nome}}</option>
+                            @endforeach
+                        </select>
 
                     </div>
                 </div>

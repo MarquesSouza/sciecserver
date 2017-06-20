@@ -53,7 +53,7 @@ class ActivitiesController extends Controller
 
     /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function store(Request $request)
+    public function store(Request $request,$id_evento)
     {
 
         try {
@@ -72,7 +72,7 @@ class ActivitiesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('evento/'.$id_evento.'/atividade/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -106,11 +106,12 @@ class ActivitiesController extends Controller
     public function edit($id_evento,$id)
     {
 
+
+        $tipoAtividade=TypeActivity::all();
         $evento = Event::find($id_evento);
 
         $activity = $this->repository->find($id);
-
-        return view('atividade.create-edit', compact('activity','evento'));
+        return view('atividade.create-edit', compact('activity','evento','tipoAtividade'));
     }
 
     /** ------------------------------------------Update-------------------------------------------------------------------------
@@ -134,7 +135,7 @@ class ActivitiesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect('evento/'.$id_evento.'/atividade/index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -160,6 +161,34 @@ class ActivitiesController extends Controller
             return redirect('evento/'.$id_evento.'/atividade/index');
         }
 
+    }
+    /** ------------------------------------------Entrada-------------------------------------------------------------------------
+     */
+    public function entrada(Request $request,$id_evento,$id)
+    {   //tem que arrumar
+
+            return redirect('evento/'.$id_evento.'/atividade/frequencia/'.$id);
+
+    }
+    /** ------------------------------------------Sainda-------------------------------------------------------------------------
+     */
+    public function saida(Request $request,$id_evento,$id)
+    {   //tem que arrumar
+
+        return redirect('evento/'.$id_evento.'/atividade/frequencia/'.$id);
+
+    }
+    /** ------------------------------------------Presença-------------------------------------------------------------------------
+     */
+    public function presenca(Request $request,$id_evento,$id_atividade,$id)
+    {
+        $dataForm = ['presenca'=>$request->input('presenca')];
+        $atividade= new ActivityUser();
+        $update = $atividade->where('id','=',$id)->update($dataForm);
+
+        if($update) {
+            return redirect('evento/' . $id_evento . '/atividade/frequencia/' . $id_atividade);
+        }
     }
 
     /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------
@@ -216,8 +245,14 @@ class ActivitiesController extends Controller
         $User= new User();
         $User->id=Auth::user()->id;
         $activities=$User->atividade()->get()->all();
+        $evento= Event::find($id_evento)->get();
 
-        return view('atividade.minhas_atividade', compact('activities','id_evento'));
+        foreach($evento as $e){
+        $status=$e->status;
+
+        }
+
+        return view('atividade.minhas_atividade', compact('activities','id_evento','status'));
 
     }
     /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
@@ -254,7 +289,7 @@ class ActivitiesController extends Controller
         $atividadeUser = new ActivityUser();
         $lista=$atividadeUser->listaAtividade($id,1);
 
-        return view('atividade.frequencia_atividade', compact('lista'));
+        return view('atividade.frequencia_atividade', compact('lista','id_evento','id'));
 
     }
 

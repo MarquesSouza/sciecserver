@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entities\TypeUser;
 use App\Entities\User;
 use App\Entities\UserEvent;
+use App\Entities\UserTypeUser;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -53,6 +54,8 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        $tipoUser=$request->input('id_tipo');
+        unset($request['id_tipo']);
 
         try {
 
@@ -71,6 +74,15 @@ class UsersController extends Controller
                 return response()->json($response);
             }
 
+            $user->id;
+            $tipo=new UserTypeUser();
+            $tipo->status=1;
+            $tipo->id_user=$user->id;
+            $tipo->id_type_user=$tipoUser;
+            if($tipo->validaUser()){
+            $tipo->save();
+            }
+            echo $tipoUser;
             return redirect('usuario/index');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
@@ -104,15 +116,17 @@ class UsersController extends Controller
     {
 
         $titulo = "Editar Usuario";
+        $tipo=TypeUser::all();
         $users = $this->repository->find($id);
-        return view('usuario.create-edit-user', compact('titulo','users'));
+        return view('usuario.create-edit-user', compact('titulo','users', 'tipo'));
 
     }
     /** ------------------------------------------Update-------------------------------------------------------------------------
      */
     public function update(Request $request, $id)
     {
-
+        $tipoUser=$request->input('tipo');
+        unset($request['tipo']);
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
@@ -128,7 +142,14 @@ class UsersController extends Controller
 
                 return response()->json($response);
             }
-
+            $user->id;
+            $tipo=new UserTypeUser();
+            $tipo->status=1;
+            $tipo->id_user=$user->id;
+            $tipo->id_type_user=$tipoUser;
+            if($tipo->validaUser()){
+                $tipo->save();
+            }
             return redirect('usuario/index');
         } catch (ValidatorException $e) {
 
@@ -159,8 +180,9 @@ class UsersController extends Controller
      */
     public function form_cad()
     {
+        $tipo=TypeUser::all();
         $titulo= "Cadastra Usuarios";
-        return view('usuario.create-edit-user',compact('titulo'));
+        return view('usuario.create-edit-user',compact('titulo','tipo'));
     }
     /** ------------------------------------------Certificados-------------------------------------------------------------------------
      */

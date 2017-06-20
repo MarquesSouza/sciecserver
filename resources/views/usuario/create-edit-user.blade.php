@@ -1,11 +1,11 @@
-@extends('app')
+@extends('app2')
 @section('content')
     @if( isset($users))
         <form class="form-horizontal" method="post" action="{{ url('usuario/update', $users->id) }}">
             {!! method_field('PUT') !!}
             @else
-                <form class="form-horizontal" method="post" action="{{ url('usuario/store') }}"
-                {{csrf_field()}}>
+                <form class="form-horizontal" method="post" action="{{ url('usuario/store') }}">
+                {{csrf_field()}}
                     @endif
 
                     {{csrf_field()}}
@@ -16,7 +16,7 @@
                             @if(isset($errors) && count($errors) > 0)
                                 <div class="alert alert-danger">
                                     @foreach($errors->all() as $error)
-                                        {{$error}}
+                                        <li>{{$error}}</li>
                                     @endforeach
                                 </div>
                             @endif
@@ -30,18 +30,6 @@
 
                                 </div>
                             </div>
-                            {{--<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">--}}
-                            {{--<label for="email" class="col-md-4 control-label">E-Mail Address</label>--}}
-
-                            {{--<div class="col-md-6">--}}
-                            {{--<input id="email" type="email" class="form-control" name="email"                                            required="" value="{{$users->email or old('email')}}">--}}
-                            {{--@if ($errors->has('email'))--}}
-                            {{--<span class="help-block">--}}
-                            {{--<strong>{{ $errors->first('email') }}</strong>--}}
-                            {{--</span>--}}
-                            {{--@endif--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label for="password" class="col-md-4 control-label">Senha</label>
@@ -94,6 +82,18 @@
                                     <input id="cpf" name="cpf" type="text" placeholder="CPF (colocar só números)"
                                            class="form-control input-md" required=""
                                            value="{{$users->cpf or old('cpf')}}">
+
+                                </div>
+                            </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="id_tipo_atividade"> Tipo de User</label>
+                                    <div class="col-md-4">
+                                        <select id="selectbasic" name="id_tipo" class="form-control">
+                                            @foreach($tipo as $t)
+                                                <option value="{{$t->id}}">{{$t->nome}}</option>
+                                            @endforeach
+                                        </select>
+
 
                                 </div>
                             </div> <input type="hidden" name="status" value="1">

@@ -9,7 +9,15 @@ class ActivityUserValidator extends LaravelValidator
 {
 
     protected $rules = [
-        ValidatorInterface::RULE_CREATE => [],
-        ValidatorInterface::RULE_UPDATE => [],
+        ValidatorInterface::RULE_CREATE => [
+            'presenca' => 'required',
+            'data_entrada' => 'required',
+            'data_saida' => 'required',
+        ],
+        ValidatorInterface::RULE_UPDATE => [
+            'presenca' => 'required',
+            'data_entrada' => 'required',
+            'data_saida' => 'required',
+        ],
    ];
 }
