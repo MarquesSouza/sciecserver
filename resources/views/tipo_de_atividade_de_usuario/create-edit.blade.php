@@ -1,4 +1,4 @@
-@extends('app')
+@extends('app2')
 @section('content')
     @if( isset($typeActivityUser))
         <form class="form-horizontal" method="post"

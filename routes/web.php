@@ -107,9 +107,9 @@ Route::get('evento/{id_evento}/atividade/show/{id}', 'ActivitiesController@show'
 Route::put('evento/{id_evento}/atividade/delete/{id}', 'ActivitiesController@destroy')->middleware('admin');//feito obs: mudar para exclusao logica
 Route::get('evento/{id_evento}/atividade/edit/{id}', 'ActivitiesController@edit')->middleware('admin');
 Route::put('evento/{id_evento}/atividade/update/{id}', 'ActivitiesController@update')->middleware('admin');
-Route::put('evento/{id_evento}/atividade/presenca/{id}', 'ActivitiesController@presenca')->middleware('admin');// feito
-Route::put('evento/{id_evento}/atividade/entrada/{id}', 'ActivitiesController@entrada')->middleware('admin');
-Route::put('evento/{id_evento}/atividade/saida/{id}', 'ActivitiesController@saida')->middleware('admin');
+Route::put('evento/{id_evento}/atividade/{id_atividade}/presenca/{id}', 'ActivitiesController@presenca')->middleware('admin');// feito
+Route::put('evento/{id_evento}/atividade/{id_atividade}/entrada/{id}', 'ActivitiesController@entrada')->middleware('admin');
+Route::put('evento/{id_evento}/atividade/{id_atividade}/saida/{id}', 'ActivitiesController@saida')->middleware('admin');
 /** ------------------------------------------Eventos(Usuario)-------------------------------------------------------------------------
  */
 Route::post('evento/inscricao_evento/{id}', 'EventsController@insc_evento')->middleware('auth');//feito

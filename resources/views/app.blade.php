@@ -44,7 +44,7 @@
 
             <!-- INICIO MENU MEUS CERTIFICADOS-->
             <li class="glyphicon-menu-down">
-                <a href="{{url('certificado/index')}}"><span class="fa fa-certificate"></span> <span class="xn-text">Meus Certificados</span></a>
+                <a href="{{url('/')}}"><span class="fa fa-certificate"></span> <span class="xn-text">Eventos</span></a>
             </li>
             <!-- FINAL MENU MEUS CERTIFICADOS-->
 
