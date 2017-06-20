@@ -179,11 +179,14 @@ class ActivitiesController extends Controller
     }
     /** ------------------------------------------Presença-------------------------------------------------------------------------
      */
-    public function presenca(Request $request,$id_evento,$id)
+    public function presenca(Request $request,$id_evento,$id_atividade,$id)
     {
-
-        return redirect('evento/'.$id_evento.'/atividade/frequencia/'.$id);
-
+        $dataForm = $request->all();
+        $atividade = ActivityUser::find($id);
+        $update = $atividade->update($dataForm);
+        if($update) {
+            return redirect('evento/' . $id_evento . '/atividade/frequencia/' . $id_atividade);
+        }
     }
 
     /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------

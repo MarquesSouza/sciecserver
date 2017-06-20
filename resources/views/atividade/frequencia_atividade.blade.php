@@ -38,8 +38,8 @@
                                     <td>{{ $a->data_saida }}</td>
                                     <td>
                                         <form class="form-horizontal" method="post"
-                                              action="{{ url('evento/'.$id_evento.'/atividade/entrada/'. $id) }}">
-                                            {!! method_field('PUT') !!}
+                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/entrada/'. $id) }}">
+                                        {!! method_field('PUT') !!}
                                             {{csrf_field()}}
                                             @if($a->presenca==1)
                                                 <input type="hidden" name="id_user" value="{{$a->id}}">
@@ -53,11 +53,10 @@
                                     </td>
                                     <td>
                                         <form class="form-horizontal" method="post"
-                                              action="{{ url('evento/'.$id_evento.'/atividade/saida/'. $id) }}">
-                                            {!! method_field('PUT') !!}
+                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/saida/'. $id) }}">
+                                        {!! method_field('PUT') !!}
                                             {{csrf_field()}}
                                             @if($a->presenca==1)
-                                                <input type="hidden" name="id_user" value="{{$a->id}}">
                                                 <button type="submit" id="" name="" class="btn btn-danger ">
                                                     Saida
                                                 </button>
@@ -68,24 +67,18 @@
                                     </td>
                                     <td>
                                         <form class="form-horizontal" method="post"
-                                              action="{{ url('evento/'.$id_evento.'/atividade/presenca/'. $id) }}">
+                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/presenca/'. $id) }}">
                                             {!! method_field('PUT') !!}
                                             {{csrf_field()}}
-                                    @if($a->presenca==1)
+                                                 @if($a->presenca==1)
                                                     <input type="hidden" name="presenca" value="0">
-                                                    <input type="hidden" name="id_user" value="{{$a->id}}">
                                                     <button type="submit" id="" name="" class="btn btn-danger ">
                                                         Desativar
                                                     </button>
 
-
-
-
-                                    @else
+                                              @else
                                             <input type="hidden" name="presenca" value="1">
-                                                <input type="hidden" name="id_user" value="{{$a->id}}">
-
-                                                <button type="submit" id="" name="" class="btn btn-success">Ativar
+                                               <button type="submit" id="" name="" class="btn btn-success">Ativar
                                             </button>
                                     @endif
                                         </form>
