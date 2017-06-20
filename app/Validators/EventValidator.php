@@ -9,7 +9,23 @@ class EventValidator extends LaravelValidator
 {
 
     protected $rules = [
-        ValidatorInterface::RULE_CREATE => [],
-        ValidatorInterface::RULE_UPDATE => [],
+        ValidatorInterface::RULE_CREATE => [
+              'nome' => 'required|min:3|max:100|',
+              'descricao' => 'required|min:5|max:1000|',
+              'status' => 'required',
+              'local' => 'required|min:3|max:100',
+              'data_inicio' => 'required',
+              'data_conclusao' => 'required',
+              'logoEvento' => 'required',
+        ],
+        ValidatorInterface::RULE_UPDATE => [
+            'nome' => 'required|min:3|max:100|',
+            'descricao' => 'required|min:5|max:1000|',
+            'status' => 'required',
+            'local' => 'required|min:3|max:100',
+            'data_inicio' => 'required',
+            'data_conclusao' => 'required',
+            'logoEvento' => 'required',
+        ],
    ];
 }
