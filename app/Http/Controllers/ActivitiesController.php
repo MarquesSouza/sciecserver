@@ -53,7 +53,7 @@ class ActivitiesController extends Controller
 
     /** ------------------------------------------Store-------------------------------------------------------------------------
      */
-    public function store(ActivityCreateRequest $request)
+    public function store(Request $request)
     {
 
         try {
@@ -103,17 +103,19 @@ class ActivitiesController extends Controller
 
     /** ------------------------------------------Edit-------------------------------------------------------------------------
      */
-    public function edit($id)
+    public function edit($id_evento,$id)
     {
+
+        $evento = Event::find($id_evento);
 
         $activity = $this->repository->find($id);
 
-        return view('activities.edit', compact('activity'));
+        return view('atividade.create-edit', compact('activity','evento'));
     }
 
     /** ------------------------------------------Update-------------------------------------------------------------------------
      */
-    public function update(ActivityUpdateRequest $request, $id)
+    public function update(Request $request, $id_evento,$id)
     {
 
         try {
@@ -162,10 +164,11 @@ class ActivitiesController extends Controller
 
     /** ------------------------------------------Formulario Cadastro-------------------------------------------------------------------------
      */
-    public function form_cad()
+    public function form_cad($id)
     {
         $tipoAtividade=TypeActivity::all();
-        return view('atividade.cad_atividade',compact('tipoAtividade'));
+        $evento=Event::find($id);
+        return view('atividade.create-edit',compact('tipoAtividade','evento'));
     }
     /** ------------------------------------------Formulario Inscrição Atividade-------------------------------------------------------------------------
      */
