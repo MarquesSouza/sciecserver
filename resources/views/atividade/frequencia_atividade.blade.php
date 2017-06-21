@@ -16,9 +16,9 @@
                             <thead>
 
                             <tr>
-                                <th>Nome</th>
-                                <th>Email</th>
-                                <th>Telefone</th>
+                                <th>Usuario</th>
+                                <th>Atividade</th>
+                                <th>Tipo de Atividade do Usuario</th>
                                 <th>Data de Entrada</th>
                                 <th>Data de Saida</th>
                                 <th>Entrada</th>
@@ -31,9 +31,9 @@
 
                             @forelse ($lista as $a)
                                 <tr>
-                                    <td>{{ $a->name }}</td>
-                                    <td>{{ $a->email }}</td>
-                                    <td>{{ $a->telefone }}</td>
+                                    <td>{{ $a->id }}</td>
+                                    <td>{{ $a->id_activity }}</td>
+                                    <td>{{ $a->id_type_activity_user }}</td>
                                     <td>{{ $a->data_entrada }}</td>
                                     <td>{{ $a->data_saida }}</td>
                                     <td>

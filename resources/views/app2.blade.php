@@ -115,22 +115,7 @@
             </li>
             <!-- FINAL MENU ARTIGOS-->
 
-            <!-- INICIO MENU PARTICIPAÇÃO-->
-            <li class="xn-openable">
-                <a href="#"><span class="fa fa-university"></span> <span class="xn-text">Participação</span></a>
-                <ul>
-                    <li><a href="{{url('participacao/cad')}}">Cadastrar</a></li>
-                    <li><a href="{{url('participacao/index')}}">Listar</a></li>
-                </ul>
-            </li>
-
-            <!-- FINAL MENU PARTICIPAÇÃO-->
-
-            <!-- INICIO MENU MEUS CERTIFICADOS-->
-            <li class="glyphicon-menu-down">
-                <a href="{{url('certificado/index')}}"><span class="fa fa-certificate"></span> <span class="xn-text">Meus Certificados</span></a>
-            </li>
-            <!-- FINAL MENU MEUS CERTIFICADOS-->
+          
 
             <!-- INICIO MENU MEUS EVENTOS-->
             <li class="glyphicon-menu-down">
@@ -139,10 +124,7 @@
             <!-- FINAL MENU MEUS EVENTOS-->
 
 
-            <li class="glyphicon-menu-down">
-                <a href="{{url('frequencia/index')}}"><span class="fa fa-key"></span> <span class="xn-text">Gerenciar Frequência</span></a>
-            </li>
-            <!-- FINAL MENU GERENCIAR FREQUENCIA-->
+
 
         <!-- END BARRA DE NAVEGAÇÃO LATERAL -->
     </div>
