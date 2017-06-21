@@ -103,7 +103,7 @@ class PopulacaoTeste extends Seeder
             'descricao' => 'Palestras 2017',
             'status'=> '1',
         ]);
-
+        /*
         //Eventos
         factory(App\Entities\Event::class)->create([
             'nome' => 'II Semana Agroinformática de Paraíso do Tocantins',
@@ -251,7 +251,7 @@ class PopulacaoTeste extends Seeder
             'data_conclusao'=> '2017-07-08 00:02:00',
             'id_evento'=> 6 ,
             'id_tipo_atividade'=> 2,
-        ]);
+        ]);*/
 
         //Tipo de atividade do usuário
         factory(App\Entities\TypeActivityUser::class)->create([
@@ -391,7 +391,7 @@ class PopulacaoTeste extends Seeder
             'status' => 1,
             'id_instutions' => 1,
         ]);
-        factory(App\Entities\ActivityUser::class)->create([
+        /*factory(App\Entities\ActivityUser::class)->create([
             'status'=> '1',
             'presenca' => 1,
             'data_entrada' => '2017-07-10 00:00:00',
@@ -409,5 +409,6 @@ class PopulacaoTeste extends Seeder
             'id_activity' => 4,
             'id_type_activity_user' => 1,
         ]);
+        */
     }
 }

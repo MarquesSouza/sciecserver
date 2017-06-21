@@ -214,9 +214,9 @@ class EventsController extends Controller
         $userEvent= new UserEvent();
         $userEvent->id_users = Auth::user()->id;
         $userEvent->id_evento = $id;
-        $userEvent->setAttribute('id_articles',1);
-        $userEvent->setAttribute('id_participation',1);
-        $userEvent->setAttribute('status',1);
+        $userEvent->id_articles=1;
+        $userEvent->id_participation=1;
+        $userEvent->status=1;
         if($userEvent->valida()){
             $userEvent->save();
             return redirect('evento/'.$id.'/atividade/insc_atividade');
