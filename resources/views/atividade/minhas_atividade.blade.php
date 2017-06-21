@@ -6,13 +6,19 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Atividades do Evento</h3>
-                    <a href="{{url('evento/'.$id_evento.'/atividade/insc_atividade')}}"> <!--Inserir link rota cadastro de atividade -->
-                        <button class="btn btn-success">Cadastrar Atividade</button>
-                    </a>
+
                 </div>
                 <div class="panel-body">
 
                     <table class="table datatable">
+                        @if($status!=3)
+
+                            <a href="{{url('evento/'.$id_evento.'/atividade/insc_atividade')}}"> <!--Inserir link rota cadastro de atividade -->
+                                <button class="btn btn-success">Cadastrar Atividade</button>
+                            </a>
+                        @endif
+                        <br>
+                            <br>
                         <thead>
 
                         <tr>
@@ -28,7 +34,7 @@
                         <tbody>
                         <tr>
                             @forelse ($activities as $a)
-                                @if($a->status==1)
+
                                     <form action="{{url('evento/'.$a->id_evento.'/atividade/insc_atividade/'.$a->id)}}"
                                           method="post">
                                         {{csrf_field()}}
@@ -39,13 +45,15 @@
                                         <td>{{ $a->local }}</td>
 
                                         <td>
+                                            @if($status==3)
                                             <a href="{{url('certificado/index')}}"
                                                class="btn-success btn btn-default btn-sm">Visualizar</a>
+                                            @endif
+
                                         </td>
 
                                         </td>
                                     </form>
-                                @endif
 
                         </tr>
                         </tbody>
