@@ -13,8 +13,7 @@
                     </div>
                     <p><a href="{{url('evento/show/'.$i->id)}}" class="btn btn-success"
                           role="button">Inscreva-se!</a>
-                        <a href="{{url('evento/detalhar_evento/'.$i->id)}}" class="btn btn-default" role="button">Mais
-                            Informações</a></p>
+                      </p>
                 </div>
 
              @endif
