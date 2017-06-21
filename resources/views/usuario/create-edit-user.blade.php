@@ -12,7 +12,7 @@
                     <fieldset>
                         <div class="container">
                             <hr>
-                            <legend>{{$titulo}}</legend>
+                            <h1 class="text-center">{{$titulo}}</h1>
                             @if(isset($errors) && count($errors) > 0)
                                 <div class="alert alert-danger">
                                     @foreach($errors->all() as $error)
@@ -22,19 +22,30 @@
                             @endif
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Nome</label>
-                                <div class="col-md-5">
+                                <label class="col-md-3 control-label">Nome</label>
+                                <div class="col-md-6">
                                     <input id="name" name="name" type="text" placeholder="Nome"
                                            class="form-control input-md" required=""
                                            value="{{$users->name or old('name')}}">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="cpf">CPF</label>
+                                <div class="col-md-6">
+                                    <input id="cpf" name="cpf" type="text" placeholder="CPF (colocar só números)"
+                                           class="form-control input-md" required=""
+                                           value="{{$users->cpf or old('cpf')}}">
 
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Senha</label>
 
-                                <div class="col-md-4">
+                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <label for="password" class="col-md-3 control-label">Senha</label>
+
+                                <div class="col-md-6">
                                     <input id="password" type="password" placeholder="senha" class="form-control"
                                            name="password" required value="{{$user->password or old('password')}}">
 
@@ -46,63 +57,60 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="password-confirm" class="col-md-4 control-label">Confirmar Senha</label>
+                                <label for="password-confirm" class="col-md-3 control-label">Confirmar Senha</label>
 
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <input id="password-confirm" type="password" placeholder="confirmar senha"
                                            class="form-control" name="senha" required value="{{$user->password or old('password')}}">
                                 </div>
                             </div>
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="email">E-mail</label>
-                                <div class="col-md-4">
-                                    <input id="email" name="email" type="text" placeholder="e-mail"
+                                <label class="col-md-3 control-label" for="email">E-mail</label>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-envelope-o"></span></span>
+                                        <input id="email" name="email" type="text" placeholder="e-mail"
                                            class="form-control input-md"
                                            required="" value="{{$users->email or old('email')}}">
-
+                                    </div>
                                 </div>
                             </div>
 
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="telefone">Telefone</label>
-                                <div class="col-md-4">
-                                    <input id="telefone" name="telefone" type="text" placeholder="telefone"
+                                <label class="col-md-3 control-label" for="telefone">Telefone</label>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                                        <input id="telefone" name="telefone" type="text" placeholder="telefone"
                                            class="form-control input-md" required=""
                                            value="{{$users->telefone or old('telefone')}}">
-
+                                    </div>
                                 </div>
                             </div>
 
 
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="cpf">CPF</label>
-                                <div class="col-md-4">
-                                    <input id="cpf" name="cpf" type="text" placeholder="CPF (colocar só números)"
-                                           class="form-control input-md" required=""
-                                           value="{{$users->cpf or old('cpf')}}">
-
-                                </div>
-                            </div>
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="id_tipo_atividade"> Tipo de User</label>
-                                    <div class="col-md-4">
-                                        <select id="selectbasic" name="id_tipo" class="form-control">
+                                    <label class="col-md-3 control-label" for="id_tipo_atividade"> Tipo de User</label>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-user"></span></span>
+                                            <select id="selectbasic" name="id_tipo" class="form-control">
                                             @foreach($tipo as $t)
                                                 <option value="{{$t->id}}">{{$t->nome}}</option>
                                             @endforeach
-                                        </select>
-
-
-                                </div>
-                            </div> <input type="hidden" name="status" value="1">
+                                            </select>
+                                         </div>
+                                    </div>
+                            </div>
+                            <input type="hidden" name="status" value="1">
 
 
                             <!-- Button -->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for=""></label>
-                                <div class="col-md-4">
+                                <label class="col-md-5 control-label" for=""></label>
+                                <div class="col-md-5">
                                     <button id="" name="" class="btn btn-primary">Cadastrar</button>
                                 </div>
                             </div>

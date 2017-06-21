@@ -61,7 +61,7 @@ class UsersController extends Controller
 
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
-
+            $request['password']= bcrypt($request->input('password'));
             $user = $this->repository->create($request->all());
 
             $response = [
@@ -130,7 +130,7 @@ class UsersController extends Controller
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
-
+            $request['password']= bcrypt($request->input('password'));
             $user = $this->repository->update($request->all(), $id);
 
             $response = [

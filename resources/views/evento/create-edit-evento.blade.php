@@ -2,7 +2,7 @@
 @extends('app2')
 
 @section('content')
-    <div class="page-content-wrap">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <!-- START DEFAULT DATATABLE -->
@@ -19,9 +19,9 @@
 
                                         {{csrf_field()}}
                                         <fieldset>
-                                            <div class="container">
+                                            <div class="container-fluid">
                                                 <hr>
-                                                <legend>{{$titulo}}</legend>
+                                                <legend class="text-center">{{$titulo}}</legend>
                                                 @if(isset($errors) && count($errors) > 0)
                                                     <div class="alert alert-danger">
                                                         <ul>
@@ -30,7 +30,6 @@
                                                             @endforeach
                                                         </ul>
                                                     </div>
-
                                                 @endif
 
                                                 <div class="form-group">
@@ -45,10 +44,15 @@
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label">Logo do Evento</label>
                                                     <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><span class="fa fa-picture-o"></span></span>
                                                         <input id="nome" name="nome" type="text" placeholder=""
                                                                class="form-control input-md" required="" value="{{$events->logoEvento or old('logoEvento')}}">
-</div></div>
-                                                        <div class="form-group">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                    <div class="form-group">
                                                     <label class="col-md-3 control-label">Descrição</label>
                                                     <div class="col-md-6">
                                                         <input id="descricao" name="descricao" type="text" placeholder=""
