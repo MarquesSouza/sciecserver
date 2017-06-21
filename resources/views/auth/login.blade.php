@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">
-                        <a href="{{ route('password.request') }}" class="btn btn-link btn-block">Esqueceu sua senha?</a>
+                        <a  href="" name="{{ route('password.request') }}" class="btn btn-link btn-block">Esqueceu sua senha?</a>
                     </div>
                     <div class="col-md-6">
                         <button class="btn btn-primary btn-block">Login</button>

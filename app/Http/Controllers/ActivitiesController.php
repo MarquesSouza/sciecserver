@@ -164,20 +164,32 @@ class ActivitiesController extends Controller
     }
     /** ------------------------------------------Entrada-------------------------------------------------------------------------
      */
-    public function entrada(Request $request,$id_evento,$id)
-    {   //tem que arrumar
+    public function entrada($id_evento,$id_atividade,$id)
+    {
+        date_default_timezone_set('America/Araguaina');
 
-            return redirect('evento/'.$id_evento.'/atividade/frequencia/'.$id);
-
+        $dataForm = ['data_entrada'=>date('Y-m-d H:i:s')];
+        $atividade=ActivityUser::find($id);
+        $update = $atividade->update($dataForm);
+        if($update) {
+            return redirect('evento/' . $id_evento . '/atividade/frequencia/' . $id_atividade);
+        }
     }
+
     /** ------------------------------------------Sainda-------------------------------------------------------------------------
      */
-    public function saida(Request $request,$id_evento,$id)
-    {   //tem que arrumar
+    public function saida($id_evento,$id_atividade,$id)
+    {
+        date_default_timezone_set('America/Araguaina');
 
-        return redirect('evento/'.$id_evento.'/atividade/frequencia/'.$id);
-
+        $dataForm = ['data_saida'=>date('Y-m-d H:i:s')];
+        $atividade=ActivityUser::find($id);
+        $update = $atividade->update($dataForm);
+        if($update) {
+            return redirect('evento/' . $id_evento . '/atividade/frequencia/' . $id_atividade);
+        }
     }
+
     /** ------------------------------------------Presença-------------------------------------------------------------------------
      */
     public function presenca(Request $request,$id_evento,$id_atividade,$id)
@@ -286,9 +298,9 @@ class ActivitiesController extends Controller
      */
     public function lista_user_atividade($id_evento,$id){
         $atividadeUser = new ActivityUser();
-        $lista=$atividadeUser->listaAtividade($id,1);
+        $lista=$atividadeUser->where('id_activity','=',$id)->get();
 
-        return view('atividade.frequencia_atividade', compact('lista','id_evento','id'));
+          return view('atividade.frequencia_atividade', compact('lista','id_evento','id'));
 
     }
 
