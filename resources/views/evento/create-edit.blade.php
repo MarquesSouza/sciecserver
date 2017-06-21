@@ -36,10 +36,12 @@
                             <div class="form-group">
                                 <label class="col-md-3 col-xs-12 control-label">Descrição</label>
                                 <div class="col-md-6 col-xs-12">
-                                    <input id="descricao" name="descricao" type="text" placeholder=""
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-file-text"></span></span>
+                                        <input id="descricao" name="descricao" type="text" placeholder=""
                                            class="form-control input-md" required=""
                                            value="{{$event->descricao or old('descricao')}}">
-
+                                    </div>
                                 </div>
                             </div>
 
@@ -83,10 +85,12 @@
                             <div class="form-group">
                                 <label class="col-md-3 col-xs-12 control-label">Logo do Evento</label>
                                 <div class="col-md-6 col-xs-12">
-                                    <input id="logoEvento" name="logoEvento"
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-picture-o"></span></span>
+                                        <input id="logoEvento" name="logoEvento"
                                            placeholder="" class="form-control input-md" required=""
                                            type="file" value="{{$event->logoEvento or old('logoEvento')}}">
-
+                                    </div>
                                 </div>
                             </div>
 
