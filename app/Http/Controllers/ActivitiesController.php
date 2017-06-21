@@ -293,6 +293,10 @@ class ActivitiesController extends Controller
 
     }
 
+    public function PDF($id_evento,$id){
+
+    }
+
 
 
 }

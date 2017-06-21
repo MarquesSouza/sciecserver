@@ -165,6 +165,13 @@ Route::get('callback', function (Request $request){
 
 })->middleware('auth');
 
+//PDF
+
+Route::get('pdf', function () {
+    $pdf = PDF::loadView('certificado/pdf')->setPaper('a4', 'landscape');
+    return $pdf->stream('meucertificado.pdf');
+})->middleware('auth');
+
 
 
 
