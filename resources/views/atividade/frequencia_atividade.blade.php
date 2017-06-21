@@ -1,4 +1,4 @@
-@extends('app')
+@extends('app2')
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -57,6 +57,7 @@
                                         {!! method_field('PUT') !!}
                                             {{csrf_field()}}
                                             @if($a->presenca==1)
+
                                                 <button type="submit" id="" name="" class="btn btn-danger ">
                                                     Saida
                                                 </button>
