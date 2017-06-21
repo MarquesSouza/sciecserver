@@ -30,9 +30,11 @@
                 <div class="form-group">
                     <label class="col-md-3 col-xs-12 control-label">Descrição</label>
                     <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-file-text"></span></span>
                         <input id="descricao" name="descricao" type="text" placeholder=""
                                class="form-control input-md" required=""  value="{{$activity->descricao or old('descricao')}}">
-
+                        </div>
                     </div>
                 </div>
 

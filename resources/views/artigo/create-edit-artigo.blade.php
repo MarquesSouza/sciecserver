@@ -70,12 +70,15 @@
                         <label class="col-md-3 col-xs-12 control-label"
                                for="autores">Autores</label>
                         <div class="col-md-6 col-xs-12">
-                            <input id="autores" name="autores"
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-users"></span></span>
+                                <input id="autores" name="autores"
                                    type="text" placeholder=""
                                    class="form-control input-md"
                                    required=""
                                    value="{{$article->autores or old('autores')}}">
-                        </div>
+                            </div>
+                         </div>
                     </div>
 
                     <!-- Text input-->
