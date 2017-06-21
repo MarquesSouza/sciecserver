@@ -18,7 +18,9 @@ use App\Http\Requests\ActivityCreateRequest;
 use App\Http\Requests\ActivityUpdateRequest;
 use App\Repositories\ActivityRepository;
 use App\Validators\ActivityValidator;
-
+use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade;
+use Barryvdh\DomPDF\ServiceProvider;
 
 class ActivitiesController extends Controller
 {
@@ -262,8 +264,7 @@ class ActivitiesController extends Controller
         $status=$e->status;
 
         }
-
-        return view('atividade.minhas_atividade', compact('activities','id_evento','status'));
+       return view('atividade.minhas_atividade', compact('activities','id_evento','status'));
 
     }
     /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
@@ -304,8 +305,18 @@ class ActivitiesController extends Controller
 
     }
 
-    public function PDF($id_evento,$id){
+    public function pdf($id_evento,$id){
+        $AtividadeUser = new ActivityUser();
+        $AtividadeUser->id_users = Auth::user()->id;
+        $AtividadeUser->id_activity = $id;
+        $AtividadeUser->id_type_activity_user = 1;
+        $retorno=$AtividadeUser->certificado();
 
+
+
+        $pdf = \PDF::loadView('certificado.pdf',compact('retorno'))->setPaper('a4', 'landscape');
+        return $pdf->stream('meucertificado.pdf');
+        //}
     }
 
 

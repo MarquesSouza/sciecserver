@@ -167,10 +167,27 @@ Route::get('callback', function (Request $request){
 
 //PDF
 
-Route::get('pdf', function () {
-    $pdf = PDF::loadView('certificado/pdf')->setPaper('a4', 'landscape');
+Route::get('evento/{id_evento}/atividade/{id}/pdf2', function () {
+   // $AtividadeUser = new ActivityUser();
+   // $AtividadeUser->id_users = Auth::user()->id;
+   // $AtividadeUser->id_activity = $id;
+   // $AtividadeUser->id_type_activity_user = 1;
+   // $retorno=$AtividadeUser->certificado();
+
+// foreach ($retorno as $r){
+//     echo 'participante: '.$r->name .' no evento: '.$r->nome.' no periodo de: '.$r->data_inicio.' ate '. $r->data_conclusao.' no '.$r->local.' Quantidade de Horas '.$r->hora;
+//return view('certificado.pdf');
+    $pdf = PDF::loadView('certificado.pdf')->setPaper('a4', 'landscape');
     return $pdf->stream('meucertificado.pdf');
+
 })->middleware('auth');
+
+Route::get('evento/{id_evento}/atividade/{id}/pdf','ActivitiesController@pdf');
+
+
+
+
+
 
 
 

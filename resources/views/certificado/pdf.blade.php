@@ -28,12 +28,16 @@
 </div>
 <div style="position: absolute; top: 380px; left: 150px; right: 150px;">
     <div style="text-align: justify; font-size: 20px">
-        <p>CERTIFICAMOS QUE <code>{aluno.nome}</code> INSCRITO SOB O CPF <code>{aluno.cpf}</code>PARTICIPOU DO EVENTO
-            <code>{evento.nome}</code> COM CARGA HORÁRIA TOTAL DE <code>{carga.hóraria.evento}</code> NO(S) DIA(S)
-            <code>{data.evento}</code> QUE OCORREU EM <code>{instituicao.nome}</code> PARTICIPOU TAMBÉM DAS
+        @foreach($retorno as $r)
+
+            <p>CERTIFICAMOS QUE <b>{{$r->name}}</b> INSCRITO SOB O CPF  <b>{{$r->cpf}}</b> PARTICIPOU DO EVENTO
+                <b>{{$r->nome}}</b> COM CARGA HORÁRIA TOTAL DE  <b>{{$r->hora}}</b> NO(S) DIA(S)
+                <b>{{$r->data_inicio}}</b> a  <b>{{$r->data_conclusao}}</b> QUE OCORREU EM  <b>{{$r->local}}</b> PARTICIPOU TAMBÉM DAS
             ATIVIDADES LISTADAS NO VERSO DESTE CERTIFICADO.
         </p>
     </div>
+
+        @endforeach
 </div> <!--
 <div class="page-break"></div>  <!-- Quebra de Página
 <div>

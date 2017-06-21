@@ -46,7 +46,7 @@
 
                                         <td>
                                             @if($status==3)
-                                            <a href="{{url('certificado/index')}}"
+                                            <a href="{{url('evento/'.$a->id_evento.'/atividade/'.$a->id.'/pdf')}}"
                                                class="btn-success btn btn-default btn-sm">Visualizar</a>
                                             @endif
 
