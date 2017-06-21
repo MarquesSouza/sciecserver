@@ -44,10 +44,15 @@
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label">Logo do Evento</label>
                                                     <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><span class="fa fa-picture-o"></span></span>
                                                         <input id="nome" name="nome" type="text" placeholder=""
                                                                class="form-control input-md" required="" value="{{$events->logoEvento or old('logoEvento')}}">
-</div></div>
-                                                        <div class="form-group">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                    <div class="form-group">
                                                     <label class="col-md-3 control-label">Descrição</label>
                                                     <div class="col-md-6">
                                                         <input id="descricao" name="descricao" type="text" placeholder=""
