@@ -71,11 +71,10 @@
                                             {!! method_field('PUT') !!}
                                             {{csrf_field()}}
                                                  @if($a->presenca==1)
-                                                    <input type="hidden" name="presenca" value="1">
+                                                    <input type="hidden" name="presenca" value="0">
                                                     <button type="submit" id="" name="" class="btn btn-danger ">
                                                         Desativar
                                                     </button>
-
                                               @else
                                             <input type="hidden" name="presenca" value="1">
                                                <button type="submit" id="" name="" class="btn btn-success">Ativar
