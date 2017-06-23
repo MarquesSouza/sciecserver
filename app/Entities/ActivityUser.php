@@ -80,11 +80,12 @@ class ActivityUser extends Model implements Transformable
         };
         return $teste;
     }
-    public function listarFrequencia($id_atividade,$id_user,$id_type_activity_user){
-        $data[]=['id_type_activity_user','=',$id_type_activity_user];
-        $data[]=['id_activity','=',$id_atividade];
-        $data[]=['id_users','=',$id_user];
-        $retorno  = DB::table('activity_users')->where($data)->get();
+    public function listarFrequencia($id_atividade){
+        $retorno  = DB::select("select au.id as id_activiUser, au.id_users, au.id_activity,tcu.nome as tipo_atividade_user, au.presenca, u.name,  u.cpf, au.data_entrada, au.data_saida 
+          from activity_users as au 
+          left join users as u on au.id_users = u.id 
+          left join type_activity_users as tcu on au.id_type_activity_user= tcu.id 
+          where au.id_activity ='".$id_atividade."'");
 
         return $retorno;
 

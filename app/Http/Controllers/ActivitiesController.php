@@ -299,9 +299,9 @@ class ActivitiesController extends Controller
      */
     public function lista_user_atividade($id_evento,$id){
         $atividadeUser = new ActivityUser();
-        $lista=$atividadeUser->where('id_activity','=',$id)->get();
-
-          return view('atividade.frequencia_atividade', compact('lista','id_evento','id'));
+        $lista=$atividadeUser->listarFrequencia($id);
+        //dd($lista);
+         return view('atividade.frequencia_atividade', compact('lista','id_evento','id'));
 
     }
 

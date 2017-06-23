@@ -17,8 +17,8 @@
 
                             <tr>
                                 <th>Usuario</th>
-                                <th>Atividade</th>
                                 <th>Tipo de Atividade do Usuario</th>
+                                <th>CPF</th>
                                 <th>Data de Entrada</th>
                                 <th>Data de Saida</th>
                                 <th>Entrada</th>
@@ -31,18 +31,18 @@
 
                             @forelse ($lista as $a)
                                 <tr>
-                                    <td>{{ $a->id }}</td>
-                                    <td>{{ $a->id_activity }}</td>
-                                    <td>{{ $a->id_type_activity_user }}</td>
+                                    <td>{{ $a->name }}</td>
+                                    <td>{{ $a->tipo_atividade_user }}</td>
+                                    <td>{{ $a->cpf }}</td>
                                     <td>{{ $a->data_entrada }}</td>
                                     <td>{{ $a->data_saida }}</td>
                                     <td>
                                         <form class="form-horizontal" method="post"
-                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/entrada/'. $a->id) }}">
+                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/entrada/'. $a->id_activiUser) }}">
                                         {!! method_field('PUT') !!}
                                             {{csrf_field()}}
                                             @if($a->presenca==1)
-                                                <input type="hidden" name="id_user" value="{{$a->id}}">
+
                                                 <button type="submit" id="" name="" class="btn btn-danger ">
                                                     Entrada
                                                 </button>
@@ -53,7 +53,7 @@
                                     </td>
                                     <td>
                                         <form class="form-horizontal" method="post"
-                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/saida/'. $a->id) }}">
+                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/saida/'. $a->id_activiUser) }}">
                                         {!! method_field('PUT') !!}
                                             {{csrf_field()}}
                                             @if($a->presenca==1)
@@ -68,7 +68,7 @@
                                     </td>
                                     <td>
                                         <form class="form-horizontal" method="post"
-                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/presenca/'. $a->id) }}">
+                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/presenca/'. $a->id_activiUser) }}">
                                             {!! method_field('PUT') !!}
                                             {{csrf_field()}}
                                                  @if($a->presenca==1)
