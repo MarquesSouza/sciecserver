@@ -309,13 +309,19 @@ class ActivitiesController extends Controller
         $AtividadeUser = new ActivityUser();
         $AtividadeUser->id_users = Auth::user()->id;
         $AtividadeUser->id_activity = $id;
-        $AtividadeUser->id_type_activity_user = 1;
         $retorno=$AtividadeUser->certificado();
 
+        foreach ($retorno as $r=>$a){
+           if($a->qtdhoras){
+               $horas[]=$a->qtdhoras;
 
+           }
+        }
 
-        $pdf = \PDF::loadView('certificado.pdf',compact('retorno'))->setPaper('a4', 'landscape');
-        return $pdf->stream('meucertificado.pdf');
+       // dd($horas);
+        dd($retorno);
+       // $pdf = \PDF::loadView('certificado.pdf',compact('retorno'))->setPaper('a4', 'landscape');
+       // return $pdf->stream('meucertificado.pdf');
         //}
     }
 

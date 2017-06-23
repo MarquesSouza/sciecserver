@@ -91,8 +91,13 @@ class ActivityUser extends Model implements Transformable
     }
     public  function  certificado(){
 
-        $retorno  = DB::select("select * from activity_users as au left join users as u on au.id_users = u.id 
-          left JOIN activities as a on au.id_activity = a.id LEFT join events as e on a.id_evento =e.id where au.id_users ='".$this->id_users."' and id_activity = '".$this->id_activity."'");
+        $retorno  = DB::select("select a.hora as qtdhoras,au.id as id_activiUser, au.id_users, au.id_activity,tcu.nome as tipo_atividade_user, au.presenca, u.name, a.nome as atividade, e.nome as evento, u.cpf, e.local, e.data_inicio, e.data_conclusao 
+          from activity_users as au 
+          left join users as u on au.id_users = u.id 
+          left join activities as a on au.id_activity = a.id 
+          left join events as e on a.id_evento =e.id 
+          left join type_activity_users as tcu on au.id_type_activity_user= tcu.id 
+          where au.id_users ='".$this->id_users."'");
 
         return $retorno;
     }
