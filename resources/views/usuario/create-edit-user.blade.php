@@ -105,6 +105,7 @@
                                     </div>
                             </div>
                             <input type="hidden" name="status" value="1">
+                            <input type="hidden" name="remember_token" value="{{ str_random(10)}}">
 
 
                             <!-- Button -->

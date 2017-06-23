@@ -21,6 +21,7 @@ class User extends Authenticatable
                             'cpf',
                             'telefone',
                             'status',
+                             'remember_token',
     ];
 
     /**
