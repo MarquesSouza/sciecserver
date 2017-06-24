@@ -222,10 +222,11 @@ class ActivitiesController extends Controller
         $id_user=Auth::user()->id;
         $id_evento=$id;
         $atividadeUser = new ActivityUser();
-       /* if($activities!=''){
+        if($activities!=''){
 
             $teste=$atividadeUser->colisaoAtividade($id_evento);
-            $lista=[1,2,3];
+            dd($teste);
+            $lista=[1,2,3,4];
             for ($i=0;$i<count($lista);$i++){
                 for($j=0;$j<count($lista);$j++){
                     if($lista[$i]!=$lista[$j]){
@@ -243,10 +244,10 @@ class ActivitiesController extends Controller
                     }
                 }
             }
-            return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
+          //  return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
 
-        }*/
-        return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
+        }
+       // return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
 
 
     }
@@ -311,15 +312,18 @@ class ActivitiesController extends Controller
         $AtividadeUser->id_activity = $id;
         $retorno=$AtividadeUser->certificado();
 
+        $SOMA = date( "H:i:s", strtotime( '00:00:00' ) );;
         foreach ($retorno as $r=>$a){
            if($a->qtdhoras){
-               $horas[]=$a->qtdhoras;
+
+               $SOMA = date( "H:i:s", strtotime("$SOMA +   ".date( 'H', strtotime( $a->qtdhoras ) )." hours".
+               date( 'i', strtotime( $a->qtdhoras ) )." minute ".date( 's', strtotime( $a->qtdhoras ) )."second") );
 
            }
+           //if($a->)
         }
-
-       // dd($horas);
-        dd($retorno);
+        dd($SOMA);
+        // dd($retorno);
        // $pdf = \PDF::loadView('certificado.pdf',compact('retorno'))->setPaper('a4', 'landscape');
        // return $pdf->stream('meucertificado.pdf');
         //}
