@@ -182,7 +182,7 @@ Route::get('evento/{id_evento}/atividade/{id}/pdf2', function () {
 
 })->middleware('auth');
 
-Route::get('evento/{id_evento}/atividade/{id}/pdf','ActivitiesController@pdf');
+Route::get('evento/{id_evento}/pdf','ActivitiesController@pdf');
 
 
 
