@@ -17,9 +17,10 @@
                                 <button class="btn btn-success">Cadastrar Atividade</button>
                             </a>
                             @else
+                            @if($presenca==1)
                             <a href="{{url('evento/'.$id_evento.'/pdf')}}"
                                class="btn-success btn btn-default btn-sm">Certificado</a>
-
+                            @endif
                         @endif
 
                         <br>

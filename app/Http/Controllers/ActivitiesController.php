@@ -239,9 +239,13 @@ class ActivitiesController extends Controller
         foreach($evento as $e){
             $status=$e->status;
         }
-
+        $presenca=0;
+        foreach ($retorno as $r=>$a){
+            if($a->presenca==1){
+                $presenca=1;
+            }}
         //dd($retorno);
-       return view('atividade.minhas_atividade', compact('retorno','id_evento','status'));
+       return view('atividade.minhas_atividade', compact('retorno','id_evento','status','presenca'));
 
     }
     /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
