@@ -35,6 +35,8 @@
                         <img src="{{asset('assets/images/users/no-image.jpg')}}" alt="John Doe"/>
                     </div>
                     <div class="profile-data">
+
+                        {{--/* COMENTADO PARA TESTE */--}}
                         {{--<div class="profile-data-name">{{ Auth::user()->name }}</div>--}}
                         <div class="profile-data-title">Tipo do Usuario</div>
                     </div>
