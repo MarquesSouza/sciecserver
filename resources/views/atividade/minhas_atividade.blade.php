@@ -16,51 +16,44 @@
                             <a href="{{url('evento/'.$id_evento.'/atividade/insc_atividade')}}"> <!--Inserir link rota cadastro de atividade -->
                                 <button class="btn btn-success">Cadastrar Atividade</button>
                             </a>
+                            @else
+                            @if($presenca==1)
+                            <a href="{{url('evento/'.$id_evento.'/pdf')}}"
+                               class="btn-success btn btn-default btn-sm">Certificado</a>
+                            @endif
                         @endif
+
                         <br>
                             <br>
                         <thead>
 
                         <tr>
-                            <th>Nome</th>
-                            <th>Descrição</th>
-                            <th>Status</th>
+                            <th>Atividade</th>
+                            <th>Descrição da Atividade</th>
+                            <th>Tipo de Participação</th>
                             <th>Carg. Horária</th>
                             <th>Local</th>
-                            <th>Certificados</th>
+
                         </tr>
                         </thead>
 
                         <tbody>
                         <tr>
-                            @forelse ($activities as $a)
+                            @foreach ($retorno as $r=>$a)
 
-                                    <form action="{{url('evento/'.$a->id_evento.'/atividade/insc_atividade/'.$a->id)}}"
-                                          method="post">
-                                        {{csrf_field()}}
-                                        <td>{{ $a->nome }}</td>
+
+                                        <td>{{ $a->atividade }}</td>
                                         <td>{{ $a->descricao }}</td>
-                                        <td>{{ $a->status }}</td>
-                                        <td>{{ $a->hora }}</td>
+                                        <td>{{ $a->tipo_atividade_user }}</td>
+                                        <td>{{ $a->qtdhoras }}</td>
                                         <td>{{ $a->local }}</td>
 
-                                        <td>
-                                            @if($status==3)
-                                            <a href="{{url('evento/'.$a->id_evento.'/atividade/'.$a->id.'/pdf')}}"
-                                               class="btn-success btn btn-default btn-sm">Visualizar</a>
-                                            @endif
 
-                                        </td>
-
-                                        </td>
-                                    </form>
 
                         </tr>
                         </tbody>
-                        @empty
 
-                            <p>No activities</p>
-                        @endforelse
+                        @endforeach
                     </table>
 
                 </div>

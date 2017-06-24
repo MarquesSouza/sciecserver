@@ -2,6 +2,7 @@
 
 namespace App\Entities;
 
+
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
@@ -60,22 +61,38 @@ class ActivityUser extends Model implements Transformable
         }
         return true;
     }
+
+    /**
+     * @param $id_evento
+     * @return mixed
+     */
     public function colisaoAtividade($id_evento){
         $atividade = Activity::all();
         $activities = $atividade->where('id_evento', '=', $id_evento);
+        //dd($activities);
         $activitiesEspelho=$activities;
         foreach ($activities as $ativi){
+            $dataIni = new \DateTime($ativi->data_inicio);
+            $dataFim = new \DateTime($ativi->data_conclusao);
+
             if($ativi->status==1){
-            foreach ($activitiesEspelho as $ativiEspelho){
-                if(!((date("d/m/Y H:i:s",$ativi->data_inicio)<date("d/m/Y H:i:s",$ativiEspelho->data_inicio))&&(date("d/m/Y H:i:s",$ativi->data_conclusao)<date("d/m/Y H:i:s",$ativiEspelho->data_inicio)))||(date("d/m/Y H:i:s",$ativi->data_inicio)>date("d/m/Y H:i:s",$ativiEspelho->data_conclusao)&&(date("d/m/Y H:i:s",$ativi->data_conclusao)>date("d/m/Y H:i:s",$ativiEspelho->data_conclusao)))){
-                    $data[]=$ativiEspelho->id;
+                foreach ($activitiesEspelho as $ativiEspelho){
+                    $dataEspelhoIni = new \DateTime($ativiEspelho->data_inicio);
+                    $dataEspelhoFim = new \DateTime($ativiEspelho->data_conclusao);
+
+                    if(!(($dataIni>$dataEspelhoIni) && ($dataIni>$dataEspelhoFim)||
+                        ($dataFim<$dataEspelhoIni) && ($dataFim<$dataEspelhoFim)
+                        )&&($ativi->id<>$ativiEspelho->id)){
+
+
+                        $data[]=$ativiEspelho->id;
+                    }
                 }
-            }
-            if(!isset($data)){
-            }else{
-            $teste[$ativi->id]=$data;
-            unset($data);
-            }
+                if(!isset($data)){
+                }else{
+                    $teste[$ativi->id]=$data;
+                    unset($data);
+                }
             };
         };
         return $teste;
@@ -90,15 +107,27 @@ class ActivityUser extends Model implements Transformable
         return $retorno;
 
     }
-    public  function  certificado(){
+    public  function  certificado($id_evento){
 
-        $retorno  = DB::select("select a.hora as qtdhoras,au.id as id_activiUser, au.id_users, au.id_activity,tcu.nome as tipo_atividade_user, au.presenca, u.name, a.nome as atividade, e.nome as evento, u.cpf, e.local, e.data_inicio, e.data_conclusao 
+        $retorno  = DB::select("select a.descricao ,a.hora as qtdhoras,au.id as id_activiUser, au.id_users, au.id_activity,tcu.nome as tipo_atividade_user, au.presenca, u.name, a.nome as atividade, e.nome as evento, u.cpf, e.local, e.data_inicio, e.data_conclusao 
           from activity_users as au 
           left join users as u on au.id_users = u.id 
           left join activities as a on au.id_activity = a.id 
           left join events as e on a.id_evento =e.id 
           left join type_activity_users as tcu on au.id_type_activity_user= tcu.id 
-          where au.id_users ='".$this->id_users."'");
+          where au.id_users ='".$this->id_users."'and e.id='".$id_evento."'");
+
+        return $retorno;
+    }
+    public  function  lista_de_atividade($id_evento){
+
+        $retorno  = DB::select("select e.status ,a.descricao ,a.hora as qtdhoras,au.id as id_activiUser, au.id_users, au.id_activity,tcu.nome as tipo_atividade_user, au.presenca, u.name, a.nome as atividade, e.nome as evento, u.cpf, e.local, e.data_inicio, e.data_conclusao 
+          from activity_users as au 
+          left join users as u on au.id_users = u.id 
+          left join activities as a on au.id_activity = a.id 
+          left join events as e on a.id_evento =e.id 
+          left join type_activity_users as tcu on au.id_type_activity_user= tcu.id 
+          where au.id_users ='".$this->id_users."' and e.id='".$id_evento."'");
 
         return $retorno;
     }

@@ -222,10 +222,43 @@ class ActivitiesController extends Controller
         $id_user=Auth::user()->id;
         $id_evento=$id;
         $atividadeUser = new ActivityUser();
+
+        return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
+
+
+    }
+
+
+    /** ------------------------------------------Lista de ATividade do Usuario-------------------------------------------------------------------------
+     */
+    public function atividade_user($id_evento){
+               $AtividadeUser = new ActivityUser();
+        $AtividadeUser->id_users = Auth::user()->id;
+        $retorno=$AtividadeUser->lista_de_atividade($id_evento);
+        $evento= Event::find($id_evento)->get();
+        foreach($evento as $e){
+            $status=$e->status;
+        }
+        $presenca=0;
+        foreach ($retorno as $r=>$a){
+            if($a->presenca==1){
+                $presenca=1;
+            }}
+        //dd($retorno);
+       return view('atividade.minhas_atividade', compact('retorno','id_evento','status','presenca'));
+
+    }
+    /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
+     */
+    public function insc_atividade(Request $request)
+    {
+        date_default_timezone_set('America/Araguaina');
+
+        $id_evento = $request->input('id_evento');
+        $count=0;
        /* if($activities!=''){
 
             $teste=$atividadeUser->colisaoAtividade($id_evento);
-            $lista=[1,2,3];
             for ($i=0;$i<count($lista);$i++){
                 for($j=0;$j<count($lista);$j++){
                     if($lista[$i]!=$lista[$j]){
@@ -243,38 +276,8 @@ class ActivitiesController extends Controller
                     }
                 }
             }
-            return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
 
         }*/
-        return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
-
-
-    }
-
-
-    /** ------------------------------------------Lista de ATividade do Usuario-------------------------------------------------------------------------
-     */
-    public function atividade_user($id_evento){
-        $User= new User();
-        $User->id=Auth::user()->id;
-        $activities=$User->atividade()->get()->all();
-        $evento= Event::find($id_evento)->get();
-
-        foreach($evento as $e){
-        $status=$e->status;
-
-        }
-       return view('atividade.minhas_atividade', compact('activities','id_evento','status'));
-
-    }
-    /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
-     */
-    public function insc_atividade(Request $request)
-    {
-        date_default_timezone_set('America/Araguaina');
-
-        $id_evento = $request->input('id_evento');
-        $count=0;
         foreach ($request->input('id_atividade') as $id_atividade) {
         $AtividadeUser = new ActivityUser();
         $AtividadeUser->id_users = Auth::user()->id;
@@ -305,24 +308,52 @@ class ActivitiesController extends Controller
 
     }
 
-    public function pdf($id_evento,$id){
+    public function pdf($id_evento){
         $AtividadeUser = new ActivityUser();
         $AtividadeUser->id_users = Auth::user()->id;
-        $AtividadeUser->id_activity = $id;
-        $retorno=$AtividadeUser->certificado();
-
+        $retorno=$AtividadeUser->certificado($id_evento);
+        $SOMA = date( "H:i:s", strtotime( '00:00:00' ) );;
+        $atividade='';
+        $atividade2='';
+        $cont=0;
+        $cont2=0;
+        $SOMA2 = date( "H:i:s", strtotime( '00:00:00' ) );;
         foreach ($retorno as $r=>$a){
+            if($a->presenca==1){
            if($a->qtdhoras){
-               $horas[]=$a->qtdhoras;
+            if($a->tipo_atividade_user=="Participante"){
+               $SOMA = date( "H:i:s", strtotime("$SOMA +   ".date( 'H', strtotime( $a->qtdhoras ) )." hours".
+               date( 'i', strtotime( $a->qtdhoras ) )." minute ".date( 's', strtotime( $a->qtdhoras ) )."second") );
+                $atividade= $atividade.", ".$a->atividade;
+
+                $cont++;
+           }else{
+                $SOMA2 = date( "H:i:s", strtotime("$SOMA2 +   ".date( 'H', strtotime( $a->qtdhoras ) )." hours".
+                    date( 'i', strtotime( $a->qtdhoras ) )." minute ".date( 's', strtotime( $a->qtdhoras ) )."second") );
+                $atividade2= $atividade2.", ".$a->atividade;
+
+                $cont2++;
+            }
+            $certificado['0']=$a;
 
            }
-        }
 
-       // dd($horas);
-        dd($retorno);
-       // $pdf = \PDF::loadView('certificado.pdf',compact('retorno'))->setPaper('a4', 'landscape');
-       // return $pdf->stream('meucertificado.pdf');
-        //}
+            }
+
+        }
+        if($cont2<0){
+            $pdf = \PDF::loadView('certificado.pdf',compact('certificado','SOMA2','atividade2'))->setPaper('a4', 'landscape');
+            return $pdf->stream('meucertificado.pdf');
+
+            if($cont<0){
+                return redirect('/');
+            }
+        }else{
+            $pdf = \PDF::loadView('certificado.pdf',compact('certificado','SOMA','atividade'))->setPaper('a4', 'landscape');
+            return $pdf->stream('meucertificado.pdf');
+
+        }
+            //}
     }
 
 

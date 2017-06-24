@@ -1,5 +1,23 @@
-@extends('app')
-@section('content')
+<!DOCTYPE html>
+<html lang="en" class="body-full-height">
+<head>
+    <!-- META SECTION -->
+    <title>Sciec - Acompanhe seus Eventos!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <!-- END META SECTION -->
+
+    <!-- CSS INCLUDE -->
+    <link rel="stylesheet" type="text/css" id="theme" href="{{ asset('css/theme-default.css') }}"/>
+    <!-- EOF CSS INCLUDE -->
+</head>
+<body>
+<div class="login-container lightmode">
+    <div class="container">
+        <div class="row">
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -72,4 +90,8 @@
         </div>
     </div>
 </div>
-@endsection
+        </div>
+    </div>
+</div>
+</body>
+</html>
