@@ -24,7 +24,7 @@ class InstutionUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email' => 'required|email|unique:instutions,email,', $this->get('id'),
         ];
     }
 }
