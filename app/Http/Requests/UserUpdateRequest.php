@@ -24,7 +24,9 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+
+            'email'=> 'email|unique:users,email', $this->get('id'),
+            'cpf'=> 'required|cpf|unique:users,cpf', $this->get('id'),
         ];
     }
 }

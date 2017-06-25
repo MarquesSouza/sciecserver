@@ -27,7 +27,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Nome</label>
                                 <div class="col-md-5">
-                                    <input id="nome" name="nome" type="text" placeholder=""
+                                    <input id="nome" name="nome" type="text" placeholder="Nome da Instituição"
                                            class="form-control input-md" required=""
                                            value="{{$instutions->nome or old('nome')}}">
 
@@ -38,7 +38,7 @@
                                 <div class="col-md-5">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-file-text"></span></span>
-                                        <input id="descricao" name="descricao" type="text" placeholder=""
+                                        <input id="descricao" name="descricao" type="text" placeholder="Descrição"
                                            class="form-control input-md" required=""
                                            value="{{$instutions->descricao or old('descricao')}}">
                                     </div>
@@ -47,11 +47,11 @@
 
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="email">Email</label>
+                                <label class="col-md-4 control-label" for="email">E-mail</label>
                                 <div class="col-md-5">
                                     <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-envelope-o"></span></span>
-                                    <input id="email" name="email" type="text" placeholder=""
+                                    <input id="email" name="email" type="text" placeholder="E-mail"
                                            class="form-control input-md"
                                            required="" value="{{$instutions->email or old('email')}}">
                                     </div>
@@ -64,7 +64,7 @@
                                 <div class="col-md-5">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-phone"></span></span>
-                                    <input id="telefone" name="telefone" type="text" placeholder=""
+                                    <input id="telefone" name="telefone" type="text" placeholder="Ex. : (99)99999-9999"
                                            class="form-control input-md" required=""
                                            value="{{$instutions->telefone or old('telefone')}}">
                                     </div>
@@ -78,7 +78,7 @@
                                 <div class="col-md-5">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-globe"></span></span>
-                                    <input id="site" name="site" type="text" placeholder=""
+                                    <input id="site" name="site" type="text" placeholder="Site"
                                            class="form-control input-md"
                                            required="" value="{{$instutions->site or old('site')}}">
                                     </div>

@@ -15,8 +15,8 @@ class EventValidator extends LaravelValidator
             'status' => 'required',
             'local' => 'required|min:3|max:100',
             'data_inicio' => 'required|date',
-            'data_conclusao' => 'required|date',
-            'logoEvento' => 'required',
+            'data_conclusao' => 'required|date|after:data_inicio',
+            'logoEvento' => 'required|image',
         ],
         ValidatorInterface::RULE_UPDATE => [
             'nome' => 'required|min:3|max:100',
@@ -24,8 +24,8 @@ class EventValidator extends LaravelValidator
             'status' => 'required',
             'local' => 'required|min:3|max:100',
             'data_inicio' => 'required',
-            'data_conclusao' => 'required',
-            'logoEvento' => 'required',
+            'data_conclusao' => 'required|date|after:data_inicio',
+            'logoEvento' => 'required|image',
         ],
    ];
 }

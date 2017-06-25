@@ -9,17 +9,18 @@ class InstutionValidator extends LaravelValidator
 {
 
     protected $rules = [
+
         ValidatorInterface::RULE_CREATE => [
             'nome' => 'required|min:3|max:100',
-            'descricao' => 'required|min:3|max:150',
+            'site' => 'required|url|unique:instutions,site',
+            'descricao' => 'required|min:3|max:500',
             'email' => 'required|email|unique:instutions,email',
-            'telefone' => 'required|min:8|numeric',
+            'telefone' => 'required|celular_com_ddd',
         ],
         ValidatorInterface::RULE_UPDATE => [
             'nome' => 'required|min:3|max:100',
-            'descricao' => 'required|min:3|max:150',
-
-            'telefone' => 'required|min:3|numeric',
+            'descricao' => 'required|min:3|max:500',
+            'telefone' => 'required|celular_com_ddd',
         ],
     ];
 

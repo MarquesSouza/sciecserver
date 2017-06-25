@@ -25,6 +25,7 @@ class InstutionUpdateRequest extends FormRequest
     {
         return [
             'email' => 'required|email|unique:instutions,email,', $this->get('id'),
+            'site'  => 'required|url|unique:instutions,site', $this->get('id'),
         ];
     }
 }

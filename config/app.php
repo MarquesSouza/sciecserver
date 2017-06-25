@@ -135,7 +135,7 @@ return [
     |
     */
 
-    'providers' => [
+    'providers' => array(
 
         /*
          * Laravel Framework Service Providers...
@@ -178,11 +178,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
         Laravel\Passport\PassportServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+        //Validação telefone, CPF
+        LaravelLegends\PtBrValidator\ValidatorProvider::class
 
-    ],
+    ),
 
     /*
     |--------------------------------------------------------------------------

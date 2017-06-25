@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="cpf">CPF</label>
                                 <div class="col-md-6">
-                                    <input id="cpf" name="cpf" type="text" placeholder="CPF (colocar só números)"
+                                    <input id="cpf" name="cpf" type="text" placeholder="CPF"
                                            class="form-control input-md" required=""
                                            value="{{$users->cpf or old('cpf')}}">
 
@@ -46,7 +46,7 @@
                                 <label for="password" class="col-md-3 control-label">Senha</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" placeholder="senha" class="form-control"
+                                    <input id="password" type="password" placeholder="Senha" class="form-control"
                                            name="password" required value="{{$user->password or old('password')}}">
 
                                     @if ($errors->has('password'))
@@ -60,7 +60,7 @@
                                 <label for="password-confirm" class="col-md-3 control-label">Confirmar Senha</label>
 
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" placeholder="confirmar senha"
+                                    <input id="password-confirm" type="password" placeholder="Confirmar senha"
                                            class="form-control" name="senha" required value="{{$user->password or old('password')}}">
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                 <div class="col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-envelope-o"></span></span>
-                                        <input id="email" name="email" type="text" placeholder="e-mail"
+                                        <input id="email" name="email" type="text" placeholder="E-mail"
                                            class="form-control input-md"
                                            required="" value="{{$users->email or old('email')}}">
                                     </div>
@@ -83,7 +83,7 @@
                                 <div class="col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-phone"></span></span>
-                                        <input id="telefone" name="telefone" type="text" placeholder="telefone"
+                                        <input id="telefone" name="telefone" type="text" placeholder="(99)99999-9999"
                                            class="form-control input-md" required=""
                                            value="{{$users->telefone or old('telefone')}}">
                                     </div>
