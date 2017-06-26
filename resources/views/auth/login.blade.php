@@ -65,7 +65,7 @@
             <div class="pull-right">
                 <a href="https://paraiso.ifto.edu.br/">IFTO-CAMPUS Paraíso</a> |
                 <!--<a href="#">Privacidade</a> | -->
-                <a href="#">Contato:sciecifto@gmail.com</a>
+                <a href="#">sciecifto@gmail.com</a>
             </div>
             <br><br>
             <div class="col-md-12">
