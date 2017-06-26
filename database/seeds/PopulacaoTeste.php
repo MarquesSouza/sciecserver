@@ -14,9 +14,9 @@ class PopulacaoTeste extends Seeder
         //Usuários
         factory(App\Entities\User::class)->create([
             'name' => 'Administrador',
-            'password' =>  bcrypt('123'),
+            'password' =>  bcrypt('ifto2017'),
             'cpf'  => '99999999999',
-            'email' => 'ifto2017@gmail.com',
+            'email' => 'sciecifto@gmail.com',
             'telefone' => '63992194736',
             'status' => 1,
         ]);
@@ -37,10 +37,10 @@ class PopulacaoTeste extends Seeder
             'status' => 1,
         ]);
         factory(App\Entities\User::class)->create([
-            'name' => 'Marcos',
-            'password' =>  bcrypt('123'),
+            'name' => 'Marques de Souza',
+            'password' =>  bcrypt('ifto2017'),
             'cpf'  => '22999990000',
-            'email' => 'marcos@ifto.edu.br',
+            'email' => 'marquesde2013@gmail.com',
             'telefone' => '63992194736',
             'status' => 1,
         ]);
