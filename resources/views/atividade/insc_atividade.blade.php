@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="panel panel-default">
-            <div class="panel-heading text-center"><h3>Titulo do Evento</h3></div>
+            <div class="panel-heading text-center"><h3>Atividades do Evento</h3></div>
             <!-- List group -->
             <form action="{{url('evento/'.$id_evento.'/atividade/insc_atividade/'.$id_user)}}"
                   method="post">
@@ -31,13 +31,20 @@
                             @endif
                         </ul>
 
-            @endif
-            @endforeach
 
-            <p class="text-center">
-                <button class="btn btn-success" type="submit">Confirmar Inscrição</button>
-           <a href="{{ url('/insc_evento') }}" class="btn btn-danger" role="button">Voltar</a></p>
-            <!-- endforeach // Passar Parametros Acima -->
+            @endif
+
+                        @endforeach
+                        @if($status>0)
+                        <p class="text-center">
+                            <button class="btn btn-success" type="submit">Confirmar Inscrição</button>
+                            <a href="{{ url('/insc_evento') }}" class="btn btn-danger" role="button">Voltar</a></p>
+                        <!-- endforeach // Passar Parametros Acima -->
+                            @else
+                            Atualmente nao Possui Atividades Ativas. Porfavor aguarde.
+
+                    @endif
+
             </form>
         </div>
     </div>

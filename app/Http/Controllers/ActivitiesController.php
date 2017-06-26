@@ -222,8 +222,14 @@ class ActivitiesController extends Controller
         $id_user=Auth::user()->id;
         $id_evento=$id;
         $atividadeUser = new ActivityUser();
+        $status=0;
+        foreach ($activities as $a){
+                    if($a->status==1){
+                        $status++;
+                    }
+    }
 
-        return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento'));
+        return view('atividade.insc_atividade',compact('activities','atividadeUser','id_user','id_evento','status'));
 
 
     }
