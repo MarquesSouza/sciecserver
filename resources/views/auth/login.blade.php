@@ -63,9 +63,9 @@
                 &copy; 2017 Sciec
             </div>
             <div class="pull-right">
-                <a href="#">About</a> |
-                <a href="#">Privacidade</a> |
-                <a href="#">Contato</a>
+                <a href="https://paraiso.ifto.edu.br/">IFTO-CAMPUS Paraíso</a> |
+                <!--<a href="#">Privacidade</a> | -->
+                <a href="#">Contato:sciecifto@gmail.com</a>
             </div>
             <br><br>
             <div class="col-md-12">

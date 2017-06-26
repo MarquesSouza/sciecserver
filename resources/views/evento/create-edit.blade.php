@@ -3,10 +3,10 @@
 
 @section('content')
     @if( isset($event))
-        <form class="form-horizontal" method="post" action="{{ url('evento/update', $event->id) }}">
+        <form class="form-horizontal" method="post" enctype="multipart/form-data" action="{{ url('evento/update', $event->id) }}">
             {!! method_field('PUT') !!}
             @else
-                <form class="form-horizontal" method="post" action="{{ url('evento/store') }}">
+                <form class="form-horizontal" method="post" enctype="multipart/form-data" action="{{ url('evento/store') }}">
                     @endif
                     {{csrf_field()}}
                     <fieldset>
@@ -89,7 +89,7 @@
                                         <span class="input-group-addon"><span class="fa fa-picture-o"></span></span>
                                         <input id="logoEvento" name="logoEvento"
                                            placeholder="" class="form-control input-md" required=""
-                                           type="file" value="{{$event->logoEvento or old('logoEvento')}}">
+                                           type="file" >
                                     </div>
                                 </div>
                             </div>

@@ -67,6 +67,22 @@ class EventsController extends Controller
     public function store(Request $request)
     {
 
+       /* $file = $request->file('logoEvento');
+        if($request->hasFile('logoEvento') && $file->isValid()) {
+            $destinationPath = 'assets/img/events/';
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $fileName = rand(11111,99999).'.'.$extension; // renameing image
+            $file->move($destinationPath, $fileName); // uploading file to given path
+        }
+
+
+
+        if (isset($fileName)){ $fileName;
+
+      $request['logoEvento']=$fileName;
+
+        }
+       */
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
