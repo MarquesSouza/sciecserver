@@ -127,6 +127,8 @@ Route::get('evento/{id_evento}/atividade/lista', 'ActivitiesController@index')->
 /** ------------------------------------------Token Jonas(Administrador)-------------------------------------------------------------------------
  */
 
+Route::get('evento/{id_evento}/frequencia/', 'EventsController@lista_user_evento')->middleware('admin');// feito
+
 // Obs: as outras tabelas assegir sao tabelas n pra n
 
 Route::get('token', function (){

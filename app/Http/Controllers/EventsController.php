@@ -253,4 +253,10 @@ class EventsController extends Controller
         return view('evento.list_meus_eventos', compact('events'));
 
     }
+    public function lista_user_evento($id_evento){
+        $atividadeUser = new UserEvent();
+        $lista=$atividadeUser->lista_de_userEvento($id_evento);
+        return view('evento.frequencia_evento', compact('lista','id_evento','id'));
+
+    }
 }
