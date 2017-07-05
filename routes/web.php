@@ -4,9 +4,9 @@
 Auth::routes();
 /** ------------------------------------------Home-------------------------------------------------------------------------
  */
-Route::get('/home', 'HomeController@welcome')->middleware('auth');
+Route::get('home', 'HomeController@welcome')->middleware('auth');
 Route::get('/', 'HomeController@welcome')->middleware('auth');
-Route::get('/admin', 'HomeController@admin')->middleware('admin');
+Route::get('admin', 'HomeController@admin')->middleware('admin');
 
 /** ------------------------------------------Usuario (Administrador)-------------------------------------------------------------------------
  */
@@ -127,6 +127,8 @@ Route::get('evento/{id_evento}/atividade/lista', 'ActivitiesController@index')->
 /** ------------------------------------------Token Jonas(Administrador)-------------------------------------------------------------------------
  */
 
+Route::get('evento/{id_evento}/frequencia/', 'EventsController@lista_user_evento')->middleware('admin');// feito
+
 // Obs: as outras tabelas assegir sao tabelas n pra n
 
 Route::get('token', function (){
@@ -167,7 +169,7 @@ Route::get('callback', function (Request $request){
 
 //PDF
 
-Route::get('evento/{id_evento}/atividade/{id}/pdf2', function () {
+Route::get('/sciec/evento/{id_evento}/atividade/{id}/pdf2', function () {
    // $AtividadeUser = new ActivityUser();
    // $AtividadeUser->id_users = Auth::user()->id;
    // $AtividadeUser->id_activity = $id;
@@ -182,7 +184,7 @@ Route::get('evento/{id_evento}/atividade/{id}/pdf2', function () {
 
 })->middleware('auth');
 
-Route::get('evento/{id_evento}/pdf','ActivitiesController@pdf');
+Route::get('/sciec/evento/{id_evento}/pdf','ActivitiesController@pdf');
 
 
 
