@@ -235,7 +235,7 @@ class EventsController extends Controller
         $userEvent->status=1;
         if($userEvent->valida()){
             $userEvent->save();
-            return redirect('evento/'.$id.'/atividade/insc_atividade');
+            return redirect('evento/eventos');
         }else{
             return redirect('evento/show/'.$id);
         }
@@ -257,6 +257,13 @@ class EventsController extends Controller
         $atividadeUser = new UserEvent();
         $lista=$atividadeUser->lista_de_userEvento($id_evento);
         return view('evento.frequencia_evento', compact('lista','id_evento','id'));
+
+    }
+    public function detalhe_user_evento($id_evento){
+        $atividadeUser = new UserEvent();
+        $lista=$atividadeUser->lista_detalhesevento($id_evento,Auth::user()->id);
+        dd($lista);
+       // return view('evento.frequencia_evento', compact('lista','id_evento','id'));
 
     }
 }

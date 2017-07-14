@@ -122,7 +122,7 @@ Route::get('evento/{id_evento}/atividade/atividades', 'ActivitiesController@ativ
 Route::get('evento/{id_evento}/atividade/insc_atividade', 'ActivitiesController@form_insc_atividade')->middleware('auth');// feito
 Route::post('evento/{id_evento}/atividade/insc_atividade/{id}', 'ActivitiesController@insc_atividade')->middleware('auth');//feito
 Route::get('evento/{id_evento}/atividade/lista', 'ActivitiesController@index')->middleware('auth');// feito
-
+Route::get('evento/{id_evento}/detalhe', 'EventsController@detalhe_user_evento')->middleware('auth');
 
 /** ------------------------------------------Token Jonas(Administrador)-------------------------------------------------------------------------
  */

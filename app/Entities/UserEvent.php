@@ -56,5 +56,15 @@ class UserEvent extends Model implements Transformable
 
         return $retorno;
     }
+    public  function  lista_detalhesevento($id_evento,$id_user){
+
+        $retorno  = DB::select("select u.name,u.cpf,e.nome as evento, e.descricao, e.local,e.data_inicio,e.data_conclusao
+          from user_events as au 
+          left join users as u on au.id_users = u.id 
+          left join events as e on au.id_evento =e.id 
+          where e.id='".$id_evento."' and au.id_users='".$id_user."'");
+
+        return $retorno;
+    }
 
 }

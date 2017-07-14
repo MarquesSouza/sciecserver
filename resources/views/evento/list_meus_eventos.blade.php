@@ -16,6 +16,7 @@
                             <th>Data de Início</th>
                             <th>Data de Conclusão</th>
                             <th>Logo do Evento</th>
+                            <th>Detalhes do Evento</th>
                             <th>Minhas Atividades</th>
                             </thead>
 
@@ -28,6 +29,10 @@
                                     <td>{{ $ev->data_inicio }}</td>
                                     <td>{{ $ev->data_conclusao }}</td>
                                     <td>{{ $ev->logoEvento }}</td>
+                                    <td>
+                                        <a href="{{url('evento/'.$ev->id.'/detalhe')}}"
+                                           class="btn btn-success">Detalhes</a>
+                                    </td>
                                     <td>
                                         <a href="{{url('evento/'.$ev->id.'/atividade/atividades')}}"
                                            class="btn btn-success">Visualizar</a>
