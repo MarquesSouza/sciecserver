@@ -107,6 +107,17 @@ class ActivityUser extends Model implements Transformable
         return $retorno;
 
     }
+    public function qtd($id_atividade)
+    {
+        $retorno = DB::select("select au.id as id_activiUser, au.id_users, au.id_activity,tcu.nome as tipo_atividade_user, au.presenca, u.name,  u.cpf, au.data_entrada, au.data_saida 
+          from activity_users as au 
+          left join users as u on au.id_users = u.id 
+          left join type_activity_users as tcu on au.id_type_activity_user= tcu.id 
+           where au.id_activity ='" . $id_atividade . "' and au.id_type_activity_user='1'");
+
+        return $retorno;
+
+    }
     public  function  certificado($id_evento){
 
         $retorno  = DB::select("select a.descricao ,a.hora as qtdhoras,au.id as id_activiUser, au.id_users, au.id_activity,tcu.nome as tipo_atividade_user, au.presenca, u.name, a.nome as atividade, e.nome as evento, u.cpf, e.local, e.data_inicio, e.data_conclusao 

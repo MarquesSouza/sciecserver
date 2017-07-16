@@ -10,11 +10,20 @@
                 </div>
                 <div class="panel-body">
                     <div class="panel-body">
+                        @if($disponivel==0)
+                            Atividade Com vagas preenchidas
+                        @else
+                            <a href="{{url('evento/'.$id_evento.'/atividade/'.$id.'/inscricao')}}"
+                               class="btn-success btn btn-default btn-sm">Adicionar Inscrição</a>
+
+                        @endif
+
+
+
                         <br>
                         <br>
                         <table class="table datatable">
                             <thead>
-
                             <tr>
                                 <th>Usuario</th>
                                 <th>Tipo de Atividade do Usuario</th>

@@ -100,7 +100,7 @@ Route::get('evento/eventos', 'EventsController@evento_user')->middleware('auth')
  */
 Route::get('evento/{id_evento}/atividade/atividades', 'ActivitiesController@atividade_user')->middleware('admin');// feito
 Route::get('evento/{id_evento}/atividade/cad', 'ActivitiesController@form_cad')->middleware('admin');// feito
-Route::get('evento/{id_evento}/atividade/frequencia/{id}', 'ActivitiesController@lista_user_atividade')->middleware('admin');// feito
+Route::get('evento/{id_evento}/atividade/{id}/frequencia', 'ActivitiesController@lista_user_atividade')->middleware('admin');// feito
 Route::get('evento/{id_evento}/atividade/index', 'ActivitiesController@index')->middleware('admin');// feito
 Route::post('evento/{id_evento}/atividade/store', 'ActivitiesController@store')->middleware('admin');//fazendo
 Route::get('evento/{id_evento}/atividade/show/{id}', 'ActivitiesController@show')->middleware('admin');//feito
@@ -110,6 +110,9 @@ Route::put('evento/{id_evento}/atividade/update/{id}', 'ActivitiesController@upd
 Route::put('evento/{id_evento}/atividade/{id_atividade}/presenca/{id}', 'ActivitiesController@presenca')->middleware('admin');// feito
 Route::put('evento/{id_evento}/atividade/{id_atividade}/entrada/{id}', 'ActivitiesController@entrada')->middleware('admin');
 Route::put('evento/{id_evento}/atividade/{id_atividade}/saida/{id}', 'ActivitiesController@saida')->middleware('admin');
+
+Route::get('evento/{id_evento}/atividade/{id}/inscricao', 'ActivitiesController@add_inscricao')->middleware('admin');// feito
+
 /** ------------------------------------------Eventos(Usuario)-------------------------------------------------------------------------
  */
 Route::post('evento/inscricao_evento/{id}', 'EventsController@insc_evento')->middleware('auth');//feito

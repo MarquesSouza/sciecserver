@@ -46,7 +46,7 @@
                                                 </td>
                                             @endif
                                             <td>
-                                            <a href="{{url('evento/'.$id_evento.'/atividade/frequencia/'.$a->id)}}"
+                                            <a href="{{url('evento/'.$id_evento.'/atividade/'.$a->id.'/frequencia')}}"
                                            class="btn-success btn btn-default btn-sm">Frequencia</a>
                                             </td>
                                             <td>

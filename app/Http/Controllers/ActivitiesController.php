@@ -7,6 +7,8 @@ use App\Entities\ActivityUser;
 use App\Entities\Event;
 use App\Entities\TypeActivity;
 use App\Entities\User;
+use App\Entities\UserEvent;
+use App\Entities\UserTypeUser;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -309,8 +311,21 @@ class ActivitiesController extends Controller
     public function lista_user_atividade($id_evento,$id){
         $atividadeUser = new ActivityUser();
         $lista=$atividadeUser->listarFrequencia($id);
-        //dd($lista);
-         return view('atividade.frequencia_atividade', compact('lista','id_evento','id'));
+        $retorno=$atividadeUser->qtd($id);
+        $qtd=0;
+        foreach ($retorno as $a){
+            if($a->cpf){
+                $qtd++;
+            }
+        }
+        $atividade=Activity::find($id);
+        if(($atividade->qtd_inscritos-$qtd)==0){
+            $disponivel=0;
+        }else{
+            $disponivel=1;
+        }
+
+         return view('atividade.frequencia_atividade', compact('lista','id_evento','id','disponivel'));
 
     }
 
@@ -360,6 +375,14 @@ class ActivitiesController extends Controller
 
         }
             //}
+    }
+    public function add_inscricao($id_evento,$id){
+        $tipo=UserTypeUser::all();
+        $atividadeUser = new UserEvent();
+        $lista=$atividadeUser->lista_de_userEvento($id_evento);
+        return view('atividade.inscricao_atividade', compact('lista','id_evento','id','tipo'));
+
+
     }
 
 
