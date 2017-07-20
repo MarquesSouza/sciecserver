@@ -15,7 +15,7 @@
     <!-- EOF CSS INCLUDE -->
 </head>
 <body>
-<div class="login-container lightmode">
+<div class="login-container">
     <div class="login-box animated fadeInDown">
         <div class="login-logo"></div>
         <div class="login-body">
@@ -23,7 +23,7 @@
             <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                    <label for="name" class="col-md-12" style="color: #EEEEEE">Nome</label>
+                    <label for="name" class="col-md-12" style="color: #EEEEEE">Nome Completo</label>
 
                     <div class="col-md-12">
                         <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required
@@ -80,7 +80,7 @@
                 </div>
                 <input type="hidden" name="status" value="1">
                 <div class="form-group">
-                    <label class="col-md-12" for="cpf" style="color: #EEEEEE">CPF</label>
+                    <label class="col-md-12" for="cpf" style="color: #EEEEEE">CPF somente os números</label>
                     <div class="col-md-12">
                         <input id="cpf" name="cpf" type="text" placeholder="" class="form-control input-md" required="">
 

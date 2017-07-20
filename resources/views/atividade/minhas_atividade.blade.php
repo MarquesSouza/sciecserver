@@ -5,17 +5,14 @@
             <!-- START DEFAULT DATATABLE -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Atividades do Evento</h3>
+                    <h3 class="panel-title">Certificados </h3>
 
                 </div>
                 <div class="panel-body">
 
                     <table class="table datatable">
                         @if($status!=3)
-
-                            <a href="{{url('evento/'.$id_evento.'/atividade/insc_atividade')}}"> <!--Inserir link rota cadastro de atividade -->
-                                <button class="btn btn-success">Cadastrar Atividade</button>
-                            </a>
+                            Nenhum certificado no momento
                             @else
                             @if($presenca==1)
                             <a href="{{url('evento/'.$id_evento.'/pdf')}}"

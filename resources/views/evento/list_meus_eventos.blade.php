@@ -17,7 +17,7 @@
                             <th>Data de Conclusão</th>
                             <th>Logo do Evento</th>
                             <th>Detalhes do Evento</th>
-                            <th>Minhas Atividades</th>
+                            <th>Certificado</th>
                             </thead>
 
                             @forelse ($events as $ev)

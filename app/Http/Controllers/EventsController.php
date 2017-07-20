@@ -266,4 +266,10 @@ class EventsController extends Controller
        // return view('evento.frequencia_evento', compact('lista','id_evento','id'));
 
     }
+    public function lista_user_evento_pdf($id_evento){
+        $atividadeUser = new UserEvent();
+        $lista=$atividadeUser->lista_de_userEvento($id_evento);
+        $pdf = \PDF::loadView('evento.evento_list_pdf',compact('lista'))->setPaper('a4', 'landscape');
+        return $pdf->stream('listaEvento.pdf');
+    }
 }

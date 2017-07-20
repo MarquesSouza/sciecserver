@@ -12,8 +12,10 @@
                     <div class="panel-body">
                         <br>
                         <br>
+
                         <table class="table datatable">
                             <thead>
+                            <a href="{{ url('evento/'.$id_evento.'}/frequencia/pdf') }}" class="btn btn-primary">Lista PDF</a>
 
                             <tr>
                                 <th>Usuario</th>
@@ -32,7 +34,7 @@
                             </tbody>
                             @empty
 
-                                <p>No activities</p>
+                                <p>No Cadastros</p>
                             @endforelse
                         </table>
                     </div>
