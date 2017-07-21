@@ -5,16 +5,13 @@
             <!-- START DEFAULT DATATABLE -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Inscrição da Atividade</h3>
+                    <h3 class="panel-title">Frequencia da Atividade</h3>
 
                 </div>
                 <div class="panel-body">
                     <div class="panel-body">
 
-                        <form class="form-horizontal" method="post"
-                              action="{{ url('evento/'.$id_evento.'/atividade/'.$id.'/entrada/') }}" >
-                            {!! method_field('PUT') !!}
-                            {{csrf_field()}}
+
 
                         <br>
                         <br>
@@ -22,9 +19,13 @@
                             <thead>
                             <tr>
                                 <th>Usuario</th>
+                                <th>Tipo de Atividade do Usuario</th>
                                 <th>CPF</th>
-                                <th>Inscrição</th>
-
+                                <th>Data de Entrada</th>
+                                <th>Data de Saida</th>
+                                <th>Entrada</th>
+                                <th>Saida</th>
+                                <th>Presença</th>
                             </tr>
                             </thead>
 
@@ -35,9 +36,54 @@
                                     <td>{{ $a->name }}</td>
                                     <td>{{ $a->cpf }}</td>
                                     <td>
-                                        <button type="submit" id="" name="" class="btn btn-primary">Inscrever </button>
-                                    </td>>
+                                        <form class="form-horizontal" method="post"
+                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$id.'/entrada/'. $a->id) }}">
+                                            {!! method_field('PUT') !!}
+                                            {{csrf_field()}}
+                                            @if($a->presenca==1)
 
+                                                <button type="submit" id="" name="" class="btn btn-danger ">
+                                                    Entrada
+                                                </button>
+                                            @else
+                                                Não estar presente
+                                            @endif
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form class="form-horizontal" method="post"
+                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$id_activity.'/saida/'. $a->id) }}">
+                                            {!! method_field('PUT') !!}
+                                            {{csrf_field()}}
+                                            @if($a->presenca==1)
+
+                                                <button type="submit" id="" name="" class="btn btn-danger ">
+                                                    Saida
+                                                </button>
+                                            @else
+                                                Não estar presente
+                                            @endif
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form class="form-horizontal" method="post"
+                                              action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/presenca/'. $a->id_activiUser) }}">
+                                            {!! method_field('PUT') !!}
+                                            {{csrf_field()}}
+                                            @if($a->presenca==1)
+                                                <input type="hidden" name="presenca" value="0">
+                                                <button type="submit" id="" name="" class="btn btn-danger ">
+                                                    Desativar
+                                                </button>
+                                            @else
+                                                <input type="hidden" name="presenca" value="1">
+                                                <button type="submit" id="" name="" class="btn btn-success">Ativar
+                                                </button>
+                                            @endif
+                                        </form>
+                                    </td>
+
+                                </tr>
                             </tbody>
                             @empty
 

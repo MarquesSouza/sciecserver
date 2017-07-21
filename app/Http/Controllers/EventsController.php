@@ -261,9 +261,9 @@ class EventsController extends Controller
     }
     public function detalhe_user_evento($id_evento){
         $atividadeUser = new UserEvent();
-        $lista=$atividadeUser->lista_detalhesevento($id_evento,Auth::user()->id);
-        dd($lista);
-       // return view('evento.frequencia_evento', compact('lista','id_evento','id'));
+        $certificado=$atividadeUser->lista_detalhesevento($id_evento,Auth::user()->id);
+        $pdf = \PDF::loadView('certificado.comprovante_pdf',compact('certificado'))->setPaper('a4');
+        return $pdf->stream('listaEvento.pdf');
 
     }
     public function lista_user_evento_pdf($id_evento){
