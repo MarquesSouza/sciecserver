@@ -36,9 +36,9 @@
                     </div>
                     <div class="profile-data">
 
-                        {{--/* COMENTADO PARA TESTE */--}}
-                        {{--<div class="profile-data-name">{{ Auth::user()->name }}</div>--}}
-                        <div class="profile-data-title">Tipo do Usuario</div>
+
+                        <div class="profile-data-name">{{ Auth::user()->name }}</div>
+
                     </div>
 
                 </div>
@@ -66,6 +66,12 @@
         <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
             <!-- SIGN OUT -->
             <li class="pull-right">
+
+               <a href="{{ url('usuario/alterar') }}"><span class="fa fa-archive"></span>Editar Perfil    </a>
+
+            </li>
+            <li class="pull-right">
+
                 <a href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();"><span class="fa fa-sign-out"></span>Logout

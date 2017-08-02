@@ -36,7 +36,7 @@
                     </div>
                     <div class="profile-data">
                         <div class="profile-data-name">{{ Auth::user()->name }}</div>
-                        <div class="profile-data-title">Tipo do Usuario</div>
+
                     </div>
 
                 </div>
@@ -139,6 +139,11 @@
         <!-- BARRA DE NAVEGAÇÃO SUPERIOR -->
         <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
             <!-- SIGN OUT -->
+            <li class="pull-right">
+
+                <a href="{{ url('usuario/alterar') }}"><span class="fa fa-archive"></span>Editar Perfil    </a>
+
+            </li>
             <li class="pull-right">
                 <a href="{{ route('logout') }}"
                    onclick="event.preventDefault();

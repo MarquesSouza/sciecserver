@@ -1,18 +1,14 @@
 @extends('app2')
 @section('content')
-    @if( isset($users))
+
         <form class="form-horizontal" method="post" action="{{ url('usuario/update', $users->id) }}">
             {!! method_field('PUT') !!}
-            @else
-                <form class="form-horizontal" method="post" action="{{ url('usuario/store') }}">
-                {{csrf_field()}}
-                    @endif
 
                     {{csrf_field()}}
                     <fieldset>
                         <div class="container">
                             <hr>
-                            <h1 class="text-center">{{$titulo}}</h1>
+                            <h1 class="text-center">Alteração perfil</h1>
                             @if(isset($errors) && count($errors) > 0)
                                 <div class="alert alert-danger">
                                     @foreach($errors->all() as $error)
@@ -41,40 +37,38 @@
                                 </div>
                             </div>
 
-                            @if( isset($users))
-                                @else
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-3 control-label">Senha</label>
+                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <label for="password" class="col-md-3 control-label">Senha</label>
 
-                                <div class="col-md-6">
-                                    <input id="password" type="password" placeholder="Senha" class="form-control"
-                                           name="password" required value="{{$user->password or old('password')}}">
+                                    <div class="col-md-6">
+                                        <input id="password" type="password" placeholder="Senha" class="form-control"
+                                               name="password" required value="{{$user->password or old('password')}}">
 
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
+                                        @if ($errors->has('password'))
+                                            <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                    @endif
+                                        @endif
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="password-confirm" class="col-md-3 control-label">Confirmar Senha</label>
+                                <div class="form-group">
+                                    <label for="password-confirm" class="col-md-3 control-label">Confirmar Senha</label>
 
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" placeholder="Confirmar senha"
-                                           class="form-control" name="senha" required value="{{$user->password or old('password')}}">
+                                    <div class="col-md-6">
+                                        <input id="password-confirm" type="password" placeholder="Confirmar senha"
+                                               class="form-control" name="senha" required value="{{$user->password or old('password')}}">
+                                    </div>
                                 </div>
-                            </div>
-                            @endif
-                            <!-- Text input-->
+
+                        <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="email">E-mail</label>
                                 <div class="col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-envelope-o"></span></span>
                                         <input id="email" name="email" type="text" placeholder="E-mail"
-                                           class="form-control input-md"
-                                           required="" value="{{$users->email or old('email')}}">
+                                               class="form-control input-md"
+                                               required="" value="{{$users->email or old('email')}}">
                                     </div>
                                 </div>
                             </div>
@@ -86,29 +80,16 @@
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-phone"></span></span>
                                         <input id="telefone" name="telefone" type="text" placeholder="(99)99999-9999"
-                                           class="form-control input-md" required=""
-                                           value="{{$users->telefone or old('telefone')}}">
+                                               class="form-control input-md" required=""
+                                               value="{{$users->telefone or old('telefone')}}">
                                     </div>
                                 </div>
                             </div>
 
 
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label" for="id_tipo_atividade"> Tipo de User</label>
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-user"></span></span>
-                                            <select id="selectbasic" name="id_tipo" class="form-control">
-                                            @foreach($tipo as $t)
-                                                <option value="{{$t->id}}">{{$t->nome}}</option>
-                                            @endforeach
-                                            </select>
-                                         </div>
-                                    </div>
-                            </div>
-                            <input type="hidden" name="status" value="1">
-                            <input type="hidden" name="remember_token" value="{{ str_random(10)}}">
 
+                            <input type="hidden" name="status" value="1">
+                            <input type="hidden" name="id_tipo" value="1">
 
                             <!-- Button -->
                             <div class="form-group">
