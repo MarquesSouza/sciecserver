@@ -30,7 +30,7 @@ Route::post('usuario/tipo/store', 'TypeUsersController@store')->middleware('admi
 Route::get('usuario/tipo/show/{id}', 'TypeUsersController@show')->middleware('admin');//ta sem tela
 Route::put('usuario/tipo/delete/{id}', 'TypeUsersController@destroy')->middleware('admin');//mudar para exclusao logica
 Route::get('usuario/tipo/edit/{id}', 'TypeUsersController@edit')->middleware('admin');// arrumar falta autorização
-Route::put('usuario/tipo/update/{id}', 'TypeUsersController@update')->middleware('admin'); //arrumar
+Route::put('usuario/tipo/update/{id}', 'TypeUsersController@update')->middleware('auth'); //arrumar
 /** ------------------------------------------Tipo Atividade(Administrador)-------------------------------------------------------------------------
  */
 Route::get('atividade/tipo/cad', 'TypeActivitiesController@form_cad')->middleware('admin');
