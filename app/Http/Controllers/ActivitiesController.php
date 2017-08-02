@@ -6,9 +6,10 @@ use App\Entities\Activity;
 use App\Entities\ActivityUser;
 use App\Entities\Event;
 use App\Entities\TypeActivity;
+use App\Entities\TypeActivityUser;
 use App\Entities\User;
 use App\Entities\UserEvent;
-use App\Entities\UserTypeUser;
+use App\Entities\TypeUser;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -176,7 +177,7 @@ class ActivitiesController extends Controller
         $atividade=ActivityUser::find($id);
         $update = $atividade->update($dataForm);
         if($update) {
-            return redirect('evento/' . $id_evento . '/atividade/frequencia/' . $id_atividade);
+            return redirect('evento/'.$id_evento.'/atividade/'.$id_atividade.'/frequencia');
         }
     }
 
@@ -190,7 +191,7 @@ class ActivitiesController extends Controller
         $atividade=ActivityUser::find($id);
         $update = $atividade->update($dataForm);
         if($update) {
-            return redirect('evento/' . $id_evento . '/atividade/frequencia/' . $id_atividade);
+            return redirect('evento/'.$id_evento.'/atividade/'.$id_atividade.'/frequencia');
         }
     }
 
@@ -202,7 +203,7 @@ class ActivitiesController extends Controller
         $atividade=ActivityUser::find($id);
         $update = $atividade->update($dataForm);
         if($update) {
-            return redirect('evento/' . $id_evento . '/atividade/frequencia/' . $id_atividade);
+            return redirect('evento/'.$id_evento.'/atividade/'.$id_atividade.'/frequencia');
         }
     }
 
@@ -319,13 +320,14 @@ class ActivitiesController extends Controller
             }
         }
         $atividade=Activity::find($id);
+        $qtd=$atividade->qtd_inscritos-$qtd;
         if(($atividade->qtd_inscritos-$qtd)==0){
             $disponivel=0;
         }else{
             $disponivel=1;
         }
 
-         return view('atividade.frequencia_atividade', compact('lista','id_evento','id','disponivel'));
+         return view('atividade.frequencia_atividade', compact('lista','id_evento','id','disponivel','qtd'));
 
     }
 
@@ -377,12 +379,59 @@ class ActivitiesController extends Controller
             //}
     }
     public function add_inscricao($id_evento,$id){
-        $tipo=UserTypeUser::all();
+        $tipo=TypeActivityUser::all();
         $atividadeUser = new UserEvent();
         $lista=$atividadeUser->lista_de_userEvento($id_evento);
         return view('atividade.inscricao_atividade', compact('lista','id_evento','id','tipo'));
 
 
+    }
+    public function add_insc_atividade(Request $request,$id,$id_evento)
+    {
+        date_default_timezone_set('America/Araguaina');
+
+
+        $count=0;
+        /* if($activities!=''){
+
+             $teste=$atividadeUser->colisaoAtividade($id_evento);
+             for ($i=0;$i<count($lista);$i++){
+                 for($j=0;$j<count($lista);$j++){
+                     if($lista[$i]!=$lista[$j]){
+                         $a=$lista[$i];
+                         $b=$lista[$j];
+                         foreach ($teste as $te=>$va){
+                             if($te==$a) {
+                                 foreach ($va as $temp => $item) {
+                                     if($item==$b){
+                                         echo "colizao:".$a." e :".$b ."</br>";
+                                     }
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+
+         }*/
+            $AtividadeUser = new ActivityUser();
+            $AtividadeUser->id_users = $request->input('id_user');
+            $AtividadeUser->id_activity = $id;
+            $AtividadeUser->id_type_activity_user = $request->input('id_tipo_user');
+            $AtividadeUser->status = 1;
+            $AtividadeUser->data_entrada =Date('Y-m-d H:i:s');
+            $AtividadeUser->data_saida = Date('Y-m-d H:i:s');
+            $AtividadeUser->presenca = 0;
+            if ($AtividadeUser->valida()) {
+                $AtividadeUser->save();
+                $count++;
+            }
+
+        if($count>0){
+            return redirect('evento/'.$id_evento.'/atividade/'.$id.'/frequencia');
+        }else{
+            return redirect('evento/'.$id_evento.'/atividade/'.$id.'/frequencia');
+        }
     }
 
 

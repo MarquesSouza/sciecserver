@@ -26,6 +26,7 @@
                     <th style="border: 1px solid black">Numero</th>
                     <th style="border: 1px solid black">Nome</th>
                     <th style="border: 1px solid black">CPF</th>
+                    <th style="border: 1px solid black">Assinatura</th>
 
                 </tr>
 
@@ -35,6 +36,7 @@
                 <td style="border: 1px solid black">{{$count}}</td>
                 <td style="border: 1px solid black">{{$a->name}}</td>
                 <td style="border: 1px solid black">{{$a->cpf}}</td>
+                <td style="border: 1px solid black"></td>
             </tr>
     <?php $count++; ?>
         @endforeach
