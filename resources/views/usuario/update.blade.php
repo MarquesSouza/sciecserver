@@ -37,28 +37,7 @@
                                 </div>
                             </div>
 
-                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label for="password" class="col-md-3 control-label">Senha</label>
 
-                                    <div class="col-md-6">
-                                        <input id="password" type="password" placeholder="Senha" class="form-control"
-                                               name="password" required value="{{$user->password or old('password')}}">
-
-                                        @if ($errors->has('password'))
-                                            <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password-confirm" class="col-md-3 control-label">Confirmar Senha</label>
-
-                                    <div class="col-md-6">
-                                        <input id="password-confirm" type="password" placeholder="Confirmar senha"
-                                               class="form-control" name="senha" required value="{{$user->password or old('password')}}">
-                                    </div>
-                                </div>
 
                         <!-- Text input-->
                             <div class="form-group">

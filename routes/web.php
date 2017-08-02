@@ -133,7 +133,7 @@ Route::get('evento/{id_evento}/detalhe', 'EventsController@detalhe_user_evento')
 Route::get('evento/{id_evento}/frequencia/', 'EventsController@lista_user_evento')->middleware('admin');// feito
 Route::get('evento/{id_evento}/frequencia/pdf', 'EventsController@lista_user_evento_pdf')->middleware('admin');
 Route::post('evento/{id_evento}/atividade/{id}/insc_atividade/', 'ActivitiesController@add_insc_atividade')->middleware('auth');//feito
-Route::get('usuario/alterar', 'UsersController@alterar')->middleware('admin','auth');
+Route::get('usuario/alterar', 'UsersController@alterar')->middleware('auth');
 // Obs: as outras tabelas assegir sao tabelas n pra n
 
 Route::get('token', function (){
