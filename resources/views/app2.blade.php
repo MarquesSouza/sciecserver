@@ -139,6 +139,12 @@
         <!-- BARRA DE NAVEGAÇÃO SUPERIOR -->
         <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
             <!-- SIGN OUT -->
+
+            <li class="pull-right">
+
+                <a href="{{ url('usuario/alterar/senha') }}"><span class="fa fa-archive"></span>Editar Senha   </a>
+
+            </li>
             <li class="pull-right">
 
                 <a href="{{ url('usuario/alterar') }}"><span class="fa fa-archive"></span>Editar Perfil    </a>

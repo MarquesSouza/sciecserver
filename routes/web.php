@@ -20,7 +20,7 @@ Route::put('usuario/update/{id}', 'UsersController@update')->middleware('auth');
 Route::get('certificado/index', 'UsersController@certificado')->middleware('admin');
 Route::get('certificado/cad', 'UsersController@cad_certificado')->middleware('admin');
 Route::get('frequencia/index', 'UsersController@frequencia')->middleware('admin');
-
+Route::get('usuario/senha/{id}', 'UsersController@alterar_senha_admin')->middleware('admin');
 /** ------------------------------------------Tipo Usuario(Administrador)-------------------------------------------------------------------------
  */
 
@@ -30,7 +30,8 @@ Route::post('usuario/tipo/store', 'TypeUsersController@store')->middleware('admi
 Route::get('usuario/tipo/show/{id}', 'TypeUsersController@show')->middleware('admin');//ta sem tela
 Route::put('usuario/tipo/delete/{id}', 'TypeUsersController@destroy')->middleware('admin');//mudar para exclusao logica
 Route::get('usuario/tipo/edit/{id}', 'TypeUsersController@edit')->middleware('admin');// arrumar falta autorização
-Route::put('usuario/tipo/update/{id}', 'TypeUsersController@update')->middleware('admin'); //arrumar
+Route::put('usuario/tipo/update/{id}', 'TypeUsersController@update')->middleware('admin');
+//arrumar
 /** ------------------------------------------Tipo Atividade(Administrador)-------------------------------------------------------------------------
  */
 Route::get('atividade/tipo/cad', 'TypeActivitiesController@form_cad')->middleware('admin');
@@ -134,6 +135,7 @@ Route::get('evento/{id_evento}/frequencia/', 'EventsController@lista_user_evento
 Route::get('evento/{id_evento}/frequencia/pdf', 'EventsController@lista_user_evento_pdf')->middleware('admin');
 Route::post('evento/{id_evento}/atividade/{id}/insc_atividade/', 'ActivitiesController@add_insc_atividade')->middleware('auth');//feito
 Route::get('usuario/alterar', 'UsersController@alterar')->middleware('auth');
+Route::get('usuario/alterar/senha', 'UsersController@alterar_senha')->middleware('auth');
 // Obs: as outras tabelas assegir sao tabelas n pra n
 
 Route::get('token', function (){

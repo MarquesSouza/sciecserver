@@ -19,10 +19,10 @@ class UserValidator extends LaravelValidator
         ],
         ValidatorInterface::RULE_UPDATE => [
 
-            'name' => 'required|min:3|max:100',
+            //'name' => 'required|min:3|max:100',
             'password'=> 'alpha_num|between:6,20|Confirmed',
             'password' => 'alpha_num|between:6,20',
-            'telefone' => 'required|celular_com_ddd',
+            //'telefone' => 'required|celular_com_ddd',
         ],
    ];
 

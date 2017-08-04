@@ -131,7 +131,9 @@ class UsersController extends Controller
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
+            if ($request->input('password')!=null){
             $request['password']= bcrypt($request->input('password'));
+            }
             $user = $this->repository->update($request->all(), $id);
 
             $response = [
@@ -143,6 +145,7 @@ class UsersController extends Controller
 
                 return response()->json($response);
             }
+            if($tipoUser!=null){
             $user->id;
             $tipo=new UserTypeUser();
             $tipo->status=1;
@@ -150,7 +153,7 @@ class UsersController extends Controller
             $tipo->id_type_user=$tipoUser;
             if($tipo->validaUser()){
                 $tipo->save();
-            }
+            }}
             return redirect('/');
         } catch (ValidatorException $e) {
 
@@ -210,6 +213,23 @@ class UsersController extends Controller
         $tipo=TypeUser::all();
         $users = $this->repository->find(Auth::user()->id);
         return view('usuario.update', compact('titulo','users', 'tipo'));
+
+    }
+    public function alterar_senha()
+    {
+
+        $tipo=TypeUser::all();
+        $users = $this->repository->find(Auth::user()->id);
+        return view('usuario.alterar_senha', compact('titulo','users', 'tipo'));
+
+    }
+    public function alterar_senha_admin($id)
+    {
+
+        $titulo = "Editar Usuario";
+        $tipo=TypeUser::all();
+        $users = $this->repository->find($id);
+        return view('usuario.alterar_senha', compact('titulo','users', 'tipo'));
 
     }
 }

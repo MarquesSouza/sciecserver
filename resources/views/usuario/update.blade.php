@@ -74,7 +74,7 @@
                             <div class="form-group">
                                 <label class="col-md-5 control-label" for=""></label>
                                 <div class="col-md-5">
-                                    <button id="" name="" class="btn btn-primary">Cadastrar</button>
+                                    <button id="" name="" class="btn btn-primary">Salvar</button>
                                 </div>
                             </div>
                         </div>
