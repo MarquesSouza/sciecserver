@@ -5,7 +5,7 @@
             <!-- START DEFAULT DATATABLE -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Frequencia da Atividade</h3>
+                    <h3 class="panel-title">Frequencia da Atividade: {{$nomeAtividade}}</h3>
 
                 </div>
                 <div class="panel-body">
