@@ -29,7 +29,7 @@ class AdimAuthentic
             if (($tipouser == 2) || ($tipouser == 3)) {
 
             }else {
-                return $next($request);
+                return redirect('home');
             };
         }else{
                 return redirect('home');
