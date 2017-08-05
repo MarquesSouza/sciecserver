@@ -357,7 +357,7 @@ class ActivitiesController extends Controller
 
                 $cont2++;
             }
-            $cpf=$a->cpf;
+            $cpf=$a->evento;
             $certificado['0']=$a;
 
            }
@@ -365,20 +365,8 @@ class ActivitiesController extends Controller
             }
 
         }
-        //------------------------------------------------------------------------------------
-        $lmai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $retorno = '';
-        $caracteres = '';
-        $caracteres .= $lmai;
-        $len = strlen($caracteres);
-        for ($n = 1; $n <= 4; $n++) {
-            $rand = mt_rand(1, $len);
-            $retorno .= $caracteres[$rand-1];
-        }
-
-        //------------------------------------------------------------------------------------
-    $codigo=str_pad($id_evento,2,0,STR_PAD_LEFT);
-        $codigo=$codigo.$retorno.str_pad(Auth::user()->id,4,0,STR_PAD_LEFT);
+         $codigo=str_pad($id_evento,2,0,STR_PAD_LEFT);
+        $codigo=$codigo.$cpf.str_pad(Auth::user()->id,4,0,STR_PAD_LEFT);
 
         if($cont2<0){
             $pdf = \PDF::loadView('certificado.pdf',compact('certificado','SOMA2','atividade2','codigo'))->setPaper('a4', 'landscape');
