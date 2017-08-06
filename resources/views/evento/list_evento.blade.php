@@ -18,7 +18,7 @@
                             <th>Local</th>
                             <th>Data de Início</th>
                             <th>Data de Conclusão</th>
-                            <th>Logo do Evento</th>
+                            <th>Estados da Inscrições</th>
                             <th>Gerenciar Evento</th>
                             <th>Inscritos no Evento</th>
                             <th>Editar</th>
@@ -33,7 +33,20 @@
                                     <td>{{ $ev->local }}</td>
                                     <td>{{ $ev->data_inicio }}</td>
                                     <td>{{ $ev->data_conclusao }}</td>
-                                    <td>{{ $ev->logoEvento }}</td>
+                                    <form class="form-horizontal" method="post"
+                                          action="{{ url('evento/delete', $ev->id) }}">
+                                        {!! method_field('PUT') !!}
+                                        {{csrf_field()}}
+                                        <td>
+                                            @if($ev->status == 4)
+                                                <input type="hidden" name="status" value="1">
+                                                <button type="submit" id="" name="" class="btn btn-primary">Ativar </button>
+                                              @else
+                                                <input type="hidden" name="status" value="4">
+                                                <button type="submit" id="" name="" class="btn btn-danger ">Desativar </button>
+                                            @endif
+                                        </td>
+                                    </form>
                                     <td>
                                         <a href="{{url('evento/'.$ev->id.'/atividade/index')}}" class="btn btn-success">Gerenciar</a>
                                     </td>
@@ -67,7 +80,7 @@
                                         {!! method_field('PUT') !!}
                                         {{csrf_field()}}
                                         <td>
-                                            @if($ev->status == 1)
+                                            @if(($ev->status == 1)||($ev->status == 4))
                                                 <input type="hidden" name="status" value="0">
                                                 <button type="submit" id="" name="" class="btn btn-danger ">Desativar </button>
                                             @else
