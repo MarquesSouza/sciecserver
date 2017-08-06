@@ -208,16 +208,13 @@ class UsersController extends Controller
     }
     public function alterar()
     {
-
         $titulo = "Editar Usuario";
         $tipo=TypeUser::all();
         $users = $this->repository->find(Auth::user()->id);
         return view('usuario.update', compact('titulo','users', 'tipo'));
-
     }
     public function alterar_senha()
     {
-
         $tipo=TypeUser::all();
         $users = $this->repository->find(Auth::user()->id);
         return view('usuario.alterar_senha', compact('titulo','users', 'tipo'));
@@ -225,7 +222,6 @@ class UsersController extends Controller
     }
     public function alterar_senha_admin($id)
     {
-
         $titulo = "Editar Usuario";
         $tipo=TypeUser::all();
         $users = $this->repository->find($id);
