@@ -20,6 +20,7 @@
                             <tr>
                                 <th>Usuario</th>
                                 <th>CPF</th>
+                                <th>EMAIL</th>
                                   </tr>
                             </thead>
 
@@ -29,7 +30,7 @@
                                 <tr>
                                     <td>{{ $a->name }}</td>
                                     <td>{{ $a->cpf }}</td>
-
+                                    <td>{{ $a->email }}</td>
                                 </tr>
                             </tbody>
                             @empty
