@@ -19,6 +19,7 @@
                         <th>Email</th>
                         <th>Telefone</th>
                         <th>Editar</th>
+                        <th>Editar Senha</th>
                         <th>Ativar / Desativar</th>
                         </thead>
                         @forelse ($users as $u)
@@ -30,6 +31,10 @@
                                 <td>{{ $u->telefone }}</td>
                                 <td>
                                     <a href="{{url('usuario/edit',$u->id)}}"
+                                       class="btn btn-success">Editar</a>
+                                </td>
+                                <td>
+                                    <a href="{{url('usuario/senha',$u->id)}}"
                                        class="btn btn-success">Editar</a>
                                 </td>
                                 <form class="form-horizontal" method="post"

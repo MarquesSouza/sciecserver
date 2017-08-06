@@ -36,6 +36,9 @@
             ATIVIDADES LISTADAS NO VERSO DESTE CERTIFICADO.
         </p>
         @endforeach
+    <div>
+        <p style="text-align: end">{{$codigo}}</p>
+    </div>
     </div>
 </div> <!--
 <div class="page-break"></div>  <!-- Quebra de Página

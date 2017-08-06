@@ -9,6 +9,7 @@ use App\Entities\UserTypeUser;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\UserCreateRequest;
@@ -125,12 +126,14 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tipoUser=$request->input('tipo');
-        unset($request['tipo']);
+        $tipoUser=$request->input('id_tipo');
+        unset($request['id_tipo']);
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
+            if ($request->input('password')!=null){
             $request['password']= bcrypt($request->input('password'));
+            }
             $user = $this->repository->update($request->all(), $id);
 
             $response = [
@@ -142,6 +145,7 @@ class UsersController extends Controller
 
                 return response()->json($response);
             }
+            if($tipoUser!=null){
             $user->id;
             $tipo=new UserTypeUser();
             $tipo->status=1;
@@ -149,8 +153,8 @@ class UsersController extends Controller
             $tipo->id_type_user=$tipoUser;
             if($tipo->validaUser()){
                 $tipo->save();
-            }
-            return redirect('usuario/index');
+            }}
+            return redirect('/');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -201,5 +205,31 @@ class UsersController extends Controller
     public function frequencia()
     {
         return view('frequencia.controle_frequencia', compact('frequencia'));
+    }
+    public function alterar()
+    {
+
+        $titulo = "Editar Usuario";
+        $tipo=TypeUser::all();
+        $users = $this->repository->find(Auth::user()->id);
+        return view('usuario.update', compact('titulo','users', 'tipo'));
+
+    }
+    public function alterar_senha()
+    {
+
+        $tipo=TypeUser::all();
+        $users = $this->repository->find(Auth::user()->id);
+        return view('usuario.alterar_senha', compact('titulo','users', 'tipo'));
+
+    }
+    public function alterar_senha_admin($id)
+    {
+
+        $titulo = "Editar Usuario";
+        $tipo=TypeUser::all();
+        $users = $this->repository->find($id);
+        return view('usuario.alterar_senha', compact('titulo','users', 'tipo'));
+
     }
 }

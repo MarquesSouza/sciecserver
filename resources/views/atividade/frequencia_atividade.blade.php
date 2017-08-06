@@ -5,7 +5,7 @@
             <!-- START DEFAULT DATATABLE -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Frequencia da Atividade</h3>
+                    <h3 class="panel-title">Frequencia da Atividade: {{$nomeAtividade}}</h3>
 
                 </div>
                 <div class="panel-body">
@@ -13,8 +13,10 @@
                         @if($disponivel==0)
                             Atividade Com vagas preenchidas
                         @else
+
                             <a href="{{url('evento/'.$id_evento.'/atividade/'.$id.'/inscricao')}}"
                                class="btn-success btn btn-default btn-sm">Adicionar Inscrição</a>
+                            <span>Quantidade de Vagas disponiveis: {{$qtd}}</span>
 
                         @endif
 
@@ -28,10 +30,10 @@
                                 <th>Usuario</th>
                                 <th>Tipo de Atividade do Usuario</th>
                                 <th>CPF</th>
-                                <th>Data de Entrada</th>
+                           <!--     <th>Data de Entrada</th>
                                 <th>Data de Saida</th>
                                 <th>Entrada</th>
-                                <th>Saida</th>
+                                <th>Saida</th> -->
                                 <th>Presença</th>
                             </tr>
                             </thead>
@@ -43,8 +45,8 @@
                                     <td>{{ $a->name }}</td>
                                     <td>{{ $a->tipo_atividade_user }}</td>
                                     <td>{{ $a->cpf }}</td>
-                                    <td>{{ $a->data_entrada }}</td>
-                                    <td>{{ $a->data_saida }}</td>
+                            <!--        <td> $a->data_entrada }}</td>
+                                    <td> $a->data_saida }}</td>
                                     <td>
                                         <form class="form-horizontal" method="post"
                                               action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/entrada/'. $a->id_activiUser) }}">
@@ -74,7 +76,7 @@
                                                 Não estar presente
                                             @endif
                                         </form>
-                                    </td>
+                                    </td> -->
                                     <td>
                                         <form class="form-horizontal" method="post"
                                               action="{{ url('evento/'.$id_evento.'/atividade/'.$a->id_activity.'/presenca/'. $a->id_activiUser) }}">
