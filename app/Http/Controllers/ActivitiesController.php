@@ -320,12 +320,11 @@ class ActivitiesController extends Controller
             }
         }
         $atividade=Activity::find($id);
-        $qtdt=$atividade->qtd_inscritos-$qtd-1;
-        dd($qtdt);
-        if(($atividade->qtd_inscritos-$qtdt)==0){
-            $disponivel=0;
+        $qtdt=$atividade->qtd_inscritos-$qtd;
+        if(($atividade->qtd_inscritos - $qtdt) == 0 ){
+            $disponivel = 0;
         }else{
-            $disponivel=1;
+            $disponivel = 1;
         }
         $nomeAtividade=$atividade->nome;
          return view('atividade.frequencia_atividade', compact('lista','id_evento','id','nomeAtividade','disponivel','qtdt'));
