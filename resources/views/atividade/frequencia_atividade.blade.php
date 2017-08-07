@@ -16,7 +16,7 @@
 
                             <a href="{{url('evento/'.$id_evento.'/atividade/'.$id.'/inscricao')}}"
                                class="btn-success btn btn-default btn-sm">Adicionar Inscrição</a>
-                            <span>Quantidade de Vagas disponiveis: {{$qtd}}</span>
+                            <span>Quantidade de Vagas disponiveis: {{$qtdt}}</span>
 
                         @endif
 
