@@ -321,7 +321,7 @@ class ActivitiesController extends Controller
         }
         $atividade=Activity::find($id);
         $qtdt=$atividade->qtd_inscritos-$qtd;
-        dd($atividade->qtd_inscritos);
+        dd($qtdt);
         if(($atividade->qtd_inscritos-$qtdt)==0){
             $disponivel=0;
         }else{
