@@ -11,7 +11,7 @@
                 <div class="panel-body">
                     <div class="panel-body">
                         @if($disponivel == 0)
-                            Atividade Com vagas preenchidas {{$qtdt}}
+                            Atividade Com vagas preenchidas
                         @else
 
                             <a href="{{url('evento/'.$id_evento.'/atividade/'.$id.'/inscricao')}}"
