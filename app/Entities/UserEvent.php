@@ -52,7 +52,7 @@ class UserEvent extends Model implements Transformable
           from user_events as au 
           left join users as u on au.id_users = u.id 
           left join events as e on au.id_evento =e.id 
-          where e.id='".$id_evento."'");
+          where e.id='".$id_evento."' order by u.name");
 
         return $retorno;
     }

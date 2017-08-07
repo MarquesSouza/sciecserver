@@ -102,7 +102,7 @@ class ActivityUser extends Model implements Transformable
           from activity_users as au 
           left join users as u on au.id_users = u.id 
           left join type_activity_users as tcu on au.id_type_activity_user= tcu.id 
-          where au.id_activity ='".$id_atividade."'");
+          where au.id_activity ='".$id_atividade."' order by u.name");
 
         return $retorno;
 
