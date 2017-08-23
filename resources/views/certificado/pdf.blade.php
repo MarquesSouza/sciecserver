@@ -17,13 +17,13 @@
 
 </head>
 <body>
-<img src="{{asset('img/certificado/certificado-ifto.jpg')}}" class="img-responsive imagem" style="width:100%"/>
+<img src="{{asset('img/certificado/certificado-capa.png')}}" class="img-responsive imagem" style="width:100%"/>
 <div style="position:absolute; top: 100px; left: 0px;">
     <div style="text-align: center;">
-        <h2><b>REPÚBLICA FEDERATIVA DO BRASIL</b></h2>
-        <h4><p>MINISTÉRIO DA EDUCAÇÃO</p>
-            <p>SECRETARIA DA EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</p>
-            <p>INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO TOCANTINS</p></h4>
+        <h2><b></b></h2>
+        <h4><p></p>
+            <p></p>
+            <p></p></h4>
     </div>
 </div>
 <div style="position: absolute; top: 380px; left: 150px; right: 150px;">
@@ -40,27 +40,11 @@
         <p style="text-align: end">{{$codigo}}</p>
     </div>
     </div>
-</div> <!--
-<div class="page-break"></div>  <!-- Quebra de Página
+</div>
+<div class="page-break"></div>
 <div>
-    <table>
-        <thead>
-        <tr>
-            <td>Atividade</td>
-            <td>Local</td>
-            <td>Descrição</td>
-            <td>Carga Horária</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th>{atividade.nome}</th>
-            <th>{local.nome}</th>
-            <th>{descricao}</th>
-            <th>{carga.horaria.atividade}</th>
-        </tr>
-        </tbody>
-    </table>
+    <img src="{{asset('img/certificado/certificado-contra.png')}}" class="img-responsive imagem" style="width:100%"/>
+
 </div> -->
 </body>
 </html>

@@ -17,7 +17,7 @@
 
 </head>
 <body>
-<div style="position:absolute;">
+<div style="position:absolute;" class="page-break">
     <div>
 
         <?php $count=1; ?>
