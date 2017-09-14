@@ -5,7 +5,7 @@ namespace App\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
-
+use Illuminate\Support\Facades\DB;
 
 class Event extends Model implements Transformable
 {
@@ -34,6 +34,12 @@ class Event extends Model implements Transformable
     }
     public function participation(){
         return $this->belongsToMany(Participation::class,'user_events','id_evento','id_participation');
+    }
+    public  function  lista_de_evento($id_evento){
+
+        $retorno  = DB::select("select * from events where id='".$id_evento."'");
+
+        return $retorno;
     }
 
 }

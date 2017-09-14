@@ -30,7 +30,7 @@
     <div style="text-align: justify; font-size: 20px">
         @foreach($certificado as $r)
 
-            <p>CERTIFICAMOS QUE <b>{{$r->name}}</b> INSCRITO SOB O CPF  <b>{{$r->cpf}}</b> PARTICIPOU DO EVENTO
+            <p>CERTIFICAMOS QUE <b>{{$r->name}}</b> INSCRITO SOB O CPF  <b>{{$r->cpf}}</b> ATUOU COMO <b>{{$tipo}}</b> DO EVENTO
                 <b>{{$r->evento}}</b> COM CARGA HORÁRIA TOTAL DE  <b>{{$SOMA}}</b> NO(S) DIA(S)
                 <b>{{$r->data_inicio}}</b> a  <b>{{$r->data_conclusao}}</b> QUE OCORREU EM  <b>{{$r->local}}</b> PARTICIPOU TAMBÉM DAS
             ATIVIDADES LISTADAS NO VERSO DESTE CERTIFICADO.

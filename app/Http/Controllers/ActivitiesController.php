@@ -244,18 +244,18 @@ class ActivitiesController extends Controller
                $AtividadeUser = new ActivityUser();
         $AtividadeUser->id_users = Auth::user()->id;
         $retorno=$AtividadeUser->lista_de_atividade($id_evento);
-        $evento= Event::find($id_evento)->get();
+        $eventos= new Event();
+        $evento=$eventos->lista_de_evento($id_evento);
         foreach($evento as $e){
             $status=$e->status;
+            $nome=$e->nome;
         }
-        $presenca=0;
-        foreach ($retorno as $r=>$a){
-            if($a->presenca==1){
-                $presenca=1;
+       foreach ($retorno as $r=>$a){
+            if($a->presenca=='1')
+            $tipos[]=["id"=>$a->id_activiUser,"tipo"=>$a->tipo_atividade_user ];
+        }
 
-            }}
-        dd($retorno);
-       return view('atividade.minhas_atividade', compact('retorno','id_evento','status','presenca'));
+               return view('atividade.minhas_atividade', compact('tipos','id_evento','status','nome'));
 
     }
     /** ------------------------------------------Inscrição de Atividade-------------------------------------------------------------------------
@@ -345,7 +345,7 @@ class ActivitiesController extends Controller
         foreach ($retorno as $r=>$a){
             if($a->presenca==1){
            if($a->qtdhoras){
-            if($a->tipo_atividade_user=="Participante"){
+            if($a->id_activiUser==$id){
                $SOMA = date( "H:i:s", strtotime("$SOMA +   ".date( 'H', strtotime( $a->qtdhoras ) )." hours".
                date( 'i', strtotime( $a->qtdhoras ) )." minute ".date( 's', strtotime( $a->qtdhoras ) )."second") );
                 $atividade= $atividade.", ".$a->atividade;
@@ -366,18 +366,24 @@ class ActivitiesController extends Controller
             }
 
         }
+        $tipos= new TypeActivityUser();
+        $temporaria=$tipos->lista_de_tipo($id);
+        foreach($temporaria as $e){
+            $tipo=$e->nome;
+
+        }
          $codigo=str_pad($id_evento,2,0,STR_PAD_LEFT);
         $codigo=$codigo.$cpf.str_pad(Auth::user()->id,4,0,STR_PAD_LEFT);
 
         if($cont2<0){
-            $pdf = \PDF::loadView('certificado.pdf',compact('certificado','SOMA2','atividade2','codigo'))->setPaper('a4', 'landscape');
+            $pdf = \PDF::loadView('certificado.pdf',compact('certificado','SOMA2','atividade2','codigo','tipo'))->setPaper('a4', 'landscape');
             return $pdf->stream('meucertificado.pdf');
 
             if($cont<0){
                 return redirect('/');
             }
         }else{
-            $pdf = \PDF::loadView('certificado.pdf',compact('certificado','SOMA','atividade','codigo'))->setPaper('a4', 'landscape');
+            $pdf = \PDF::loadView('certificado.pdf',compact('certificado','SOMA','atividade','codigo','tipo'))->setPaper('a4', 'landscape');
             return $pdf->stream('meucertificado.pdf');
 
         }

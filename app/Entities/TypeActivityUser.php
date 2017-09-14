@@ -5,6 +5,7 @@ namespace App\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use Illuminate\Support\Facades\DB;
 
 class TypeActivityUser extends Model implements Transformable
 {
@@ -24,5 +25,11 @@ class TypeActivityUser extends Model implements Transformable
     }
     public function user(){
         return $this->belongsToMany(User::class,'activity_users','id_type_activity_user','id_users');
+    }
+    public  function  lista_de_tipo($id){
+
+        $retorno  = DB::select("select * from type_activity_users where id='".$id."'");
+
+        return $retorno;
     }
 }
