@@ -45,6 +45,6 @@
 <div>
     <img src="{{asset('img/certificado/certificado-contra.png')}}" class="img-responsive imagem" style="width:100%"/>
 
-</div> -->
+</div>
 </body>
 </html>

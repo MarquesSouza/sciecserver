@@ -252,8 +252,9 @@ class ActivitiesController extends Controller
         foreach ($retorno as $r=>$a){
             if($a->presenca==1){
                 $presenca=1;
+
             }}
-        //dd($retorno);
+        dd($retorno);
        return view('atividade.minhas_atividade', compact('retorno','id_evento','status','presenca'));
 
     }
@@ -331,7 +332,7 @@ class ActivitiesController extends Controller
 
     }
 
-    public function pdf($id_evento){
+    public function pdf($id_evento,$id){
         $AtividadeUser = new ActivityUser();
         $AtividadeUser->id_users = Auth::user()->id;
         $retorno=$AtividadeUser->certificado($id_evento);
